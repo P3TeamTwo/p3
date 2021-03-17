@@ -17,7 +17,7 @@ app.use(routes);
 
 // How to connect locally "mongodb://localhost/YOUR DATA BASE NAME"
 mongoose.connect(
-  process.env.MONGDB_URI || 'mongodb://localhost/reactreadinglist', {
+  process.env.MONGDB_URI || 'mongodb://localhost/journal', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
