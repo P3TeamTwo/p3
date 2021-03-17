@@ -18,7 +18,7 @@ const homepage = () => {
                 <a
                     style={{ marginTop: 50, marginBottom: 50 }}
                     className="App-link"
-                    href="https://github.com/P3TeamTwo/project-three"
+                    href="https://github.com/P3TeamTwo/p3"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
