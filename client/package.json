@@ -4,9 +4,15 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.3",
     "axios": "^0.18.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-login": "^5.2.2",
+    "react-icons": "^4.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.3"
   },
