@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- stable
+npm: true
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: t033dPNyaaV+19++Vdqj7yEKWmQzoC+KYm0Vg1gEScVneN3JR3NqebGgmNSz/Y1au3bGEH3bSTINb1NcAiB9hn9WZZhqFwQld4qqVn8fcKkDoFBhhF2bJ4kKspFTtRXvXa2gvK0C8JfmT4DL7xUvo8Vb4zZdSM47HI0xbia1cdZey36rM0oC8bsyU+gsP7NAOmAmFHBnoseRdCoaQWUrRIXmZfNC4vniyKwLU19V+2bcrU9enKaoiegwmmPGV4sMh6TGybIM8gtFsAc6AB7PIdbEEpufre999vT8HEKC3Z99lFimOrz27da3TFqJM+UZCl6zjA42YL/biok23OlpcOCBK5VW1wlmhUmzwKCwKQ3L8QxMN+wwyAog3kCnx0wCtn6/a98F46qVS/DhYpwpofAJ68GrQptlZA+u9IC2l37vAcTtdAtmzKLb4Us7IlFTIOz+FTupZRfrCWhXeIgWvzEwIiKB/oXmyt/dDp/vQfakZHamF6bPX+TXjD7fut5D4mHKem9BXkTZHP6ycRB7Rj4c8uwre2Uh0lG+n6kaJKYUYcv6t5E8+uWTxLnK/BEA6xEudkWLgPVOzTW/TNLNMnymZYOxZtjfE/7yhC8Dz7gde8fBi5AGO8/IKI6Fn4/Dpkiq/BsKpHpD3e+WrvT5eHFlxX56jlvcyEuAwwdwAro=
+  app: guarded-dusk-24354
+  on:
+    all_branches: 'true'
+    repo: P3TeamTwo/p3
+  skip_cleanup: 'true'
+script:
+- echo "skipping tests"
