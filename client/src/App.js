@@ -1,28 +1,26 @@
-import React from "react";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react';
 
-// The app will not render correctly until you setup a Route component.
-// Refer to the Basic Example documentation if you need to.
-// (https://reacttraining.com/react-router/web/example/basic)
+import {HashRouter as Router , Route, Switch} from 'react-router-dom'
+import './App.css';
+import Homepage from './pages/Homepage/homepage';
+import Login from './pages/Login/login';
+import NoMatch from './pages/NoMatch/NoMatch';
+
+
+
+
 function App() {
   return (
-    <Router>
-    <div>
-      <Nav />
-      <Switch>
-
-        <Route exact path='/' component={Books}/>
-        <Route exact path='/books' component={Books}/>
-        <Route exact path='/books/:id' component={Detail}/>
+        <Router>
+        <Switch>        
+        <Route exact path="/" component={Homepage} />
+        <Route exact path="/login" component={Login} />
         <Route exact path='*' component={NoMatch}/>
 
-      </Switch>
-    </div>
-    </Router>
+        </Switch>
+      </Router>
+        
+      
   );
 }
 
