@@ -24,6 +24,17 @@ const DailyReflection = () => {
     },
   }));
 
+  // Function that will kick off the questions
+  function startQuestions() {
+    console.log("Mood slider submit has been clicked")
+    const questionTotal = 5
+  }
+
+  // Function to invoke the next question
+  function nextQuestion() {
+    console.log("Radio question submit has been clicked")
+  }
+
   const classes = useStyles();
 
   return (
@@ -38,25 +49,36 @@ const DailyReflection = () => {
             <Paper className={classes.paper}>
               <b>Daily Reflection</b>
               <p>How are you feeling today?</p>
+
               {/* Importing the mood slider */}
-              <MoodSlider />
+              <MoodSlider 
+              
+              // Start questions function will be called in mood slider
+              handleClick={startQuestions}
+              />
+              
+
+
+
             </Paper>
 
             <Paper className={classes.paper}>
               <b>Radio buttons</b>
               {/* Importing the mood slider */}
-              <RadioBtnQFormat />
+              <RadioBtnQFormat 
+              handleClick={nextQuestion}
+              />
             </Paper>
 
           </Grid>
 
           {/* COLUMN */}
-          <Grid className='gridPadding' item xs={12} sm={6}>
-            <Paper className={classes.paper}>
+          {/* <Grid className='gridPadding' item xs={12} sm={6}>
+            <Paper className={classes.paper}> */}
               {/* FORM */}
-              <LongForm />
+              {/* <LongForm />
             </Paper>
-          </Grid>
+          </Grid> */}
 
         </Grid>
       </Grid>
