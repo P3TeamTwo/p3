@@ -6,7 +6,6 @@ const MoodSlider = () => {
 
 const [emotion, setEmotion] = useState('');
 
-
 function handleChange (e) {
     var emotionValue = e.target.value;
     setEmotion(emotionValue)
@@ -24,20 +23,19 @@ function handleChange (e) {
         console.log(typeof emotion)
         switch(emotion) {
             case '0':
-            return <MdSentimentVeryDissatisfied className='material-icons'/>;
+            return <div><MdSentimentVeryDissatisfied className='material-icons'/> <p>Very Unhappy</p></div>;
             case '1': 
-            return <MdSentimentDissatisfied className='material-icons'/>;
+            return <div><MdSentimentDissatisfied className='material-icons'/> <p>Unhappy</p></div>;
             case '2': 
-            return <MdSentimentNeutral className='material-icons'/>;
+            return <div><MdSentimentNeutral className='material-icons'/> <p>Ok</p></div>;
             case '3':
-            return <MdSentimentSatisfied className='material-icons'/>;
+            return <div><MdSentimentSatisfied className='material-icons'/> <p>Happy</p></div>;
             case '4':
-            return <MdSentimentVerySatisfied className='material-icons'/>;
+            return <div><MdSentimentVerySatisfied className='material-icons'/><p>Very Happy</p></div>;
             default:
-            return <MdSentimentNeutral className='material-icons'/>;
+            return <div><MdSentimentNeutral className='material-icons'/> <p>Ok</p></div>;
         }
     };
-
 
     
     return (

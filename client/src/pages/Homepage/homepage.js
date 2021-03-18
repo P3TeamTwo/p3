@@ -2,7 +2,6 @@ import React from 'react'
 import { FaRegGrinTongueWink } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 import LoginBtn from '../Login/loginBtn';
-import MoodSlider from '../../components/MoodSlider';
 
 const homepage = () => {
     return (
@@ -27,9 +26,6 @@ const homepage = () => {
                     Were going to make the best personalized journal of all TIME!!!
                     Just a quick test
                 </a>
-
-                <MoodSlider/>
-
                 
             </header>
 
