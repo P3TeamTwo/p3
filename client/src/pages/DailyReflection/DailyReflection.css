@@ -1,3 +1,58 @@
 body{
-    background-color: #C7FAF4;
+    background-color:#FFF0E0;
 }
+
+.gridContainer {
+    background-color: #C7FAF4;
+    border-radius: 25px;
+    border: 40px solid #E9E9E9;
+}
+
+/* MEDIA QUERIES */
+
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .gridContainer { border: 10px solid #E9E9E9 } }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .gridContainer { border: 20px solid #E9E9E9 } }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .gridContainer { border: 30px solid #E9E9E9 } }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .gridContainer { border: 35px solid #E9E9E9 } }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .gridContainer { border: 40px solid #E9E9E9 } }
+
+
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .gridPadding { padding: 10px 10px 10px 10px !important; } }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .gridPadding { padding: 20px 20px 20px 20px !important; } }
+
+ /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .gridPadding { padding: 30px 30px 30px 30px !important; } }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .gridPadding { padding: 40px 40px 40px 40px !important; } }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .gridPadding { padding: 50px 50px 50px 50px !important; } }
+
+
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .containerPadding { padding-left: 60px; padding-right: 60px; } }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .containerPadding { padding-left: 100px; padding-right: 100px; } }
+
+ /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .containerPadding { padding-left: 130px; padding-right: 130px; } }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .containerPadding { padding-left: 140px; padding-right: 140px; } }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .containerPadding { padding-left: 150px; padding-right: 150px; } }
