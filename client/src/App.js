@@ -4,6 +4,8 @@ import './App.css';
 import Homepage from './pages/Homepage/homepage';
 import Login from './pages/Login/login';
 import NoMatch from './pages/NoMatch/NoMatch';
+// Testing purposes
+// import DailyReflection from './pages/DailyReflection/DailyReflection';
 
 
 
@@ -14,6 +16,9 @@ function App() {
         <Router>
         <Switch>        
         <Route exact path="/" component={Homepage} />
+        
+        {/* <Route exact path="/" component={DailyReflection} /> */}
+
         <Route exact path="/login" component={Login} />
         <Route exact path='*' component={NoMatch}/>
 
