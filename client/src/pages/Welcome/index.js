@@ -11,6 +11,30 @@ const useStyle = makeStyles({
         padding: '5px 30px',
         borderRadius: '5',
         marginBottom: '20',
+    },
+    buttonLeft: {
+        padding: '50px 50px 50px 50px',
+        borderRadius: '15px',
+        backgroundColor: '#ccffbd',
+        color: 'black',
+        fontSize: '30px',
+        marginRight: '3rem', 
+        "&:hover": {
+            backgroundColor: '#7eca9c',
+            color: 'white'
+        }
+    },
+    buttonRight: {
+        padding: '50px 50px 50px 50px',
+        borderRadius: '15px',
+        backgroundColor: '#bbf1fa',
+        color: 'black',
+        fontSize: '30px',
+        marginRight: '3rem', 
+        "&:hover": {
+            backgroundColor: '#a4ebf3',
+            color: 'white'
+        }
     }
 })
 
@@ -20,14 +44,25 @@ function WelcomeHeader() {
     return <h1 className={classes.root}>Welcome to MindShare</h1>
 }
 
+function ButtonLeft() {
+    const classes = useStyle();
+
+    return <Button className={classes.buttonLeft}>Today's Reflection</Button>
+}
+
+function ButtonRight() {
+    const classes = useStyle();
+
+    return <Button className={classes.buttonRight}>My Reflections</Button>
+}
+
 const Welcome = () => {
     return (
         <div className="Container">
             <WelcomeHeader/>
             <div className="container-main">
-            
-            <Button className="daily-reflection" variant="contained">Daily Reflection</Button>
-            <Button size="xx-large" variant="contained">My Reflections</Button>
+            <ButtonLeft />
+            <ButtonRight />
             </div>
             
         </div>
