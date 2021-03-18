@@ -2,11 +2,13 @@ import React from 'react'
 import { FaRegGrinTongueWink } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 import LoginBtn from '../Login/loginBtn';
+import MoodSlider from '../../components/MoodSlider';
 
 const homepage = () => {
     return (
         <div className="App">
             <header className="App-header">
+
                 <IconContext.Provider value={{ color: 'white', size: '10em', className: "global-class-name mr-3 mt-3" }}>
                     <div>
                         <FaRegGrinTongueWink />
@@ -25,7 +27,12 @@ const homepage = () => {
                     Were going to make the best personalized journal of all TIME!!!
                     Just a quick test
                 </a>
+
+                <MoodSlider/>
+
+                
             </header>
+
         </div>
     )
 }
