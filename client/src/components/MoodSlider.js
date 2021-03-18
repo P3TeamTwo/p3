@@ -43,6 +43,7 @@ function handleChange (e) {
         <div className='container'>
         <div>{renderSwitch()}</div>
         <input onChange={handleChange} type='range' min='0' max='4' defaultValue='2' id='slider'/>
+        <br/>
         <Button variant="outlined">SUBMIT</Button>
         </div>
 
