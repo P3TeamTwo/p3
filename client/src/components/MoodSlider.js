@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './MoodSlider.css';
 import { MdSentimentVeryDissatisfied, MdSentimentDissatisfied, MdSentimentNeutral, MdSentimentSatisfied, MdSentimentVerySatisfied } from 'react-icons/md';
+import { Button } from '@material-ui/core';
 
 const MoodSlider = () => {
 
@@ -42,7 +43,9 @@ function handleChange (e) {
         <div className='container'>
         <div>{renderSwitch()}</div>
         <input onChange={handleChange} type='range' min='0' max='4' defaultValue='2' id='slider'/>
+        <Button variant="outlined">SUBMIT</Button>
         </div>
+
     );
 };
 
