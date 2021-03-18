@@ -1,0 +1,35 @@
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;  
+}
+
+/* styling for the range slider */
+input[type='range'] {
+    width: 90vw;
+    height: 6px;
+    -webkit-appearance: none;
+    background-color: white;
+    border-radius: 6px;
+    outline: none;
+    margin-top: 60px;
+}
+
+/* the circle that that we use to slide */
+input[type='range']::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 10px 15px 10px rgba(0,0,0,0.2);
+}
+
+/* styling for the icons */
+.material-icons {
+    font-size: 130px;
+    color: #3fcad8;
+}
