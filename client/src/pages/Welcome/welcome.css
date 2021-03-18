@@ -1,0 +1,17 @@
+.Container {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.container-main {
+    background-color: #FFEFD5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.daily-reflection {
+    background-color: #d2f8d2;
+}

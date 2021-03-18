@@ -14,7 +14,7 @@ const LoginBtn = () => {
 
     const responseGoogle = (response) => {
         console.log(response);
-        history.push("/");
+        history.push("/welcome");
     }
     const failresponseGoogle = (response) => {
         console.log(response);
