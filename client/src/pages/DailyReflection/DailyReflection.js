@@ -2,6 +2,8 @@ import React from 'react';
 import './DailyReflection.css';
 // Material UI imports
 import { Grid, Paper, makeStyles, TextField } from '@material-ui/core';
+// Import Navbar
+import Navbar from '../../components/Navbar';
 // Import mood slider
 import MoodSlider from '../../components/MoodSlider';
 //Importing Radio button style quesetion format
@@ -25,39 +27,41 @@ const DailyReflection = () => {
   const classes = useStyles();
 
   return (
+    <div>
 
-    <Grid container alignItems='center' justify='center' style={{ minHeight: "100vh", paddingLeft: "150px", paddingRight: "150px" }}>
-      <Grid container spacing={3}>
-        {/* COLUMN */}
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
-            <b>Daily Reflection</b>
-            <p>How are you feeling today?</p>
-            {/* Importing the mood slider */}
-            <MoodSlider />
-          </Paper>
-        </Grid>
+      <Navbar/>
 
+      <Grid className='containerPadding' container alignItems='center' justify='center' style={{ minHeight: "100vh" }}>
+        <Grid container className='gridContainer' spacing={3}>
+          {/* COLUMN */}
+          <Grid className='gridPadding' item xs={12} sm={6}>
+            <Paper className={classes.paper}>
+              <b>Daily Reflection</b>
+              <p>How are you feeling today?</p>
+              {/* Importing the mood slider */}
+              <MoodSlider />
+            </Paper>
 
-        {/* COLUMN */}
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
-            {/* FORM */}
-            <LongForm />
-          </Paper>
-        </Grid>
+            <Paper className={classes.paper}>
+              <b>Radio buttons</b>
+              {/* Importing the mood slider */}
+              <RadioBtnQFormat />
+            </Paper>
 
+          </Grid>
 
-        {/* COLUMN */}
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
-            <b>Radio buttons</b>
-            {/* Importing the mood slider */}
-            <RadioBtnQFormat />
-          </Paper>
+          {/* COLUMN */}
+          <Grid className='gridPadding' item xs={12} sm={6}>
+            <Paper className={classes.paper}>
+              {/* FORM */}
+              <LongForm />
+            </Paper>
+          </Grid>
+
         </Grid>
       </Grid>
-    </Grid>
+
+    </div>
   )
 }
 // test
