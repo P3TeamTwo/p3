@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import './welcome.css'
+import { useHistory } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -47,7 +48,14 @@ function WelcomeHeader() {
 function ButtonLeft() {
     const classes = useStyle();
 
-    return <Button className={classes.buttonLeft}>Today's Reflection</Button>
+    const history = useHistory();
+
+    const directToDaily = () =>{
+        let path = '/Daily'
+        history.push(path)
+    }
+
+    return <Button className={classes.buttonLeft} onClick={directToDaily}>Today's Reflection</Button>
 }
 
 function ButtonRight() {

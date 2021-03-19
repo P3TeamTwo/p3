@@ -7,9 +7,7 @@ import Login from './pages/Login/login';
 import NoMatch from './pages/NoMatch/NoMatch';
 // Testing purposes
 import DailyReflection from './pages/DailyReflection/DailyReflection';
-
-
-//  suppppppp
+import Welcome from './pages/Welcome';
 
 
 function App() {
@@ -18,7 +16,9 @@ function App() {
         <Switch>        
         <Route exact path="/" component={Login} />
         <Route exact path="/Daily" component={DailyReflection} />
-        <Route exact path="/Welcome" component={Welcome} />
+        <Route exact path='/welcome' component={Welcome} />
+
+        <Route exact path="/login" component={Login} />
         <Route exact path='*' component={NoMatch}/>
         </Switch>
       </Router>

@@ -1,16 +1,35 @@
 [
     {
         "id": 1,
-        "grattitude": "",
-        "reflective": "",
-        "aspirational": "",
-        "letterPrompts": "",
-        "memoryPrompts": "",
-        "morningPrompts": "",
-        "eveningPrompts": "",
-        "goals": "",
-        "values": "",
-        "honest": "",
-        "selfDiscovery": ""
+        "catagory": "radio",
+        "questionText": "do you like",
+        "answerOptions": [
+            "dog","cat", "turtle"
+        ]
+
     },
+    {
+        "id": 2,
+        "catagory": "radio",
+        "questionText": "whats your favourite time of day",
+        "answerOptions": [
+            "morning","afternoon", "night"
+        ]
+    },
+    {
+        "id": 3,
+        "catagory": "radio",
+        "questionText": "favourite colour",
+        "answerOptions": [
+            "red","blue", "green"
+        ]
+    },
+    {
+        "id": 4,
+        "catagory": "radio",
+        "questionText": "favourite limb?",
+        "answerOptions": [
+            "arm","leg", "toe"
+        ]
+    }
 ]
