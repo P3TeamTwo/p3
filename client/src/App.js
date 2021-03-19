@@ -17,7 +17,6 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route exact path="/Daily" component={DailyReflection} />
         <Route exact path='/welcome' component={Welcome} />
-
         <Route exact path="/login" component={Login} />
         <Route exact path='*' component={NoMatch}/>
         </Switch>
