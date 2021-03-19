@@ -6,9 +6,7 @@ import Login from './pages/Login/login';
 import NoMatch from './pages/NoMatch/NoMatch';
 // Testing purposes
 import DailyReflection from './pages/DailyReflection/DailyReflection';
-
-
-
+import Welcome from './pages/Welcome';
 
 
 function App() {
@@ -18,6 +16,7 @@ function App() {
         <Route exact path="/" component={Homepage} />
         
         <Route exact path="/Daily" component={DailyReflection} />
+        <Route exact path='/welcome' component={Welcome} />
 
         <Route exact path="/login" component={Login} />
         <Route exact path='*' component={NoMatch}/>
