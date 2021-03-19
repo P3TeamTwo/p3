@@ -28,7 +28,6 @@
     "mongoose": "^5.12.0",
     "react-big-calendar": "^0.33.2",
     "react-calendar": "^3.3.1",
-    "react-mobiscroll": "^0.4.0",
     "session": "^0.1.0"
   }
 }
