@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FormControl, RadioGroup, FormLabel, FormControlLabel, Radio, Button } from '@material-ui/core';
-import questions from "../Questions.json"
+import questions from "../../Questions.json"
 
 
 
@@ -35,7 +35,7 @@ const RadioQuestion = ({ radioValue, handleClick}) => {
                     })}
                 </RadioGroup>
 
-                <Button variant="outlined" onClick={nextQuestion}>SUBMIT</Button>
+                {/* <Button variant="outlined" onClick={nextQuestion}>SUBMIT</Button> */}
             </FormControl>
         </>
     )

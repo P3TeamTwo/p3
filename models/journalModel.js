@@ -2,16 +2,46 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const journalEntrySchema = new Schema({
-  title: {
+  mood: {
     type: String,
     required: true
   },
-  body: {
-    type: String,
+  moodPoints: {
+    type: Number,
+    required: true
   },
-  array: [{ 
-    type: String
-  }]
+  q1: {
+    type: String,
+    required: true
+  },
+  q1Points: {
+    type: Number,
+    required: true
+  },
+  q2: { 
+    type: String,
+    required: true
+  },
+  q2Points: {
+    type: Number,
+    required: true
+  },
+  q3: { 
+    type: String,
+    required: true
+  },
+  q3Points: {
+    type: Number,
+    required: true
+  },
+  q4: { 
+    type: String,
+    required: true
+  },
+  q4Points: {
+    type: Number,
+    required: true
+  }
 
 
 });
