@@ -35,16 +35,20 @@ const login = () => {
             }}>
 
             <MyPaper>
+                <div style = {{height:  '50vh'}}>
                 <p
                     className={'title'}
-                    style={{ marginTop: '-15%', fontSize: '180px' }}>Journal
+                    style={{ marginTop: '-12vh', fontSize: '180px' }}>Journal
                 </p>
                 <p  className={'title'}
-                style={{ marginTop: '-10%', fontSize: '30px' }}>
+                style={{ marginTop: '-10vh', fontSize: '30px' }}>
                     Find it, in you!
                 </p>
-                <SlidingLogin />
-            <LoginBtn />
+                </div>
+                <SlidingLogin style={{ height:'20vh', marginTop: '10vh'}}
+                
+                    />
+            <LoginBtn style={{ height:'20vh', marginTop: '10vh'}}></LoginBtn>
             </MyPaper>
         </div>
 
