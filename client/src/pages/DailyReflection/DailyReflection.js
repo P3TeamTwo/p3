@@ -29,8 +29,8 @@ const DailyReflection = () => {
   console.log(questions)
 
   const [currentQuestion, setCurrentQuestion] = useState(0)
-
   const [radioValue, setRadioValue] = useState('');
+  const [moodSlider, setMoodSlider] = useState(true);
 
   const handleChange = (event) => {
     setRadioValue(event.target.value);
@@ -39,6 +39,7 @@ const DailyReflection = () => {
   // Function that will kick off the questions
   function startQuestions() {
     console.log("Mood slider submit has been clicked")
+    
   }
   // Function to invoke the next question
   function nextQuestion() {
@@ -49,7 +50,6 @@ const DailyReflection = () => {
     } else {
       console.log("End of Questions - show dashboard")
     }
-
   }
   const classes = useStyles();
   return (

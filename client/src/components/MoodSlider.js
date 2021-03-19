@@ -3,7 +3,7 @@ import './MoodSlider.css';
 import { MdSentimentVeryDissatisfied, MdSentimentDissatisfied, MdSentimentNeutral, MdSentimentSatisfied, MdSentimentVerySatisfied } from 'react-icons/md';
 import { Button } from '@material-ui/core';
 
-const MoodSlider = () => {
+const MoodSlider = ({}) => {
 
 const [emotion, setEmotion] = useState('');
 
