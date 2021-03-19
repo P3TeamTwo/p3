@@ -29,7 +29,7 @@
         "catagory": "radio",
         "questionText": "favourite limb?",
         "answerOptions": [
-            "arm","leg", "toe"
+            "arm","leg", "toe" 
         ]
     }
 ]

@@ -7,7 +7,7 @@ import Login from './pages/Login/login';
 import NoMatch from './pages/NoMatch/NoMatch';
 // Testing purposes
 import DailyReflection from './pages/DailyReflection/DailyReflection';
-import Welcome from './pages/Welcome';
+// import Welcome from './pages/Welcome';
 
 
 function App() {
