@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory  } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 // import ReactDOM from 'react-dom';
 import { GoogleLogin } from 'react-google-login'
 // Importing dotenv to be able to use our .env file in react
@@ -14,6 +14,7 @@ const LoginBtn = () => {
 
     const responseGoogle = (response) => {
         console.log(response);
+        localStorage.setItem('user', response.data)
         history.push("/welcome");
     }
     const failresponseGoogle = (response) => {
@@ -23,7 +24,7 @@ const LoginBtn = () => {
         <GoogleLogin
             clientId={CLIENT_ID}
             render={renderProps => (
-            <button onClick={renderProps.onClick} disabled={renderProps.disabled}> Sign In </button>
+                <button onClick={renderProps.onClick} disabled={renderProps.disabled}> Sign In </button>
             )}
             buttonText="Login"
             onSuccess={responseGoogle}
