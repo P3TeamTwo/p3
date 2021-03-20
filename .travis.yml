@@ -12,8 +12,9 @@ deploy:
   app: guarded-dusk-24354
   on:
     # all_branches: 'true'
-    branches:
-      only: main
+    # branches:
+    #   only: main
+    branch: main
     repo: P3TeamTwo/p3
   skip_cleanup: 'true'
 script:
