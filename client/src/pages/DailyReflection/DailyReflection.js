@@ -34,8 +34,33 @@ const DailyReflection = () => {
   const [quizComplete, setQuizComplete] = useState(false)
 
   const [emotion, setEmotion] = useState('');
-
-
+  const [emotionPoints, setEmotionPoints] = useState(0)
+  const [q1, setQ1] = useState('')
+  const [q1Points, setQ1Points] = useState(0)
+  const [q2, setQ2] = useState('')
+  const [q2Points, setQ2Points] = useState(0)
+  const [q3, setQ3] = useState('')
+  const [q3Points, setQ3Points] = useState(0)
+  const [q4, setQ4] = useState('')
+  const [q4Points, setQ4Points] = useState(0)
+  
+  function renderMoodPoints() {
+    // console.log(emotion)
+    switch(emotion) {
+        case '0':
+        return setEmotionPoints(10);
+        case '1': 
+        return setEmotionPoints(20);
+        case '2': 
+        return setEmotionPoints(30);
+        case '3':
+        return setEmotionPoints(40);
+        case '4':
+        return setEmotionPoints(50);
+        default:
+        return setEmotionPoints(100);
+    }
+};
 
 
   const useStyles = makeStyles((theme) => ({
@@ -49,18 +74,18 @@ const DailyReflection = () => {
     },
   }));
 
-//   function handleChange (e) {
-//     var emotionValue = e.target.value;
-//     setEmotion(emotionValue)
-// }
+  // function handleSubmit (e, getEmotion, getQ1) {
+    function handleSubmit (e, getEmotion) {
 
-  function handleSubmit (e, getEmotion, getQ1) {
     e.preventDefault()
 
     if (moodVisible === true) {
+     
       setEmotion(getEmotion)
-      // handleChange()
-      // API.save(getEmotion)
+      renderMoodPoints()
+      console.log(emotionPoints)
+
+      // API.save(getEmotion) example of how to save into db potentially
 
       setMoodVisible(false);
       setQ1Visible(true)
@@ -93,9 +118,6 @@ const DailyReflection = () => {
         <Grid container className='gridContainer' spacing={3}>
           <Grid className='gridPadding'  item xs={12} sm={6}>
             <Paper className={classes.paper}>
-                {/* {view} */}
-                {/* <MoodSlider/> */}
-
 
                 {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
                 q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
@@ -104,8 +126,6 @@ const DailyReflection = () => {
                 q4Visible === true ? <Q4 handleSubmit={handleSubmit}/> : 
                 <p>End of test</p>}
 
-
-                {/* <Button variant="outlined" onClick={handleSubmit}>SUBMIT</Button> */}
               </Paper>
             </Grid>
         </Grid>

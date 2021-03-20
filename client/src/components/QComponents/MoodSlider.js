@@ -13,10 +13,6 @@ function handleChange (e) {
     setEmotion(emotionValue)
 }
 
-// props.handleSubmit(
-//     console.log('test')
-// )
-
 // 0 = Very Unhappy
 // 1 = Unhappy
 // 2 = Ok
