@@ -8,6 +8,7 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
+const { response } = require("express");
 
 // @route POST api/users/register
 // @desc Register user
@@ -21,12 +22,13 @@ router.post("/register", (req, res) => {
     }
   User.findOne({ email: req.body.email }).then(user => {
       if (user) {
-        return res.status(400).json({ email: "Email already exists" });
+        return res.json("Email already exists" );
       } else {
         const newUser = new User({
           name: req.body.name,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          password2: req.body.password2
         });
   // Hash password before saving in database
         bcrypt.genSalt(10, (err, salt) => {
@@ -51,7 +53,7 @@ router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
   // Check validation
     if (!isValid) {
-      return res.status(400).json(errors);
+      return res.json("Not a valid email address" );
     }
   const email = req.body.email;
     const password = req.body.password;
@@ -59,7 +61,7 @@ router.post("/login", (req, res) => {
     User.findOne({ email }).then(user => {
       // Check if user exists
       if (!user) {
-        return console.log('No');
+        return res.json("Email address not found" );
       }
   // Check password
       bcrypt.compare(password, user.password).then(isMatch => {
@@ -85,9 +87,7 @@ router.post("/login", (req, res) => {
             }
           );
         } else {
-          return res
-            .status(400)
-            .json({ passwordincorrect: "Password incorrect" });
+          return res.json("Incorrect Password");
         }
       });
     });

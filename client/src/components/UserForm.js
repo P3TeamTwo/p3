@@ -8,21 +8,25 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom'
+import LoginBtn from './GoogleBtn';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
+import GoogleBtn from './GoogleBtn'
 
 
-
-const LoginForm = () => {
+const UserForm = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [userData, setUser] = useState('');
+    const [login, setLogin] = useState(true);
+
 
     const history = useHistory();
 
     const useStyles = makeStyles((theme) => ({
         form: {
             width: '40%',
-            marginTop: '15vh',
+            marginTop: '12vh',
             marginLeft: '30%'
         },
         submit: {
@@ -76,43 +80,20 @@ const LoginForm = () => {
     const classes = useStyles();
 
     return (
-        <>
-            <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                onChange={handleEmailChange}
-            />
-            <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={handlePasswordChange}
-            />
-            <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                onClick={signIn}
-            >
-                Sign In
-          </Button>
-        </>
+        <div>
+            <form className={classes.form} noValidate>
+                {(login) && <LoginForm />}
+                {(!login) && <RegisterForm />}
+                <Grid item xs>
+                    <div onClick={() => setLogin(!login)}
+                        style={{ cursor: 'pointer', fontSize:22 }}>
+                        {(login) ? "Don't have an account? Sign Up" : "Go Back To Login?"}
+                    </div>
+                </Grid>
+            </form>
+            {(login) && <GoogleBtn />}
+        </div>
     );
 }
 
-export default LoginForm
+export default UserForm
