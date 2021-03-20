@@ -79,14 +79,9 @@ useEffect(() => {
   renderQ1Points()
 }, [q1]);
 
-// useEffect(() => {
-  
-//   setQ1(q1)
-// }, [q1]);
   // Function to handle what happens when the submit button is clicked
   function handleSubmit (e, getEmotion, getQ1) {
   
-    
     // Do not submit until checks have completed
     e.preventDefault()
 
@@ -101,8 +96,7 @@ useEffect(() => {
     } else if (q1Visible === true) {
       console.log(getQ1)
       
-      setQ1(getQ1) // true / false 
-      console.log('parent dailly getq1', getQ1)
+      setQ1(getQ1)
 
       setQ1Visible(false)
       setQ2Visible(true)
