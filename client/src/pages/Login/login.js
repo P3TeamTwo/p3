@@ -8,6 +8,7 @@ import LoginBtn from '../../components/LoginBtn'
 import { styled } from '@material-ui/core/styles';
 import { Button, Paper, IconButton } from '@material-ui/core';
 import SlidingLogin from '../../components/slidingLogIn'
+import LoginForm from '../../components/LoginForm'
 
 const login = () => {
 
@@ -38,16 +39,15 @@ const login = () => {
                 <div style = {{height:  '50vh'}}>
                 <p
                     className={'title'}
-                    style={{ marginTop: '-12vh', fontSize: '180px' }}>Journal
+                    style={{ fontSize: '180px' }}>Journal
                 </p>
                 <p  className={'title'}
-                style={{ marginTop: '-10vh', fontSize: '30px' }}>
+                style={{ fontSize: '30px' }}>
                     Find it, in you!
                 </p>
                 </div>
-                <SlidingLogin style={{ height:'20vh', marginTop: '10vh'}}
-                
-                    />
+                <LoginForm/>
+                {/* <SlidingLogin style={{ height:'20vh', marginTop: '10vh'}} />}*/}
             <LoginBtn style={{ height:'20vh', marginTop: '10vh'}}></LoginBtn>
             </MyPaper>
         </div>
