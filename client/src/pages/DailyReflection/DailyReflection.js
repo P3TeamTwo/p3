@@ -53,28 +53,35 @@ const DailyReflection = () => {
     }
 };
 
+// Switch case function to set points based on what q1 value is
+function renderQ1Points() {
+  switch(q1) {
+      case true:
+      return setQ1Points(100);
+      case false: 
+      return setQ1Points(50);
+      default:
+      return setEmotionPoints(0);
+  }
+};
+
 // Use effect to run the switch case function once emotion has been set
 useEffect(() => {
         
   renderMoodPoints()
 }, [emotion]);
 
+// Use effect to run the switch case function once emotion has been set
+useEffect(() => {
+        
+  renderQ1Points()
+}, [q1]);
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-  }));
 
   // Function to handle what happens when the submit button is clicked
-  // function handleSubmit (e, getEmotion, getQ1) {
-    function handleSubmit (e, getEmotion) {
-
+    function handleSubmit (e, getEmotion, getQ1) {
+    
+    // Do not submit until checks have completed
     e.preventDefault()
 
     if (moodVisible === true) {
@@ -86,6 +93,9 @@ useEffect(() => {
       setQ1Visible(true)
 
     } else if (q1Visible === true) {
+
+      setQ1(getQ1)
+
       setQ1Visible(false)
       setQ2Visible(true)
 
@@ -102,7 +112,16 @@ useEffect(() => {
     }
   };
   
-
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  }));
 
   const classes = useStyles();
   return (
