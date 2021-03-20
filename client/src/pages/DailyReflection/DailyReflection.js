@@ -1,25 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './DailyReflection.css';
 // Material UI imports
 import { Grid, Paper, makeStyles } from '@material-ui/core';
-// Import Navbar
-// import Navbar from '../../components/Navbar';
-// Import mood slider
-import MoodSlider from '../../components/QComponents/MoodSlider';
-//Importing Radio button style quesetion format
-// import RadioBtnQFormat from '../../components/DailyReflectionComponents/RadioBtnQFormat';
-//importing long form style question format 
-// import LongForm from '../../components/LongFormQFormat'
 
+// Import question components
+import MoodSlider from '../../components/QComponents/MoodSlider';
 import Q1 from '../../components/QComponents/Q1';
 import Q2 from '../../components/QComponents/Q2';
 import Q3 from '../../components/QComponents/Q3';
 import Q4 from '../../components/QComponents/Q4';
-// import Welcome from '../../pages/Welcome/index';
-
-
-import { Button } from '@material-ui/core';
-
 
 // Importing the api for db
 // import API from '../../utils/API';
@@ -33,7 +22,7 @@ const DailyReflection = () => {
   const [q4Visible, setQ4Visible] = useState(false)
   const [quizComplete, setQuizComplete] = useState(false)
 
-  const [emotion, setEmotion] = useState('');
+  const [emotion, setEmotion] = useState('2');
   const [emotionPoints, setEmotionPoints] = useState(0)
   const [q1, setQ1] = useState('')
   const [q1Points, setQ1Points] = useState(0)
@@ -45,7 +34,7 @@ const DailyReflection = () => {
   const [q4Points, setQ4Points] = useState(0)
   
   function renderMoodPoints() {
-    // console.log(emotion)
+    console.log(emotion)
     switch(emotion) {
         case '0':
         return setEmotionPoints(10);
@@ -58,9 +47,14 @@ const DailyReflection = () => {
         case '4':
         return setEmotionPoints(50);
         default:
-        return setEmotionPoints(100);
+        return setEmotionPoints(30);
     }
 };
+
+useEffect(() => {
+        
+  renderMoodPoints()
+}, [emotion]);
 
 
   const useStyles = makeStyles((theme) => ({
@@ -80,9 +74,13 @@ const DailyReflection = () => {
     e.preventDefault()
 
     if (moodVisible === true) {
-     
+      
       setEmotion(getEmotion)
-      renderMoodPoints()
+
+      // setEmotion(getEmotion, () => {
+      //   renderMoodPoints();
+      // });
+
       console.log(emotionPoints)
 
       // API.save(getEmotion) example of how to save into db potentially
@@ -104,7 +102,7 @@ const DailyReflection = () => {
       setQ4Visible(true)
 
     } else if (q4Visible === true) {
-      return <p>Test over</p>
+      setQuizComplete(true)
     }
   };
   
@@ -124,7 +122,7 @@ const DailyReflection = () => {
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
                 q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
                 q4Visible === true ? <Q4 handleSubmit={handleSubmit}/> : 
-                <p>End of test</p>}
+                quizComplete === true ? <p>completed quiz</p> : null}
 
               </Paper>
             </Grid>
