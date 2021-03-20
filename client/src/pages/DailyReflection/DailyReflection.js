@@ -49,30 +49,35 @@ const DailyReflection = () => {
     },
   }));
 
-  function handleChange (e) {
-    var emotionValue = e.target.value;
-    setEmotion(emotionValue)
-}
+//   function handleChange (e) {
+//     var emotionValue = e.target.value;
+//     setEmotion(emotionValue)
+// }
 
-  function handleSubmit (e) {
+  function handleSubmit (e, test) {
     e.preventDefault()
+
+    console.log(test)
+
     if (moodVisible === true) {
 
-      handleChange()
-      // setMoodVisible(false);
-      // setQ1Visible(true)
-      console.log(emotion)
-
+      // handleChange()
+      setMoodVisible(false);
+      setQ1Visible(true)
+      // console.log(emotion)
 
     } else if (q1Visible === true) {
       setQ1Visible(false)
       setQ2Visible(true)
+
     } else if (q2Visible === true) {
       setQ2Visible(false)
       setQ3Visible(true)
+
     } else if (q3Visible === true) {
       setQ3Visible(false)
       setQ4Visible(true)
+
     } else if (q4Visible === true) {
       return <p>Test over</p>
     }
@@ -90,13 +95,17 @@ const DailyReflection = () => {
             <Paper className={classes.paper}>
                 {/* {view} */}
                 {/* <MoodSlider/> */}
-                {moodVisible === true ? <MoodSlider/> :
-                q1Visible === true ? <Q1/> : 
-                q2Visible === true ? <Q2/> : 
-                q3Visible === true ? <Q3/> :
-                q4Visible === true ? <Q4/> : 
+
+
+                {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
+                q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
+                q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
+                q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
+                q4Visible === true ? <Q4 handleSubmit={handleSubmit}/> : 
                 <p>End of test</p>}
-                <Button variant="outlined" onChange={handleChange} onClick={handleSubmit}>SUBMIT</Button>
+
+
+                {/* <Button variant="outlined" onClick={handleSubmit}>SUBMIT</Button> */}
               </Paper>
             </Grid>
         </Grid>

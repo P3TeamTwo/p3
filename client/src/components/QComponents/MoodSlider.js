@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './MoodSlider.css';
 import { MdSentimentVeryDissatisfied, MdSentimentDissatisfied, MdSentimentNeutral, MdSentimentSatisfied, MdSentimentVerySatisfied } from 'react-icons/md';
-// import { Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 // import RadioBtnQFormat from './RadioBtnQFormat';
 
-const MoodSlider = () => {
+const MoodSlider = (props) => {
 
 const [emotion, setEmotion] = useState('');
 
@@ -13,6 +13,10 @@ function handleChange (e) {
     setEmotion(emotionValue)
 }
 
+// props.handleSubmit(
+//     console.log('test')
+// )
+
 // 0 = Very Unhappy
 // 1 = Unhappy
 // 2 = Ok
@@ -20,7 +24,7 @@ function handleChange (e) {
 // 4 = Very Happy    
 
     function renderSwitch() {
-        console.log(emotion)
+        // console.log(emotion)
         switch(emotion) {
             case '0':
             return <div><MdSentimentVeryDissatisfied className='material-icons'/> <p>Very Unhappy</p></div>;
@@ -46,7 +50,10 @@ function handleChange (e) {
         <div>{renderSwitch()}</div>
         <input onChange={handleChange} type='range' min='0' max='4' defaultValue='2' id='slider'/>
         <br/>
-        {/* <Button variant="outlined" onClick={handleSubmit}>SUBMIT</Button> */}
+
+        {/* TEST */}
+        <Button variant="outlined" onClick={props.handleSubmit}>SUBMIT</Button>
+
         </div>
         </>
 

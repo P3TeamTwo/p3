@@ -1,35 +1,38 @@
 [
     {
         "id": 1,
-        "catagory": "radio",
-        "questionText": "do you like",
-        "answerOptions": [
-            "dog","cat", "turtle"
-        ]
-
+        "Q1": "sleep?",
+        "Q1Answers": [],
+        "Q2": "happy?",
+        "Q2Answers": [],
+        "Q3": "exercise?",
+        "Q3Answers": []
     },
     {
         "id": 2,
-        "catagory": "radio",
-        "questionText": "whats your favourite time of day",
-        "answerOptions": [
-            "morning","afternoon", "night"
-        ]
+        "Q1": "sleep?",
+        "Q1Answers": [],
+        "Q2": "happy?",
+        "Q2Answers": [],
+        "Q3": "exercise?",
+        "Q3Answers": []
     },
     {
         "id": 3,
-        "catagory": "radio",
-        "questionText": "favourite colour",
-        "answerOptions": [
-            "red","blue", "green"
-        ]
+        "Q1": "sleep?",
+        "Q1Answers": [],
+        "Q2": "happy?",
+        "Q2Answers": [],
+        "Q3": "exercise?",
+        "Q3Answers": []
     },
     {
         "id": 4,
-        "catagory": "radio",
-        "questionText": "favourite limb?",
-        "answerOptions": [
-            "arm","leg", "toe" 
-        ]
+        "Q1": "sleep?",
+        "Q1Answers": [],
+        "Q2": "happy?",
+        "Q2Answers": [],
+        "Q3": "exercise?",
+        "Q3Answers": []
     }
 ]
