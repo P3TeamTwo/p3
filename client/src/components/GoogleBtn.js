@@ -18,6 +18,7 @@ const LoginBtn = () => {
 
     const responseGoogle = (response) => {
         console.log(response);
+        localStorage.setItem('user', response.data)
         history.push("/welcome");
     }
     const failresponseGoogle = (response) => {
