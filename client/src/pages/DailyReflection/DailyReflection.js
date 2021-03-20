@@ -25,7 +25,7 @@ const DailyReflection = () => {
 
   // State that stores value from answer and answer points
   const [emotion, setEmotion] = useState('2');
-  const [emotionPoints, setEmotionPoints] = useState(0)
+  const [emotionPoints, setEmotionPoints] = useState(30)
   const [q1, setQ1] = useState('')
   const [q1Points, setQ1Points] = useState(0)
   const [q2, setQ2] = useState('')
@@ -149,5 +149,6 @@ useEffect(() => {
       </Grid>
     </div>
   )
-}
+};
+
 export default DailyReflection;
