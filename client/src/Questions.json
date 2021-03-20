@@ -1,38 +1,32 @@
 [
     {
         "id": 1,
-        "Q1": "sleep?",
-        "Q1Answers": [],
-        "Q2": "happy?",
-        "Q2Answers": [],
-        "Q3": "exercise?",
-        "Q3Answers": []
+        "category": "test1",
+        "Q1": [
+            "question1", 
+            "question2", 
+            "question3",
+            "question4",
+            "question5"
+        ],
+        "Q1Answers": ["true", "false"]
     },
     {
         "id": 2,
-        "Q1": "sleep?",
-        "Q1Answers": [],
+        "category": "test2",
         "Q2": "happy?",
-        "Q2Answers": [],
-        "Q3": "exercise?",
-        "Q3Answers": []
+        "Q2Answers": []
     },
     {
         "id": 3,
-        "Q1": "sleep?",
-        "Q1Answers": [],
-        "Q2": "happy?",
-        "Q2Answers": [],
+        "category": "test3",
         "Q3": "exercise?",
         "Q3Answers": []
     },
     {
         "id": 4,
-        "Q1": "sleep?",
-        "Q1Answers": [],
-        "Q2": "happy?",
-        "Q2Answers": [],
-        "Q3": "exercise?",
-        "Q3Answers": []
+        "category": "test4",
+        "Q4": "test4?",
+        "Q4Answers": []
     }
 ]

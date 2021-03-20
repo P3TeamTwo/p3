@@ -15,6 +15,7 @@ import Q4 from '../../components/QComponents/Q4';
 
 const DailyReflection = () => {
 
+  // State that checks what component to render
   const [moodVisible, setMoodVisible] = useState(true)
   const [q1Visible, setQ1Visible] = useState(false)
   const [q2Visible, setQ2Visible] = useState(false)
@@ -22,6 +23,7 @@ const DailyReflection = () => {
   const [q4Visible, setQ4Visible] = useState(false)
   const [quizComplete, setQuizComplete] = useState(false)
 
+  // State that stores value from answer and answer points
   const [emotion, setEmotion] = useState('2');
   const [emotionPoints, setEmotionPoints] = useState(0)
   const [q1, setQ1] = useState('')
@@ -33,8 +35,8 @@ const DailyReflection = () => {
   const [q4, setQ4] = useState('')
   const [q4Points, setQ4Points] = useState(0)
   
+  // Switch case function to set points based on what emotion value is
   function renderMoodPoints() {
-    console.log(emotion)
     switch(emotion) {
         case '0':
         return setEmotionPoints(10);
@@ -51,6 +53,7 @@ const DailyReflection = () => {
     }
 };
 
+// Use effect to run the switch case function once emotion has been set
 useEffect(() => {
         
   renderMoodPoints()
@@ -68,6 +71,7 @@ useEffect(() => {
     },
   }));
 
+  // Function to handle what happens when the submit button is clicked
   // function handleSubmit (e, getEmotion, getQ1) {
     function handleSubmit (e, getEmotion) {
 
@@ -76,18 +80,10 @@ useEffect(() => {
     if (moodVisible === true) {
       
       setEmotion(getEmotion)
-
-      // setEmotion(getEmotion, () => {
-      //   renderMoodPoints();
-      // });
-
-      console.log(emotionPoints)
-
       // API.save(getEmotion) example of how to save into db potentially
 
       setMoodVisible(false);
       setQ1Visible(true)
-      // console.log(emotion)
 
     } else if (q1Visible === true) {
       setQ1Visible(false)
@@ -117,6 +113,7 @@ useEffect(() => {
           <Grid className='gridPadding'  item xs={12} sm={6}>
             <Paper className={classes.paper}>
 
+                {/* Multi ternary operator to render each component */}
                 {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
                 q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
