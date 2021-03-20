@@ -204,6 +204,7 @@ useEffect(() => {
           <Grid className='gridPadding'  item xs={12} sm={6}>
             <Paper className={classes.paper}>
 
+                {/* dynamically render components */}
                 {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
                 q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
