@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, Paper, IconButton } from '@material-ui/core';
 import { useHistory } from 'react-router-dom'
 // import ReactDOM from 'react-dom';
 import { GoogleLogin } from 'react-google-login'
@@ -27,7 +28,6 @@ const LoginBtn = () => {
         <GoogleLogin
             clientId={CLIENT_ID}
             render={renderProps => (
-<<<<<<< HEAD
                 <IconButton
                     onClick={renderProps.onClick}
                     disabled={renderProps.disabled}
@@ -37,9 +37,6 @@ const LoginBtn = () => {
                     <FcGoogle size = {60} style ={{marginTop:'2vh'}}/>Sign in with Google
                 </IconButton>
                 // <button onClick={renderProps.onClick} disabled={renderProps.disabled}> Sign In </button>
-=======
-                <button onClick={renderProps.onClick} disabled={renderProps.disabled}> Sign In </button>
->>>>>>> 0c2a7e8c6621f06b45c095e2f280292b37eb744a
             )}
             buttonText="Login"
             onSuccess={responseGoogle}
