@@ -32,8 +32,9 @@ const LoginBtn = () => {
                     onClick={renderProps.onClick}
                     disabled={renderProps.disabled}
                     aria-label="google"
+                    style = {{marginBottom:'10vh'}}
                     >
-                    <FcGoogle size = {128}/>
+                    <FcGoogle size = {60} style ={{marginTop:'2vh'}}/>Sign in with Google
                 </IconButton>
                 // <button onClick={renderProps.onClick} disabled={renderProps.disabled}> Sign In </button>
 =======
