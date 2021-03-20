@@ -16,20 +16,28 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^4.1.0",
+    "concurrently": "^4.1.2",
     "nodemon": "^1.18.7"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
+    "bcrypt": "^5.0.1",
     "connect-mongo": "^4.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-route-validator": "^0.2.5",
     "if-env": "^1.0.4",
+    "joi": "^17.4.0",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
     "mobiscroll": "^3.0.0-beta6",
     "mongoose": "^5.12.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "react-big-calendar": "^0.33.2",
     "react-calendar": "^3.3.1",
-    "react-mobiscroll": "^0.4.0",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "validator": "^13.5.2"
   }
 }
