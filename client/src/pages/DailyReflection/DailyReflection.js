@@ -56,9 +56,9 @@ const DailyReflection = () => {
 // Switch case function to set points based on what q1 value is
 function renderQ1Points() {
   switch(q1) {
-      case true:
+      case 'true':
       return setQ1Points(100);
-      case false: 
+      case 'false': 
       return setQ1Points(50);
       default:
       return setEmotionPoints(0);
@@ -71,7 +71,7 @@ useEffect(() => {
   renderMoodPoints()
 }, [emotion]);
 
-// Use effect to run the switch case function once emotion has been set
+// Use effect to run the switch case function once q1 has been set
 useEffect(() => {
         
   renderQ1Points()
@@ -100,14 +100,17 @@ useEffect(() => {
       setQ2Visible(true)
 
     } else if (q2Visible === true) {
+
       setQ2Visible(false)
       setQ3Visible(true)
 
     } else if (q3Visible === true) {
+
       setQ3Visible(false)
       setQ4Visible(true)
 
     } else if (q4Visible === true) {
+      setQ4Visible(false)
       setQuizComplete(true)
     }
   };
