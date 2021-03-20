@@ -35,7 +35,7 @@ const DailyReflection = () => {
   const [q4, setQ4] = useState('')
   const [q4Points, setQ4Points] = useState(0)
   
-  // Switch case function to set points based on what emotion value is
+  // Set points for current mood
   function renderMoodPoints() {
     switch(emotion) {
         case '0':
@@ -49,11 +49,11 @@ const DailyReflection = () => {
         case '4':
         return setEmotionPoints(50);
         default:
-        return setEmotionPoints(30);
+        return setEmotion('2') + setEmotionPoints(30);
     }
 };
 
-// Switch case function to set points based on what q1 value is
+// Set points for Q1
 function renderQ1Points() {
   setQ1(q1)
   console.log('q1',q1)
@@ -63,24 +63,84 @@ function renderQ1Points() {
       case 'false': 
       return setQ1Points(50);
       default:
-      return setEmotionPoints(0);
+      return setQ1Points(0);
   }
 };
 
-// Use effect to run the switch case function once emotion has been set
+// Set points for Q2
+function renderQ2Points() {
+  setQ2(q2)
+  console.log('q2',q2)
+  switch(q2) {
+      case 'true':
+      return setQ2Points(100);
+      case 'false': 
+      return setQ2Points(50);
+      default:
+      return setQ2Points(0);
+  }
+};
+
+// Set points for Q2
+function renderQ3Points() {
+  setQ3(q3)
+  console.log('q3',q3)
+  switch(q3) {
+      case 'true':
+      return setQ3Points(100);
+      case 'false': 
+      return setQ3Points(50);
+      default:
+      return setQ3Points(0);
+  }
+};
+
+// Set points for Q2
+function renderQ4Points() {
+  setQ4(q4)
+  console.log('q4',q4)
+  switch(q4) {
+      case 'true':
+      return setQ4Points(100);
+      case 'false': 
+      return setQ4Points(50);
+      default:
+      return setQ4Points(0);
+  }
+};
+
+// Run switch case once emotion has been set
 useEffect(() => {
         
   renderMoodPoints()
 }, [emotion]);
 
-// Use effect to run the switch case function once q1 has been set
+// Run the switch case once q1 has been set
 useEffect(() => {
         
   renderQ1Points()
 }, [q1]);
 
+// Run the switch case once q2 has been set
+useEffect(() => {
+        
+  renderQ2Points()
+}, [q2]);
+
+// Run the switch case once q3 has been set
+useEffect(() => {
+        
+  renderQ3Points()
+}, [q3]);
+
+// Run the switch case once q3 has been set
+useEffect(() => {
+        
+  renderQ4Points()
+}, [q4]);
+
   // Function to handle what happens when the submit button is clicked
-  function handleSubmit (e, getEmotion, getQ1) {
+  function handleSubmit (e, getEmotion, getQ1, getQ2, getQ3, getQ4) {
   
     // Do not submit until checks have completed
     e.preventDefault()
@@ -103,15 +163,22 @@ useEffect(() => {
 
     } else if (q2Visible === true) {
 
+      setQ2(getQ2)
+
       setQ2Visible(false)
       setQ3Visible(true)
 
     } else if (q3Visible === true) {
 
+      setQ3(getQ3)
+
       setQ3Visible(false)
       setQ4Visible(true)
 
     } else if (q4Visible === true) {
+
+      setQ4(getQ4)
+
       setQ4Visible(false)
       setQuizComplete(true)
     }
@@ -138,8 +205,7 @@ useEffect(() => {
             <Paper className={classes.paper}>
 
                 {/* Multi ternary operator to render each component */}
-                {
-                moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
+                {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
                 q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
                 q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
