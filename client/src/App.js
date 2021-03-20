@@ -1,7 +1,7 @@
 import React from 'react';
 import {HashRouter as Router , Route, Switch} from 'react-router-dom'
 import './App.css';
-import Homepage from './pages/Homepage/homepage';
+
 import Welcome from './pages/Welcome/index.js';
 import Login from './pages/Login/login';
 import NoMatch from './pages/NoMatch/NoMatch';

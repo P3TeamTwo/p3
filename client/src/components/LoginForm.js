@@ -12,7 +12,9 @@ const LoginForm = () => {
 
     const useStyles = makeStyles((theme) => ({
         form: {
-            width: '40%'
+            width: '40%',
+            marginTop: '15vh',
+            marginLeft:'30%'
         },
         submit: {
             margin: theme.spacing(3, 0, 2),

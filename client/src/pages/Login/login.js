@@ -4,7 +4,7 @@ import { SiLivejournal } from 'react-icons/si'
 import { FcGoogle } from 'react-icons/fc'
 // import { Link } from 'react-router-dom'
 import LogoutBtn from '../../components/LogoutBtn'
-import LoginBtn from '../../components/LoginBtn'
+import GoogleBtn from '../../components/GoogleBtn'
 import { styled } from '@material-ui/core/styles';
 import { Button, Paper, IconButton } from '@material-ui/core';
 import SlidingLogin from '../../components/slidingLogIn'
@@ -19,10 +19,10 @@ const login = () => {
         borderRadius: 3,
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
         color: 'white',
-        marginLeft: '2.5vw',
+        marginLeft: '5vw',
         marginTop: '10vh',
         height: "88vh",
-        width: "95vw",
+        width: "90vw",
         padding: '0 30px',
     });
 
@@ -35,43 +35,20 @@ const login = () => {
             }}>
 
             <MyPaper>
-                <div style = {{height:  '20vh', marginBottom: '20vh'}}>
+                <div style = {{height:  '20vh'}}>
                 <p
                     className={'title'}
-                    style={{ marginTop: '-4vh', fontSize: '180px' }}>Journal
+                    style={{  fontSize: '140px', marginTop:'-4vh'}}>Journal
                 </p>
                 <p  className={'title'}
-                style={{ fontSize: '30px' }}>
+                style={{ fontSize: '30px', marginTop:'-8vh' }}>
                     Find it, in you!
                 </p>
                 </div>
                 <LoginForm/>
-                {/* <SlidingLogin style={{ height:'20vh', marginTop: '10vh'}} />}*/}
-            <LoginBtn style={{ height:'20vh', marginTop: '10vh'}}></LoginBtn>
+            <GoogleBtn ></GoogleBtn>
             </MyPaper>
         </div>
-
-
-        // <div className="container login-container">
-        //     <div className="card pb-5" >
-        //         <div className="card-content">
-        //             <h1 > Personalized Journal</h1>
-        //             <SiLivejournal size={'50%'} />
-        //             <div className="section mt-5">
-        //                 <p className="lead">Begin your Journey!!!!!!</p>
-        //             </div>
-        //             <div className="divider mt-2"></div>
-        //             <div className="section" style={{ overflow: 'clear' }}>
-        //                 <FcGoogle size={'50%'} />
-        //                 {/* <Link to="/auth/google" className="btn red darken-1"> */}
-        //                 <LoginBtn />
-        //                 {/* <span style={{ backgroundColor: 'red', color: 'white', padding: 12, borderRadius: 30 }}>Log In With Google</span> */}
-        //                 {/* </Link> */}
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
-
     )
 }
 
