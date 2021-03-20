@@ -14,13 +14,22 @@ const LoginForm = () => {
         form: {
             width: '40%',
             marginTop: '15vh',
-            marginLeft:'30%'
+            marginLeft: '30%'
         },
         submit: {
             margin: theme.spacing(3, 0, 2),
         },
     }));
 
+    // const handleEmailChange = () => {
+    //     this.setState({ email: e.target.value });
+    //     console.log(email)
+    // },
+    // const handlePasswordChange = () => {
+    //     this.setState({ password: e.target.value });
+    //     console.log(email)
+
+    // },
 
     const classes = useStyles();
 
