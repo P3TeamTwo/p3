@@ -204,7 +204,6 @@ useEffect(() => {
           <Grid className='gridPadding'  item xs={12} sm={6}>
             <Paper className={classes.paper}>
 
-                {/* Multi ternary operator to render each component */}
                 {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
                 q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
