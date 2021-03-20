@@ -52,7 +52,7 @@ function handleChange (e) {
         <br/>
 
         {/* TEST */}
-        <Button variant="outlined" onClick={props.handleSubmit}>SUBMIT</Button>
+        <Button variant="outlined" onClick={(e)=>{props.handleSubmit(e, emotion)}}>SUBMIT</Button>
 
         </div>
         </>

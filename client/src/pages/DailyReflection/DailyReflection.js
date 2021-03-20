@@ -54,14 +54,14 @@ const DailyReflection = () => {
 //     setEmotion(emotionValue)
 // }
 
-  function handleSubmit (e, test) {
+  function handleSubmit (e, getEmotion, getQ1) {
     e.preventDefault()
 
-    console.log(test)
-
     if (moodVisible === true) {
-
+      setEmotion(getEmotion)
       // handleChange()
+      // API.save(getEmotion)
+
       setMoodVisible(false);
       setQ1Visible(true)
       // console.log(emotion)
