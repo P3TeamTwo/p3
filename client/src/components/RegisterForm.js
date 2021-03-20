@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -12,13 +12,13 @@ import { useHistory } from 'react-router-dom'
 
 const RegisterForm = () => {
 
-    const [name, setName] = useState();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [password2, setPassword2] = useState('');
+    const [name, setName] = useState('Your Name');
+    const [email, setEmail] = useState('Email Address');
+    const [password, setPassword] = useState('Password');
+    const [password2, setPassword2] = useState('Re-enter Password');
     const [userData, setUser] = useState('');
     const [errorNotice, setError] = useState('');
-    
+
     const history = useHistory();
 
     const useStyles = makeStyles((theme) => ({
@@ -44,14 +44,11 @@ const RegisterForm = () => {
     const handlePassword2Change = (e) => {
         setPassword2(e.target.value);
     }
-    
+
 
     const signUp = (e) => {
         e.preventDefault()
-        console.log(name)
-        console.log(email)
-        console.log(password)
-        console.log(password2)
+
         axios({
             method: 'post',
             url: 'api/user/register',
@@ -62,10 +59,20 @@ const RegisterForm = () => {
                 password2: password2
             }
         })
-            .then((response) => {
-                setError('This Email is already register')
-            })
 
+            .then((response) => {
+                for (const [key, value] of Object.entries(response.data)) {
+                    
+                    setError(value)
+                    console.log(value);
+                        if(value === 0){
+                            history.push("/welcome");
+                        }
+                    
+                }
+
+                    
+            })
 
     }
 
@@ -79,7 +86,7 @@ const RegisterForm = () => {
                 required
                 fullWidth
                 name="name"
-                label="Your Name"
+                label={name}
                 type="name"
                 id="name"
                 autoFocus
@@ -92,10 +99,10 @@ const RegisterForm = () => {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label={email}
                 name="email"
                 autoComplete="email"
-                
+
                 onChange={handleEmailChange}
             />
             <TextField
@@ -104,7 +111,7 @@ const RegisterForm = () => {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label={password}
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -116,13 +123,13 @@ const RegisterForm = () => {
                 required
                 fullWidth
                 name="password2"
-                label="Re-enter Password"
+                label={password2}
                 type="password2"
                 id="password2"
                 autoComplete="current-password"
                 onChange={handlePassword2Change}
             />
-                <p style = {{marginBottom:0}}>{errorNotice}</p>
+            <p style={{ marginBottom: 0 }}>{errorNotice}</p>
             <Button
                 type="submit"
                 fullWidth
