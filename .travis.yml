@@ -11,7 +11,9 @@ deploy:
     secure: l1tRtcFftZKVjXFnMGj/BZp0b6+h6qpR2oc7YccNHkUCy2xRJF9MvIP7YteY/VOc+QtXQlBBZlZzeYBbLZtgfb53kv/odFu/T5J66RggWZOOJ/9DH7eUCaNCpEGgjFMaNLTZXIRsQTIQTZL3g+0yHWhfWGUFPdFKCyYsjc/AlWqbF7JYjfaA+wJm4YSM8+/uoTrRJvDbIp3jffQdQ6SIG4k9CUz5SH7p+XYOF03rq9LQIPMhYGB3K3lME1KpjvSeuXWAIMG7lgOccaGc0e5C4U6ra4RfIG4O4EEO7ywE93SjMJcATgDzRiBurs7PTVKOKF69rWecC/lM9lWX0Dhl63M4Ohh6b7FVQVXGVGdjrh/qzLISHNnOlxKRZL3HyF3bpPhuq+kZB1EiG7Y0zzK9ywkyBDyJ3xx31iOKtE/ws7P3fSgV2Q3mamzGYEuNvw8kGjAlUvaGAfshjuvdydOkP+aTfhcfJIqgANgaVu533R+/DDlXnENBqePeVIpXH/7JEZRQfL9p1HJsRvk3/VPQVAGnWj39KUSO2Px6FLetlI3FA84o2chFYuGPtoSWFCZZyHgvsJutz5DtPVVrciPn6B8za1ruJM3pHc7euNaDriwr5u+AuTMyRmn6PTnWD59DDswt21C/CRyAFYpiXibXq/EtDQk8fhqW3KE/aF5gjFM=
   app: guarded-dusk-24354
   on:
-    all_branches: 'true'
+    # all_branches: 'true'
+    branches:
+      only: main
     repo: P3TeamTwo/p3
   skip_cleanup: 'true'
 script:
