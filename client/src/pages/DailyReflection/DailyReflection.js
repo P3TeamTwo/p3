@@ -55,6 +55,8 @@ const DailyReflection = () => {
 
 // Switch case function to set points based on what q1 value is
 function renderQ1Points() {
+  setQ1(q1)
+  console.log('q1',q1)
   switch(q1) {
       case 'true':
       return setQ1Points(100);
@@ -77,9 +79,13 @@ useEffect(() => {
   renderQ1Points()
 }, [q1]);
 
-
+// useEffect(() => {
+  
+//   setQ1(q1)
+// }, [q1]);
   // Function to handle what happens when the submit button is clicked
-    function handleSubmit (e, getEmotion, getQ1) {
+  function handleSubmit (e, getEmotion, getQ1) {
+  
     
     // Do not submit until checks have completed
     e.preventDefault()
@@ -93,8 +99,10 @@ useEffect(() => {
       setQ1Visible(true)
 
     } else if (q1Visible === true) {
-
-      setQ1(getQ1)
+      console.log(getQ1)
+      
+      setQ1(getQ1) // true / false 
+      console.log('parent dailly getq1', getQ1)
 
       setQ1Visible(false)
       setQ2Visible(true)
@@ -136,7 +144,8 @@ useEffect(() => {
             <Paper className={classes.paper}>
 
                 {/* Multi ternary operator to render each component */}
-                {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
+                {
+                moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
                 q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
                 q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
