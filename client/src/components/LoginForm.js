@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -9,6 +10,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 const LoginForm = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [userData, setUser] = useState('');
+
 
     const useStyles = makeStyles((theme) => ({
         form: {
@@ -21,15 +27,31 @@ const LoginForm = () => {
         },
     }));
 
-    // const handleEmailChange = () => {
-    //     this.setState({ email: e.target.value });
-    //     console.log(email)
-    // },
-    // const handlePasswordChange = () => {
-    //     this.setState({ password: e.target.value });
-    //     console.log(email)
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value );
+    }
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
 
-    // },
+    const signIn = (e) => {
+        e.preventDefault()
+        console.log(email)
+        console.log(password)
+        axios({
+            method: 'post',
+            url: 'api/user/login',
+            data: {
+              email: email,
+              password: password
+            }
+          })
+          .then((response) => {
+              console.log(response)
+          })
+          
+
+    }
 
     const classes = useStyles();
 
@@ -46,6 +68,7 @@ const LoginForm = () => {
                     name="email"
                     autoComplete="email"
                     autoFocus
+                    onChange={handleEmailChange}
                 />
                 <TextField
                     variant="outlined"
@@ -57,6 +80,7 @@ const LoginForm = () => {
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                    onChange={handlePasswordChange}
                 />
                 <FormControlLabel
                     control={<Checkbox value="remember" color="primary" />}
@@ -68,6 +92,7 @@ const LoginForm = () => {
                     variant="contained"
                     color="primary"
                     className={classes.submit}
+                    onClick = {signIn}
                 >
                     Sign In
           </Button>
