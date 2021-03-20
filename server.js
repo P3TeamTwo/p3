@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const routes = require("./routes/user/user");
+app.use(routes);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -16,11 +18,8 @@ if (process.env.NODE_ENV === "production") {
 
 
 // // Add routes, both API and view
-// const routes = require("./routes");
-// app.use(routes);
-// Login
-const userRouter = require("routes/User");
-app.use('/user', userRouter);
+
+
 
 // How to connect locally "mongodb://localhost/YOUR DATA BASE NAME"
 mongoose.connect(
