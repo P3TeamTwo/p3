@@ -32,14 +32,13 @@ const login = () => {
                 width: "100vw",
                 height: "100vh",
                 textAlign: 'center',
-                background: 'linear-gradient(45deg, #8bfe6b 30%, #8bfe6b 90%)'
             }}>
 
             <MyPaper>
-                <div style = {{height:  '50vh'}}>
+                <div style = {{height:  '20vh', marginBottom: '20vh'}}>
                 <p
                     className={'title'}
-                    style={{ fontSize: '180px' }}>Journal
+                    style={{ marginTop: '-4vh', fontSize: '180px' }}>Journal
                 </p>
                 <p  className={'title'}
                 style={{ fontSize: '30px' }}>
