@@ -17,16 +17,18 @@ body{
 @media (min-width: 992px) { .gridContainer { border: 35px solid #E9E9E9 } }
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { .gridContainer { border: 40px solid #E9E9E9 } }
+
 /* Extra small devices (Tested with Iphone X) */
-@media (min-width: 375px) { .gridPadding { padding: 10px 10px 10px 10px !important; } }
+@media (min-width: 375px) { .gridPadding { padding: 10px 10px 10px 10px !important; margin: auto !important; } }
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { .gridPadding { padding: 20px 20px 20px 20px !important; } }
+@media (min-width: 576px) { .gridPadding { padding: 20px 20px 20px 20px !important; margin: auto !important; } }
  /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .gridPadding { padding: 30px 30px 30px 30px !important; } }
+@media (min-width: 768px) { .gridPadding { padding: 30px 30px 30px 30px !important; margin: auto !important; } }
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .gridPadding { padding: 40px 40px 40px 40px !important; } }
+@media (min-width: 992px) { .gridPadding { padding: 40px 40px 40px 40px !important; margin: auto !important; } }
 /* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .gridPadding { padding: 50px 50px 50px 50px !important; } }
+@media (min-width: 1200px) { .gridPadding { padding: 50px 50px 50px 50px !important; margin: auto !important; } }
+
 /* Extra small devices (Tested with Iphone X) */
 @media (min-width: 375px) { .containerPadding { padding-left: 60px; padding-right: 60px; } }
 /* Small devices (landscape phones, 576px and up) */
