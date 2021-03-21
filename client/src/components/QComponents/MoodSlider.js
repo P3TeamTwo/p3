@@ -47,7 +47,6 @@ function handleChange (e) {
         <input onChange={handleChange} type='range' min='0' max='4' defaultValue='2' id='slider'/>
         <br/>
 
-        {/* TEST */}
         <Button variant="outlined" onClick={(e)=>{props.handleSubmit(e, emotion)}}>SUBMIT</Button>
 
         </div>
