@@ -154,7 +154,6 @@ useEffect(() => {
       setQ1Visible(true)
 
     } else if (q1Visible === true) {
-      console.log(getQ1)
       
       setQ1(getQ1)
 
