@@ -11,9 +11,15 @@ const passport = require("passport");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // Routes
 const routes = require("./routes");
 app.use(routes);
+
 
 // Passport middleware
 app.use(passport.initialize());
@@ -21,21 +27,17 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
 
 // How to connect locally "mongodb://localhost/YOUR DATA BASE NAME"
-mongoose.connect(
-  process.env.MONGDB_URI || 'mongodb://localhost/journal', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-}
-);
+// mongoose.connect(
+//   process.env.MONGDB_URI || 'mongodb://localhost/journal', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false
+// }
+// );
 
 
 
