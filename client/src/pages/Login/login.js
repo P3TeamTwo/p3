@@ -7,7 +7,7 @@ import LogoutBtn from '../../components/LogoutBtn'
 import GoogleBtn from '../../components/GoogleBtn'
 import { styled } from '@material-ui/core/styles';
 import { Button, Paper, IconButton } from '@material-ui/core';
-import LoginForm from '../../components/LoginForm'
+import UserForm from '../../components/UserForm'
 
 const login = () => {
 
@@ -44,8 +44,7 @@ const login = () => {
                     Find it, in you!
                 </p>
                 </div>
-                <LoginForm/>
-            <GoogleBtn ></GoogleBtn>
+                <UserForm/>
             </MyPaper>
         </div>
     )
