@@ -21,7 +21,6 @@ function App() {
         <Route exact path="/" component={Login} />
         <ProtectedRoute exact path="/Daily" component={DailyReflection} />
         <ProtectedRoute exact path='/welcome' component={Welcome} />
-        <Route exact path="/login" component={Login} />
         <Route exact path='*' component={NoMatch} />
       </Switch>
     </Router>
