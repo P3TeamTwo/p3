@@ -1,3 +1,5 @@
+//  comment again
+
 import React, { useState, useEffect } from 'react';
 import './DailyReflection.css';
 // Material UI imports
@@ -23,18 +25,24 @@ const DailyReflection = () => {
   const [q4Visible, setQ4Visible] = useState(false)
   const [quizComplete, setQuizComplete] = useState(false)
 
-  // State that stores value from answer and answer points
+
+  // State that stores value from answer
   const [emotion, setEmotion] = useState('2');
-  const [emotionPoints, setEmotionPoints] = useState(30)
   const [q1, setQ1] = useState('')
-  const [q1Points, setQ1Points] = useState(0)
   const [q2, setQ2] = useState('')
-  const [q2Points, setQ2Points] = useState(0)
   const [q3, setQ3] = useState('')
-  const [q3Points, setQ3Points] = useState(0)
   const [q4, setQ4] = useState('')
+  // State that stores the points
+  const [emotionPoints, setEmotionPoints] = useState(30)
+  const [q1Points, setQ1Points] = useState(0)
+  const [q2Points, setQ2Points] = useState(0)
+  const [q3Points, setQ3Points] = useState(0)
   const [q4Points, setQ4Points] = useState(0)
+
   
+  // calculateScore 
+  const [finalScore, setFinalScore] = useState(0);
+
   // Set points for current mood
   function renderMoodPoints() {
     switch(emotion) {
@@ -109,6 +117,8 @@ function renderQ4Points() {
   }
 };
 
+
+
 // Run switch case once emotion has been set
 useEffect(() => {
         
@@ -180,8 +190,19 @@ useEffect(() => {
 
       setQ4Visible(false)
       setQuizComplete(true)
+        
     }
   };
+
+  if (quizComplete) {
+    tallyScore(emotionPoints, q1Points, q2Points, q3Points, q4Points)
+  }
+
+  function tallyScore(slider, q1p, q2p, q3p, q4p) {
+    let totalPoints = slider + q1p + q2p + q3p + q4p 
+    console.log('user total points is: ', totalPoints)
+    // setFinalScore(slider + q1p + q2p + q3p + q4p)
+  }
   
   const useStyles = makeStyles((theme) => ({
     root: {
