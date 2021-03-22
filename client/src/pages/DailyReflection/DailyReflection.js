@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import './DailyReflection.css';
 // Material UI imports
 import { Grid, Paper, makeStyles } from '@material-ui/core';
+//Import api routes to db
+import API from '../../utils/API'
 
 // Import question components
 import MoodSlider from '../../components/QComponents/MoodSlider';
@@ -118,6 +120,23 @@ function renderQ4Points() {
 };
 
 
+//Save complete response to the databases
+function storeResponses() {
+  console.log(emotion, emotionPoints)
+  console.log(q1, q1Points)
+  console.log(q2, q2Points)
+  console.log(q3, q3Points)
+  console.log(q4, q4Points)
+  API.saveJournal({ 
+    mood: emotion, moodPoints: emotionPoints,
+    q1: q1, q1Points: q1Points,
+    q2: q2, q2Points: q2Points,
+    q3: q3, q3Points: q3Points,
+    q4: q4, q4Points: q4Points,
+  })
+  console.log("ill save your answers now")
+}
+
 
 // Run switch case once emotion has been set
 useEffect(() => {
@@ -230,7 +249,7 @@ useEffect(() => {
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
                 q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
                 q4Visible === true ? <Q4 handleSubmit={handleSubmit}/> : 
-                quizComplete === true ? <p>completed quiz</p> : null}
+                quizComplete === true ? <button onClick={storeResponses}>end quiz</button> : null}
 
               </Paper>
             </Grid>
