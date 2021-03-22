@@ -26,7 +26,7 @@ const DailyReflection = () => {
   const [quizComplete, setQuizComplete] = useState(false)
 
   // Getting User
-  const userId = localStorage.getItem("user");
+  const userId = localStorage.getItem("userId");
   console.log(userId);
 
   // State that stores value from answer

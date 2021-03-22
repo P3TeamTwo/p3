@@ -61,7 +61,6 @@ const RegisterForm = () => {
         })
 
             .then((response) => {
-                // localStorage.setItem(response);
 
                 for (const [key, value] of Object.entries(response.data)) {
                     if(value === 0){
