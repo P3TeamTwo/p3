@@ -64,13 +64,9 @@ const RegisterForm = () => {
                 // localStorage.setItem(response);
 
                 for (const [key, value] of Object.entries(response.data)) {
-                    // console.log(key)
                     if(value === 0){
                         localStorage.setItem("user", response.data._id);
                         history.push("/welcome");
-                    // }
-                    // else{
-                        // console.log(value);
                     }
                     setError(value)
                 }

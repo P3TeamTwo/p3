@@ -39,8 +39,6 @@ const LoginForm = () => {
 
     const signIn = (e) => {
         e.preventDefault()
-        console.log(email)
-        console.log(password)
         axios({
             method: 'post',
             url: 'api/user/login',
@@ -61,13 +59,11 @@ const LoginForm = () => {
                     case "Not a valid email address":
                         alert('Not a valid email address')
                         break;
-                    default: console.log('fail')
                 }
-                console.log(response)
                 if (response.data.success) {
+                    localStorage.setItem("user", response.data.user);
                     history.push("/welcome");
                 }
-
             })
 
 
