@@ -123,6 +123,7 @@ function renderQ4Points() {
 //Save complete response to the databases
 function storeResponses() {
   console.log(emotion, emotionPoints)
+  // console.log(typeof emotion)
   console.log(q1, q1Points)
   console.log(q2, q2Points)
   console.log(q3, q3Points)

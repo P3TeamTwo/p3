@@ -10,25 +10,19 @@ mongoose.connect(
 
 const journalSeed = [
     {
-        title: "Tuesday 16th March",
-        body: "Today was a really good day",
-        array: [{
-            would: "we",
-            store: "answers",
-            as: "key",
-            value: "pairs?"
-        }]
-    },
-    {
-        title: "Tuesday 15th March",
-        body: "Today was also an amazing day",
-        array: [{
-            would: "we",
-            store: "answers",
-            as: "key",
-            value: "pairs?"
-        }]
+        // title: Date.now(),
+        emotion: 2,
+        emotionPoints: 30,
+        q1: false,
+        q1Points: 30,
+        q2: false,
+        q2Points: 30,
+        q3: true,
+        q3Points: 30,
+        q4: false,
+        q4Points: 50
     }
+
 ];
 
 db.JournalEntry
