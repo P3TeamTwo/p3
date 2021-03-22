@@ -30,14 +30,14 @@ require("./config/passport")(passport);
 
 
 // How to connect locally "mongodb://localhost/YOUR DATA BASE NAME"
-// mongoose.connect(
-//   process.env.MONGDB_URI || 'mongodb://localhost/journal', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useCreateIndex: true,
-//   useFindAndModify: false
-// }
-// );
+mongoose.connect(
+  process.env.MONGDB_URI || 'mongodb://localhost/journal', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+}
+);
 
 
 
