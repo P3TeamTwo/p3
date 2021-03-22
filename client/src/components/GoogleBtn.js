@@ -17,8 +17,9 @@ const LoginBtn = () => {
 
 
     const responseGoogle = (response) => {
-        console.log(response);
-        localStorage.setItem('user', response.data)
+        // Saving userId for data match
+        localStorage.setItem('userId', response.Rs.RR)
+
         history.push("/welcome");
     }
     const failresponseGoogle = (response) => {
