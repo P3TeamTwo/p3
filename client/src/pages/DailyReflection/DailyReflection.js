@@ -119,22 +119,18 @@ function renderQ4Points() {
   }
 };
 
-function getUser() {
-
-}
 
 
 //Save complete response to the databases
-function storeResponses(req) {
+function storeResponses() {
   console.log(emotion, emotionPoints)
   // console.log(typeof emotion)
   console.log(q1, q1Points)
   console.log(q2, q2Points)
   console.log(q3, q3Points)
   console.log(q4, q4Points)
-  console.log(req)
   API.saveJournal({ 
-    user: req.user_id,
+    postedBy: "",
     mood: emotion, moodPoints: emotionPoints,
     q1: q1, q1Points: q1Points,
     q2: q2, q2Points: q2Points,

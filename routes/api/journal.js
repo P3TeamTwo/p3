@@ -13,4 +13,6 @@ router
   // .put(journalController.update)
   // .delete(journalController.remove);
 
+
+
 module.exports = router;

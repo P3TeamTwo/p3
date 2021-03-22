@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const journalEntrySchema = new Schema({
-  // user_id: {type: Schema.ObjectId, ref: "users", 
-  //   required: true
-  // },
+  postedBy: {type: Schema.Types.ObjectId, ref: "users", 
+    required: true
+  },
   created_at: { type: Date, 
     required: true, 
     default: Date.now 
