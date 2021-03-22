@@ -61,7 +61,7 @@ const LoginForm = () => {
                         break;
                 }
                 if (response.data.success) {
-                    localStorage.setItem("user", response.data.user);
+                    localStorage.setItem("userId", response.data.user);
                     history.push("/welcome");
                 }
             })
