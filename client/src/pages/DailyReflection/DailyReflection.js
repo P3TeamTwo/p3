@@ -1,24 +1,19 @@
-//  comment again
-
 import React, { useState, useEffect } from 'react';
 import './DailyReflection.css';
 // Material UI imports
 import { Grid, Paper, makeStyles } from '@material-ui/core';
 //Import api routes to db
 import API from '../../utils/API'
-
 // Import question components
 import MoodSlider from '../../components/QComponents/MoodSlider';
 import Q1 from '../../components/QComponents/Q1';
 import Q2 from '../../components/QComponents/Q2';
 import Q3 from '../../components/QComponents/Q3';
 import Q4 from '../../components/QComponents/Q4';
-
+import Results from '../../components/Results';
 // Importing the api for db
 // import API from '../../utils/API';
-
 const DailyReflection = () => {
-
   // State that checks what component to render
   const [moodVisible, setMoodVisible] = useState(true)
   const [q1Visible, setQ1Visible] = useState(false)
@@ -26,11 +21,9 @@ const DailyReflection = () => {
   const [q3Visible, setQ3Visible] = useState(false)
   const [q4Visible, setQ4Visible] = useState(false)
   const [quizComplete, setQuizComplete] = useState(false)
-
   // Getting User
   const userId = localStorage.getItem("userId");
   console.log(userId);
-
   // State that stores value from answer
   const [emotion, setEmotion] = useState('2');
   const [q1, setQ1] = useState('')
@@ -43,11 +36,8 @@ const DailyReflection = () => {
   const [q2Points, setQ2Points] = useState(0)
   const [q3Points, setQ3Points] = useState(0)
   const [q4Points, setQ4Points] = useState(0)
-
-  
-  // calculateScore 
+  const [showResults, setShowResults] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
-
   // Set points for current mood
   function renderMoodPoints() {
     switch(emotion) {
@@ -65,7 +55,6 @@ const DailyReflection = () => {
         return setEmotion('2') + setEmotionPoints(30);
     }
 };
-
 // Set points for Q1
 function renderQ1Points() {
   setQ1(q1)
@@ -79,7 +68,6 @@ function renderQ1Points() {
       return setQ1Points(0);
   }
 };
-
 // Set points for Q2
 function renderQ2Points() {
   setQ2(q2)
@@ -93,7 +81,6 @@ function renderQ2Points() {
       return setQ2Points(0);
   }
 };
-
 // Set points for Q2
 function renderQ3Points() {
   setQ3(q3)
@@ -107,7 +94,6 @@ function renderQ3Points() {
       return setQ3Points(0);
   }
 };
-
 // Set points for Q2
 function renderQ4Points() {
   setQ4(q4)
@@ -121,114 +107,92 @@ function renderQ4Points() {
       return setQ4Points(0);
   }
 };
-
-
-
+let total= 0;
 //Save complete response to the databases
 function storeResponses() {
-  console.log(emotion, emotionPoints)
-  // console.log(typeof emotion)
-  console.log(q1, q1Points)
-  console.log(q2, q2Points)
-  console.log(q3, q3Points)
-  console.log(q4, q4Points)
+  total = emotionPoints + q1Points + q2Points + q3Points + q4Points
+  setQuizComplete(false)
+  setShowResults(true)
+  setFinalScore(total)
   API.saveJournal({ 
-    postedBy: "",
+    postedBy: userId,
     mood: emotion, moodPoints: emotionPoints,
     q1: q1, q1Points: q1Points,
     q2: q2, q2Points: q2Points,
     q3: q3, q3Points: q3Points,
     q4: q4, q4Points: q4Points,
+    finalScore: total
   })
   console.log("ill save your answers now")
+  console.log(total)
 }
 
 
 // Run switch case once emotion has been set
 useEffect(() => {
-        
   renderMoodPoints()
 }, [emotion]);
 
+
 // Run the switch case once q1 has been set
 useEffect(() => {
-        
   renderQ1Points()
 }, [q1]);
 
+
 // Run the switch case once q2 has been set
 useEffect(() => {
-        
   renderQ2Points()
 }, [q2]);
 
+
 // Run the switch case once q3 has been set
 useEffect(() => {
-        
   renderQ3Points()
 }, [q3]);
 
+
 // Run the switch case once q3 has been set
 useEffect(() => {
-        
   renderQ4Points()
 }, [q4]);
 
+
   // Function to handle what happens when the submit button is clicked
   function handleSubmit (e, getEmotion, getQ1, getQ2, getQ3, getQ4) {
-  
     // Do not submit until checks have completed
     e.preventDefault()
-
     if (moodVisible === true) {
-      
       setEmotion(getEmotion)
       // API.save(getEmotion) example of how to save into db potentially
-
       setMoodVisible(false);
       setQ1Visible(true)
-
     } else if (q1Visible === true) {
-      
       setQ1(getQ1)
-
       setQ1Visible(false)
       setQ2Visible(true)
-
     } else if (q2Visible === true) {
-
       setQ2(getQ2)
-
       setQ2Visible(false)
       setQ3Visible(true)
-
     } else if (q3Visible === true) {
-
       setQ3(getQ3)
-
       setQ3Visible(false)
       setQ4Visible(true)
-
     } else if (q4Visible === true) {
-
       setQ4(getQ4)
-
       setQ4Visible(false)
       setQuizComplete(true)
-        
     }
   };
-
   if (quizComplete) {
     tallyScore(emotionPoints, q1Points, q2Points, q3Points, q4Points)
   }
-
   function tallyScore(slider, q1p, q2p, q3p, q4p) {
     let totalPoints = slider + q1p + q2p + q3p + q4p 
     console.log('user total points is: ', totalPoints)
     // setFinalScore(slider + q1p + q2p + q3p + q4p)
   }
-  
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -239,24 +203,21 @@ useEffect(() => {
       color: theme.palette.text.secondary,
     },
   }));
-
   const classes = useStyles();
   return (
     <div>
-
       <Grid className='containerPadding' container alignItems='center' justify='center' style={{ minHeight: "100vh" }}>
         <Grid container className='gridContainer' spacing={3}>
           <Grid className='gridPadding'  item xs={12} sm={6}>
             <Paper className={classes.paper}>
-
                 {/* dynamically render components */}
                 {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
                 q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
                 q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
                 q4Visible === true ? <Q4 handleSubmit={handleSubmit}/> : 
-                quizComplete === true ? <button onClick={storeResponses}>end quiz</button> : null}
-
+                quizComplete === true ? <button onClick={storeResponses}>end quiz</button> :  
+                showResults === true ? <Results finalScore={finalScore} /> : null}
               </Paper>
             </Grid>
         </Grid>
@@ -264,5 +225,4 @@ useEffect(() => {
     </div>
   )
 };
-
 export default DailyReflection;

@@ -47,6 +47,10 @@ const journalEntrySchema = new Schema({
   q4Points: {
     type: Number,
     required: true
+  },
+  finalScore: {
+    type: Number,
+    required: true
   }
 
 
