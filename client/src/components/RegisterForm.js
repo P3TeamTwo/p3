@@ -16,7 +16,6 @@ const RegisterForm = () => {
     const [email, setEmail] = useState('Email Address');
     const [password, setPassword] = useState('Password');
     const [password2, setPassword2] = useState('Re-enter Password');
-    const [userData, setUser] = useState('');
     const [errorNotice, setError] = useState('');
 
     const history = useHistory();
