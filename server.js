@@ -6,7 +6,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const passport = require("passport");
 
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -32,16 +31,13 @@ require("./config/passport")(passport);
 // How to connect locally "mongodb://localhost/YOUR DATA BASE NAME"
 mongoose.connect(
   process.env.MONGDB_URI || 'mongodb://localhost/journal', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-}
-);
-
-
-
-// Start the API server
-app.listen(PORT, function () {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+  );
+  // Start the API server
+  app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
