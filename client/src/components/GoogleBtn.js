@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Paper, IconButton } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import { useHistory } from 'react-router-dom'
 // import ReactDOM from 'react-dom';
 import { GoogleLogin } from 'react-google-login'

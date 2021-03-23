@@ -2,8 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const journalEntrySchema = new Schema({
-  mood: {
-    type: String,
+  postedBy: {type: Schema.Types.ObjectId, ref: "users", 
+    required: true
+  },
+  created_at: { type: Date, 
+    required: true, 
+    default: Date.now 
+  },
+  mood: {type: String,
     required: true
   },
   moodPoints: {

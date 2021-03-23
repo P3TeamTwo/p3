@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'
+
 import axios from 'axios';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from 'react-router-dom'
 
 
 
@@ -15,7 +13,8 @@ const LoginForm = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [userData, setUser] = useState('');
+    const [errorNotice, setError] = useState('');
+
 
     const history = useHistory();
 
@@ -48,16 +47,15 @@ const LoginForm = () => {
             }
         })
             .then((response) => {
-
                 switch (response.data) {
                     case "Incorrect Password":
-                        alert('Incorrect Password')
+                        setError('Incorrect Password')
                         break;
                     case "Email address not found":
-                        alert('Email address not found')
+                        setError("Email address not found")
                         break;
                     case "Not a valid email address":
-                        alert('Not a valid email address')
+                        setError("Not a valid email address")
                         break;
                 }
                 if (response.data.success) {
@@ -97,6 +95,7 @@ const LoginForm = () => {
                 autoComplete="current-password"
                 onChange={handlePasswordChange}
             />
+            <p style={{ marginBottom: 0 }}>{errorNotice}</p>
             <Button
                 type="submit"
                 fullWidth

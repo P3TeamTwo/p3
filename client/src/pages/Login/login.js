@@ -1,12 +1,8 @@
 import React from 'react'
 import './login.css'
-import { SiLivejournal } from 'react-icons/si'
-import { FcGoogle } from 'react-icons/fc'
 // import { Link } from 'react-router-dom'
-import LogoutBtn from '../../components/LogoutBtn'
-import GoogleBtn from '../../components/GoogleBtn'
 import { styled } from '@material-ui/core/styles';
-import { Button, Paper, IconButton } from '@material-ui/core';
+import { Paper} from '@material-ui/core';
 import UserForm from '../../components/UserForm'
 
 const login = () => {

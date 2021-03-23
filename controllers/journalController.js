@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// Defining methods for the booksController
+// Defining methods for the journalController
 module.exports = {
   findAll: function(req, res) {
     db.JournalEntry
@@ -9,17 +9,17 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
-    db.JournalEntry
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+  // findById: function(req, res) {
+  //   db.JournalEntry
+  //     .findById(req.params.id)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
   create: function(req, res) {
     db.JournalEntry
       .create(req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => console.log(err));
   },
   update: function(req, res) {
     db.JournalEntry

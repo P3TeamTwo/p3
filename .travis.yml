@@ -11,7 +11,7 @@ deploy:
     secure: I2xJauCLhaaKNt8AtxdqsfoYu5vQbYAwWWhw0ummo2Wh+1rtEyQxubjgPb1Aoxi8rddFIzEmW44lFK96NeZLNcRzH8DkbP8w0rVz+Ysdz06wbjS8OeE+Ie+UonDtFmc6F7WPxoswP39Yq6r82PGpl/I2hFbEtGMiTuINfZAqQgkU0z7Xa3nmlrSktY64zDgmvahGzrJeRPUnZRyTZida4ftsgT7AbT62Nx1ZyNgYxEdvRDzBS6ZIQQeBHHpHEbdwfyCmNSpmdBTCB6JQYSy56O7/IF+EEi7EoqkeE6dpNKEzmKu+8KOx4QDXof1tXpNgNIvy+iTc6DKsFn5tyfBTN3wKyhhZlsrhaBEza2/k5AwfAoifPhR8xDZ12yuyCljb/mtbdTVpn+pAr2/0Nu905Q1IOdbgDT+9+hSzqG9+mzG353HgFvQniNCwEpWsartI8fj9Wl5t3cJPpYMKp7mkcvO0/kO3LCgofEI3IRcaaIIjMFhPOn2yW+s9SZ5OV7QuUvgZeGiCYoJGkiS/ZNaudBJiN949VZxobA1hoWAnEapBqSwLAW3g1TSCABKxu+9ztZa1NW2/BYkPPECGpxLvQAMlflzAyPxoiKe5CKDm0GB/8UfS7vidvNWJM0eR4AtzKw8ZpAtAx9kv/TwsBrBDgj2jv6x9GDtLmcupn0fJqkk=
   app: guarded-dusk-24354
   on:
-    branch: test2
+    branch: main
     repo: P3TeamTwo/p3
   skip_cleanup: 'true'
 script:
