@@ -33,15 +33,13 @@ console.log('!!!!!!!!!!!!!!!!!!!!!!!')
 
 // How to connect locally "mongodb://localhost/YOUR DATA BASE NAME"
 mongoose.connect(
-  process.env.MONGDB_URI || 'mongodb://localhost/journal', {
+  process.env.MONGODB_URI || 'mongodb://localhost/journal', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false
 }
 );
-
-
 
 // Start the API server
 app.listen(PORT, function () {
