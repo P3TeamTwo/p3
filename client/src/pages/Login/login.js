@@ -2,8 +2,18 @@ import React from 'react'
 import './login.css'
 // import { Link } from 'react-router-dom'
 import { styled } from '@material-ui/core/styles';
-import { Paper} from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import UserForm from '../../components/UserForm'
+
+
+import { Parallax } from 'react-parallax';
+
+const Container = () => (
+    <Parallax blur={10} bgImage="path/to/image.jpg" bgImageAlt="the cat" strength={200}>
+        Content goes here. Parallax height grows with content height.
+    </Parallax>
+);
+
 
 const login = () => {
 
@@ -30,17 +40,17 @@ const login = () => {
             }}>
 
             <MyPaper>
-                <div style = {{height:  '20vh'}}>
-                <p
-                    className={'title'}
-                    style={{  fontSize: '150px', marginTop:'-4vh'}}>Journal
+                <div style={{ height: '20vh' }}>
+                    <p
+                        className={'title'}
+                        style={{ fontSize: '150px', marginTop: '-4vh' }}>Journal
                 </p>
-                <p  className={'title'}
-                style={{ fontSize: '30px', marginTop:'-8vh' }}>
-                    Find it, in you!
+                    <p className={'title'}
+                        style={{ fontSize: '30px', marginTop: '-8vh' }}>
+                        Find it, in you!
                 </p>
                 </div>
-                <UserForm/>
+                <UserForm />
             </MyPaper>
         </div>
     )
