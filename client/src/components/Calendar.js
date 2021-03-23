@@ -1,40 +1,63 @@
+import React from 'react';
 import Calendar from 'react-awesome-calendar';
+import styles from './themes/app.scss';
 
 const events = [{
     id: 1,
     color: '#fd3153',
-    from: '2019-05-02T18:00:00+00:00',
-    to: '2019-05-05T19:00:00+00:00',
-    title: 'This is an event'
+    from: '2020-11-02T18:00:00+00:00',
+    to: '2020-11-07T19:00:00+00:00',
+    title: 'Seeing family',
 }, {
     id: 2,
     color: '#1ccb9e',
-    from: '2019-05-01T13:00:00+00:00',
-    to: '2019-05-05T14:00:00+00:00',
-    title: 'This is another event'
+    from: '2020-11-01T13:00:00+00:00',
+    to: '2020-11-07T14:00:00+00:00',
+    title: 'Holiday',
 }, {
     id: 3,
-    color: '#3694DF',
-    from: '2019-05-05T13:00:00+00:00',
-    to: '2019-05-05T20:00:00+00:00',
-    title: 'This is also another event'
+    color: '#F480A8',
+    from: '2020-11-05T00:00:00+00:00',
+    to: '2020-11-06T00:01:00+00:00',
+    title: 'Jet skiing',
+}, {
+    id: 4,
+    color: '#fda256',
+    from: '2020-11-05T18:00:00+00:00',
+    to: '2020-11-05T19:30:00+00:00',
+    title: 'Dinner',
+}, {
+    id: 5,
+    color: '#8281fd',
+    from: '2020-11-15T12:00:00+00:00',
+    to: '2020-11-15T21:00:00+00:00',
+    title: 'Doctors',
 }];
 
-module.exports = {
-    "extends": "airbnb",
-    "plugins": ["prettier", "jest"],
-    "rules": {
-        "prettier/prettier": "error"
-    },
-};
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.calendar = React.createRef();
+    }
 
-class MyComponent extends React.Component {
+    componentDidMount() {
+        const details = this.calendar.current.getDetails();
+        // call get events endpoint
+    }
+
     render() {
         return (
-            <Calendar
-                events={events}
-
-            />
+            <div className={styles.pageCalendar}>
+                <Calendar
+                    ref={this.calendar}
+                    onClickEvent={(event) => Storage.setItem('user', response.data)}
+                    onChange={(dates) => Storage.setItem('user', response.data)}
+                    onClickTimeLine={(date) => Storage.setItem('user', response.data)}
+                    events={events}
+                />
+            </div>
         );
     }
 }
+
+export default Calendar;
