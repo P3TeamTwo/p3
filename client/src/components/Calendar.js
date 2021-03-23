@@ -1,40 +1,29 @@
 import React from 'react';
 import Calendar from 'react-awesome-calendar';
-import styles from './themes/app.scss';
+import styles from '../components/calendar.css';
 
 const events = [{
     id: 1,
-    color: '#fd3153',
-    from: '2020-11-02T18:00:00+00:00',
-    to: '2020-11-07T19:00:00+00:00',
-    title: 'Seeing family',
+    color: '#008000',
+    from: '2021-03-02T18:00:00+00:00',
+    to: '2021-03-07T19:00:00+00:00',
+    title: 'Happy',
 }, {
     id: 2,
-    color: '#1ccb9e',
-    from: '2020-11-01T13:00:00+00:00',
-    to: '2020-11-07T14:00:00+00:00',
-    title: 'Holiday',
+    color: '#0000FF',
+    from: '2021-03-08T13:00:00+00:00',
+    to: '2021-03-10T14:00:00+00:00',
+    title: 'Sad',
 }, {
     id: 3,
     color: '#F480A8',
+    from: '2021-03-T13:00:00+00:00',
     from: '2020-11-05T00:00:00+00:00',
     to: '2020-11-06T00:01:00+00:00',
-    title: 'Jet skiing',
-}, {
-    id: 4,
-    color: '#fda256',
-    from: '2020-11-05T18:00:00+00:00',
-    to: '2020-11-05T19:30:00+00:00',
-    title: 'Dinner',
-}, {
-    id: 5,
-    color: '#8281fd',
-    from: '2020-11-15T12:00:00+00:00',
-    to: '2020-11-15T21:00:00+00:00',
-    title: 'Doctors',
-}];
+    title: 'Okay',
+}]
 
-class App extends React.Component {
+class CalApp extends React.Component {
     constructor(props) {
         super(props);
         this.calendar = React.createRef();
@@ -50,9 +39,9 @@ class App extends React.Component {
             <div className={styles.pageCalendar}>
                 <Calendar
                     ref={this.calendar}
-                    onClickEvent={(event) => Storage.setItem('user', response.data)}
-                    onChange={(dates) => Storage.setItem('user', response.data)}
-                    onClickTimeLine={(date) => Storage.setItem('user', response.data)}
+                    onClickEvent={(event) => console.log('this is an event', event)}
+                    onChange={(dates) => localStorage.setItem('dates', dates)}
+                    onClickTimeLine={(date) => localStorage.setItem('date', date)}
                     events={events}
                 />
             </div>
@@ -60,4 +49,4 @@ class App extends React.Component {
     }
 }
 
-export default Calendar;
+export default CalApp;

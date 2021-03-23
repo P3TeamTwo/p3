@@ -4,7 +4,7 @@ import './welcome.css'
 import { useHistory } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles'
-import Calendar from 'react-awesome-calendar';
+import Calendar from '../../components/Calendar';
 
 const useStyle = makeStyles({
     root: {
