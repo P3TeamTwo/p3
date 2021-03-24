@@ -11,8 +11,7 @@ import Q2 from '../../components/QComponents/Q2';
 import Q3 from '../../components/QComponents/Q3';
 import Q4 from '../../components/QComponents/Q4';
 import Results from '../../components/Results';
-// Importing the api for db
-// import API from '../../utils/API';
+
 const DailyReflection = () => {
   // State that checks what component to render
   const [moodVisible, setMoodVisible] = useState(true)
