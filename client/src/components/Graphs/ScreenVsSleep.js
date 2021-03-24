@@ -29,7 +29,7 @@ class DblAxisLine extends Component {
 			theme: "light2",
 			animationEnabled: true,
 			title:{
-				text: "Hours of Sleep vs Minutes of Exercise"
+				text: "Screentime VS Time to fall asleep"
 			},
 			subtitles: [{
 				text: "Click Legend to Hide or Unhide Data Series"
@@ -38,14 +38,14 @@ class DblAxisLine extends Component {
 				title: "States"
 			},
 			axisY: {
-				title: "Minutes of exercise",
+				title: "Minutes of ",
 				titleFontColor: "#6D78AD",
 				lineColor: "#6D78AD",
 				labelFontColor: "#6D78AD",
 				tickColor: "#6D78AD"
 			},
 			axisY2: {
-				title: "Hours of sleep",
+				title: "How long to fall asleep",
 				titleFontColor: "#51CDA0",
 				lineColor: "#51CDA0",
 				labelFontColor: "#51CDA0",
@@ -60,7 +60,7 @@ class DblAxisLine extends Component {
 			},
 			data: [{
 				type: "spline",
-				name: "Minutes of exercise",
+				name: "Length of time on phone",
 				showInLegend: true,
 				xValueFormatString: "MMM YYYY",
 				yValueFormatString: "#,##0 minutes",
@@ -76,7 +76,7 @@ class DblAxisLine extends Component {
                   ]
 			},
 			{
-				name: "Hours of sleep",
+				name: "How long to fall asleep",
 				axisYType: "secondary",
 				showInLegend: true,
                 fillOpacity: .4,
