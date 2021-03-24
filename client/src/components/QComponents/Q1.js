@@ -1,34 +1,37 @@
 import React from 'react';
-import questions from '../../Questions.json';
 import { FormControl, RadioGroup, FormLabel, FormControlLabel, Radio } from '@material-ui/core';
+import Q1questions from '../Questions/Q1.json';
 
 function Q1(props) {
-    
-    const storeQuestions = questions[0].Q1
 
-    const randomQuestion = storeQuestions[Math.floor(storeQuestions.length * Math.random())];
+    const randomQuestion = Q1questions[Math.floor(Q1questions.length * Math.random())];
 
     return(
         <>
         <b>Question 1</b>
             <div className='container'>
             <FormControl component="fieldset">
-                <FormLabel component="legend">{randomQuestion}
+                <FormLabel component="legend">{randomQuestion.question}
                 </FormLabel>
-                <RadioGroup 
-                defaultValue='false' 
-                aria-label="question1" name="question1" 
-                value='question1'
-                onChange={(e)=> props.handleSubmit(e, null, e.target.value)}> 
-                
-                <FormControlLabel value="true" control={<Radio />} label="true" />
-                <FormControlLabel value="false" control={<Radio />} label="false" />
-                    
+                {randomQuestion.answers.map(answer => {
+                    return (
+                        <RadioGroup 
+                        key={answer.answerText}
+                        defaultValue='false' 
+                        aria-label="question1" name={answer.test} 
+                        value='question1'
+                        onChange={(e)=> props.handleSubmit(e, null, e.target.value, e.target.name)}> 
+                        <FormControlLabel
+                         
+                        value={answer.value} 
+                        control={<Radio />}
+                        label={answer.answerText}/>
                 </RadioGroup>
+                    )
+                })}
             </FormControl>
         </div>
         </>  
     )
 };
-
 export default Q1;

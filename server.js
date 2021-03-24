@@ -26,11 +26,6 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 
-
-console.log('!!!!!!!!!!!!!!!!!!!!!!!')
-console.log(process.env.MONGODB_URI)
-console.log('!!!!!!!!!!!!!!!!!!!!!!!')
-
 // How to connect locally "mongodb://localhost/YOUR DATA BASE NAME"
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/journal', {
