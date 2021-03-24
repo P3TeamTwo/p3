@@ -24,14 +24,14 @@ function Graphs() {
 
     function loadEntries() {
         //Get all journal data for the user logged in 
-        API.getJournal(userId)
-        .then(res => console.log(res.data) 
-            // setEntries(res.data)
-        
+        API.getJournals()
+        .then(res => setEntries(res.data)
         )
         .catch(err => console.log(err))
         console.log(entries)
         console.log(userId)
+        // setEntries(entries.filter(posts => posts.postedBy == userId))
+        // console.log(entries)
     }
 
 
