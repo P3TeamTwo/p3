@@ -5,11 +5,13 @@
       "answers": [
           { 
             "answerText": "No",
-            "value": "false"  
+            "value": "false",
+            "test": "10"  
           },
           { 
             "answerText": "Yes",
-            "value": "true"  
+            "value": "true",
+            "test":"20"  
           }
       ] 
     },
@@ -20,22 +22,22 @@
             { 
               "answerText": "HORRIBLE",
               "value": "HORRIBLE",
-              "id": 10  
+              "test": "10"  
             },
             { 
               "answerText": "a little",
               "value": "a little",
-              "id": 20  
+              "test": "20"  
             },
             { 
               "answerText": "not so much",
               "value": "not so much",
-              "id": 30  
+              "test": "30"  
             },
             { 
               "answerText": "none at all",
               "value": "none at all",
-              "id": 40  
+              "test": "40"  
             }
         ] 
       }
