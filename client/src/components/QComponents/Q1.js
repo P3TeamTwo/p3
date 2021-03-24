@@ -1,6 +1,7 @@
 import React from 'react';
-import questions from '../../Questions.json';
+// import questions from '../../Questions.json';
 import { FormControl, RadioGroup, FormLabel, FormControlLabel, Radio } from '@material-ui/core';
+import Q1 from '../../Q1.json'
 
 function Q1(props) {
     
