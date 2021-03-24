@@ -25,8 +25,7 @@ function Q4(props) {
                          
                         value={answer.value} 
                         control={<Radio />}
-                        label={answer.answerText}
-                        data-tag={answer.test} />
+                        label={answer.answerText}/>
                 </RadioGroup>
                     )
                 })}
