@@ -1,18 +1,38 @@
 [
     {
-        "id": 1,
-        "category": "test1",
-        "Q1": {
-            "question1": {
-                "q": "Are you happy today?",
-                "answers": ["yes", "no"]
+      "id": 1,
+      "question": "Are you happy today?",
+      "answers": [
+          { 
+            "answerText": "No",
+            "value": "false"  
+          },
+          { 
+            "answerText": "Yes",
+            "value": "true"  
+          }
+      ] 
+    },
+    {
+        "id": 2,
+        "question": "How sad are you today",
+        "answers": [
+            { 
+              "answerText": "HORRIBLE",
+              "value": "0"  
+            },
+            { 
+              "answerText": "a little",
+              "value": "10"  
+            },
+            { 
+              "answerText": "not so much",
+              "value": "30"  
+            },
+            { 
+              "answerText": "none at all",
+              "value": "40"  
             }
-        },
-        "Q2": {
-            "question1": {
-                "q": "Are you sad today?",
-                "answers": ["yes", "no", "blah"]
-            }
-        }
-    }
+        ] 
+      }
 ]

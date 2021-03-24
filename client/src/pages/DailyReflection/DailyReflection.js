@@ -64,6 +64,8 @@ function renderQ1Points() {
       return setQ1Points(100);
       case 'false': 
       return setQ1Points(50);
+      case '0':
+      return setQ1Points()  
       default:
       return setQ1Points(0);
   }
