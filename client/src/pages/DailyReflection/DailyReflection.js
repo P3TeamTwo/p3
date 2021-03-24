@@ -23,7 +23,7 @@ const DailyReflection = () => {
   const [quizComplete, setQuizComplete] = useState(false)
   // Getting User
   const userId = localStorage.getItem("userId");
-  console.log(userId);
+  // console.log(userId);
   // State that stores value from answer
   const [emotion, setEmotion] = useState('2');
   const [q1, setQ1] = useState('')
@@ -56,18 +56,18 @@ const DailyReflection = () => {
     }
 };
 // Set points for Q1
-function renderQ1Points() {
-  setQ1(q1)
-  console.log('q1',q1)
-  switch(q1) {
-      case 'true':
-      return setQ1Points(100);
-      case 'false': 
-      return setQ1Points(50);
-      default:
-      return setQ1Points(0);
-  }
-};
+// function renderQ1Points() {
+//   setQ1(q1)
+//   console.log('q1',q1)
+//   switch(q1) {
+//       case 'true':
+//       return setQ1Points(100);
+//       case 'false': 
+//       return setQ1Points(50);
+//       default:
+//       return setQ1Points(0);
+//   }
+// };
 // Set points for Q2
 function renderQ2Points() {
   setQ2(q2)
@@ -135,9 +135,9 @@ useEffect(() => {
 
 
 // Run the switch case once q1 has been set
-useEffect(() => {
-  renderQ1Points()
-}, [q1]);
+// useEffect(() => {
+//   renderQ1Points()
+// }, [q1]);
 
 
 // Run the switch case once q2 has been set
@@ -159,12 +159,15 @@ useEffect(() => {
 
 
   // Function to handle what happens when the submit button is clicked
-  function handleSubmit (e, getEmotion, getQ1, getQ2, getQ3, getQ4) {
+  function handleSubmit (e, getEmotion, getQ1, getQ1Points, getQ2, getQ3, getQ4) {
     // Do not submit until checks have completed
     e.preventDefault()
     if (moodVisible === true) {
       setEmotion(getEmotion)
-      // API.save(getEmotion) example of how to save into db potentially
+      // setQ1Points(getQ1Points)
+      console.log(getQ1Points)
+
+
       setMoodVisible(false);
       setQ1Visible(true)
     } else if (q1Visible === true) {

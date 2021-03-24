@@ -19,7 +19,7 @@ function Q2(props) {
                 defaultValue='false' 
                 aria-label="question2" name="question2" 
                 value='question2'
-                onChange={(e)=> props.handleSubmit(e, null, null, e.target.value)}> 
+                onChange={(e)=> props.handleSubmit(e, null, null, null, e.target.value)}> 
                 
                 <FormControlLabel value="true" control={<Radio />} label="true" />
                 <FormControlLabel value="false" control={<Radio />} label="false" />
