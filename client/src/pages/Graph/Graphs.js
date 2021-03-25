@@ -24,8 +24,9 @@ function Graphs() {
 
     function loadEntries() {
         //Get all journal data for the user logged in 
-        API.getJournals()
-        .then(res => setEntries(res.data)
+        API.getJournal(userId)
+        .then(res => console.log(res.data) 
+        // setEntries(res.data)
         )
         .catch(err => console.log(err))
         console.log(entries)
