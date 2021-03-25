@@ -6,10 +6,10 @@ router.route("/")
   .get(journalController.findAll)
   .post(journalController.create);
 
-// Matches with "/api/books/:id"
+// Matches with "/api/journal/:id"
 router
   .route("/:id")
-  // .get(journalController.findById)
+  .get(journalController.findById)
   // .put(journalController.update)
   // .delete(journalController.remove);
 

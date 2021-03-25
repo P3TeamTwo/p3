@@ -1,34 +1,37 @@
 import React from 'react';
-import questions from '../../Questions.json';
 import { FormControl, RadioGroup, FormLabel, FormControlLabel, Radio } from '@material-ui/core';
+import Q4questions from '../Questions/Q4.json';
 
 function Q4(props) {
-    
-    const storeQuestions = questions[3].Q4
 
-    const randomQuestion = storeQuestions[Math.floor(storeQuestions.length * Math.random())];
+    const randomQuestion = Q4questions[Math.floor(Q4questions.length * Math.random())];
 
     return(
         <>
         <b>Question 4</b>
             <div className='container'>
             <FormControl component="fieldset">
-                <FormLabel component="legend">{randomQuestion}
+                <FormLabel component="legend">{randomQuestion.question}
                 </FormLabel>
-                <RadioGroup 
-                defaultValue='false' 
-                aria-label="question4" name="question4" 
-                value='question4'
-                onChange={(e)=> props.handleSubmit(e, null, null, null, null, e.target.value)}> 
-                
-                <FormControlLabel value="true" control={<Radio />} label="true" />
-                <FormControlLabel value="false" control={<Radio />} label="false" />
-                    
+                {randomQuestion.answers.map(answer => {
+                    return (
+                        <RadioGroup 
+                        key={answer.answerText}
+                        defaultValue='false' 
+                        aria-label="question4" name={answer.test} 
+                        value='question4'
+                        onChange={(e)=> props.handleSubmit(e, null, null, null, null, null, null, null, e.target.value, e.target.name)}> 
+                        <FormControlLabel
+                         
+                        value={answer.value} 
+                        control={<Radio />}
+                        label={answer.answerText}/>
                 </RadioGroup>
+                    )
+                })}
             </FormControl>
         </div>
         </>  
     )
 };
-
 export default Q4;

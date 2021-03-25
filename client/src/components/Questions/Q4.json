@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "question": "Are you happy today?",
+      "answers": [
+          { 
+            "answerText": "No",
+            "value": "false",
+            "test": "10"  
+          },
+          { 
+            "answerText": "Yes",
+            "value": "true",
+            "test":"20"  
+          }
+      ] 
+    },
+    {
+        "id": 2,
+        "question": "How sad are you today",
+        "answers": [
+            { 
+              "answerText": "HORRIBLE",
+              "value": "HORRIBLE",
+              "test": "10"  
+            },
+            { 
+              "answerText": "a little",
+              "value": "a little",
+              "test": "20"  
+            },
+            { 
+              "answerText": "not so much",
+              "value": "not so much",
+              "test": "30"  
+            },
+            { 
+              "answerText": "none at all",
+              "value": "none at all",
+              "test": "40"  
+            }
+        ] 
+      }
+]
