@@ -4,17 +4,17 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.JournalEntry
-      .find(req.query)
+      .find(req.params.id)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // findById: function(req, res) {
-  //   db.JournalEntry
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  findById: function(req, res) {
+    db.JournalEntry
+      .find({postedBy: req.params.id})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.JournalEntry
       .create(req.body)

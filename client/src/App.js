@@ -9,6 +9,7 @@ import NoMatch from './pages/NoMatch/NoMatch';
 // Testing purposes
 import DailyReflection from './pages/DailyReflection/DailyReflection';
 // import Welcome from './pages/Welcome';
+import Graphs from './pages/Graph/Graphs'
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <ProtectedRoute exact path="/Daily" component={DailyReflection} />
         <ProtectedRoute exact path='/welcome' component={Welcome} />
+        <ProtectedRoute exact path='/Graphs' component={Graphs} />
         <Route exact path='*' component={NoMatch} />
       </Switch>
     </Router>
