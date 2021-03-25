@@ -7,18 +7,25 @@ import API from '../../utils/API'
 // Import question components
 import MoodSlider from '../../components/QComponents/MoodSlider';
 import Q1_1 from '../../components/QComponents/Q1_1';
-import Q1 from '../../components/QComponents/Q1';
+import Q1_2 from '../../components/QComponents/Q1_2';
+import Q1_3 from '../../components/QComponents/Q1_3';
+import Q1_4 from '../../components/QComponents/Q1_4';
+
+
 import Q2 from '../../components/QComponents/Q2';
 import Q3 from '../../components/QComponents/Q3';
 import Q4 from '../../components/QComponents/Q4';
-import Results from '../../components/Results';
+// import Results from '../../components/Results';
 
 const DailyReflection = () => {
 
   // State that checks what component to render
   const [moodVisible, setMoodVisible] = useState(true)
   const [q1_1Visible, setQ1_1Visible] = useState(false)
-  const [q1Visible, setQ1Visible] = useState(false)
+  const [q1_2Visible, setQ1_2Visible] = useState(false)
+  const [q1_3Visible, setQ1_3Visible] = useState(false)
+  const [q1_4Visible, setQ1_4Visible] = useState(false)
+
   const [q2Visible, setQ2Visible] = useState(false)
   const [q3Visible, setQ3Visible] = useState(false)
   const [q4Visible, setQ4Visible] = useState(false)
@@ -30,7 +37,10 @@ const DailyReflection = () => {
   // State that stores value from answer
   const [emotion, setEmotion] = useState('2');
   const [q1_1, setQ1_1] = useState('')
-  const [q1, setQ1] = useState('')
+  const [q1_2, setQ1_2] = useState('')
+  const [q1_3, setQ1_3] = useState('')
+  const [q1_4, setQ1_4] = useState('')
+
   const [q2, setQ2] = useState('')
   const [q3, setQ3] = useState('')
   const [q4, setQ4] = useState('')
@@ -76,7 +86,11 @@ function storeResponses() {
   API.saveJournal({ 
     postedBy: userId,
     mood: emotion, moodPoints: emotionPoints,
-    q1: q1, 
+    q1_1: q1_1, 
+    q1_2: q1_2, 
+    q1_3: q1_3, 
+    q1_4: q1_4, 
+
     // q1Points: q1Points,
     q2: q2, 
     // q2Points: q2Points,
@@ -98,7 +112,7 @@ useEffect(() => {
 
 
   // Function to handle what happens when the submit button is clicked
-  function handleSubmit (e, getEmotion, getQ1_1, getQ1, getQ2, getQ2Points, getQ3, getQ3Points, getQ4, getQ4Points) {
+  function handleSubmit (e, getEmotion, getQ1_1, getQ1_2, getQ1_3, getQ1_4, getQ2, getQ3, getQ4) {
     // Do not submit until checks have completed
     e.preventDefault()
 
@@ -114,14 +128,28 @@ useEffect(() => {
       setQ1_1(getQ1_1)
 
       setQ1_1Visible(false)
-      setQ1Visible(true)
+      setQ1_2Visible(true)
 
-  } else if (q1Visible === true) {
+    } else if (q1_2Visible === true)  {
+
+      setQ1_2(getQ1_2)
+
+      setQ1_2Visible(false)
+      setQ1_3Visible(true)
+
+    } else if (q1_3Visible === true)  {
+      
+      setQ1_3(getQ1_3)
+
+      setQ1_3Visible(false)
+      setQ1_4Visible(true)
+
+    } else if (q1_4Visible === true) {
     
-      setQ1(getQ1)
+      setQ1_4(getQ1_4)
       // setQ1Points(parseInt(getQ1Points))
 
-      setQ1Visible(false)
+      setQ1_4Visible(false)
       setQ2Visible(true)
 
     } else if (q2Visible === true) {
@@ -181,8 +209,10 @@ useEffect(() => {
                 {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
 
                 q1_1Visible === true ? <Q1_1 handleSubmit={handleSubmit}/> :
+                q1_2Visible === true ? <Q1_2 handleSubmit={handleSubmit}/> :
+                q1_3Visible === true ? <Q1_3 handleSubmit={handleSubmit}/> :
+                q1_4Visible === true ? <Q1_4 handleSubmit={handleSubmit}/> : 
 
-                q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
                 q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
                 q4Visible === true ? <Q4 handleSubmit={handleSubmit}/> : 

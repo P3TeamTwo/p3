@@ -20,7 +20,7 @@ function Q1_1(props) {
                         defaultValue='false' 
                         aria-label="question1_1" name={answer.test} 
                         value='question1_1'
-                        onChange={(e)=> props.handleSubmit(e, null, e.target.value, e.target.name)}> 
+                        onChange={(e)=> props.handleSubmit(e, null, e.target.value)}> 
                         <FormControlLabel
                          
                         value={answer.value} 
