@@ -19,21 +19,22 @@ function Graphs() {
 
 
 
-useEffect(() => {
-    //Get all journal data for the user logged in 
-    API.getJournal(userId)
-    .then(res => setEntries(res.data)
-    )
-    .catch(err => console.log(err))
-    console.log(entries)
-    console.log(userId)
+    useEffect(() => {
+        //Get all journal data for the user logged in 
+        API.getJournal(userId)
+            .then(res => {
+                setEntries(res.data)
+                console.log(res)
+            }
+            )
+            .catch(err => console.log(err))
 
-}, [entries])
-
-
-
+    }, [])
 
 
+
+
+console.log(entries)
     return (
         <div>
             <LineGraph />
