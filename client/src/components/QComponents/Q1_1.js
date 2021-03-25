@@ -8,12 +8,12 @@ function Q1_1(props) {
 
     return(
         <>
-        {/* <b>Question 1_1</b>
+        <b>Question 1_1</b>
             <div className='container'>
             <FormControl component="fieldset">
-                <FormLabel component="legend">{Q1questions.question}
+                <FormLabel component="legend">{Q1questions[0].question}
                 </FormLabel>
-                {randomQuestion.answers.map(answer => {
+                {Q1questions[0].answers.map(answer => {
                     return (
                         <RadioGroup 
                         key={answer.answerText}
@@ -30,7 +30,7 @@ function Q1_1(props) {
                     )
                 })}
             </FormControl>
-        </div> */}
+        </div>
         </>  
     )
 };
