@@ -33,11 +33,7 @@ const DailyReflection = () => {
   const [q2, setQ2] = useState('')
   const [q3, setQ3] = useState('')
   const [q4, setQ4] = useState('')
-<<<<<<< HEAD
   const [longForm, setLongForm] = useState('')
-=======
-
->>>>>>> main
   // State that stores the points
   const [emotionPoints, setEmotionPoints] = useState(30)
   const [q1Points, setQ1Points] = useState(0)
