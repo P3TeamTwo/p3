@@ -6,20 +6,46 @@ import { Grid, Paper, makeStyles } from '@material-ui/core';
 import API from '../../utils/API'
 // Import question components
 import MoodSlider from '../../components/QComponents/MoodSlider';
-import Q1 from '../../components/QComponents/Q1';
-import Q2 from '../../components/QComponents/Q2';
-import Q3 from '../../components/QComponents/Q3';
-import Q4 from '../../components/QComponents/Q4';
-import Results from '../../components/Results';
+import Q1_1 from '../../components/QComponents/Q1_1';
+import Q1_2 from '../../components/QComponents/Q1_2';
+import Q1_3 from '../../components/QComponents/Q1_3';
+import Q1_4 from '../../components/QComponents/Q1_4';
+import Q2_1 from '../../components/QComponents/Q2_1';
+import Q2_2 from '../../components/QComponents/Q2_2';
+import Q2_3 from '../../components/QComponents/Q2_3';
+import Q2_4 from '../../components/QComponents/Q2_4';
+import Q3_1 from '../../components/QComponents/Q3_1';
+import Q3_2 from '../../components/QComponents/Q3_2';
+import Q3_3 from '../../components/QComponents/Q3_3';
+import Q3_4 from '../../components/QComponents/Q3_4';
+import Q4_1 from '../../components/QComponents/Q4_1';
+import Q4_2 from '../../components/QComponents/Q4_2';
+import Q4_3 from '../../components/QComponents/Q4_3';
+import Q4_4 from '../../components/QComponents/Q4_4';
+
+// import Results from '../../components/Results';
 
 const DailyReflection = () => {
 
   // State that checks what component to render
   const [moodVisible, setMoodVisible] = useState(true)
-  const [q1Visible, setQ1Visible] = useState(false)
-  const [q2Visible, setQ2Visible] = useState(false)
-  const [q3Visible, setQ3Visible] = useState(false)
-  const [q4Visible, setQ4Visible] = useState(false)
+  const [q1_1Visible, setQ1_1Visible] = useState(false)
+  const [q1_2Visible, setQ1_2Visible] = useState(false)
+  const [q1_3Visible, setQ1_3Visible] = useState(false)
+  const [q1_4Visible, setQ1_4Visible] = useState(false)
+  const [q2_1Visible, setQ2_1Visible] = useState(false)
+  const [q2_2Visible, setQ2_2Visible] = useState(false)
+  const [q2_3Visible, setQ2_3Visible] = useState(false)
+  const [q2_4Visible, setQ2_4Visible] = useState(false)
+  const [q3_1Visible, setQ3_1Visible] = useState(false)
+  const [q3_2Visible, setQ3_2Visible] = useState(false)
+  const [q3_3Visible, setQ3_3Visible] = useState(false)
+  const [q3_4Visible, setQ3_4Visible] = useState(false)
+  const [q4_1Visible, setQ4_1Visible] = useState(false)
+  const [q4_2Visible, setQ4_2Visible] = useState(false)
+  const [q4_3Visible, setQ4_3Visible] = useState(false)
+  const [q4_4Visible, setQ4_4Visible] = useState(false)
+
   const [quizComplete, setQuizComplete] = useState(false)
 
   // Getting User
@@ -27,19 +53,26 @@ const DailyReflection = () => {
 
   // State that stores value from answer
   const [emotion, setEmotion] = useState('2');
-  const [q1, setQ1] = useState('')
-  const [q2, setQ2] = useState('')
-  const [q3, setQ3] = useState('')
-  const [q4, setQ4] = useState('')
+  const [q1_1, setQ1_1] = useState('')
+  const [q1_2, setQ1_2] = useState('')
+  const [q1_3, setQ1_3] = useState('')
+  const [q1_4, setQ1_4] = useState('')
+  const [q2_1, setQ2_1] = useState('')
+  const [q2_2, setQ2_2] = useState('')
+  const [q2_3, setQ2_3] = useState('')
+  const [q2_4, setQ2_4] = useState('')
+  const [q3_1, setQ3_1] = useState('')
+  const [q3_2, setQ3_2] = useState('')
+  const [q3_3, setQ3_3] = useState('')
+  const [q3_4, setQ3_4] = useState('')
+  const [q4_1, setQ4_1] = useState('')
+  const [q4_2, setQ4_2] = useState('')
+  const [q4_3, setQ4_3] = useState('')
+  const [q4_4, setQ4_4] = useState('')
 
   // State that stores the points
   const [emotionPoints, setEmotionPoints] = useState(30)
-  const [q1Points, setQ1Points] = useState(0)
-  const [q2Points, setQ2Points] = useState(0)
-  const [q3Points, setQ3Points] = useState(0)
-  const [q4Points, setQ4Points] = useState(0)
-  const [showResults, setShowResults] = useState(false);
-  const [finalScore, setFinalScore] = useState(0);
+
  
   // Set points for current mood
   function renderMoodPoints() {
@@ -59,28 +92,34 @@ const DailyReflection = () => {
     }
 };
 
-// Setting the score total to start at 0
-let total= 0;
 
 //Save complete response to the databases
 function storeResponses() {
-  total = emotionPoints + q1Points + q2Points + q3Points + q4Points
-
-  setQuizComplete(false)
-  setShowResults(true)
-  setFinalScore(total)
   
   API.saveJournal({ 
     postedBy: userId,
     mood: emotion, moodPoints: emotionPoints,
-    q1: q1, q1Points: q1Points,
-    q2: q2, q2Points: q2Points,
-    q3: q3, q3Points: q3Points,
-    q4: q4, q4Points: q4Points,
-    finalScore: total
+    q1_1: q1_1, 
+    q1_2: q1_2, 
+    q1_3: q1_3, 
+    q1_4: q1_4, 
+
+    q2_1: q2_1, 
+    q2_2: q2_2, 
+    q2_3: q2_3, 
+    q2_4: q2_4, 
+
+    q3_1: q3_1, 
+    q3_2: q3_2, 
+    q3_3: q3_3, 
+    q3_4: q3_4, 
+
+    q4_1: q4_1, 
+    q4_2: q4_2, 
+    q4_3: q4_3, 
+    q4_4: q4_4, 
+
   })
-  // console.log("ill save your answers now")
-  // console.log(total)
 }
 
 
@@ -91,7 +130,7 @@ useEffect(() => {
 
 
   // Function to handle what happens when the submit button is clicked
-  function handleSubmit (e, getEmotion, getQ1, getQ1Points, getQ2, getQ2Points, getQ3, getQ3Points, getQ4, getQ4Points) {
+  function handleSubmit (e, getEmotion, getQ1_1, getQ1_2, getQ1_3, getQ1_4, getQ2_1, getQ2_2, getQ2_3, getQ2_4, getQ3_1, getQ3_2, getQ3_3, getQ3_4, getQ4_1, getQ4_2, getQ4_3, getQ4_4) {
     // Do not submit until checks have completed
     e.preventDefault()
 
@@ -100,51 +139,121 @@ useEffect(() => {
       setEmotion(getEmotion)
 
       setMoodVisible(false);
-      setQ1Visible(true)
+      setQ1_1Visible(true)
+      
+    } else if (q1_1Visible === true)  {
+      
+      setQ1_1(getQ1_1)
 
-    } else if (q1Visible === true) {
+      setQ1_1Visible(false)
+      setQ1_2Visible(true)
 
-      setQ1(getQ1)
-      setQ1Points(parseInt(getQ1Points))
+    } else if (q1_2Visible === true)  {
 
-      setQ1Visible(false)
-      setQ2Visible(true)
+      setQ1_2(getQ1_2)
 
-    } else if (q2Visible === true) {
+      setQ1_2Visible(false)
+      setQ1_3Visible(true)
 
-      setQ2(getQ2)
-      setQ2Points(parseInt(getQ2Points))
+    } else if (q1_3Visible === true)  {
+      
+      setQ1_3(getQ1_3)
 
-      setQ2Visible(false)
-      setQ3Visible(true)
+      setQ1_3Visible(false)
+      setQ1_4Visible(true)
 
-    } else if (q3Visible === true) {
+    } else if (q1_4Visible === true) {
+    
+      setQ1_4(getQ1_4)
 
-      setQ3(getQ3)
-      setQ3Points(parseInt(getQ3Points))
+      setQ1_4Visible(false)
+      setQ2_1Visible(true)
 
-      setQ3Visible(false)
-      setQ4Visible(true)
+    } else if (q2_1Visible === true)  {
+      
+      setQ2_1(getQ2_1)
 
-    } else if (q4Visible === true) {
+      setQ2_1Visible(false)
+      setQ2_2Visible(true)
 
-      setQ4(getQ4)
-      setQ4Points(parseInt(getQ4Points))
+    } else if (q2_2Visible === true)  {
 
-      setQ4Visible(false)
+      setQ2_2(getQ2_2)
+
+      setQ2_2Visible(false)
+      setQ2_3Visible(true)
+
+    } else if (q2_3Visible === true)  {
+      
+      setQ2_3(getQ2_3)
+
+      setQ2_3Visible(false)
+      setQ2_4Visible(true)
+
+    } else if (q2_4Visible === true) {
+    
+      setQ2_4(getQ2_4)
+
+      setQ2_4Visible(false)
+      setQ3_1Visible(true)
+
+    } else if (q3_1Visible === true)  {
+      
+      setQ3_1(getQ3_1)
+
+      setQ3_1Visible(false)
+      setQ3_2Visible(true)
+
+    } else if (q3_2Visible === true)  {
+
+      setQ3_2(getQ3_2)
+
+      setQ3_2Visible(false)
+      setQ3_3Visible(true)
+
+    } else if (q3_3Visible === true)  {
+      
+      setQ3_3(getQ3_3)
+
+      setQ3_3Visible(false)
+      setQ3_4Visible(true)
+
+    } else if (q3_4Visible === true) {
+    
+      setQ3_4(getQ3_4)
+
+      setQ3_4Visible(false)
+      setQ4_1Visible(true)
+
+    } else if (q4_1Visible === true)  {
+      
+      setQ4_1(getQ4_1)
+
+      setQ4_1Visible(false)
+      setQ4_2Visible(true)
+
+    } else if (q4_2Visible === true)  {
+
+      setQ4_2(getQ4_2)
+
+      setQ4_2Visible(false)
+      setQ4_3Visible(true)
+
+    } else if (q4_3Visible === true)  {
+      
+      setQ4_3(getQ4_3)
+
+      setQ4_3Visible(false)
+      setQ4_4Visible(true)
+
+    } else if (q4_4Visible === true) {
+    
+      setQ4_4(getQ4_4)
+
+      setQ4_4Visible(false)
       setQuizComplete(true)
-
     }
   };
-
-  if (quizComplete) {
-    tallyScore(emotionPoints, q1Points, q2Points, q3Points, q4Points)
-  }
-
-  function tallyScore(slider, q1p, q2p, q3p, q4p) {
-    let totalPoints = slider + q1p + q2p + q3p + q4p 
-    console.log('user total points is: ', totalPoints)
-  }
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -165,12 +274,28 @@ useEffect(() => {
             <Paper className={classes.paper}>
                 {/* dynamically render components */}
                 {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
-                q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
-                q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
-                q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
-                q4Visible === true ? <Q4 handleSubmit={handleSubmit}/> : 
-                quizComplete === true ? <button onClick={storeResponses}>end quiz</button> :  
-                showResults === true ? <Results finalScore={finalScore} /> : null}
+
+                q1_1Visible === true ? <Q1_1 handleSubmit={handleSubmit}/> :
+                q1_2Visible === true ? <Q1_2 handleSubmit={handleSubmit}/> :
+                q1_3Visible === true ? <Q1_3 handleSubmit={handleSubmit}/> :
+                q1_4Visible === true ? <Q1_4 handleSubmit={handleSubmit}/> : 
+
+                q2_1Visible === true ? <Q2_1 handleSubmit={handleSubmit}/> :
+                q2_2Visible === true ? <Q2_2 handleSubmit={handleSubmit}/> :
+                q2_3Visible === true ? <Q2_3 handleSubmit={handleSubmit}/> :
+                q2_4Visible === true ? <Q2_4 handleSubmit={handleSubmit}/> : 
+
+                q3_1Visible === true ? <Q3_1 handleSubmit={handleSubmit}/> :
+                q3_2Visible === true ? <Q3_2 handleSubmit={handleSubmit}/> :
+                q3_3Visible === true ? <Q3_3 handleSubmit={handleSubmit}/> :
+                q3_4Visible === true ? <Q3_4 handleSubmit={handleSubmit}/> : 
+
+                q4_1Visible === true ? <Q4_1 handleSubmit={handleSubmit}/> :
+                q4_2Visible === true ? <Q4_2 handleSubmit={handleSubmit}/> :
+                q4_3Visible === true ? <Q4_3 handleSubmit={handleSubmit}/> :
+                q4_4Visible === true ? <Q4_4 handleSubmit={handleSubmit}/> : 
+
+                quizComplete === true ? <button onClick={storeResponses}>end quiz</button> : null}
               </Paper>
             </Grid>
         </Grid>
