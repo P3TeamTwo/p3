@@ -42,5 +42,15 @@
             "question4",
             "question5"
         ]
+    },
+    {
+        "id": 5,
+        "category": "Long Form",
+        "LongForm": [
+            "What has been the highlight of your day today?",
+            "What do you really appreciate about your life?",
+            "What are your biggest accomplishments?",
+            "Even though I’m stressed or upset, I can’t help but smile when …"
+        ]
     }
 ]

@@ -10,6 +10,7 @@ import Q1 from '../../components/QComponents/Q1';
 import Q2 from '../../components/QComponents/Q2';
 import Q3 from '../../components/QComponents/Q3';
 import Q4 from '../../components/QComponents/Q4';
+import LongForm from '../../components/QComponents/LongForm'
 import Results from '../../components/Results';
 // Importing the api for db
 // import API from '../../utils/API';
@@ -20,6 +21,7 @@ const DailyReflection = () => {
   const [q2Visible, setQ2Visible] = useState(false)
   const [q3Visible, setQ3Visible] = useState(false)
   const [q4Visible, setQ4Visible] = useState(false)
+  const [longFormVisible, setLongFormVisible] = useState(false)
   const [quizComplete, setQuizComplete] = useState(false)
   // Getting User
   const userId = localStorage.getItem("userId");
@@ -30,6 +32,7 @@ const DailyReflection = () => {
   const [q2, setQ2] = useState('')
   const [q3, setQ3] = useState('')
   const [q4, setQ4] = useState('')
+  const [longForm, setLongForm] = useState('')
   // State that stores the points
   const [emotionPoints, setEmotionPoints] = useState(30)
   const [q1Points, setQ1Points] = useState(0)
@@ -159,7 +162,7 @@ useEffect(() => {
 
 
   // Function to handle what happens when the submit button is clicked
-  function handleSubmit (e, getEmotion, getQ1, getQ2, getQ3, getQ4) {
+  function handleSubmit (e, getEmotion, getQ1, getQ2, getQ3, getQ4, getLongForm) {
     // Do not submit until checks have completed
     e.preventDefault()
     if (moodVisible === true) {
@@ -182,6 +185,10 @@ useEffect(() => {
     } else if (q4Visible === true) {
       setQ4(getQ4)
       setQ4Visible(false)
+      setLongFormVisible(true)
+    }else if (longForm === true) {
+      setLongForm(getLongForm)
+      setLongFormVisible(false)
       setQuizComplete(true)
     }
   };
@@ -216,6 +223,9 @@ useEffect(() => {
                 q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> : 
                 q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
                 q4Visible === true ? <Q4 handleSubmit={handleSubmit}/> : 
+                // Long Form  
+                longFormVisible === true ? <LongForm handleSubmit={handleSubmit}/> : 
+
                 quizComplete === true ? <button onClick={storeResponses}>end quiz</button> :  
                 showResults === true ? <Results finalScore={finalScore} /> : null}
               </Paper>
