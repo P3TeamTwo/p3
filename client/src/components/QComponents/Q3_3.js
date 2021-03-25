@@ -1,26 +1,26 @@
 import React from 'react';
 import { FormControl, RadioGroup, FormLabel, FormControlLabel, Radio } from '@material-ui/core';
-import Q1questions from '../Questions/Q1.json';
+import Q3questions from '../Questions/Q3.json';
 
-function Q1_3(props) {
+function Q3_3(props) {
 
-    console.log(Q1questions[2].question)
+    console.log(Q3questions[2].question)
 
     return(
         <>
-        <b>Question 1_3</b>
+        <b>Question 3_3</b>
             <div className='container'>
             <FormControl component="fieldset">
-                <FormLabel component="legend">{Q1questions[2].question}
+                <FormLabel component="legend">{Q3questions[2].question}
                 </FormLabel>
-                {Q1questions[2].answers.map(answer => {
+                {Q3questions[2].answers.map(answer => {
                     return (
                         <RadioGroup 
                         key={answer.answerText}
                         defaultValue='false' 
-                        aria-label="question1_3" name={answer.test} 
-                        value='question1_3'
-                        onChange={(e)=> props.handleSubmit(e, null, null, null, e.target.value)}> 
+                        aria-label="question3_3" name={answer.test} 
+                        value='question3_3'
+                        onChange={(e)=> props.handleSubmit(e, null, null, null, null, null, null, null, null, null, null, null, e.target.value)}> 
                         <FormControlLabel
                          
                         value={answer.value} 
@@ -34,4 +34,4 @@ function Q1_3(props) {
         </>  
     )
 };
-export default Q1_3;
+export default Q3_3;

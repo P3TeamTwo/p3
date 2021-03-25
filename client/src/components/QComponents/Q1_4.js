@@ -2,7 +2,7 @@ import React from 'react';
 import { FormControl, RadioGroup, FormLabel, FormControlLabel, Radio } from '@material-ui/core';
 import Q1questions from '../Questions/Q1.json';
 
-function Q1(props) {
+function Q1_4(props) {
 
     const questionSlice = Q1questions.slice(3)
 
@@ -10,7 +10,7 @@ function Q1(props) {
 
     return(
         <>
-        <b>Question 1</b>
+        <b>Question1_4</b>
             <div className='container'>
             <FormControl component="fieldset">
                 <FormLabel component="legend">{randomQuestion.questionRandom}
@@ -23,7 +23,7 @@ function Q1(props) {
                         defaultValue='false' 
                         aria-label="question1" name={answer.answerText} 
                         value='question1'
-                        onChange={(e)=> props.handleSubmit(e, null, null, e.target.value)}> 
+                        onChange={(e)=> props.handleSubmit(e, null, null, null, null, e.target.value)}> 
                         <FormControlLabel
                          
                         value={answer.value} 
@@ -37,4 +37,4 @@ function Q1(props) {
         </>  
     )
 };
-export default Q1;
+export default Q1_4;

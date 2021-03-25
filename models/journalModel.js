@@ -16,44 +16,70 @@ const journalEntrySchema = new Schema({
     type: Number,
     required: true
   },
-  q1: {
+  q1_1: {
     type: String,
     required: true
   },
-  q1Points: {
-    type: Number,
-    required: true
-  },
-  q2: { 
+  q1_2: {
     type: String,
     required: true
   },
-  q2Points: {
-    type: Number,
-    required: true
-  },
-  q3: { 
+  q1_3: {
     type: String,
     required: true
   },
-  q3Points: {
-    type: Number,
-    required: true
-  },
-  q4: { 
+  q1_4: {
     type: String,
     required: true
   },
-  q4Points: {
-    type: Number,
+  q2_1: {
+    type: String,
     required: true
   },
-  finalScore: {
-    type: Number,
+  q2_2: {
+    type: String,
+    required: true
+  },
+  q2_3: {
+    type: String,
+    required: true
+  },
+  q2_4: {
+    type: String,
+    required: true
+  },
+  q3_1: {
+    type: String,
+    required: true
+  },
+  q3_2: {
+    type: String,
+    required: true
+  },
+  q3_3: {
+    type: String,
+    required: true
+  },
+  q3_4: {
+    type: String,
+    required: true
+  },
+  q4_1: {
+    type: String,
+    required: true
+  },
+  q4_2: {
+    type: String,
+    required: true
+  },
+  q4_3: {
+    type: String,
+    required: true
+  },
+  q4_4: {
+    type: String,
     required: true
   }
-
-
 });
 const JournalEntry = mongoose.model("journalEntries", journalEntrySchema);
 module.exports = JournalEntry;
