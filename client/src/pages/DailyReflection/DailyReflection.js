@@ -42,63 +42,65 @@ const DailyReflection = () => {
   const [q4Points, setQ4Points] = useState(0)
   const [showResults, setShowResults] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
- 
+
   // Set points for current mood
   function renderMoodPoints() {
-    switch(emotion) {
-        case '0':
+    switch (emotion) {
+      case '0':
         return setEmotionPoints(10);
-        case '1': 
+      case '1':
         return setEmotionPoints(20);
-        case '2': 
+      case '2':
         return setEmotionPoints(30);
-        case '3':
+      case '3':
         return setEmotionPoints(40);
-        case '4':
+      case '4':
         return setEmotionPoints(50);
-        default:
+      default:
         return setEmotion('2') + setEmotionPoints(30);
     }
-};
+  };
 
-// Setting the score total to start at 0
-let total= 0;
+  // Setting the score total to start at 0
+  let total = 0;
 
-//Save complete response to the databases
-function storeResponses() {
-  total = emotionPoints + q1Points + q2Points + q3Points + q4Points
+  //Save complete response to the databases
+  function storeResponses() {
+    total = emotionPoints + q1Points + q2Points + q3Points + q4Points
+    console.log(longForm)
+    setQuizComplete(false)
+    setShowResults(true)
+    setFinalScore(total)
 
-  setQuizComplete(false)
-  setShowResults(true)
-  setFinalScore(total)
-  
-  API.saveJournal({ 
-    postedBy: userId,
-    mood: emotion, moodPoints: emotionPoints,
-    q1: q1, q1Points: q1Points,
-    q2: q2, q2Points: q2Points,
-    q3: q3, q3Points: q3Points,
-    q4: q4, q4Points: q4Points,
-    finalScore: total
-  })
-  // console.log("ill save your answers now")
-  // console.log(total)
-}
+    API.saveJournal({
+      postedBy: userId,
+      mood: emotion, moodPoints: emotionPoints,
+      q1: q1, q1Points: q1Points,
+      q2: q2, q2Points: q2Points,
+      q3: q3, q3Points: q3Points,
+      q4: q4, q4Points: q4Points,
+      finalScore: total,
+      longForm: longForm
+
+    })
+    // console.log("ill save your answers now")
+    // console.log(total)
+  }
 
 
-// Run switch case once emotion has been set
-useEffect(() => {
-  renderMoodPoints()
-}, [emotion]);
+  // Run switch case once emotion has been set
+  useEffect(() => {
+    renderMoodPoints()
+  }, [emotion]);
 
 
   // Function to handle what happens when the submit button is clicked
-  function handleSubmit (e, getEmotion, getQ1, getQ1Points, getQ2, getQ2Points, getQ3, getQ3Points, getQ4, getQ4Points, getLongForm) {
+  function handleSubmit(e, getEmotion, getQ1, getQ1Points, getQ2, getQ2Points, getQ3, getQ3Points, getQ4, getQ4Points, getLongForm) {
     // Do not submit until checks have completed
     e.preventDefault()
 
     if (moodVisible === true) {
-      
+
       setEmotion(getEmotion)
 
       setMoodVisible(false);
@@ -132,23 +134,25 @@ useEffect(() => {
 
       setQ4(getQ4)
       setQ4Points(parseInt(getQ4Points))
-
       setQ4Visible(false)
       setLongFormVisible(true)
-    }else if (longForm === true) {
-      setLongForm(getLongForm)
-      setLongFormVisible(false)
-      setQuizComplete(true)
-
-    }
+    };
   };
+
+  const longFormSubmit = (e, getLongForm) => {
+    e.preventDefault()
+    setLongForm(getLongForm)
+    console.log(getLongForm)
+    setLongFormVisible(false)
+    setQuizComplete(true)
+  }
 
   if (quizComplete) {
     tallyScore(emotionPoints, q1Points, q2Points, q3Points, q4Points)
   }
 
   function tallyScore(slider, q1p, q2p, q3p, q4p) {
-    let totalPoints = slider + q1p + q2p + q3p + q4p 
+    let totalPoints = slider + q1p + q2p + q3p + q4p
     console.log('user total points is: ', totalPoints)
   }
 
@@ -167,21 +171,19 @@ useEffect(() => {
     <div>
       <Grid className='containerPadding' container alignItems='center' justify='center' style={{ minHeight: "100vh" }}>
         <Grid container className='gridContainer' spacing={3}>
-          <Grid className='gridPadding'  item xs={12} sm={6}>
+          <Grid className='gridPadding' item xs={12} sm={6}>
             <Paper className={classes.paper}>
-                {/* dynamically render components */}
-                {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
-                q1Visible === true ? <Q1 handleSubmit={handleSubmit}/> : 
-                q2Visible === true ? <Q2 handleSubmit={handleSubmit}/> :                                                                                                         
-                q3Visible === true ? <Q3 handleSubmit={handleSubmit}/> :
-                q4Visible === true ? <Q4 handleSubmit={handleSubmit}/> : 
-                // Long Form  
-                longFormVisible === true ? <LongForm handleSubmit={handleSubmit}/> : 
-
-                quizComplete === true ? <button onClick={storeResponses}>end quiz</button> :  
-                showResults === true ? <Results finalScore={finalScore} /> : null}
-              </Paper>
-            </Grid>
+              {/* dynamically render components */}
+              {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit} /> :
+                q1Visible === true ? <Q1 handleSubmit={handleSubmit} /> :
+                  q2Visible === true ? <Q2 handleSubmit={handleSubmit} /> :
+                    q3Visible === true ? <Q3 handleSubmit={handleSubmit} /> :
+                      q4Visible === true ? <Q4 handleSubmit={handleSubmit} /> :
+                        longFormVisible === true ? <LongForm handleSubmit={longFormSubmit} /> :
+                          quizComplete === true ? <button onClick={storeResponses}>end quiz</button> :
+                            showResults === true ? <Results finalScore={finalScore} /> : null}
+            </Paper>
+          </Grid>
         </Grid>
       </Grid>
     </div>

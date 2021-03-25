@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import questions from '../../Questions.json';
 
@@ -6,12 +6,12 @@ import questions from '../../Questions.json';
 
 function LongForm(props) {
 
-const [userResponse, setUserResponse] = useState();
+    const [userResponse, setUserResponse] = useState();
 
-const handleChange = (e) => {
-    setUserResponse(e.target.value);
+    const handleChange = (e) => {
+        setUserResponse(e.target.value);
 
-}
+    }
 
     const storeQuestions = questions[4].LongForm
     const randomQuestion = storeQuestions[Math.floor(storeQuestions.length * Math.random())];
@@ -25,15 +25,16 @@ const handleChange = (e) => {
                 rows={4}
                 variant="outlined"
                 style={{ minWidth: "100%" }}
-                onChange = {(e) => {
+                onChange={(e) => {
                     handleChange(e)
                 }}
             />
-            <Button variant="contained" onClick={(e) => {
-                console.log(userResponse);
-                props.handleSubmit(e, userResponse)
-            }
-            } disableElevation>SUBMIT</Button>
+            <Button variant="contained"
+                onClick={(e) => {
+                    console.log(userResponse)
+                    props.handleSubmit(e, userResponse)
+                }
+                }>SUBMIT</Button>
 
         </form>
 

@@ -51,6 +51,10 @@ const journalEntrySchema = new Schema({
   finalScore: {
     type: Number,
     required: true
+  },
+  longForm:{
+    type: String,
+    required: true
   }
 
 
