@@ -17,27 +17,23 @@ function Graphs() {
     //Setting state to store the journl entries
     const [entries, setEntries] = useState();
 
-
-
     useEffect(() => {
         //Get all journal data for the user logged in 
         API.getJournal(userId)
             .then(res => {
                 setEntries(res.data)
-                console.log(res)
             }
             )
             .catch(err => console.log(err))
 
     }, [])
 
-
-
-
-console.log(entries)
+    console.log(entries && entries[0])
     return (
-        <div>
-            <LineGraph />
+        <div className="graphContainer">
+            {entries && <LineGraph 
+            dates={entries.map(entry => ({date: entry.created_at, point: entry.moodPoints}))}/>
+            }
             <DblAxisLine />
             <ScreenVsSleep />
             <DoughnutScreenTime />
