@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 import './welcome.css'
 import { useHistory } from 'react-router-dom'
+import Calendar from '../../components/Calendar'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -19,7 +20,7 @@ const useStyle = makeStyles({
         backgroundColor: '#ccffbd',
         color: 'black',
         fontSize: '30px',
-        marginRight: '3rem', 
+        marginRight: '3rem',
         "&:hover": {
             backgroundColor: '#7eca9c',
             color: 'white'
@@ -31,7 +32,7 @@ const useStyle = makeStyles({
         backgroundColor: '#bbf1fa',
         color: 'black',
         fontSize: '30px',
-        marginRight: '3rem', 
+        marginRight: '3rem',
         "&:hover": {
             backgroundColor: '#a4ebf3',
             color: 'white'
@@ -50,7 +51,7 @@ function ButtonLeft() {
 
     const history = useHistory();
 
-    const directToDaily = () =>{
+    const directToDaily = () => {
         let path = '/Daily'
         history.push(path)
     }
@@ -67,12 +68,12 @@ function ButtonRight() {
 const Welcome = () => {
     return (
         <div className="Container">
-            <WelcomeHeader/>
+            <WelcomeHeader />
             <div className="container-main">
-            <ButtonLeft />
-            <ButtonRight />
+                <ButtonLeft />
+                <ButtonRight />
             </div>
-            
+            <div> <Calendar /> </div>
         </div>
     )
 }
