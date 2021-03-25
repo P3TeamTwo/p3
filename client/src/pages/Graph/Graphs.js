@@ -15,31 +15,27 @@ function Graphs() {
     const userId = localStorage.getItem("userId");
 
     //Setting state to store the journl entries
-    const [entries, setEntries] = useState([]);
+    const [entries, setEntries] = useState();
 
-    //Load all journal entries and store them 
-    useEffect(() => {
-        loadEntries()
-    }, [])
 
-    function loadEntries() {
-        //Get all journal data for the user logged in 
-        API.getJournal(userId)
-        .then(res => console.log(res.data) 
-        // setEntries(res.data)
-        )
-        .catch(err => console.log(err))
-        console.log(entries)
-        console.log(userId)
-        // setEntries(entries.filter(posts => posts.postedBy == userId))
-        // console.log(entries)
-    }
+
+useEffect(() => {
+    //Get all journal data for the user logged in 
+    API.getJournal(userId)
+    .then(res => setEntries(res.data)
+    )
+    .catch(err => console.log(err))
+    console.log(entries)
+    console.log(userId)
+
+}, [entries])
+
+
 
 
 
     return (
         <div>
-            <button onClick={loadEntries}>load saved data</button>
             <LineGraph />
             <DblAxisLine />
             <ScreenVsSleep />
@@ -49,3 +45,4 @@ function Graphs() {
 }
 
 export default Graphs;
+
