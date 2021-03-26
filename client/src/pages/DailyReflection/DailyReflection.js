@@ -18,12 +18,8 @@ import Q3_3 from '../../components/QComponents/Q3_3';
 import Q4_1 from '../../components/QComponents/Q4_1';
 import Q4_2 from '../../components/QComponents/Q4_2';
 import Q4_3 from '../../components/QComponents/Q4_3';
-<<<<<<< HEAD
-import Q4_4 from '../../components/QComponents/Q4_4';
 import LongForm from '../../components/QComponents/LongForm'
 
-=======
->>>>>>> main
 
 // import Results from '../../components/Results';
 
@@ -90,57 +86,27 @@ const DailyReflection = () => {
     }
   };
 
-
-<<<<<<< HEAD
-  //Save complete response to the databases
-  function storeResponses() {
-
-    API.saveJournal({
-      postedBy: userId,
-      mood: emotion, moodPoints: emotionPoints,
-      q1_1: q1_1,
-      q1_2: q1_2,
-      q1_3: q1_3,
-      q1_4: q1_4,
-
-      q2_1: q2_1,
-      q2_2: q2_2,
-      q2_3: q2_3,
-      q2_4: q2_4,
-
-      q3_1: q3_1,
-      q3_2: q3_2,
-      q3_3: q3_3,
-      q3_4: q3_4,
-=======
-//Save complete response to the databases
 function storeResponses() {
 
-  API.saveJournal({
+API.saveJournal({ 
     postedBy: userId,
     mood: emotion, moodPoints: emotionPoints,
-    q1_1: q1_1,
-    q1_2: q1_2,
-    q1_3: q1_3,
+    q1_1: q1_1, 
+    q1_2: q1_2, 
+    q1_3: q1_3, 
 
-    q2_1: q2_1,
-    q2_2: q2_2,
-    q2_3: q2_3,
+    q2_1: q2_1, 
+    q2_2: q2_2, 
+    q2_3: q2_3, 
 
-    q3_1: q3_1,
-    q3_2: q3_2,
-    q3_3: q3_3,
+    q3_1: q3_1, 
+    q3_2: q3_2, 
+    q3_3: q3_3, 
 
-    q4_1: q4_1,
-    q4_2: q4_2,
-    q4_3: q4_3,
->>>>>>> main
-
-      q4_1: q4_1,
-      q4_2: q4_2,
-      q4_3: q4_3,
-      q4_4: q4_4,
-      longForm: longForm
+    q4_1: q4_1, 
+    q4_2: q4_2, 
+    q4_3: q4_3, 
+    longForm: longForm
     });
   }
 
