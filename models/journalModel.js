@@ -28,10 +28,6 @@ const journalEntrySchema = new Schema({
     type: String,
     required: true
   },
-  q1_4: {
-    type: String,
-    required: true
-  },
   q2_1: {
     type: String,
     required: true
@@ -41,10 +37,6 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q2_3: {
-    type: String,
-    required: true
-  },
-  q2_4: {
     type: String,
     required: true
   },
@@ -60,10 +52,6 @@ const journalEntrySchema = new Schema({
     type: String,
     required: true
   },
-  q3_4: {
-    type: String,
-    required: true
-  },
   q4_1: {
     type: String,
     required: true
@@ -76,10 +64,6 @@ const journalEntrySchema = new Schema({
     type: String,
     required: true
   },
-  q4_4: {
-    type: String,
-    required: true
-  }
 });
 const JournalEntry = mongoose.model("journalEntries", journalEntrySchema);
 module.exports = JournalEntry;

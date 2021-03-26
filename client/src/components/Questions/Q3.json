@@ -1,45 +1,25 @@
 [
   {
     "id": 1,
-    "question": "How long did you sleep last night?",
+    "question": "Were you active today?",
     "answers": [
       {
-        "answerText": "2",
-        "value": "2"
+        "answerText": "No",
+        "value": "false"
       },
       {
-        "answerText": "3",
-        "value": "3"
+        "answerText": "Yes",
+        "value": "true"
       },
       {
-        "answerText": "4",
-        "value": "4"
-      },
-      {
-        "answerText": "6",
-        "value": "6"
-      },
-      {
-        "answerText": "7",
-        "value": "7"
-      },
-      {
-        "answerText": "8",
-        "value": "8"
-      },
-      {
-        "answerText": "9",
-        "value": "9"
-      },
-      {
-        "answerText": "10",
-        "value": "10"
+        "answerText": "it's a rest day!",
+        "value": "false"
       }
     ]
   },
   {
     "id": 2,
-    "question": "Did you have screen time before bed?",
+    "question": "Did you raise your heartrate?",
     "answers": [
       {
         "answerText": "No",
@@ -53,35 +33,45 @@
   },
   {
     "id": 3,
-    "question": "What time of day did you have caffiene?",
+    "question": "How many minutes were you active for?",
     "answers": [
       {
-        "answerText": "<8",
-        "value": "10-12"
+        "answerText": "None",
+        "value": "0"
       },
       {
-        "answerText": "8-10",
-        "value": "a little"
+        "answerText": "30",
+        "value": "40"
       },
       {
-        "answerText": "10-12",
-        "value": "not so much"
+        "answerText": "60",
+        "value": "60"
       },
       {
-        "answerText": "12-2",
-        "value": "none at all"
+        "answerText": "lost track of time!",
+        "value": "100"
+      } 
+    ]
+  },
+  {
+    "id": 4,
+    "question": "What kind of workout did you do?",
+    "answers": [
+      {
+        "answerText": "cardio",
+        "value": "cardio"
       },
       {
-        "answerText": "2-4",
-        "value": "none at all"
+        "answerText": "weights",
+        "value": "weights"
       },
       {
-        "answerText": "4>",
-        "value": "none at all"
+        "answerText": "rest day",
+        "value": "rest day"
       },
       {
-        "answerText": "none at all",
-        "value": "none at all"
+        "answerText": "I don't workout",
+        "value": "weights"
       }
     ]
   }
