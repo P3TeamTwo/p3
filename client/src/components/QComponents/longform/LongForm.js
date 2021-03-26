@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
-import questions from '../Questions/LongForm.json';
+import questions from '../../Questions/LongForm.json';
 
+// import Voice from './Voice.js'
 
 const storeQuestions = []
 questions.map(question => {
@@ -20,6 +21,7 @@ function LongForm(props) {
     }
     
     return (
+        <>
         <form>
             <TextField
                 id="outlined-multiline-static"
@@ -40,7 +42,8 @@ function LongForm(props) {
                 }>SUBMIT</Button>
 
         </form>
-
+        {/* <Voice/> */}
+        </>
     )
 }
 

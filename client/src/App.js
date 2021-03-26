@@ -20,9 +20,9 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Login} />
-        <ProtectedRoute exact path="/Daily" component={DailyReflection} />
-        <ProtectedRoute exact path='/welcome' component={Welcome} />
-        <ProtectedRoute exact path='/Graphs' component={Graphs} />
+        <Route exact path="/Daily" component={DailyReflection} />
+        <Route exact path='/welcome' component={Welcome} />
+        <Route exact path='/Graphs' component={Graphs} />
         <Route exact path='*' component={NoMatch} />
       </Switch>
     </Router>
