@@ -18,6 +18,8 @@ import Q3_3 from '../../components/QComponents/Q3_3';
 import Q4_1 from '../../components/QComponents/Q4_1';
 import Q4_2 from '../../components/QComponents/Q4_2';
 import Q4_3 from '../../components/QComponents/Q4_3';
+import LongForm from '../../components/QComponents/LongForm'
+
 
 // import Results from '../../components/Results';
 
@@ -37,6 +39,8 @@ const DailyReflection = () => {
   const [q4_1Visible, setQ4_1Visible] = useState(false)
   const [q4_2Visible, setQ4_2Visible] = useState(false)
   const [q4_3Visible, setQ4_3Visible] = useState(false)
+
+  const [longFormVisible, setLongFormVisible] = useState(false)
 
   const [quizComplete, setQuizComplete] = useState(false)
 
@@ -58,33 +62,33 @@ const DailyReflection = () => {
   const [q4_2, setQ4_2] = useState('')
   const [q4_3, setQ4_3] = useState('')
 
+  const [longForm, setLongForm] = useState('')
+
   // State that stores the points
   const [emotionPoints, setEmotionPoints] = useState(30)
 
- 
+
   // Set points for current mood
   function renderMoodPoints() {
-    switch(emotion) {
-        case '0':
+    switch (emotion) {
+      case '0':
         return setEmotionPoints(10);
-        case '1': 
+      case '1':
         return setEmotionPoints(20);
-        case '2': 
+      case '2':
         return setEmotionPoints(30);
-        case '3':
+      case '3':
         return setEmotionPoints(40);
-        case '4':
+      case '4':
         return setEmotionPoints(50);
-        default:
+      default:
         return setEmotion('2') + setEmotionPoints(30);
     }
-};
+  };
 
-
-//Save complete response to the databases
 function storeResponses() {
-  
-  API.saveJournal({ 
+
+API.saveJournal({ 
     postedBy: userId,
     mood: emotion, moodPoints: emotionPoints,
     q1_1: q1_1, 
@@ -102,115 +106,125 @@ function storeResponses() {
     q4_1: q4_1, 
     q4_2: q4_2, 
     q4_3: q4_3, 
+    longForm: longForm
+    });
+  }
 
-  })
-}
 
-
-// Run switch case once emotion has been set
-useEffect(() => {
-  renderMoodPoints()
-}, [emotion]);
+  // Run switch case once emotion has been set
+  useEffect(() => {
+    renderMoodPoints()
+  }, [emotion]);
 
 
   // Function to handle what happens when the submit button is clicked
-  function handleSubmit (e, getEmotion, getQ1_1, getQ1_2, getQ1_3, getQ2_1, getQ2_2, getQ2_3, getQ3_1, getQ3_2, getQ3_3, getQ4_1, getQ4_2, getQ4_3,) {
+  function handleSubmit(e, getEmotion, getQ1_1, getQ1_2, getQ1_3, getQ2_1, getQ2_2, getQ2_3, getQ3_1, getQ3_2, getQ3_3, getQ4_1, getQ4_2, getQ4_3,) {
     // Do not submit until checks have completed
     e.preventDefault()
 
     if (moodVisible === true) {
-      
+
       setEmotion(getEmotion)
 
       setMoodVisible(false);
+      // setLongFormVisible(true)
+
       setQ1_1Visible(true)
-      
-    } else if (q1_1Visible === true)  {
-      
+
+    } else if (q1_1Visible === true) {
+
       setQ1_1(getQ1_1)
 
       setQ1_1Visible(false)
       setQ1_2Visible(true)
 
-    } else if (q1_2Visible === true)  {
+    } else if (q1_2Visible === true) {
 
       setQ1_2(getQ1_2)
 
       setQ1_2Visible(false)
       setQ1_3Visible(true)
 
-    } else if (q1_3Visible === true)  {
-      
+    } else if (q1_3Visible === true) {
+
       setQ1_3(getQ1_3)
 
       setQ1_3Visible(false)
       setQ2_1Visible(true)
 
-    } else if (q2_1Visible === true)  {
-      
+    } else if (q2_1Visible === true) {
+
       setQ2_1(getQ2_1)
 
       setQ2_1Visible(false)
       setQ2_2Visible(true)
 
-    } else if (q2_2Visible === true)  {
+    } else if (q2_2Visible === true) {
 
       setQ2_2(getQ2_2)
 
       setQ2_2Visible(false)
       setQ2_3Visible(true)
 
-    } else if (q2_3Visible === true)  {
-      
+    } else if (q2_3Visible === true) {
+
       setQ2_3(getQ2_3)
 
       setQ2_3Visible(false)
       setQ3_1Visible(true)
 
-    } else if (q3_1Visible === true)  {
-      
+    } else if (q3_1Visible === true) {
+
       setQ3_1(getQ3_1)
 
       setQ3_1Visible(false)
       setQ3_2Visible(true)
 
-    } else if (q3_2Visible === true)  {
+    } else if (q3_2Visible === true) {
 
       setQ3_2(getQ3_2)
 
       setQ3_2Visible(false)
       setQ3_3Visible(true)
 
-    } else if (q3_3Visible === true)  {
-      
+    } else if (q3_3Visible === true) {
+
       setQ3_3(getQ3_3)
 
       setQ3_3Visible(false)
       setQ4_1Visible(true)
 
-    } else if (q4_1Visible === true)  {
-      
+    } else if (q4_1Visible === true) {
+
       setQ4_1(getQ4_1)
 
       setQ4_1Visible(false)
       setQ4_2Visible(true)
 
-    } else if (q4_2Visible === true)  {
+    } else if (q4_2Visible === true) {
 
       setQ4_2(getQ4_2)
 
       setQ4_2Visible(false)
       setQ4_3Visible(true)
 
-    } else if (q4_3Visible === true)  {
-      
+    } else if (q4_3Visible === true) {
+
       setQ4_3(getQ4_3)
 
       setQ4_3Visible(false)
-      setQuizComplete(true)
+      setLongFormVisible(true)
 
     }
   };
+
+  const longFormSubmit = (e, getLongForm) => {
+    e.preventDefault()
+    setLongForm(getLongForm)
+    console.log(getLongForm)
+    setLongFormVisible(false)
+    setQuizComplete(true)
+  }
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -227,30 +241,32 @@ useEffect(() => {
     <div>
       <Grid className='containerPadding' container alignItems='center' justify='center' style={{ minHeight: "100vh" }}>
         <Grid container className='gridContainer' spacing={3}>
-          <Grid className='gridPadding'  item xs={12} sm={6}>
+          <Grid className='gridPadding' item xs={12} sm={6}>
             <Paper className={classes.paper}>
-                {/* dynamically render components */}
-                {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit}/> :
+              {/* dynamically render components */}
+              {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit} /> :
 
-                q1_1Visible === true ? <Q1_1 handleSubmit={handleSubmit}/> :
-                q1_2Visible === true ? <Q1_2 handleSubmit={handleSubmit}/> :
-                q1_3Visible === true ? <Q1_3 handleSubmit={handleSubmit}/> :
+                q1_1Visible === true ? <Q1_1 handleSubmit={handleSubmit} /> :
+                  q1_2Visible === true ? <Q1_2 handleSubmit={handleSubmit} /> :
+                    q1_3Visible === true ? <Q1_3 handleSubmit={handleSubmit} /> :
 
-                q2_1Visible === true ? <Q2_1 handleSubmit={handleSubmit}/> :
-                q2_2Visible === true ? <Q2_2 handleSubmit={handleSubmit}/> :
-                q2_3Visible === true ? <Q2_3 handleSubmit={handleSubmit}/> :
+                      q2_1Visible === true ? <Q2_1 handleSubmit={handleSubmit} /> :
+                        q2_2Visible === true ? <Q2_2 handleSubmit={handleSubmit} /> :
+                          q2_3Visible === true ? <Q2_3 handleSubmit={handleSubmit} /> :
 
-                q3_1Visible === true ? <Q3_1 handleSubmit={handleSubmit}/> :
-                q3_2Visible === true ? <Q3_2 handleSubmit={handleSubmit}/> :
-                q3_3Visible === true ? <Q3_3 handleSubmit={handleSubmit}/> :
+                            q3_1Visible === true ? <Q3_1 handleSubmit={handleSubmit} /> :
+                              q3_2Visible === true ? <Q3_2 handleSubmit={handleSubmit} /> :
+                                q3_3Visible === true ? <Q3_3 handleSubmit={handleSubmit} /> :
 
-                q4_1Visible === true ? <Q4_1 handleSubmit={handleSubmit}/> :
-                q4_2Visible === true ? <Q4_2 handleSubmit={handleSubmit}/> :
-                q4_3Visible === true ? <Q4_3 handleSubmit={handleSubmit}/> :
+                                  q4_1Visible === true ? <Q4_1 handleSubmit={handleSubmit} /> :
+                                    q4_2Visible === true ? <Q4_2 handleSubmit={handleSubmit} /> :
+                                      q4_3Visible === true ? <Q4_3 handleSubmit={handleSubmit} /> :
 
-                quizComplete === true ? <button onClick={storeResponses}>end quiz</button> : null}
-              </Paper>
-            </Grid>
+                                        longFormVisible === true ? <LongForm handleSubmit={longFormSubmit} /> :
+
+                                          quizComplete === true ? <button onClick={storeResponses}>end quiz</button> : null}
+            </Paper>
+          </Grid>
         </Grid>
       </Grid>
     </div>

@@ -64,6 +64,10 @@ const journalEntrySchema = new Schema({
     type: String,
     required: true
   },
+  longForm: {
+    type: String,
+    required: true
+  }
 });
 const JournalEntry = mongoose.model("journalEntries", journalEntrySchema);
 module.exports = JournalEntry;
