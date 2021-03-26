@@ -7,7 +7,7 @@ const Voice = () => {
 
 
     return (
-        <div style="max-width: 28em;">
+        <div >
             <div id="controls">
                 <button id="recordButton">Record</button>
                 <button id="pauseButton" disabled>Pause</button>
