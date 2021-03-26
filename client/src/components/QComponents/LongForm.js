@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button, TextField } from '@material-ui/core';
-import questions from '../../Questions.json';
+import questions from '../Questions/LongForm.json';
 
 
+const storeQuestions = []
+questions.map(question => {
+    let q = question.question;
+    storeQuestions.push(q);
+});
+
+const randomQuestion = storeQuestions[Math.floor(storeQuestions.length * Math.random())];
 
 function LongForm(props) {
 
@@ -10,12 +17,8 @@ function LongForm(props) {
 
     const handleChange = (e) => {
         setUserResponse(e.target.value);
-
     }
-
-    const storeQuestions = questions[4].LongForm
-    const randomQuestion = storeQuestions[Math.floor(storeQuestions.length * Math.random())];
-
+    
     return (
         <form>
             <TextField

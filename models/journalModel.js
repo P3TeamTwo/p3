@@ -79,6 +79,10 @@ const journalEntrySchema = new Schema({
   q4_4: {
     type: String,
     required: true
+  },
+  longForm: {
+    type: String,
+    required: true
   }
 });
 const JournalEntry = mongoose.model("journalEntries", journalEntrySchema);

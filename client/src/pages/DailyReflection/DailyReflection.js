@@ -124,10 +124,8 @@ const DailyReflection = () => {
       q4_2: q4_2,
       q4_3: q4_3,
       q4_4: q4_4,
-
       longForm: longForm
-
-    })
+    });
   }
 
 
@@ -147,6 +145,8 @@ const DailyReflection = () => {
       setEmotion(getEmotion)
 
       setMoodVisible(false);
+      // setLongFormVisible(true)
+
       setQ1_1Visible(true)
 
     } else if (q1_1Visible === true) {
