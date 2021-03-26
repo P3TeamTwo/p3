@@ -19,15 +19,15 @@
     "answers": [
       {
         "answerText": "Everynight",
-        "value": "7"
+        "value": 7
       },
       {
         "answerText": "Half and Half",
-        "value": "3"
+        "value": 3
       },
       {
         "answerText": "Never",
-        "value": "0"
+        "value": 0
       }
     ]
   },
@@ -37,19 +37,19 @@
     "answers": [
       {
         "answerText": "None",
-        "value": "0"
+        "value": 0
       },
       {
         "answerText": "3-5",
-        "value": "4"
+        "value": 4
       },
       {
         "answerText": "8",
-        "value": "8"
+        "value": 8
       },
       {
         "answerText": "I'm drowning!",
-        "value": "10"
+        "value": 10
       }
 
     ]
