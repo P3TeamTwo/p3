@@ -84,47 +84,5 @@
         "value": "none at all"
       }
     ]
-  },
-  {
-    "id": 4,
-    "questionRandom": "RANDOMIZED QUESTION",
-    "answersRandom": [
-      {
-        "answerText": "No",
-        "value": "false"
-      },
-      {
-        "answerText": "Yes",
-        "value": "true"
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "questionRandom": "RANDOMIZED QUESTION2",
-    "answersRandom": [
-      {
-        "answerText": "No",
-        "value": "false"
-      },
-      {
-        "answerText": "Yes",
-        "value": "true"
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "questionRandom": "RANDOMIZED QUESTION3",
-    "answersRandom": [
-      {
-        "answerText": "No",
-        "value": "false"
-      },
-      {
-        "answerText": "Yes",
-        "value": "true"
-      }
-    ]
   }
 ]
