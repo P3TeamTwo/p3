@@ -32,7 +32,7 @@ function Graphs() {
     return (
         <div className="graphContainer">
             {entries && <LineGraph 
-            dates={entries.map(entry => ({date: entry.created_at, point: entry.moodPoints}))}/>
+            dates={entries.map(entry => ({date: entry.created_at, point: entry.q1_1}))}/>
             }
             <DblAxisLine />
             <ScreenVsSleep />

@@ -4,10 +4,9 @@ import CanvasJSReact from '../../canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function LineGraph({dates}) {
-  console.log(dates.map(date => ({y:new Date(date)}))
-  )
-  console.log({ x: new Date(2021, 1, 1), y: 8 },
-  )
+  console.log(dates.map(date => ({y:new Date(date)})))
+  console.log({ x: new Date(2021, 1, 1), y: 8 })
+  console.log(dates)
   const options = {
     title: {
       text: "Hours of Sleep"

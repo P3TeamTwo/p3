@@ -37,19 +37,19 @@
     "answers": [
       {
         "answerText": "None",
-        "value": "0"
+        "value": 0
       },
       {
         "answerText": "30",
-        "value": "40"
+        "value": 40
       },
       {
         "answerText": "60",
-        "value": "60"
+        "value": 60
       },
       {
         "answerText": "Lost track of time!",
-        "value": "100"
+        "value": 100
       } 
     ]
   },
