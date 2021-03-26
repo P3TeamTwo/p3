@@ -1,130 +1,57 @@
 [
   {
     "id": 1,
-    "question": "How long did you sleep last night?",
+    "question": "Did you skip breakfast today?",
     "answers": [
       {
-        "answerText": "2",
-        "value": "2"
+        "answerText": "Yes",
+        "value": "true"
       },
       {
-        "answerText": "3",
-        "value": "3"
-      },
-      {
-        "answerText": "4",
-        "value": "4"
-      },
-      {
-        "answerText": "6",
-        "value": "6"
-      },
-      {
-        "answerText": "7",
-        "value": "7"
-      },
-      {
-        "answerText": "8",
-        "value": "8"
-      },
-      {
-        "answerText": "9",
-        "value": "9"
-      },
-      {
-        "answerText": "10",
-        "value": "10"
+        "answerText": "No",
+        "value": "false"
       }
     ]
   },
   {
     "id": 2,
-    "question": "Did you have screen time before bed?",
+    "question": "How often do you normally cook meals at home?",
     "answers": [
       {
-        "answerText": "No",
-        "value": "false"
+        "answerText": "Everynight",
+        "value": 7
       },
       {
-        "answerText": "Yes",
-        "value": "true"
+        "answerText": "Half and Half",
+        "value": 3
+      },
+      {
+        "answerText": "Never",
+        "value": 0
       }
     ]
   },
   {
     "id": 3,
-    "question": "What time of day did you have caffiene?",
+    "question": "How many 8oz glasses of water did you drink today?",
     "answers": [
       {
-        "answerText": "<8",
-        "value": "10-12"
+        "answerText": "None",
+        "value": 0
       },
       {
-        "answerText": "8-10",
-        "value": "a little"
+        "answerText": "3-5",
+        "value": 4
       },
       {
-        "answerText": "10-12",
-        "value": "not so much"
+        "answerText": "8",
+        "value": 8
       },
       {
-        "answerText": "12-2",
-        "value": "none at all"
-      },
-      {
-        "answerText": "2-4",
-        "value": "none at all"
-      },
-      {
-        "answerText": "4>",
-        "value": "none at all"
-      },
-      {
-        "answerText": "none at all",
-        "value": "none at all"
+        "answerText": "I'm drowning!",
+        "value": 10
       }
-    ]
-  },
-  {
-    "id": 4,
-    "questionRandom": "RANDOMIZED QUESTION",
-    "answersRandom": [
-      {
-        "answerText": "No",
-        "value": "false"
-      },
-      {
-        "answerText": "Yes",
-        "value": "true"
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "questionRandom": "RANDOMIZED QUESTION2",
-    "answersRandom": [
-      {
-        "answerText": "No",
-        "value": "false"
-      },
-      {
-        "answerText": "Yes",
-        "value": "true"
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "questionRandom": "RANDOMIZED QUESTION3",
-    "answersRandom": [
-      {
-        "answerText": "No",
-        "value": "false"
-      },
-      {
-        "answerText": "Yes",
-        "value": "true"
-      }
+
     ]
   }
 ]
