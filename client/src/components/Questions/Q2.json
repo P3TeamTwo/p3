@@ -15,70 +15,24 @@
   },
   {
     "id": 2,
-    "question": "Did you include fruit or veg in your diet today?",
+    "question": "How often do you normally cook meals at home?",
     "answers": [
       {
-        "answerText": "Yes",
-        "value": "true"
+        "answerText": "Everynight",
+        "value": "7"
       },
       {
-        "answerText": "No",
-        "value": "false"
+        "answerText": "Half and Half",
+        "value": "3"
+      },
+      {
+        "answerText": "Never",
+        "value": "0"
       }
     ]
   },
   {
     "id": 3,
-    "question": "Do you feel like you have trouble controlling your appetite?",
-    "answers": [
-      {
-        "answerText": "Yes",
-        "value": "true"
-      },
-      {
-        "answerText": "No",
-        "value": "false"
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "question": "How often do you normally cook meals at home?",
-    "answers": [
-      {
-        "answerText": "Everynight",
-        "value": "7"
-      },
-      {
-        "answerText": "Half and Half",
-        "value": "3"
-      },
-      {
-        "answerText": "Never",
-        "value": "0"
-      }
-    ]
-  }, 
-  {
-    "id": 5,
-    "question": "How often do you normally cook meals at home?",
-    "answers": [
-      {
-        "answerText": "Everynight",
-        "value": "7"
-      },
-      {
-        "answerText": "Half and Half",
-        "value": "3"
-      },
-      {
-        "answerText": "Never",
-        "value": "0"
-      }
-    ]
-  },
-  {
-    "id": 6,
     "question": "How many 8oz glasses of water did you drink today?",
     "answers": [
       {
@@ -94,7 +48,7 @@
         "value": "8"
       },
       {
-        "answerText": "lost track!",
+        "answerText": "I'm drowning!",
         "value": "10"
       }
 

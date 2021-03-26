@@ -12,7 +12,7 @@
         "value": "true"
       },
       {
-        "answerText": "it's a rest day!",
+        "answerText": "It's a rest day!",
         "value": "false"
       }
     ]
@@ -48,7 +48,7 @@
         "value": "60"
       },
       {
-        "answerText": "lost track of time!",
+        "answerText": "Lost track of time!",
         "value": "100"
       } 
     ]
@@ -58,15 +58,15 @@
     "question": "What kind of workout did you do?",
     "answers": [
       {
-        "answerText": "cardio",
+        "answerText": "Cardio",
         "value": "cardio"
       },
       {
-        "answerText": "weights",
+        "answerText": "Weights",
         "value": "weights"
       },
       {
-        "answerText": "rest day",
+        "answerText": "Rest day",
         "value": "rest day"
       },
       {
