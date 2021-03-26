@@ -29,7 +29,7 @@ class DblAxisLine extends Component {
 			theme: "light2",
 			animationEnabled: true,
 			title:{
-				text: "Hours of Sleep vs Minutes of Exercise"
+				text: "Hours of Sleep vs Time of coffee consumption"
 			},
 			subtitles: [{
 				text: "Click Legend to Hide or Unhide Data Series"
@@ -38,14 +38,14 @@ class DblAxisLine extends Component {
 				title: "States"
 			},
 			axisY: {
-				title: "Minutes of exercise",
+				title: "Hours of Sleep",
 				titleFontColor: "#6D78AD",
 				lineColor: "#6D78AD",
 				labelFontColor: "#6D78AD",
 				tickColor: "#6D78AD"
 			},
 			axisY2: {
-				title: "Hours of sleep",
+				title: "Time of drinking coffee",
 				titleFontColor: "#51CDA0",
 				lineColor: "#51CDA0",
 				labelFontColor: "#51CDA0",
@@ -60,23 +60,17 @@ class DblAxisLine extends Component {
 			},
 			data: [{
 				type: "spline",
-				name: "Minutes of exercise",
+				name: "Hours of Sleep",
 				showInLegend: true,
 				xValueFormatString: "MMM YYYY",
 				yValueFormatString: "#,##0 minutes",
-                dataPoints: [
-                    { x: new Date(2021, 1, 1), y: 30 },
-                    { x: new Date(2021, 1, 2), y: 10 },
-                    { x: new Date(2021, 1, 3), y: 60 },
-                    { x: new Date(2021, 1, 4), y: 90 },
-                    { x: new Date(2021, 1, 5), y: 0 },
-                    { x: new Date(2021, 1, 6), y: 15 },
-                    { x: new Date(2021, 1, 7), y: 30 },
-            
-                  ]
+                dataPoints:  [
+					// How do i pass this data into a class??
+        // ...dates.map(({date, point}) => ({x:new Date(date), y: point}))
+      ]
 			},
 			{
-				name: "Hours of sleep",
+				name: "Time of drinking coffee",
 				axisYType: "secondary",
 				showInLegend: true,
                 fillOpacity: .4,

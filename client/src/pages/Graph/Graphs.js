@@ -31,10 +31,17 @@ function Graphs() {
     console.log(entries && entries[0])
     return (
         <div className="graphContainer">
+            {/* once entries has value and linegraph can access values then execute */}
             {entries && <LineGraph 
-            dates={entries.map(entry => ({date: entry.created_at, point: entry.q1_1}))}/>
-            }
-            <DblAxisLine />
+            // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+            dates={entries.map(entry => ({date: entry.created_at, point: entry.q1_1}))}
+            />}
+            
+            {entries && <DblAxisLine 
+            dates={entries.map(entry => ({date: entry.created_at, point: entry.q1_1}))}
+            dates={entries.map(entry => ({date: entry.created_at, point: entry.q1_3}))}
+            />}
+
             <ScreenVsSleep />
             <DoughnutScreenTime />
         </div>
@@ -42,4 +49,3 @@ function Graphs() {
 }
 
 export default Graphs;
-
