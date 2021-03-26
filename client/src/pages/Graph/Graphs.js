@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 //Importing line graph from
-import LineGraph from '../../components/Graphs/LineGraph'
-import DblAxisLine from '../../components/Graphs/DblAxisLine'
+import HoursOfSleep from '../../components/Graphs/HoursOfSleep'
+import CoffeeVsSleep from '../../components/Graphs/CoffeeVsSleep'
 import ScreenVsSleep from '../../components/Graphs/ScreenVsSleep'
 import DoughnutScreenTime from '../../components/Graphs/DoughnutScreenTime'
 
@@ -32,14 +32,14 @@ function Graphs() {
     return (
         <div className="graphContainer">
             {/* once entries has value and linegraph can access values then execute */}
-            {entries && <LineGraph 
+            {entries && <HoursOfSleep 
             // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
             dates={entries.map(entry => ({date: entry.created_at, point: entry.q1_1}))}
             />}
             
-            {entries && <DblAxisLine 
-            dates={entries.map(entry => ({date: entry.created_at, point: entry.q1_1}))}
-            dates={entries.map(entry => ({date: entry.created_at, point: entry.q1_3}))}
+            {entries && <CoffeeVsSleep 
+            datesAndSleep={entries.map(entry => ({date: entry.created_at, point: entry.q1_1}))}
+            datesAndCoffee={entries.map(entry => ({date: entry.created_at, point: entry.q1_3}))}
             />}
 
             <ScreenVsSleep />

@@ -1,6 +1,6 @@
 import React from 'react';
 import CanvasJSReact from '../../canvasjs.react';
-import './DblAxisLine'
+import './CoffeeVsSleep'
 
 var Component = React.Component;
 var CanvasJS = CanvasJSReact.CanvasJS;
