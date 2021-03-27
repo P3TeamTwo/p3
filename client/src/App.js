@@ -10,6 +10,7 @@ import NoMatch from './pages/NoMatch/NoMatch';
 import DailyReflection from './pages/DailyReflection/DailyReflection';
 // import Welcome from './pages/Welcome';
 import Graphs from './pages/Graph/Graphs'
+import CalendarPage from './pages/Calendar'
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route exact path="/Daily" component={DailyReflection} />
         <Route exact path='/welcome' component={Welcome} />
+        <Route exact path='/calendar' component={CalendarPage} />
         <Route exact path='/Graphs' component={Graphs} />
         <Route exact path='*' component={NoMatch} />
       </Switch>

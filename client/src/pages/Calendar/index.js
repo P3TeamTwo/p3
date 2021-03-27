@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
-import './welcome.css'
+import './calendar.css'
 import { useHistory } from 'react-router-dom'
 import Calendar from '../../components/Calendar'
 
@@ -43,46 +43,20 @@ const useStyle = makeStyles({
 function WelcomeHeader() {
     const classes = useStyle();
 
-    return <h1 className={classes.root}>Welcome to MindShare</h1>
+    return <h1 className={classes.root}>Your Journal Entries</h1>
 }
 
-function ButtonLeft() {
-    const classes = useStyle();
 
-    const history = useHistory();
-
-    const directToDaily = () => {
-        let path = '/Daily'
-        history.push(path)
-    }
-
-    return <Button className={classes.buttonLeft} onClick={directToDaily}>Today's Reflection</Button>
-}
-
-function ButtonRight() {
-    const classes = useStyle();
-
-    const history = useHistory();
-
-    const directToCalendar = () => {
-        let path = '/calendar'
-        history.push(path)
-    }
-
-    return <Button className={classes.buttonRight} onClick={directToCalendar}>My Reflections</Button>
-}
-
-const Welcome = () => {
+const CalendarPage = () => {
     return (
         <div className="Container">
             <WelcomeHeader />
-            <div className="container-main">
-                <ButtonLeft />
-                <ButtonRight />
+            <div>
+                <Calendar />
             </div>
-            <div> <Calendar /> </div>
+            
         </div>
     )
 }
 
-export default Welcome
+export default CalendarPage
