@@ -1,4 +1,4 @@
-.App {
+/* .App {
   font-family: sans-serif;
   text-align: center;
 }
@@ -11,4 +11,87 @@ audio {
   box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
   border-radius: 90px;
   transform: scale(1.05);
+} */
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #0d122b;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+h1 {
+  text-align: center;
+  font-weight: 100;
+}
+header {
+  border-bottom: 1px solid #0d122b;
+  margin-bottom: 2em;
+}
+main {
+  flex-grow: 2;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  margin-bottom: 2em;
+  padding-top: 4em;
+  text-align: center;
+}
+@keyframes bg-pulse {
+  0% {
+    background-color: #fff;
+  }
+
+  50% {
+    background-color: #ff8f8f;
+  }
+
+  100% {
+    backgrouond-color: rgb(255, 0, 0);
+  }
+}
+main.speaking {
+  animation: bg-pulse 1.5s alternate ease-in-out infinite;
+}
+
+/* button {
+  font-size: 18px;
+  font-weight: 200;
+  padding: 1em;
+  width: 200px;
+  background: transparent;
+  border: 2px solid #ff7081;
+  border-radius: 10px;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  color: #e96363;
+  margin-bottom: 4em;
+}
+button:hover,
+button:focus {
+  background: #f22f46;
+  color: #fff;
+} */
+
+a {
+  color: #0d122b;
+}
+.error {
+  color: #f22f46;
+  text-align: center;
+}
+footer {
+  border-top: 1px solid #0d122b;
+  text-align: center;
 }

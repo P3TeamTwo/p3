@@ -53,7 +53,7 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q4_1: {
-    type: Number,
+    type: String,
     required: true
   },
   q4_2: {
@@ -70,7 +70,7 @@ const journalEntrySchema = new Schema({
   },
   voiceMemo: {
     type: String,
-    required: true
+    required: false
   }
 });
 const JournalEntry = mongoose.model("journalEntries", journalEntrySchema);
