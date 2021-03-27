@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { FormControl, RadioGroup, FormLabel, FormControlLabel, Radio, TextField, Button } from '@material-ui/core';
+import { FormControl,  FormLabel, FormControlLabel, Radio, TextField, Button } from '@material-ui/core';
 import Q4questions from '../Questions/Q4.json';
 
-function Q4_1(props) {
+function Q4_1({ handleSubmit }) {
 
     console.log(Q4questions[0].question)
 
@@ -16,13 +16,10 @@ function Q4_1(props) {
     return(
         <>
         <b>Question 4_1</b>
-            <div className='container'>
-            <FormControl component="fieldset">
-                <FormLabel component="legend">{Q4questions[0].question}
-                
-                <TextField
+        <form>
+            <TextField
                 id="outlined-multiline-static"
-                label={Q4questions}
+                label={Q4questions[0].question}
                 multiline
                 rows={4}
                 variant="outlined"
@@ -34,15 +31,12 @@ function Q4_1(props) {
             <Button variant="contained"
                 onClick={(e) => {
                     console.log(userResponse)
-                    props.handleSubmit(e, userResponse)
+                    handleSubmit(e, null, null, null, null, null, null, null, null, null, null, userResponse)
                 }
                 }>SUBMIT</Button>
-                
-                
-                </FormLabel>
-                
-            </FormControl>
-        </div>
+
+        </form>
+        
         </>  
     )
 };
