@@ -42,6 +42,7 @@ const Recorder = (props) => {
                 for (const res of event.results) {
                     const text = res[0].transcript;
                     localStorage.setItem("memoText", text)
+                    localStorage.setItem("voice", audioURL)
                     props.speechText(text)
                 }
             };
