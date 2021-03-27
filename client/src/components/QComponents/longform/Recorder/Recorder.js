@@ -1,14 +1,15 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import { render } from "react-dom";
 import { Button, Box } from '@material-ui/core';
-import { FaMicrophoneAlt, FaMicrophoneAltSlash, FaUnderline } from 'react-icons/fa';
+import { FaMicrophoneAlt, FaMicrophoneAltSlash, FaUnderline} from 'react-icons/fa';
 import useRecorder from "./useRecorder";
 import Player from "./Player";
 
 
+
 import "./styles.css";
 
-const Recorder = () => {
+const Recorder = (props) => {
     // let [audioURL, isRecording, startRecording, stopRecording] = useRecorder();
     // const yourAudio = document.getElementById('yourAudio');
 
@@ -31,27 +32,21 @@ const Recorder = () => {
             if (!listening) {
                 setListen(!listening);
                 recognition.start();
-                button.current.innerHTML = "Stop listening";
-                // main.current.classList.add("speaking");
             } else {
                 setListen(!listening);
                 recognition.stop();
-                button.current.innerHTML = "Start listening";
-                // main.classList.remove("speaking");
             }
 
             const onResult = event => {
                 result.current.innerHTML = "";
+                console.log(event)
                 for (const res of event.results) {
+                    console.log(res)
                     const text = res[0].transcript;
-                    const p = document.createElement("p");
-                    if (res.isFinal) {
-                        p.classList.add("final");
-                    }
                     console.log(text)
-                    if(text!=undefined){
-                        console.log(typeof(text))
-                        
+                    localStorage.setItem("memoText", text)
+                    props.speechText(text)
+                    if (text != undefined) {
                         result.current.innerHTML = text;
                     }
                 }
@@ -60,11 +55,6 @@ const Recorder = () => {
             recognition.continuous = true;
             recognition.interimResults = true;
             recognition.addEventListener("result", onResult);
-
-            // button.addEventListener("click", () => {
-            //     listening ? stop() : start();
-            //     listening = !listening;
-            // });
         }
     }
 
@@ -74,8 +64,9 @@ const Recorder = () => {
 
     return (
         <>
-            <main>
-                <button ref={button} onClick={Listen}>Start listening</button>
+            <main ref={main}>
+                {/* <button ref={button} onClick={Listen}>Start listening</button> */}
+                <FaMicrophoneAlt ref={button} onClick={Listen} size={30} color = {listening? 'red':'grey' }/>
                 <div ref={result}></div>
                 <p ref={message} hidden aria-hidden="true">
                     Your browser doesn't support Speech Recognition. Sorry.

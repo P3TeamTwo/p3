@@ -54,36 +54,28 @@ main {
   }
 
   50% {
-    background-color: #c7ecee;
+    background-color: #ff8f8f;
   }
 
   100% {
-    backgrouond-color: #fff;
+    backgrouond-color: rgb(255, 0, 0);
   }
 }
 main.speaking {
   animation: bg-pulse 1.5s alternate ease-in-out infinite;
 }
-#result {
-  color: #666;
-  font-style: italic;
-  text-align: center;
-}
-#result .final {
-  color: #0d122b;
-  font-style: normal;
-}
+
 button {
   font-size: 18px;
   font-weight: 200;
   padding: 1em;
   width: 200px;
   background: transparent;
-  border: 4px solid #f22f46;
-  border-radius: 4px;
+  border: 2px solid #ff7081;
+  border-radius: 10px;
   transition: all 0.4s ease 0s;
   cursor: pointer;
-  color: #f22f46;
+  color: #e96363;
   margin-bottom: 4em;
 }
 button:hover,
