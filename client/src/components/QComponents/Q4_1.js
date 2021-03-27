@@ -1,36 +1,42 @@
-import React from 'react';
-import { FormControl, RadioGroup, FormLabel, FormControlLabel, Radio } from '@material-ui/core';
+import React, { useState } from 'react';
+import { FormControl,  FormLabel, FormControlLabel, Radio, TextField, Button } from '@material-ui/core';
 import Q4questions from '../Questions/Q4.json';
 
-function Q4_1(props) {
+function Q4_1({ handleSubmit }) {
 
     console.log(Q4questions[0].question)
+
+    const [userResponse, setUserResponse] = useState();
+
+    const handleChange = (e) => {
+        setUserResponse(e.target.value);
+    }
+
 
     return(
         <>
         <b>Question 4_1</b>
-            <div className='container'>
-            <FormControl component="fieldset">
-                <FormLabel component="legend">{Q4questions[0].question}
-                </FormLabel>
-                {Q4questions[0].answers.map(answer => {
-                    return (
-                        <RadioGroup 
-                        key={answer.answerText}
-                        defaultValue='false' 
-                        aria-label="question4_1" name={answer.test} 
-                        value='question4_1'
-                        onChange={(e)=> props.handleSubmit(e, null, null, null, null, null, null, null, null, null, null, e.target.value)}> 
-                        <FormControlLabel
-                         
-                        value={answer.value} 
-                        control={<Radio />}
-                        label={answer.answerText}/>
-                </RadioGroup>
-                    )
-                })}
-            </FormControl>
-        </div>
+        <form>
+            <TextField
+                id="outlined-multiline-static"
+                label={Q4questions[0].question}
+                multiline
+                rows={4}
+                variant="outlined"
+                style={{ minWidth: "100%" }}
+                onChange={(e) => {
+                    handleChange(e)
+                }}
+            />
+            <Button variant="contained"
+                onClick={(e) => {
+                    console.log(userResponse)
+                    handleSubmit(e, null, null, null, null, null, null, null, null, null, null, userResponse)
+                }
+                }>SUBMIT</Button>
+
+        </form>
+        
         </>  
     )
 };
