@@ -130,90 +130,90 @@ API.saveJournal({
       setEmotion(getEmotion)
 
       setMoodVisible(false);
-    //   setQ1_1Visible(true)
+      setQ1_1Visible(true)
 
-    // } else if (q1_1Visible === true) {
+    } else if (q1_1Visible === true) {
 
-    //   setQ1_1(getQ1_1)
+      setQ1_1(getQ1_1)
 
-    //   setQ1_1Visible(false)
-    //   setQ1_2Visible(true)
+      setQ1_1Visible(false)
+      setQ1_2Visible(true)
 
-    // } else if (q1_2Visible === true) {
+    } else if (q1_2Visible === true) {
 
-    //   setQ1_2(getQ1_2)
+      setQ1_2(getQ1_2)
 
-    //   setQ1_2Visible(false)
-    //   setQ1_3Visible(true)
+      setQ1_2Visible(false)
+      setQ1_3Visible(true)
 
-    // } else if (q1_3Visible === true) {
+    } else if (q1_3Visible === true) {
 
-    //   setQ1_3(getQ1_3)
+      setQ1_3(getQ1_3)
 
-    //   setQ1_3Visible(false)
-    //   setQ2_1Visible(true)
+      setQ1_3Visible(false)
+      setQ2_1Visible(true)
 
-    // } else if (q2_1Visible === true) {
+    } else if (q2_1Visible === true) {
 
-    //   setQ2_1(getQ2_1)
+      setQ2_1(getQ2_1)
 
-    //   setQ2_1Visible(false)
-    //   setQ2_2Visible(true)
+      setQ2_1Visible(false)
+      setQ2_2Visible(true)
 
-    // } else if (q2_2Visible === true) {
+    } else if (q2_2Visible === true) {
 
-    //   setQ2_2(getQ2_2)
+      setQ2_2(getQ2_2)
 
-    //   setQ2_2Visible(false)
-    //   setQ2_3Visible(true)
+      setQ2_2Visible(false)
+      setQ2_3Visible(true)
 
-    // } else if (q2_3Visible === true) {
+    } else if (q2_3Visible === true) {
 
-    //   setQ2_3(getQ2_3)
+      setQ2_3(getQ2_3)
 
-    //   setQ2_3Visible(false)
-    //   setQ3_1Visible(true)
+      setQ2_3Visible(false)
+      setQ3_1Visible(true)
 
-    // } else if (q3_1Visible === true) {
+    } else if (q3_1Visible === true) {
 
-    //   setQ3_1(getQ3_1)
+      setQ3_1(getQ3_1)
 
-    //   setQ3_1Visible(false)
-    //   setQ3_2Visible(true)
+      setQ3_1Visible(false)
+      setQ3_2Visible(true)
 
-    // } else if (q3_2Visible === true) {
+    } else if (q3_2Visible === true) {
 
-    //   setQ3_2(getQ3_2)
+      setQ3_2(getQ3_2)
 
-    //   setQ3_2Visible(false)
-    //   setQ3_3Visible(true)
+      setQ3_2Visible(false)
+      setQ3_3Visible(true)
 
-    // } else if (q3_3Visible === true) {
+    } else if (q3_3Visible === true) {
 
-    //   setQ3_3(getQ3_3)
+      setQ3_3(getQ3_3)
 
-    //   setQ3_3Visible(false)
-    //   setQ4_1Visible(true)
+      setQ3_3Visible(false)
+      setQ4_1Visible(true)
 
-    // } else if (q4_1Visible === true) {
+    } else if (q4_1Visible === true) {
 
-    //   setQ4_1(getQ4_1)
+      setQ4_1(getQ4_1)
 
-    //   setQ4_1Visible(false)
-    //   setQ4_2Visible(true)
+      setQ4_1Visible(false)
+      setQ4_2Visible(true)
 
-    // } else if (q4_2Visible === true) {
+    } else if (q4_2Visible === true) {
 
-    //   setQ4_2(getQ4_2)
+      setQ4_2(getQ4_2)
 
-    //   setQ4_2Visible(false)
-    //   setQ4_3Visible(true)
+      setQ4_2Visible(false)
+      setQ4_3Visible(true)
 
-    // } else if (q4_3Visible === true) {
+    } else if (q4_3Visible === true) {
 
-    //   setQ4_3(getQ4_3)
+      setQ4_3(getQ4_3)
 
-    //   setQ4_3Visible(false)
+      setQ4_3Visible(false)
       setLongFormVisible(true)
 
     }
