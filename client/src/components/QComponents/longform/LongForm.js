@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import questions from '../../Questions/LongForm.json';
-import Voice from './Voice';
+import Voice from './Recorder/Recorder';
 
 
 const storeQuestions = []

@@ -1,0 +1,14 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.btn{
+  margin-left:50px;
+}
+audio { 
+  margin-top: 50px;
+  margin-bottom: 25px;
+  box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+  border-radius: 90px;
+  transform: scale(1.05);
+}
