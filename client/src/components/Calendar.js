@@ -1,6 +1,7 @@
 import React from 'react';
 import Calendar from 'react-awesome-calendar';
 import styles from '../components/calendar.css';
+import axios from 'axios';
 
 const events = [{
     id: 1,
@@ -29,10 +30,20 @@ class CalApp extends React.Component {
         this.calendar = React.createRef();
     }
 
-    componentDidMount() {
-        const details = this.calendar.current.getDetails();
-        // call get events endpoint
-    }
+    // componentDidMount() {
+    //     axios.get('mongodb://localhost/journal')
+    //         .then(res => {
+    //             this.setState({ usersCollection: res.data });
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         })
+    // } dataTable() {
+    //     return this.state.usersCollection.map((data, i) => {
+    //         return <DataTable obj={data} key={i} />;
+    //     });
+    // }
+
 
     render() {
         return (
