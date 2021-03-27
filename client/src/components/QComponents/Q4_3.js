@@ -18,7 +18,7 @@ function Q4_3({ handleSubmit }) {
             <form>
             <TextField
                 id="outlined-multiline-static"
-                label={Q4questions[1].question}
+                label={Q4questions[2].question}
                 multiline
                 rows={4}
                 variant="outlined"
