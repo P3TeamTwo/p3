@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const journalEntrySchema = new Schema({
-  postedBy: {type: Schema.Types.ObjectId, ref: "users", 
+  postedBy: {type:String , ref: "users", 
     required: true
   },
   created_at: { type: Date, 

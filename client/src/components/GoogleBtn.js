@@ -1,4 +1,5 @@
 import React from 'react'
+import mongoose from 'mongoose'
 import { IconButton } from '@material-ui/core';
 import { useHistory } from 'react-router-dom'
 // import ReactDOM from 'react-dom';
@@ -16,10 +17,12 @@ const LoginBtn = () => {
     const history = useHistory();
 
 
+
     const responseGoogle = (response) => {
         // Saving userId for data match
-        localStorage.setItem('userId', response.Rs.RR)
-
+        console.log(response.googleId)
+        // var objectId = mongoose.Types.ObjectId(response.googleId);
+        localStorage.setItem('userId', response.googleId)
         history.push("/welcome");
     }
     const failresponseGoogle = (response) => {
