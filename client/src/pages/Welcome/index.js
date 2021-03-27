@@ -80,7 +80,6 @@ const Welcome = () => {
                 <ButtonLeft />
                 <ButtonRight />
             </div>
-            <div> <Calendar /> </div>
         </div>
     )
 }

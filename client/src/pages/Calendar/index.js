@@ -1,8 +1,9 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
-import './calendar.css'
+import Grid from '@material-ui/core/Grid'
 import { useHistory } from 'react-router-dom'
 import Calendar from '../../components/Calendar'
+import './calendar.css'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -20,7 +21,6 @@ const useStyle = makeStyles({
         backgroundColor: '#ccffbd',
         color: 'black',
         fontSize: '30px',
-        marginRight: '3rem',
         "&:hover": {
             backgroundColor: '#7eca9c',
             color: 'white'
@@ -46,16 +46,40 @@ function WelcomeHeader() {
     return <h1 className={classes.root}>Your Journal Entries</h1>
 }
 
+function ButtonLeft() {
+    const classes = useStyle();
+
+    const history = useHistory();
+
+    const directToDaily = () => {
+        let path = '/Graphs'
+        history.push(path)
+    }
+
+    return <Button className={classes.buttonLeft} onClick={directToDaily}>View Data</Button>
+}
+
 
 const CalendarPage = () => {
     return (
         <div className="Container">
-            <WelcomeHeader />
-            <div>
-                <Calendar />
-            </div>
-            
+            <Grid container>
+                
+                <Grid item xs={12}> 
+                    <WelcomeHeader />
+                </Grid>
+                <Grid item xs={3}>
+                    <div className="container-main">
+                        <ButtonLeft />
+                    </div>  
+                </Grid>
+                <Grid item xs={8}>
+                    <Calendar />
+                </Grid>
+
+            </Grid>
         </div>
+        
     )
 }
 
