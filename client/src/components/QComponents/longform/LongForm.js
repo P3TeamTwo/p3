@@ -37,7 +37,6 @@ function LongForm(props) {
                 <Button variant="contained"
                     onClick={(e) => {
                         console.log(userResponse)
-                        props.handleSubmit(e, userResponse)
                     }
                     }>SUBMIT</Button>
             </form>

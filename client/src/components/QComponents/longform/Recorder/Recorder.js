@@ -14,24 +14,28 @@ const Recorder = () => {
             <div className="App">
                 <audio src={audioURL} controls />
 
-                    <Button
-                        style={{paddingRight:'10px'}}
-                        variant="contained"
-                        color={!isRecording ? "default" : 'secondary'}
-                        onClick={startRecording}
-                        startIcon={<FaMicrophoneAlt />}
-                    >
-                        Voice Journal
+                <Button
+                    style={{ paddingRight: '10px' }}
+                    variant="contained"
+                    color={!isRecording ? "default" : 'secondary'}
+                    onClick={startRecording}
+                    startIcon={<FaMicrophoneAlt />}
+                >
+                    Voice Journal
       </Button>
-                    <Button
-                        className="btn"
-                        variant="contained"
-                        // disabled={isRecording}
-                        color={!isRecording ? "default" : 'secondary'}
-                        onClick={stopRecording}
-                        startIcon={<FaMicrophoneAltSlash />}
-                    >
-                        Stop Recording
+                <Button
+                    className="btn"
+                    variant="contained"
+                    // disabled={isRecording}
+                    color={!isRecording ? "default" : 'secondary'}
+                    onClick={() => {
+                        stopRecording()
+                        console.log(audioURL)
+                    }
+                }
+                    startIcon={<FaMicrophoneAltSlash />}
+                >
+                    Stop Recording
       </Button>
             </div>
         </div>
