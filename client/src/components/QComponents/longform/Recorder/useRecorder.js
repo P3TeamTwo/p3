@@ -26,19 +26,19 @@ const useRecorder = () => {
       console.log(e.data);
       setAudioURL(URL.createObjectURL(e.data));
     };
-
+    
     recorder.addEventListener("dataavailable", handleData);
     return () => recorder.removeEventListener("dataavailable", handleData);
   }, [recorder, isRecording]);
-
+  
   const startRecording = () => {
     setIsRecording(true);
   };
-
+  
   const stopRecording = () => {
     setIsRecording(false);
   };
-console.log(audioURL);
+  localStorage.setItem('voice', audioURL);
   return [audioURL, isRecording, startRecording, stopRecording];
 };
 

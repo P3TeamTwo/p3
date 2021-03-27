@@ -67,6 +67,10 @@ const journalEntrySchema = new Schema({
   longForm: {
     type: String,
     required: true
+  },
+  voiceMemo: {
+    type: String,
+    required: true
   }
 });
 const JournalEntry = mongoose.model("journalEntries", journalEntrySchema);
