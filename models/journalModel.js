@@ -70,7 +70,7 @@ const journalEntrySchema = new Schema({
   },
   voiceMemo: {
     type: String,
-    required: true
+    required: false
   }
 });
 const JournalEntry = mongoose.model("journalEntries", journalEntrySchema);
