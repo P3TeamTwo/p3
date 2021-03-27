@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './DailyReflection.css';
 // Material UI imports
-import { Grid, Paper, makeStyles } from '@material-ui/core';
+import { Grid, Paper, makeStyles, Button } from '@material-ui/core';
+// import useHistory for redirecting once quiz is done
+import { useHistory } from 'react-router-dom'
 //Import api routes to db
 import API from '../../utils/API'
 // Import question components
@@ -87,37 +89,50 @@ const DailyReflection = () => {
     }
   };
 
-function storeResponses() {
+  const history = useHistory();
 
-API.saveJournal({ 
-    postedBy: userId,
-    mood: emotion, moodPoints: emotionPoints,
-    q1_1: q1_1, 
-    q1_2: q1_2, 
-    q1_3: q1_3, 
-
-    q2_1: q2_1, 
-    q2_2: q2_2, 
-    q2_3: q2_3, 
-
-    q3_1: q3_1, 
-    q3_2: q3_2, 
-    q3_3: q3_3, 
-
-    q4_1: q4_1, 
-    q4_2: q4_2, 
-    q4_3: q4_3, 
-    longForm: longForm,
-    voiceMemo: voiceMemo
-    
-    });
+  const directToGraphs = () => {
+    let path = '/Graphs'
+    history.push(path)
   }
 
+  function storeResponses() {
 
-  // Run switch case once emotion has been set
-  useEffect(() => {
-    renderMoodPoints()
-  }, [emotion]);
+    
+
+  API.saveJournal({ 
+      postedBy: userId,
+      mood: emotion, moodPoints: emotionPoints,
+      q1_1: q1_1, 
+      q1_2: q1_2, 
+      q1_3: q1_3, 
+
+      q2_1: q2_1, 
+      q2_2: q2_2, 
+      q2_3: q2_3, 
+
+      q3_1: q3_1, 
+      q3_2: q3_2, 
+      q3_3: q3_3, 
+
+      q4_1: q4_1, 
+      q4_2: q4_2, 
+      q4_3: q4_3, 
+      longForm: longForm,
+      voiceMemo: voiceMemo
+      
+      });
+
+      console.log('responses saved to database')
+      directToGraphs()
+
+    }
+
+
+    // Run switch case once emotion has been set
+    useEffect(() => {
+      renderMoodPoints()
+    }, [emotion]);
 
 
   // Function to handle what happens when the submit button is clicked
@@ -268,7 +283,7 @@ API.saveJournal({
 
                                         longFormVisible === true ? <LongForm handleSubmit={longFormSubmit} /> :
 
-                                          quizComplete === true ? <button onClick={storeResponses}>end quiz</button> : null}
+                                          quizComplete === true ? <Button onClick={storeResponses}>end quiz</Button> : null}
             </Paper>
           </Grid>
         </Grid>

@@ -1,8 +1,9 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
-import './welcome.css'
+import Grid from '@material-ui/core/Grid'
 import { useHistory } from 'react-router-dom'
 import Calendar from '../../components/Calendar'
+import './calendar.css'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -20,7 +21,6 @@ const useStyle = makeStyles({
         backgroundColor: '#ccffbd',
         color: 'black',
         fontSize: '30px',
-        marginRight: '3rem',
         "&:hover": {
             backgroundColor: '#7eca9c',
             color: 'white'
@@ -43,7 +43,7 @@ const useStyle = makeStyles({
 function WelcomeHeader() {
     const classes = useStyle();
 
-    return <h1 className={classes.root}>Welcome to MindShare</h1>
+    return <h1 className={classes.root}>Your Journal Entries</h1>
 }
 
 function ButtonLeft() {
@@ -52,36 +52,35 @@ function ButtonLeft() {
     const history = useHistory();
 
     const directToDaily = () => {
-        let path = '/Daily'
+        let path = '/Graphs'
         history.push(path)
     }
 
-    return <Button className={classes.buttonLeft} onClick={directToDaily}>Today's Reflection</Button>
+    return <Button className={classes.buttonLeft} onClick={directToDaily}>View Data</Button>
 }
 
-function ButtonRight() {
-    const classes = useStyle();
 
-    const history = useHistory();
-
-    const directToCalendar = () => {
-        let path = '/calendar'
-        history.push(path)
-    }
-
-    return <Button className={classes.buttonRight} onClick={directToCalendar}>My Reflections</Button>
-}
-
-const Welcome = () => {
+const CalendarPage = () => {
     return (
         <div className="Container">
-            <WelcomeHeader />
-            <div className="container-main">
-                <ButtonLeft />
-                <ButtonRight />
-            </div>
+            <Grid container>
+                
+                <Grid item xs={12}> 
+                    <WelcomeHeader />
+                </Grid>
+                <Grid item xs={3}>
+                    <div className="container-main">
+                        <ButtonLeft />
+                    </div>  
+                </Grid>
+                <Grid item xs={8}>
+                    <Calendar />
+                </Grid>
+
+            </Grid>
         </div>
+        
     )
 }
 
-export default Welcome
+export default CalendarPage
