@@ -1,88 +1,18 @@
 [
   {
-    "id": 1,
-    "question": "How long did you sleep last night?",
-    "answers": [
-      {
-        "answerText": "2",
-        "value": "2"
-      },
-      {
-        "answerText": "3",
-        "value": "3"
-      },
-      {
-        "answerText": "4",
-        "value": "4"
-      },
-      {
-        "answerText": "6",
-        "value": "6"
-      },
-      {
-        "answerText": "7",
-        "value": "7"
-      },
-      {
-        "answerText": "8",
-        "value": "8"
-      },
-      {
-        "answerText": "9",
-        "value": "9"
-      },
-      {
-        "answerText": "10",
-        "value": "10"
-      }
-    ]
+      "id": 1,
+      "question": "What has been the highlight of your day today?"
   },
   {
-    "id": 2,
-    "question": "Did you have screen time before bed?",
-    "answers": [
-      {
-        "answerText": "No",
-        "value": "false"
-      },
-      {
-        "answerText": "Yes",
-        "value": "true"
-      }
-    ]
+      "id": 2,
+      "question": "What do you really appreciate about your life?"
   },
   {
-    "id": 3,
-    "question": "What time of day did you have caffiene?",
-    "answers": [
-      {
-        "answerText": "<8",
-        "value": "10-12"
-      },
-      {
-        "answerText": "8-10",
-        "value": "a little"
-      },
-      {
-        "answerText": "10-12",
-        "value": "not so much"
-      },
-      {
-        "answerText": "12-2",
-        "value": "none at all"
-      },
-      {
-        "answerText": "2-4",
-        "value": "none at all"
-      },
-      {
-        "answerText": "4>",
-        "value": "none at all"
-      },
-      {
-        "answerText": "none at all",
-        "value": "none at all"
-      }
-    ]
+      "id": 3,
+      "question": "What are your biggest accomplishments?"
+  },
+  {
+      "id": 4,
+      "question": "Even though I’m stressed or upset, I can’t help but smile when …"
   }
 ]
