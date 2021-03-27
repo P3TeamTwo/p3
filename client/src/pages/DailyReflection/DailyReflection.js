@@ -18,7 +18,7 @@ import Q3_3 from '../../components/QComponents/Q3_3';
 import Q4_1 from '../../components/QComponents/Q4_1';
 import Q4_2 from '../../components/QComponents/Q4_2';
 import Q4_3 from '../../components/QComponents/Q4_3';
-import LongForm from '../../components/QComponents/LongForm'
+import LongForm from '../../components/QComponents/longform/LongForm'
 
 
 // import Results from '../../components/Results';
@@ -63,6 +63,7 @@ const DailyReflection = () => {
   const [q4_3, setQ4_3] = useState('')
 
   const [longForm, setLongForm] = useState('')
+  const [ voiceMemo, setVoiceMemo] = useState('');
 
   // State that stores the points
   const [emotionPoints, setEmotionPoints] = useState(30)
@@ -106,7 +107,9 @@ API.saveJournal({
     q4_1: q4_1, 
     q4_2: q4_2, 
     q4_3: q4_3, 
-    longForm: longForm
+    longForm: longForm,
+    voiceMemo: voiceMemo
+    
     });
   }
 
@@ -127,8 +130,6 @@ API.saveJournal({
       setEmotion(getEmotion)
 
       setMoodVisible(false);
-      // setLongFormVisible(true)
-
       setQ1_1Visible(true)
 
     } else if (q1_1Visible === true) {
@@ -224,6 +225,9 @@ API.saveJournal({
     console.log(getLongForm)
     setLongFormVisible(false)
     setQuizComplete(true)
+    const blob = localStorage.getItem("voice")
+    setVoiceMemo(blob)
+    
   }
 
   const useStyles = makeStyles((theme) => ({
@@ -273,3 +277,4 @@ API.saveJournal({
   )
 };
 export default DailyReflection;
+
