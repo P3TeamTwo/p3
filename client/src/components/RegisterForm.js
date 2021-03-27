@@ -135,6 +135,7 @@ const RegisterForm = () => {
                 color="primary"
                 className={classes.submit}
                 onClick={signUp}
+                data-testid='button'
             >
                 Begin your Journal...
           </Button>

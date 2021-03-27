@@ -14,5 +14,5 @@ deploy:
     branch: main
     repo: P3TeamTwo/p3
   skip_cleanup: 'true'
-script:
-- echo "skipping tests"
+# script:
+# - echo "skipping tests"
