@@ -17,7 +17,7 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q1_1: {
-    type: String,
+    type: Number,
     required: true
   },
   q1_2: {
@@ -25,7 +25,7 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q1_3: {
-    type: String,
+    type: Number,
     required: true
   },
   q2_1: {
@@ -33,11 +33,11 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q2_2: {
-    type: String,
+    type: Number,
     required: true
   },
   q2_3: {
-    type: String,
+    type: Number,
     required: true
   },
   q3_1: {
@@ -49,11 +49,11 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q3_3: {
-    type: String,
+    type: Number,
     required: true
   },
   q4_1: {
-    type: String,
+    type: Number,
     required: true
   },
   q4_2: {

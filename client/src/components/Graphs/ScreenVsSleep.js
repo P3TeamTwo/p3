@@ -1,6 +1,7 @@
 import React from 'react';
 import CanvasJSReact from '../../canvasjs.react';
-import './DblAxisLine'
+import './CoffeeVsSleep'
+import { Box } from '@material-ui/core';
 
 var Component = React.Component;
 var CanvasJS = CanvasJSReact.CanvasJS;
@@ -97,12 +98,12 @@ class DblAxisLine extends Component {
 		
 		
 		return (
-		<div>
+		<Box width="50%">
 			<CanvasJSChart options = {options} 
 				 onRef={ref => this.chart = ref}
 			/>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-		</div>
+		</Box>
 		);
 	}
 }
