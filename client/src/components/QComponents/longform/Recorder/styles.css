@@ -65,7 +65,7 @@ main.speaking {
   animation: bg-pulse 1.5s alternate ease-in-out infinite;
 }
 
-button {
+/* button {
   font-size: 18px;
   font-weight: 200;
   padding: 1em;
@@ -82,7 +82,7 @@ button:hover,
 button:focus {
   background: #f22f46;
   color: #fff;
-}
+} */
 
 a {
   color: #0d122b;

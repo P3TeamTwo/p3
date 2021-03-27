@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button, TextField } from '@material-ui/core';
+import { Button, Box, TextField } from '@material-ui/core';
 import questions from '../../Questions/LongForm.json';
 import Voice from './Recorder/Recorder';
 
@@ -23,7 +23,6 @@ function LongForm(props) {
     }
 
     const voiceToText = (text) => {
-        console.log(typeof (text))
         setTextField(text)
         setUserResponse(text);
     }
@@ -34,7 +33,11 @@ function LongForm(props) {
         <div >
             <form>
                 <h2 style={{ marginBottom: '5%' }}>{randomQuestion} </h2>
+                <Box m={2}>
+                <Voice speechText={voiceToText}  />
+                </Box>
                 <TextField
+                
                     id="outlined-multiline-static"
                     multiline
                     rows={4}
@@ -45,7 +48,6 @@ function LongForm(props) {
                         handleChange(e)
                     }}
                 />
-                    <Voice speechText={voiceToText} />
                 <Button variant="contained"
                     style={{ marginTop: '5%' }}
                     onClick={(e) => {
@@ -53,6 +55,7 @@ function LongForm(props) {
                     }
                     }>SUBMIT</Button>
             </form>
+            
             
         </div>
     )

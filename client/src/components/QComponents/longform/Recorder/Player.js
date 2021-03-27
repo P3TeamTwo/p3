@@ -8,7 +8,11 @@ const Player = ({ url }) => {
     return (
         <div>
             <audio src={url} ></audio>
-            <button onClick={() => audioElement.play()}><FaPlay size = {30}  color='red'/></button>
+            <button onClick={(e) => {
+                e.preventDefault();
+                audioElement.play()}
+            }>
+                <FaPlay size = {20}  color='red'  /></button>
         </div>
     );
 };
