@@ -62,11 +62,12 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 	}
 
 	return (
+		<div className="coffeeVsSleep">
+			<Box >
+				<CanvasJSChart options={options} />
+			</Box>
+		</div>
 
-		<Box width="60%" position="relative">
-			<CanvasJSChart options={options}/>
-		</Box>
-		
 	);
 }
 
