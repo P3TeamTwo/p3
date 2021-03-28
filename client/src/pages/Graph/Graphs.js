@@ -125,6 +125,16 @@ const useStyles = makeStyles((theme) => ({
 export default function ScrollableTabsButtonAuto() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    const [coffeeTimes, setCoffeeTimes] = useState({
+        noCoffee: 0,
+         morning: 0,
+         afternoon: 0,
+         evening: 0
+   })
+   const[screenTime, setScreenTime] = useState({
+       true: 0,
+       false: 0
+   })
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -148,12 +158,7 @@ export default function ScrollableTabsButtonAuto() {
 
     }, [])
 
-   const [coffeeTimes, setCoffeeTimes] = useState({
-        noCoffee: 0,
-         morning: 0,
-         afternoon: 0,
-         evening: 0
-   })
+
 
     return (
         <div className={classes.root}>
@@ -185,6 +190,7 @@ export default function ScrollableTabsButtonAuto() {
                      coffeeConsumption={coffeeTimes}
                      entries={entries}
                      coffeeTimes={coffeeTimes}
+                     screenTime={screenTime}
                      />}
                 {/* once entries has value and linegraph can access values then execute */}
                 {entries && <HoursOfSleep
