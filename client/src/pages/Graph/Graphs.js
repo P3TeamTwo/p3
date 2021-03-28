@@ -157,19 +157,19 @@ export default function ScrollableTabsButtonAuto() {
     function coffeeConsumptionTime(){
         for(var i = 0; i < entries.length; i++) {
             if(entries.q1_3 === 0){
-                coffeeTimes.noCoffee += 1
+                setCoffeeTimes(coffeeTimes.noCoffee += 1)
             } else if (entries.q1_3 === 3){
-                coffeeTimes.morningCoffee += 1
+                setCoffeeTimes(coffeeTimes.morningCoffee += 1)
             } else if (entries.q1_3 === 6){
-                coffeeTimes.afternoonCoffee += 1
+                setCoffeeTimes(coffeeTimes.afternoonCoffee += 1)
             } else if (entries.q1_3 === 9){
-                coffeeTimes.eveningCoffee += 1
+                setCoffeeTimes(coffeeTimes.eveningCoffee += 1)
             }
         }
         console.log(coffeeTimes.morningCoffee)
     }
     coffeeConsumptionTime();
-    
+
     console.log(entries)
     return (
         <div className={classes.root}>
