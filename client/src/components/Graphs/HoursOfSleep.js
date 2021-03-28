@@ -1,5 +1,6 @@
 import React from 'react';
 import CanvasJSReact from '../../canvasjs.react';
+import '../../pages/Graph/Graph.css'
 
 import { Box } from '@material-ui/core';
 
@@ -22,7 +23,7 @@ function LineGraph({ dates }) {
   }
   return (
     <div className="hoursSleepContainer">
-      <Box >
+      <Box width="100%">
         <CanvasJSChart margin="10px" options={options} />
       </Box>
     </div>
