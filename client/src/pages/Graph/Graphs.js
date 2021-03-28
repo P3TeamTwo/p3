@@ -148,25 +148,28 @@ export default function ScrollableTabsButtonAuto() {
 
     }, [])
 
-    let noCoffee = 0;
-    let morningCoffee = 0;
-    let afternoonCoffee = 0;
-    let eveningCoffee = 0; 
+   const [coffeeTimes, setCoffeeTimes] = useState({
+        noCoffee: 0,
+         morningCoffee: 0,
+         afternoonCoffee: 0,
+         eveningCoffee: 0
+   })
     function coffeeConsumptionTime(){
         for(var i = 0; i < entries.length; i++) {
             if(entries.q1_3 === 0){
-                noCoffee += 1
+                coffeeTimes.noCoffee += 1
             } else if (entries.q1_3 === 3){
-                morningCoffee += 1
+                coffeeTimes.morningCoffee += 1
             } else if (entries.q1_3 === 6){
-                afternoonCoffee += 1
+                coffeeTimes.afternoonCoffee += 1
             } else if (entries.q1_3 === 9){
-                eveningCoffee += 1
+                coffeeTimes.eveningCoffee += 1
             }
         }
+        console.log(coffeeTimes.morningCoffee)
     }
-    coffeeConsumptionTime()
-
+    coffeeConsumptionTime();
+    
     console.log(entries)
     return (
         <div className={classes.root}>
@@ -195,6 +198,7 @@ export default function ScrollableTabsButtonAuto() {
                 {entries && <SleepOverview
                      sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
                      totalNights={entries.length} 
+                     coffeeConsumption={coffeeTimes}
                      />}
                 {/* once entries has value and linegraph can access values then execute */}
                 {entries && <HoursOfSleep
