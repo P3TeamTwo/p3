@@ -37,7 +37,7 @@ const makeEvent = () => {
                     color: '#008000',
                     from: reflection.created_at,
                     to: reflection.created_at,
-                    title: reflection.moodPoints,
+                    title: reflection.moodState,
                     src: reflection.voiceMemo,
                     longForm: reflection.longForm
                 }
