@@ -23,7 +23,8 @@ import Q4_3 from '../../components/QComponents/Q4_3';
 import LongForm from '../../components/QComponents/longform/LongForm'
 
 
-// import Results from '../../components/Results';
+
+import Results from '../../components/Results';
 
 const DailyReflection = () => {
 
@@ -283,7 +284,7 @@ const DailyReflection = () => {
 
                                         longFormVisible === true ? <LongForm handleSubmit={longFormSubmit} /> :
 
-                                          quizComplete === true ? <Button onClick={storeResponses}>end quiz</Button> : null}
+                                          quizComplete === true ? <Results onClick={storeResponses}>end quiz</Results> : null}
             </Paper>
           </Grid>
         </Grid>
