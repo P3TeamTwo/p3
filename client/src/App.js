@@ -11,6 +11,7 @@ import DailyReflection from './pages/DailyReflection/DailyReflection';
 // import Welcome from './pages/Welcome';
 import Graphs from './pages/Graph/Graphs'
 import CalendarPage from './pages/Calendar'
+import WordMap from './pages/WordMap/WordMap'
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route exact path='/welcome' component={Welcome} />
         <Route exact path='/calendar' component={CalendarPage} />
         <Route exact path='/Graphs' component={Graphs} />
+        <Route exact path='/WordMap' component={WordMap} />
         <Route exact path='*' component={NoMatch} />
       </Switch>
     </Router>
