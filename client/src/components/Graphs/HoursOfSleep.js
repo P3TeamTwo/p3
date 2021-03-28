@@ -21,11 +21,11 @@ function LineGraph({ dates }) {
     ]
   }
   return (
-    // <div className="hoursSleepContainer">
+    <div className="hoursSleepContainer">
       <Box >
         <CanvasJSChart margin="10px" options={options} />
       </Box>
-    // </div>
+    </div>
   )
 
 }
