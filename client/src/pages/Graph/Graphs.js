@@ -150,27 +150,11 @@ export default function ScrollableTabsButtonAuto() {
 
    const [coffeeTimes, setCoffeeTimes] = useState({
         noCoffee: 0,
-         morningCoffee: 0,
-         afternoonCoffee: 0,
-         eveningCoffee: 0
+         morning: 0,
+         afternoon: 0,
+         evening: 0
    })
-    function coffeeConsumptionTime(){
-        for(var i = 0; i < entries.length; i++) {
-            if(entries.q1_3 === 0){
-                setCoffeeTimes(coffeeTimes.noCoffee += 1)
-            } else if (entries.q1_3 === 3){
-                setCoffeeTimes(coffeeTimes.morningCoffee += 1)
-            } else if (entries.q1_3 === 6){
-                setCoffeeTimes(coffeeTimes.afternoonCoffee += 1)
-            } else if (entries.q1_3 === 9){
-                setCoffeeTimes(coffeeTimes.eveningCoffee += 1)
-            }
-        }
-        console.log(coffeeTimes.morningCoffee)
-    }
-    coffeeConsumptionTime();
 
-    console.log(entries)
     return (
         <div className={classes.root}>
             <AppBar position="static" color="default" >
@@ -199,6 +183,8 @@ export default function ScrollableTabsButtonAuto() {
                      sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
                      totalNights={entries.length} 
                      coffeeConsumption={coffeeTimes}
+                     entries={entries}
+                     coffeeTimes={coffeeTimes}
                      />}
                 {/* once entries has value and linegraph can access values then execute */}
                 {entries && <HoursOfSleep

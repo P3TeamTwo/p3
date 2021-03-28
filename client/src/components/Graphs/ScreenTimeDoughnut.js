@@ -5,7 +5,7 @@ import { Box } from '@material-ui/core';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function ScreenTimeDoughnut({screenTimeNights}) {
-console.log(screenTimeNights)
+// console.log(screenTimeNights)
 	const options = {
 		animationEnabled: true,
 		title: {
