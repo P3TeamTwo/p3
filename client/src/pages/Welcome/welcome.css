@@ -4,14 +4,16 @@
 }
 
 .container-main {
-    background-color: #FFEFD5;
+    background-color: #f5efe3 !important;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+
 }
 
 .daily-reflection {
     background-color: #d2f8d2;
+
 }

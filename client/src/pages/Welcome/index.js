@@ -8,35 +8,41 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyle = makeStyles({
     root: {
-        fontSize: '40px',
+        fontSize: '55px',
         color: 'black',
         padding: '5px 30px',
         borderRadius: '5',
         marginBottom: '20',
     },
     buttonLeft: {
-        padding: '50px 50px 50px 50px',
+        padding: '130px 130px 130px 130px',
         borderRadius: '15px',
         backgroundColor: '#ccffbd',
         color: 'black',
-        fontSize: '30px',
+        fontSize: '40px',
+        top: "-80px",
         marginRight: '3rem',
         "&:hover": {
             backgroundColor: '#7eca9c',
             color: 'white'
-        }
+        },
+        boxShadow:  '0 9px 30px -5px #a6aa9c'
+
     },
     buttonRight: {
-        padding: '50px 50px 50px 50px',
+        padding: '130px 130px 130px 130px',
         borderRadius: '15px',
         backgroundColor: '#bbf1fa',
         color: 'black',
-        fontSize: '30px',
+        fontSize: '40px',
+        top: "-80px",
         marginRight: '3rem',
         "&:hover": {
             backgroundColor: '#a4ebf3',
             color: 'white'
-        }
+        },
+        boxShadow:  '0 9px 30px -5px #a6aa9c'
+
     }
 })
 
