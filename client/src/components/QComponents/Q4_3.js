@@ -29,7 +29,12 @@ function Q4_3({ handleSubmit }) {
             />
             <Button variant="contained"
                 onClick={(e) => {
-                    handleSubmit(e, null, null, null, null, null, null, null, null, null, null, null, null, Q4_2Response)
+                    if (!Q4_2Response) {
+                        return; 
+                     } else {
+                         handleSubmit(e, null, null, null, null, null, null, null, null, null, null, Q4_2Response)
+                     }
+ 
                 }
                 }>SUBMIT</Button>
 
