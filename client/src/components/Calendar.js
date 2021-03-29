@@ -22,7 +22,7 @@ const userId = localStorage.getItem("userId");
 // }, {
 //     id: 3,
 //     color: '#F480A8',
-//     from: '2021-03-T13:00:00+00:00',
+//     from: '2021-03-T13:00:00+00:00', 
 //     to: '2020-11-06T00:01:00+00:00',
 //     title: 'Okay',
 // }]
@@ -34,7 +34,7 @@ const events = () => {
             res.data.map((reflection) => {
                 const event = {
                     id: reflection._id,
-                    color: '#008000',
+                    color: '#F480A8',
                     from: reflection.created_at,
                     to: reflection.created_at,
                     title: reflection.moodPoints,
@@ -48,6 +48,10 @@ const events = () => {
 }
 
 events();
+
+
+
+const calendarDate = ()
 
 
 class CalApp extends React.Component {
