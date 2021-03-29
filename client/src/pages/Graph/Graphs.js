@@ -148,9 +148,12 @@ export default function ScrollableTabsButtonAuto() {
          hour: 0,
          more: 0
     })
-    const[heartrate, setHeartrate] = useState({
-        true: 0,
-        false: 0
+    const[calories, setCalories] = useState({
+        none: 0,
+        min: 0,
+        midOne: 0,
+        midTwo: 0,
+        max: 0
     })
     const[active, setActive] = useState({
         cardio: 0,
@@ -243,7 +246,7 @@ export default function ScrollableTabsButtonAuto() {
                     // coffeeConsumption={exerciseTime}
                     entries={entries}
                     exerciseTime={exerciseTime}
-                    heartrate={heartrate}
+                    calories={calories}
                     active={active}
                     />}
                 {/* once entries has value and linegraph can access values then execute */}
