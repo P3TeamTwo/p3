@@ -51,7 +51,7 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 				...datesAndSleep.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		},
-		{
+		{ 
 			name: "Time of drinking coffee",
 			axisYType: "secondary",
 			showInLegend: true,
