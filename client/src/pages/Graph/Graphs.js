@@ -74,6 +74,9 @@ import CoffeeVsSleep from '../../components/Graphs/CoffeeVsSleep'
 import ScreenVsSleep from '../../components/Graphs/ScreenVsSleep'
 import ScreenTimeDoughnut from '../../components/Graphs/ScreenTimeDoughnut'
 
+// import Social Display
+import SocialDisplay from '../../components/SocialDisplay'
+
 //import overview from 
 import SleepOverview from '../../components/Graphs/SleepOverview'
 // //Import api routes to db
@@ -219,7 +222,7 @@ export default function ScrollableTabsButtonAuto() {
                 Item Three
       </TabPanel>
             <TabPanel value={value} index={3}>
-                Item Four
+                <SocialDisplay entries={entries} />
       </TabPanel>
             <TabPanel value={value} index={4}>
                 Item Five

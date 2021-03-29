@@ -32,12 +32,16 @@ const makeEvent = () => {
         .then((res) => {
             console.log(res);
             res.data.map((reflection) => {
+
+
                 const event = {
                     id: reflection._id,
                     color: '#008000',
                     from: reflection.created_at,
                     to: reflection.created_at,
+
                     title: reflection.moodState,
+
                     src: reflection.voiceMemo,
                     longForm: reflection.longForm
                 }
