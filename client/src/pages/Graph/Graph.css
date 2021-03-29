@@ -1,6 +1,44 @@
-.hoursSleepContainer, .coffeeVsSleep{
-    border: .5px solid grey ;
-    width: 50%;
-    display: inline-block;
+.sleepStats{
+    box-shadow: 0 9px 30px -5px rgba(150,170,180,0.5);
+    padding: 12px;
+    border-radius: 20px;
+    background: #d0e8f2
 }
+
+.hoursSleepContainer, .coffeeVsSleep{
+    display: inline-block;
+    margin:25px 4px;
+    box-shadow: 0 9px 30px -5px rgba(150,170,180,0.5);
+    border-radius: 20px !important;
+    border: .5 solid grey
+}
+
+.canvasjs-chart-canvas{
+    border-radius: 20px !important;
+    border: .5px #d6e4f0 solid;
+}
+
+/* MEDIA QUERIES */
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .hoursSleepContainer { width: 100% !important} }
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .hoursSleepContainer { width: 100% !important} }
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .hoursSleepContainer { width: 100% !important}  }
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .hoursSleepContainer { width: 48% !important} }
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .hoursSleepContainer {width: 48% !important} } 
+
+/* MEDIA QUERIES */
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .coffeeVsSleep {width: 100% !important} }
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .coffeeVsSleep { width: 100% !important} }
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .coffeeVsSleep { width: 100% !important}  }
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .coffeeVsSleep {width: 48% !important} }
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .coffeeVsSleep {width: 48% !important} } 
 

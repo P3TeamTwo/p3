@@ -7,6 +7,8 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 function ScreenTimeDoughnut({screenTimeNights}) {
 // console.log(screenTimeNights)
 	const options = {
+		theme: "light2",
+
 		animationEnabled: true,
 		title: {
 			text: "How many nights of screentime in the past 7 days"
