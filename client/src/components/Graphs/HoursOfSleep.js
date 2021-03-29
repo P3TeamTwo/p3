@@ -1,14 +1,23 @@
 import React from 'react';
 import CanvasJSReact from '../../canvasjs.react';
+import '../../pages/Graph/Graph.css'
 
-import { Box } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 
 // var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+var CanvasJS = CanvasJSReact.CanvasJS;
 
 function LineGraph({ dates }) {
 
+  CanvasJS.addColorSet("customColorSet1", ["#ffa372", "#a6dcef", "#ea9a96"])
+
+
   const options = {
+    // backgroundColor: "#eaf6f6",
+    colorSet: "customColorSet1",
+    theme: "light2",
+
     title: {
       text: "Hours of Sleep"
     },
@@ -21,11 +30,11 @@ function LineGraph({ dates }) {
     ]
   }
   return (
-    // <div className="hoursSleepContainer">
-      <Box >
+    <div className="hoursSleepContainer">
+      <Grid item xs={12}>
         <CanvasJSChart margin="10px" options={options} />
-      </Box>
-    // </div>
+      </Grid>
+    </div>
   )
 
 }

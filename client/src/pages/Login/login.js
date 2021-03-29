@@ -40,7 +40,7 @@ const login = () => {
                     Find it, in you!
                 </p>
                 </div>
-                <UserForm/>
+                <UserForm />
             </MyPaper>
         </div>
     )

@@ -59,15 +59,19 @@
     "question": "What time of day did you have caffiene?",
     "answers": [
       {
-        "answerText": "morning",
+        "answerText": "I didn't have any today",
+        "value": 0
+      },
+      {
+        "answerText": "Morning",
         "value":3
       },
       {
-        "answerText": "afternoon",
+        "answerText": "Afternoon",
         "value": 6
       },
       {
-        "answerText": "evening",
+        "answerText": "Evening",
         "value": 9
       }
     ]
