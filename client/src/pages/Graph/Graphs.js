@@ -74,6 +74,9 @@ import HoursOfSleep from '../../components/Graphs/HoursOfSleep'
 import CoffeeVsSleep from '../../components/Graphs/CoffeeVsSleep'
 import SleepvsExercise from '../../components/Graphs/SleepvsExercise'
 import ScreenTimeDoughnut from '../../components/Graphs/ScreenTimeDoughnut'
+import HoursOfExercise from '../../components/Graphs/Exercise/HoursOfExercise';
+import ExerciseOverview from '../../components/Graphs/Exercise/ExerciseOverview';
+import ActiveDoughnut from '../../components/Graphs/Exercise/ActiveDoughnut';
 
 // import Social Display
 import SocialDisplay from '../../components/SocialDisplay'
@@ -136,6 +139,16 @@ export default function ScrollableTabsButtonAuto() {
         evening: 0
     })
     const [screenTime, setScreenTime] = useState({
+        true: 0,
+        false: 0
+    })
+    const[exerciseTime, setExerciseTime] = useState({
+        noExercise: 0,
+         thirty: 0.5,
+         hour: 1,
+         more: 2
+    })
+    const[heartrate, setHeartrate] = useState({
         true: 0,
         false: 0
     })
@@ -215,8 +228,35 @@ export default function ScrollableTabsButtonAuto() {
 
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
-      </TabPanel>
+            <p>These are the data correllations between the answers you've given us </p>
+
+                {/* Average hours of sleep per nighth  */}
+                {/* sum of all input / number of inputs  */}
+                {entries && <ExerciseOverview
+                    sumOfExercise={entries.reduce((totalExercise, entry) => totalExercise = totalExercise + entry.q3_3, 0)}
+                    // totalNights={entries.length} 
+                    // coffeeConsumption={exerciseTime}
+                    entries={entries}
+                    exerciseTime={exerciseTime}
+                    heartrate={heartrate}
+                    />}
+                {/* once entries has value and linegraph can access values then execute */}
+                {entries && <HoursOfExercise
+                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                    dates={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+                />}
+                {/* Coffee vs sleep double axis line graph */}
+                {/* {entries && <CoffeeVsSleep
+                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                    datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
+                />} */}
+
+                {/* Screen time doughnut graph display */}
+                {entries && <ActiveDoughnut
+                    active={entries.map(entry => ({ date: entry.created_at, point: entry.q3_1 }))}
+                />}
+
+            </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three
       </TabPanel>
