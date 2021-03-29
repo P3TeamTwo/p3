@@ -220,15 +220,9 @@ export default function ScrollableTabsButtonAuto() {
                 <p>These are the data correllations between the answers you've given us </p>
 
                 {entries && <MinActive
-                    sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
-                    totalNights={entries.length}
-                    coffeeConsumption={coffeeTimes}
-                    entries={entries}
-                    coffeeTimes={coffeeTimes}
-                    screenTime={screenTime}
+                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                    dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
                 />}
-
-
             </TabPanel>
             <TabPanel value={value} index={3}>
                 Item Four

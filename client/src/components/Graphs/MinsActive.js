@@ -1,39 +1,33 @@
 import React from 'react';
 import CanvasJSReact from '../../canvasjs.react';
 import { Box } from '@material-ui/core';
+import '../../pages/Graph/Graph.css'
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-function MinActive({ MinActive }) {
-    // console.log(screenTimeNights)
+function MinActive({ dates }) {
+
     const options = {
-        animationEnabled: true,
         title: {
-            text: "How many minutes spent active in the past 7 days"
+            text: "Hours of Sleep"
         },
-        subtitles: [{
-            text: " % of nights ",
-            verticalAlign: "center",
-            fontSize: 24,
-            dockInsidePlotArea: true
-        }],
         data: [{
-            type: "doughnut",
-            showInLegend: true,
-            indexLabel: "{name}: {y}",
-            yValueFormatString: "#,###'%'",
+            type: "spline",
             dataPoints: [
-                { name: "Yes", y: 21 },
-                { name: "No", y: 5 },
-                { name: "maybe", y: 10 },
+                ...dates.map(({ date, point }) => ({ x: new Date(date), y: point }))
             ]
-        }]
+        }
+        ]
     }
     return (
-        <Box >
-            <CanvasJSChart options={options} />
-        </Box>
-    );
+        <div className="MinActiveContainer">
+            <Box width="100%">
+                <CanvasJSChart margin="10px" options={options} />
+            </Box>
+        </div>
+    )
+
 }
 
 export default MinActive;
+
