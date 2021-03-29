@@ -6,28 +6,28 @@ import API from '../utils/API';
 const userId = localStorage.getItem("userId");
 
 
-const events = [{
-    id: 1,
-    color: '#008000',
-    from: '2021-03-27 18:34:58.183Z',
-    to: '2021-03-27 18:34:58.183Z',
-    title: 'Happy',
-    src: ''
-}, {
-    id: 2,
-    color: '#0000FF',
-    from: '2021-03-08T13:00:00+00:00',
-    to: '2021-03-10T14:00:00+00:00',
-    title: 'Sad',
-}, {
-    id: 3,
-    color: '#F480A8',
-    from: '2021-03-T13:00:00+00:00',
-    to: '2020-11-06T00:01:00+00:00',
-    title: 'Okay',
-}]
+// const events = [{
+//     id: 1,
+//     color: '#008000',
+//     from: '2021-03-27 18:34:58.183Z',
+//     to: '2021-03-27 18:34:58.183Z',
+//     title: 'Happy',
+//     src: ''
+// }, {
+//     id: 2,
+//     color: '#0000FF',
+//     from: '2021-03-08T13:00:00+00:00',
+//     to: '2021-03-10T14:00:00+00:00',
+//     title: 'Sad',
+// }, {
+//     id: 3,
+//     color: '#F480A8',
+//     from: '2021-03-T13:00:00+00:00',
+//     to: '2020-11-06T00:01:00+00:00',
+//     title: 'Okay',
+// }]
 
-const makeEvent = () => {
+const events = () => {
     API.getJournal(userId)
         .then((res) => {
             console.log(res);
@@ -47,7 +47,7 @@ const makeEvent = () => {
         })
 }
 
-makeEvent();
+events();
 
 
 class CalApp extends React.Component {
