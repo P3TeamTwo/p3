@@ -12,8 +12,8 @@ const journalEntrySchema = new Schema({
   mood: {type: String,
     required: true
   },
-  moodPoints: {
-    type: Number,
+  moodState: {
+    type: String,
     required: true
   },
   q1_1: {
