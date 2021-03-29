@@ -37,13 +37,13 @@ function exerciseOverview({ entries, active, exerciseTime, heartrate }) {
     function activeFunc() {
         for (var i = 0; i < entries.length; i++) {
             console.log(entries[i].q3_1)
-            if (entries[i].q3_1 === 'Cardio') {
+            if (entries[i].q3_1 === 'cardio') {
                 active.cardio += 1;
-            } else if (entries[i].q3_1 === 'Weights') {
+            } else if (entries[i].q3_1 === 'weights') {
                 active.weights += 1;
-            } else if (entries[i].q3_1 === 'Rest day') {
+            } else if (entries[i].q3_1 === 'rest day') {
                 active.rest += 1;
-            } else if (entries[i].q3_1 === `I don't workout`) {
+            } else if (entries[i].q3_1 === 'zero') {
                 active.zero += 1;
             }
         }
@@ -63,9 +63,10 @@ function exerciseOverview({ entries, active, exerciseTime, heartrate }) {
     // Calculating how often a user raises their heartrate
     function heartrateAnalysis(){
         for(var i = 0; i < entries.length; i++){
-            if(entries[i].q3_2 === true){
+            console.log(entries[i].q3_2)
+            if(entries[i].q3_2 === 'true'){
                 heartrate.true += 1
-            } else {
+            } else if (entries[i].q3_2 === 'false'){
                 heartrate.false += 1
             }
         }
@@ -87,10 +88,10 @@ function exerciseOverview({ entries, active, exerciseTime, heartrate }) {
             <Grid container >
                 <Grid item xs={4}  style={{textAlign: "center"}}>
                 <GiWeightLiftingUp style={{height:"25px", width:"25px"}}/>
-                    {activity === 'Cardio' ? <p>Our data shows that you enjoy cardio!</p> :
-                    activity === 'Weights' ? <p>Our data shows that you enjoy lifting weights!</p> :
-                    activity === 'Rest day' ? <p>Our data shows that you have more rest days than exercise days.</p> : 
-                    activity === `I don't workout` ? <p>Our data shows that you do not workout</p> :
+                    {activity === 'cardio' ? <p>Our data shows that you enjoy cardio!</p> :
+                    activity === 'weights' ? <p>Our data shows that you enjoy lifting weights!</p> :
+                    activity === 'rest day' ? <p>Our data shows that you have more rest days than exercise days.</p> : 
+                    activity === 'zero' ? <p>Our data shows that you do not workout</p> :
                     <p>Not enough data obtained to calculate your workout statistic</p>}
                 </Grid>
                 
@@ -105,8 +106,8 @@ function exerciseOverview({ entries, active, exerciseTime, heartrate }) {
 
                 <Grid item xs={4}  style={{textAlign: "center"}}>
                 <GiHeartBeats style={{height:"25px", width:"25px"}}/>
-                    {beat === true ? <p>You often raise your heartrate</p> :
-                    beat === false ? <p>You do not raise your heartrate</p> :
+                    {beat === 'true' ? <p>You often raise your heartrate</p> :
+                    beat === 'false' ? <p>You do not raise your heartrate</p> :
                     <p>Not enough data collected to determin the on average how often you raise your heartrate</p>}
                 </Grid>
             </Grid>
