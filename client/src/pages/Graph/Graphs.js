@@ -132,35 +132,35 @@ const useStyles = makeStyles((theme) => ({
 export default function ScrollableTabsButtonAuto() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-    const [coffeeTimes, setCoffeeTimes] = useState({
+    const coffeeTimes = {
         noCoffee: 0,
         morning: 0,
         afternoon: 0,
         evening: 0
-    })
-    const [screenTime, setScreenTime] = useState({
+    }
+    const screenTime = {
         true: 0,
         false: 0
-    })
-    const[exerciseTime, setExerciseTime] = useState({
+    }
+    const exerciseTime = {
         noExercise: 0,
          thirty: 0,
          hour: 0,
          more: 0
-    })
-    const[calories, setCalories] = useState({
+    }
+    const calories = {
         none: 0,
         min: 0,
         midOne: 0,
         midTwo: 0,
         max: 0
-    })
-    const[active, setActive] = useState({
+    }
+    const active = {
         cardio: 0,
         weights: 0,
         rest: 0,
         zero: 0
-    })
+    }
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
