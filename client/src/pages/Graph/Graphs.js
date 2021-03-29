@@ -70,16 +70,19 @@ import Box from '@material-ui/core/Box';
 import { Grid } from '@material-ui/core';
 
 //importing elements
-import HoursOfSleep from '../../components/Graphs/HoursOfSleep'
-import CoffeeVsSleep from '../../components/Graphs/CoffeeVsSleep'
-import SleepvsExercise from '../../components/Graphs/SleepvsExercise'
-import ScreenTimeDoughnut from '../../components/Graphs/ScreenTimeDoughnut'
+import HoursOfSleep from '../../components/Graphs/Sleep/HoursOfSleep'
+import CoffeeVsSleep from '../../components/Graphs/Sleep/CoffeeVsSleep'
+import SleepvsExercise from '../../components/Graphs/Sleep/SleepvsExercise'
+import ScreenTimeDoughnut from '../../components/Graphs/Sleep/ScreenTimeDoughnut'
+import HoursOfExercise from '../../components/Graphs/Exercise/HoursOfExercise';
+import ExerciseOverview from '../../components/Graphs/Exercise/ExerciseOverview';
+import ActiveDoughnut from '../../components/Graphs/Exercise/ActiveDoughnut';
 
 // import Social Display
 import SocialDisplay from '../../components/SocialDisplay'
 
 //import overview from 
-import SleepOverview from '../../components/Graphs/SleepOverview'
+import SleepOverview from '../../components/Graphs/Sleep/SleepOverview'
 // //Import api routes to db
 import API from '../../utils/API'
 
@@ -138,6 +141,22 @@ export default function ScrollableTabsButtonAuto() {
     const [screenTime, setScreenTime] = useState({
         true: 0,
         false: 0
+    })
+    const[exerciseTime, setExerciseTime] = useState({
+        noExercise: 0,
+         thirty: 0,
+         hour: 0,
+         more: 0
+    })
+    const[heartrate, setHeartrate] = useState({
+        true: 0,
+        false: 0
+    })
+    const[active, setActive] = useState({
+        cardio: 0,
+        weights: 0,
+        rest: 0,
+        zero: 0
     })
 
     const handleChange = (event, newValue) => {
@@ -215,8 +234,35 @@ export default function ScrollableTabsButtonAuto() {
 
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
-      </TabPanel>
+
+                {/* Average hours of sleep per nighth  */}
+                {/* sum of all input / number of inputs  */}
+                {entries && <ExerciseOverview
+                    sumOfExercise={entries.reduce((totalExercise, entry) => totalExercise = totalExercise + entry.q3_3, 0)}
+                    // totalNights={entries.length} 
+                    // coffeeConsumption={exerciseTime}
+                    entries={entries}
+                    exerciseTime={exerciseTime}
+                    heartrate={heartrate}
+                    active={active}
+                    />}
+                {/* once entries has value and linegraph can access values then execute */}
+                {entries && <HoursOfExercise
+                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                    dates={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+                />}
+                {/* Coffee vs sleep double axis line graph */}
+                {/* {entries && <CoffeeVsSleep
+                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                    datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
+                />} */}
+
+                {/* Screen time doughnut graph display */}
+                {entries && <ActiveDoughnut
+                    active={entries.map(entry => ({ date: entry.created_at, point: entry.q3_1 }))}
+                />}
+
+            </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three
       </TabPanel>
