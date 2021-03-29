@@ -13,7 +13,7 @@
       },
       {
         "answerText": "Rest day",
-        "value": "rest day"
+        "value": "rest"
       },
       {
         "answerText": "I don't workout",
@@ -23,15 +23,27 @@
   },
   {
     "id": 2,
-    "question": "Did you raise your heartrate?",
+    "question": "How many calories did you burn today?",
     "answers": [
       {
-        "answerText": "No",
-        "value": "false"
+        "answerText": "none",
+        "value": 0
       },
       {
-        "answerText": "Yes",
-        "value": "true"
+        "answerText": "100",
+        "value": 100
+      },
+      {
+        "answerText": "200",
+        "value": 200
+      },
+      {
+        "answerText": "300",
+        "value": 300
+      },
+      {
+        "answerText": "400",
+        "value": 400
       }
     ]
   },
