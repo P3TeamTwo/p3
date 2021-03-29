@@ -1,0 +1,13 @@
+/* .list-content {
+    display: auto;
+    text-align: center
+} */
+
+
+.connectedWith {
+    width: 75%;
+    display: block;
+    background-color: black;
+    color: white;
+    padding: 10px 10px 10px 10px;
+}

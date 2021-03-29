@@ -1,13 +1,15 @@
 import React from 'react'
-import {  MdSentimentVerySatisfied } from 'react-icons/md';
+import {  MdBook } from 'react-icons/md';
+import { Button } from '@material-ui/core'
 
 
-const Results = ({ finalScore }) => {
+const Results = ({ onClick }) => {
     return (
         <div>
             <div>
-                <MdSentimentVerySatisfied className='material-icons'/>
-                <h3>Your mood score is {finalScore}</h3>
+                <MdBook className='material-icons'/>
+                <h3>Journal Complete</h3>
+                <Button onClick={onClick}>Submit Entry</Button>
             </div>
             
         </div>

@@ -23,7 +23,8 @@ import Q4_3 from '../../components/QComponents/Q4_3';
 import LongForm from '../../components/QComponents/longform/LongForm'
 
 
-// import Results from '../../components/Results';
+
+import Results from '../../components/Results';
 
 const DailyReflection = () => {
 
@@ -67,25 +68,25 @@ const DailyReflection = () => {
   const [longForm, setLongForm] = useState('')
   const [ voiceMemo, setVoiceMemo] = useState('');
 
-  // State that stores the points
-  const [emotionPoints, setEmotionPoints] = useState(30)
+  // State that stores the emotion state
+  const [emotionState, setEmotionState] = useState('')
 
 
   // Set points for current mood
   function renderMoodPoints() {
     switch (emotion) {
       case '0':
-        return setEmotionPoints(10);
+        return setEmotionState('Very Unhappy');
       case '1':
-        return setEmotionPoints(20);
+        return setEmotionState('Unhappy');
       case '2':
-        return setEmotionPoints(30);
+        return setEmotionState('Ok');
       case '3':
-        return setEmotionPoints(40);
+        return setEmotionState('Happy');
       case '4':
-        return setEmotionPoints(50);
+        return setEmotionState('Very Happy');
       default:
-        return setEmotion('2') + setEmotionPoints(30);
+        return setEmotion('2') + setEmotionState('Ok');
     }
   };
 
@@ -102,7 +103,7 @@ const DailyReflection = () => {
 
   API.saveJournal({ 
       postedBy: userId,
-      mood: emotion, moodPoints: emotionPoints,
+      mood: emotion, moodState: emotionState,
       q1_1: q1_1, 
       q1_2: q1_2, 
       q1_3: q1_3, 
@@ -283,7 +284,7 @@ const DailyReflection = () => {
 
                                         longFormVisible === true ? <LongForm handleSubmit={longFormSubmit} /> :
 
-                                          quizComplete === true ? <Button onClick={storeResponses}>end quiz</Button> : null}
+                                          quizComplete === true ? <Results onClick={storeResponses}>end quiz</Results> : null}
             </Paper>
           </Grid>
         </Grid>

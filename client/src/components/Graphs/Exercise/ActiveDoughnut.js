@@ -1,20 +1,20 @@
 import React from 'react';
-import CanvasJSReact from '../../canvasjs.react';
+import CanvasJSReact from '../../../canvasjs.react';
 import { Box } from '@material-ui/core';
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-function ScreenTimeDoughnut({screenTimeNights}) {
-// console.log(screenTimeNights)
+function ActiveDoughnut({active}) {
+// console.log(active)
 	const options = {
 		theme: "light2",
 
 		animationEnabled: true,
 		title: {
-			text: "How many nights of screentime in the past 7 days"
+			text: "How active were you in the past 7 days"
 		},
 		subtitles: [{
-			text: " % of nights ",
+			text: " % of days ",
 			verticalAlign: "center",
 			fontSize: 24,
 			dockInsidePlotArea: true
@@ -27,7 +27,7 @@ function ScreenTimeDoughnut({screenTimeNights}) {
 			dataPoints: [
 				{ name: "Yes", y: 21 },
 				{ name: "No", y: 5 },
-				{ name: "maybe", y: 10 },
+				{ name: "It's a rest day!", y: 10 },
 			]
 		}]
 	}
@@ -38,4 +38,4 @@ function ScreenTimeDoughnut({screenTimeNights}) {
 	);
 }
 
-export default ScreenTimeDoughnut;
+export default ActiveDoughnut;

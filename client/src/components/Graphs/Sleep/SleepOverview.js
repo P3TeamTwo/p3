@@ -8,6 +8,7 @@ import { Grid } from '@material-ui/core';
 function sleepOverview({ sumOfSleep, totalNights, entries, coffeeTimes, screenTime }) {
 
     const AvgHours = sumOfSleep / totalNights;
+    console.log(AvgHours)
     let phoneTime;
     let otherTime;
 
@@ -60,7 +61,8 @@ function sleepOverview({ sumOfSleep, totalNights, entries, coffeeTimes, screenTi
         <div className="sleepStats">
             <Grid container >
                 <Grid item xs={4}  style={{textAlign: "center"}}>
-                    <GiNightSleep style={{height:"25px", width:"25px"}}/> <p>On average you sleep <strong>{AvgHours}</strong> hours per night</p>
+                    <GiNightSleep style={{height:"25px", width:"25px"}}/> 
+                    {!AvgHours ? <p>Not enough data to determin average hours of sleep</p> : <p>On average you sleep <strong>{AvgHours}</strong> hours per night</p>} 
                 </Grid>
                 <Grid item xs={4} style={{textAlign: "center"}}>
                     <GiCoffeeCup style={{height:"25px", width:"25px"}} />

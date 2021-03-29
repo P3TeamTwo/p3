@@ -21,6 +21,7 @@ const useStyle = makeStyles({
         backgroundColor: '#ccffbd',
         color: 'black',
         fontSize: '30px',
+        display: 'block',
         "&:hover": {
             backgroundColor: '#7eca9c',
             color: 'white'
@@ -32,7 +33,6 @@ const useStyle = makeStyles({
         backgroundColor: '#bbf1fa',
         color: 'black',
         fontSize: '30px',
-        marginRight: '3rem',
         "&:hover": {
             backgroundColor: '#a4ebf3',
             color: 'white'
@@ -46,7 +46,7 @@ function WelcomeHeader() {
     return <h1 className={classes.root}>Your Journal Entries</h1>
 }
 
-function ButtonLeft() {
+function ButtonTop() {
     const classes = useStyle();
 
     const history = useHistory();
@@ -57,6 +57,19 @@ function ButtonLeft() {
     }
 
     return <Button className={classes.buttonLeft} onClick={directToDaily}>View Data</Button>
+}
+
+function ButtonBottom() {
+    const classes = useStyle();
+
+    const history = useHistory();
+
+    const directToWelcome = () => {
+        let path = '/welcome'
+        history.push(path)
+    }
+
+    return <Button className={classes.buttonRight} onClick={directToWelcome}>View Data</Button>
 }
 
 
@@ -70,8 +83,9 @@ const CalendarPage = () => {
                 </Grid>
                 <Grid item xs={3}>
                     <div className="container-main">
-                        <ButtonLeft />
-                    </div>  
+                        <ButtonTop />                 
+                    </div>
+                      
                 </Grid>
                 <Grid item xs={8}>
                     <Calendar />

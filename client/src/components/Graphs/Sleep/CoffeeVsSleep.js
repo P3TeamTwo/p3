@@ -1,5 +1,5 @@
 import React from 'react';
-import CanvasJSReact from '../../canvasjs.react';
+import CanvasJSReact from '../../../canvasjs.react';
 import { Box } from '@material-ui/core';
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
