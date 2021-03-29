@@ -32,7 +32,12 @@ function Q4_2({ handleSubmit }) {
             <Button variant="contained"
                 onClick={(e) => {
                     console.log(userResponse)
-                    handleSubmit(e, null, null, null, null, null, null, null, null, null, null, null, userResponse)
+                    if (!userResponse) {
+                        return; 
+                     } else {
+                         handleSubmit(e, null, null, null, null, null, null, null, null, null, null, userResponse)
+                     }
+ 
                 }
                 }>SUBMIT</Button>
 

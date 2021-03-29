@@ -9,6 +9,7 @@ function Q4_1({ handleSubmit }) {
     const [userResponse, setUserResponse] = useState();
 
     const handleChange = (e) => {
+        e.preventDefault()
         setUserResponse(e.target.value);
     }
 
@@ -30,8 +31,16 @@ function Q4_1({ handleSubmit }) {
             />
             <Button variant="contained"
                 onClick={(e) => {
+                    e.preventDefault()
                     console.log(userResponse)
-                    handleSubmit(e, null, null, null, null, null, null, null, null, null, null, userResponse)
+
+                    if (!userResponse) {
+                       return; 
+                    } else {
+                        handleSubmit(e, null, null, null, null, null, null, null, null, null, null, userResponse)
+                    }
+
+                    
                 }
                 }>SUBMIT</Button>
 
