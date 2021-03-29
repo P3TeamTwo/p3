@@ -51,7 +51,12 @@ function LongForm(props) {
                 <Button variant="contained"
                     style={{ marginTop: '5%' }}
                     onClick={(e) => {
-                        props.handleSubmit(e, userResponse)
+                        if (!userResponse) {
+                            return;
+                        } else {
+                            props.handleSubmit(e, userResponse)
+                        }
+                        
                     }
                     }>SUBMIT</Button>
             </form>
