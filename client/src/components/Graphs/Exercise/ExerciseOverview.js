@@ -1,9 +1,10 @@
 import React from 'react';
-
+import { GiTimeTrap } from 'react-icons/gi';
+import { GiWeightLiftingUp } from 'react-icons/gi';
+import { GiHeartBeats } from 'react-icons/gi';
+import { Grid } from '@material-ui/core';
 
 function exerciseOverview({ entries, active, exerciseTime, heartrate }) {
-
-    let heart;
 
     // Calculating how long a user exercises for on average
     function exerciseTimeFunc() {
@@ -82,24 +83,33 @@ function exerciseOverview({ entries, active, exerciseTime, heartrate }) {
 
 
     return (
-        <div>
+        <div className="exerciseStats">
+            <Grid container >
+                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <GiWeightLiftingUp style={{height:"25px", width:"25px"}}/>
+                    {activity === 'Cardio' ? <p>Our data shows that you enjoy cardio!</p> :
+                    activity === 'Weights' ? <p>Our data shows that you enjoy lifting weights!</p> :
+                    activity === 'Rest day' ? <p>Our data shows that you have more rest days than exercise days.</p> : 
+                    activity === `I don't workout` ? <p>Our data shows that you do not workout</p> :
+                    <p>Not enough data obtained to calculate your workout statistic</p>}
+                </Grid>
+                
+                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <GiTimeTrap style={{height:"25px", width:"25px"}}/>
+                    {index === 'thirty' ? <p>You have recently been exercising for 30 minutes a day.</p> : 
+                    index === 'hour' ? <p>You have recently been exercising for an hour a day</p> : 
+                    index === 'more' ? <p>You have recently been exercising for more than an hour a day!</p> :
+                    index === 'noExercise' ? <p>You haven't been exercising often, if at all.</p> :
+                    <p>Not enough data obtained to calculate how long you workout for</p>}
+                </Grid>
 
-            {activity === 'Cardio' ? <p>Our data shows that you enjoy cardio!</p> :
-            activity === 'Weights' ? <p>Our data shows that you enjoy lifting weights!</p> :
-            activity === 'Rest day' ? <p>Our data shows that you have more rest days than exercise days.</p> : 
-            activity === `I don't workout` ? <p>Our data shows that you do not workout</p> :
-            <p>Not enough data obtained to calculate your workout statistic</p>}
-
-            {index === 'thirty' ? <p>You have recently been exercising for 30 minutes a day.</p> : 
-            index === 'hour' ? <p>You have recently been exercising for an hour a day</p> : 
-            index === 'more' ? <p>You have recently been exercising for more than an hour a day!</p> :
-            index === 'noExercise' ? <p>You haven't been exercising often, if at all.</p> :
-            <p>Not enough data obtained to calculate how long you workout for</p>}
-
-            {beat === true ? <p>You often raise your heartrate</p> :
-            beat === false ? <p>You do not raise your heartrate</p> :
-            <p>Not enough data collected to determin the on average how often you raise your heartrate</p>}
-
+                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <GiHeartBeats style={{height:"25px", width:"25px"}}/>
+                    {beat === true ? <p>You often raise your heartrate</p> :
+                    beat === false ? <p>You do not raise your heartrate</p> :
+                    <p>Not enough data collected to determin the on average how often you raise your heartrate</p>}
+                </Grid>
+            </Grid>
         </div>
     )
 }

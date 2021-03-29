@@ -5,6 +5,13 @@
     background: #d0e8f2
 }
 
+.exerciseStats{
+    box-shadow: 0 9px 30px -5px rgba(150,170,180,0.5);
+    padding: 12px;
+    border-radius: 20px;
+    background: #d0e8f2
+}
+
 .hoursSleepContainer, .coffeeVsSleep{
     display: inline-block;
     margin:25px 4px;

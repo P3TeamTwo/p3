@@ -234,7 +234,6 @@ export default function ScrollableTabsButtonAuto() {
 
             </TabPanel>
             <TabPanel value={value} index={1}>
-            <p>These are the data correllations between the answers you've given us </p>
 
                 {/* Average hours of sleep per nighth  */}
                 {/* sum of all input / number of inputs  */}
