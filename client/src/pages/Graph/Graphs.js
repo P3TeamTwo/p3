@@ -67,11 +67,12 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { Grid } from '@material-ui/core';
 
 //importing elements
 import HoursOfSleep from '../../components/Graphs/HoursOfSleep'
 import CoffeeVsSleep from '../../components/Graphs/CoffeeVsSleep'
-import ScreenVsSleep from '../../components/Graphs/ScreenVsSleep'
+import SleepvsExercise from '../../components/Graphs/SleepvsExercise'
 import ScreenTimeDoughnut from '../../components/Graphs/ScreenTimeDoughnut'
 
 // import Social Display
@@ -130,14 +131,14 @@ export default function ScrollableTabsButtonAuto() {
     const [value, setValue] = React.useState(0);
     const [coffeeTimes, setCoffeeTimes] = useState({
         noCoffee: 0,
-         morning: 0,
-         afternoon: 0,
-         evening: 0
-   })
-   const[screenTime, setScreenTime] = useState({
-       true: 0,
-       false: 0
-   })
+        morning: 0,
+        afternoon: 0,
+        evening: 0
+    })
+    const [screenTime, setScreenTime] = useState({
+        true: 0,
+        false: 0
+    })
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -183,37 +184,35 @@ export default function ScrollableTabsButtonAuto() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                <p>These are the data correllations between the answers you've given us </p>
+                    {/* Average hours of sleep per nighth  */}
+                    {/* sum of all input / number of inputs  */}
+                    {entries && <SleepOverview
+                        sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
+                        totalNights={entries.length}
+                        coffeeConsumption={coffeeTimes}
+                        entries={entries}
+                        coffeeTimes={coffeeTimes}
+                        screenTime={screenTime}
+                    />}
+                    {/* once entries has value and linegraph can access values then execute */}
+                    {entries && <HoursOfSleep
+                        // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                        dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                    />}
+                    {/* Coffee vs sleep double axis line graph */}
+                    {entries && <CoffeeVsSleep
+                        datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                        datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
+                    />}
 
-                {/* Average hours of sleep per nighth  */}
-                {/* sum of all input / number of inputs  */}
-                {entries && <SleepOverview
-                     sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
-                     totalNights={entries.length} 
-                     coffeeConsumption={coffeeTimes}
-                     entries={entries}
-                     coffeeTimes={coffeeTimes}
-                     screenTime={screenTime}
-                     />}
-                {/* once entries has value and linegraph can access values then execute */}
-                {entries && <HoursOfSleep
-                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
-                    dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                />}
-                {/* Coffee vs sleep double axis line graph */}
-                {entries && <CoffeeVsSleep
-                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                    datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
-                />}
+                    {/* Screen time doughnut graph display */}
+                    {entries && <SleepvsExercise
+                        datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                        datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
 
-                {/* Screen time doughnut graph display */}
-                {entries && <ScreenTimeDoughnut
-                    screenTimeNights={entries.map(entry => ({ date: entry.created_at, point: entry.q1_2 }))}
-
-                />}
+                    />}
 
 
-                {/* <ScreenVsSleep /> */}
             </TabPanel>
             <TabPanel value={value} index={1}>
                 Item Two
@@ -224,15 +223,7 @@ export default function ScrollableTabsButtonAuto() {
             <TabPanel value={value} index={3}>
                 <SocialDisplay entries={entries} />
       </TabPanel>
-            <TabPanel value={value} index={4}>
-                Item Five
-      </TabPanel>
-            <TabPanel value={value} index={5}>
-                Item Six
-      </TabPanel>
-            <TabPanel value={value} index={6}>
-                Item Seven
-      </TabPanel>
+
         </div>
     );
 }
