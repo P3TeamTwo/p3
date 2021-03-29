@@ -53,41 +53,47 @@ const makeEvent = () => {
 makeEvent();
 
 
-
 class CalApp extends React.Component {
     constructor(props) {
         super(props);
         this.calendar = React.createRef();
-        this.setVoice = this.setVoice.bind(this);
-
+        this.checkDay = this.checkDay.bind(this);
+        this.openMemo = this.openMemo.bind(this);
     }
 
 
     componentDidMount() {
-        
+
+
     }
 
+    openMemo() {
+        console.log(this.mode===true)
+        return <h1>Hello</h1>
+    }
 
-
-    setVoice() {
+    checkDay() {
         const details = this.calendar.current.getDetails();
-        this.mode = details.mode;
-        console.log(this.mode)
-        this.props.onDay(this.mode)
-        this.props.onDay(details.mode)
+        console.log(details.mode);
+        if (details.mode === ("dailyMode")) {
+            this.mode = true
+        } else {
+            this.mode = false
+        }
     }
 
     render(props) {
-        console.log('hi');
         return (
             <div className={styles.pageCalendar}>
-                {/* {this.props.onDay()} */}
+
                 <Calendar
                     ref={this.calendar}
-                    onChange={(dates) => this.setVoice()}
+                    onChange={this.checkDay}
                 />
+                {this.openMemo()}
             </div>
         );
+
     }
 }
 

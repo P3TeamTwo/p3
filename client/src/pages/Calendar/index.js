@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { useHistory } from 'react-router-dom'
 import Calendar from '../../components/Calendar'
 import './calendar.css'
-import Memo from '../../pages/Memo/Memo'
+import Player from '../../components/QComponents/longform/Recorder/Player'
+// import Memo from '../../pages/Memo/Player'
 
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -42,6 +43,11 @@ const useStyle = makeStyles({
     }
 })
 
+
+
+
+
+
 function WelcomeHeader() {
     const classes = useStyle();
 
@@ -77,39 +83,33 @@ function ButtonBottom() {
 
 
 const CalendarPage = (mode) => {
-    
-    const [wordMap, setWordMap] = useState(false)
 
-    const onDay = (mode) => {
-        console.log('hi')
-        if(mode === "dailyMode"){
-            setWordMap(true)
-        }
-        else(
-            setWordMap(false)
-        )
-    }
+    const [notePlay, setNotePlay] = useState(false)
+
+
+    useEffect(() => {
+
+    }, [])
 
     return (
         <div className="Container">
             <Grid container>
-                
-                <Grid item xs={12}> 
+
+                <Grid item xs={12}>
                     <WelcomeHeader />
                 </Grid>
                 <Grid item xs={3}>
                     <div className="container-main">
-                        <ButtonTop />                 
+                        <ButtonTop />
                     </div>
                 </Grid>
-                {wordMap&&<Memo style = {{position:'absolute'}}/>}      
-                <Grid item xs={8}>
-                    <Calendar  onDay = {onDay}/>
+                <Grid item xs={8}>  
+                <Calendar/>
                 </Grid>
 
             </Grid>
         </div>
-        
+
     )
 }
 
