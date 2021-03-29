@@ -73,13 +73,13 @@ import HoursOfSleep from '../../components/Graphs/HoursOfSleep'
 import CoffeeVsSleep from '../../components/Graphs/CoffeeVsSleep'
 import ScreenVsSleep from '../../components/Graphs/ScreenVsSleep'
 import ScreenTimeDoughnut from '../../components/Graphs/ScreenTimeDoughnut'
+import MinActive from '../../components/Graphs/MinsActive'
 
 //import overview from 
 import SleepOverview from '../../components/Graphs/SleepOverview'
 // //Import api routes to db
 import API from '../../utils/API'
 
-import './Graph.css'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -127,14 +127,14 @@ export default function ScrollableTabsButtonAuto() {
     const [value, setValue] = React.useState(0);
     const [coffeeTimes, setCoffeeTimes] = useState({
         noCoffee: 0,
-         morning: 0,
-         afternoon: 0,
-         evening: 0
-   })
-   const[screenTime, setScreenTime] = useState({
-       true: 0,
-       false: 0
-   })
+        morning: 0,
+        afternoon: 0,
+        evening: 0
+    })
+    const [screenTime, setScreenTime] = useState({
+        true: 0,
+        false: 0
+    })
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -185,13 +185,13 @@ export default function ScrollableTabsButtonAuto() {
                 {/* Average hours of sleep per nighth  */}
                 {/* sum of all input / number of inputs  */}
                 {entries && <SleepOverview
-                     sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
-                     totalNights={entries.length} 
-                     coffeeConsumption={coffeeTimes}
-                     entries={entries}
-                     coffeeTimes={coffeeTimes}
-                     screenTime={screenTime}
-                     />}
+                    sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
+                    totalNights={entries.length}
+                    coffeeConsumption={coffeeTimes}
+                    entries={entries}
+                    coffeeTimes={coffeeTimes}
+                    screenTime={screenTime}
+                />}
                 {/* once entries has value and linegraph can access values then execute */}
                 {entries && <HoursOfSleep
                     // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
@@ -217,7 +217,19 @@ export default function ScrollableTabsButtonAuto() {
       </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three
-      </TabPanel>
+                <p>These are the data correllations between the answers you've given us </p>
+
+                {entries && <MinActive
+                    sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
+                    totalNights={entries.length}
+                    coffeeConsumption={coffeeTimes}
+                    entries={entries}
+                    coffeeTimes={coffeeTimes}
+                    screenTime={screenTime}
+                />}
+
+
+            </TabPanel>
             <TabPanel value={value} index={3}>
                 Item Four
       </TabPanel>
