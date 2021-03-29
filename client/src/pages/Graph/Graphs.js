@@ -70,10 +70,10 @@ import Box from '@material-ui/core/Box';
 import { Grid } from '@material-ui/core';
 
 //importing elements
-import HoursOfSleep from '../../components/Graphs/HoursOfSleep'
-import CoffeeVsSleep from '../../components/Graphs/CoffeeVsSleep'
-import SleepvsExercise from '../../components/Graphs/SleepvsExercise'
-import ScreenTimeDoughnut from '../../components/Graphs/ScreenTimeDoughnut'
+import HoursOfSleep from '../../components/Graphs/Sleep/HoursOfSleep'
+import CoffeeVsSleep from '../../components/Graphs/Sleep/CoffeeVsSleep'
+import SleepvsExercise from '../../components/Graphs/Sleep/SleepvsExercise'
+import ScreenTimeDoughnut from '../../components/Graphs/Sleep/ScreenTimeDoughnut'
 import HoursOfExercise from '../../components/Graphs/Exercise/HoursOfExercise';
 import ExerciseOverview from '../../components/Graphs/Exercise/ExerciseOverview';
 import ActiveDoughnut from '../../components/Graphs/Exercise/ActiveDoughnut';
@@ -82,7 +82,7 @@ import ActiveDoughnut from '../../components/Graphs/Exercise/ActiveDoughnut';
 import SocialDisplay from '../../components/SocialDisplay'
 
 //import overview from 
-import SleepOverview from '../../components/Graphs/SleepOverview'
+import SleepOverview from '../../components/Graphs/Sleep/SleepOverview'
 // //Import api routes to db
 import API from '../../utils/API'
 
@@ -144,13 +144,19 @@ export default function ScrollableTabsButtonAuto() {
     })
     const[exerciseTime, setExerciseTime] = useState({
         noExercise: 0,
-         thirty: 0.5,
-         hour: 1,
-         more: 2
+         thirty: 0,
+         hour: 0,
+         more: 0
     })
     const[heartrate, setHeartrate] = useState({
         true: 0,
         false: 0
+    })
+    const[active, setActive] = useState({
+        cardio: 0,
+        weights: 0,
+        rest: 0,
+        zero: 0
     })
 
     const handleChange = (event, newValue) => {
@@ -239,6 +245,7 @@ export default function ScrollableTabsButtonAuto() {
                     entries={entries}
                     exerciseTime={exerciseTime}
                     heartrate={heartrate}
+                    active={active}
                     />}
                 {/* once entries has value and linegraph can access values then execute */}
                 {entries && <HoursOfExercise

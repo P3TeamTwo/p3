@@ -1,19 +1,23 @@
 [
   {
     "id": 1,
-    "question": "Were you active today?",
+    "question": "What kind of workout did you do?",
     "answers": [
       {
-        "answerText": "No",
-        "value": "false"
+        "answerText": "Cardio",
+        "value": "cardio"
       },
       {
-        "answerText": "Yes",
-        "value": "true"
+        "answerText": "Weights",
+        "value": "weights"
       },
       {
-        "answerText": "It's a rest day!",
-        "value": "false"
+        "answerText": "Rest day",
+        "value": "rest day"
+      },
+      {
+        "answerText": "I don't workout",
+        "value": "zero"
       }
     ]
   },
@@ -51,28 +55,6 @@
         "answerText": "Lost track of time!",
         "value": 100
       } 
-    ]
-  },
-  {
-    "id": 4,
-    "question": "What kind of workout did you do?",
-    "answers": [
-      {
-        "answerText": "Cardio",
-        "value": "cardio"
-      },
-      {
-        "answerText": "Weights",
-        "value": "weights"
-      },
-      {
-        "answerText": "Rest day",
-        "value": "rest day"
-      },
-      {
-        "answerText": "I don't workout",
-        "value": "weights"
-      }
     ]
   }
 ]
