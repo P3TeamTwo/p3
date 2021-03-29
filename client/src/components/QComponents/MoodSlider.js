@@ -40,7 +40,7 @@ function handleChange (e) {
     
     return (
         <>
-        <b>Daily Reflection</b>
+        <strong>Daily Reflection</strong>
         <p>How are you feeling today?</p>
         <div className='container'>
         <div>{renderSwitch()}</div>
