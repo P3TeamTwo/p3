@@ -74,6 +74,8 @@ import HoursOfSleep from '../../components/Graphs/HoursOfSleep'
 import CoffeeVsSleep from '../../components/Graphs/CoffeeVsSleep'
 import SleepvsExercise from '../../components/Graphs/SleepvsExercise'
 import ScreenTimeDoughnut from '../../components/Graphs/ScreenTimeDoughnut'
+import ActivevsInactive from '../../components/Graphs/ActivevsInactive'
+
 
 // import Social Display
 import SocialDisplay from '../../components/SocialDisplay'
@@ -184,45 +186,55 @@ export default function ScrollableTabsButtonAuto() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                    {/* Average hours of sleep per nighth  */}
-                    {/* sum of all input / number of inputs  */}
-                    {entries && <SleepOverview
-                        sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
-                        totalNights={entries.length}
-                        coffeeConsumption={coffeeTimes}
-                        entries={entries}
-                        coffeeTimes={coffeeTimes}
-                        screenTime={screenTime}
-                    />}
-                    {/* once entries has value and linegraph can access values then execute */}
-                    {entries && <HoursOfSleep
-                        // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
-                        dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                    />}
-                    {/* Coffee vs sleep double axis line graph */}
-                    {entries && <CoffeeVsSleep
-                        datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                        datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
-                    />}
+                {/* Average hours of sleep per nighth  */}
+                {/* sum of all input / number of inputs  */}
+                {entries && <SleepOverview
+                    sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
+                    totalNights={entries.length}
+                    coffeeConsumption={coffeeTimes}
+                    entries={entries}
+                    coffeeTimes={coffeeTimes}
+                    screenTime={screenTime}
+                />}
+                {/* once entries has value and linegraph can access values then execute */}
+                {entries && <HoursOfSleep
+                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                    dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                />}
+                {/* Coffee vs sleep double axis line graph */}
+                {entries && <CoffeeVsSleep
+                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                    datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
+                />}
 
-                    {/* Screen time doughnut graph display */}
-                    {entries && <SleepvsExercise
-                        datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                        datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+                {/* Screen time doughnut graph display */}
+                {entries && <SleepvsExercise
+                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                    datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
 
-                    />}
+                />}
 
 
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
-      </TabPanel>
+                {entries && <SleepvsExercise
+                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                    datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+
+                />}
+
+                {entries && <ActivevsInactive
+                    activeTime={entries.map(entry => ({ date: entry.created_at, point: entry.q3_1 }))}
+                />}
+
+
+            </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three
       </TabPanel>
             <TabPanel value={value} index={3}>
                 <SocialDisplay entries={entries} />
-      </TabPanel>
+            </TabPanel>
 
         </div>
     );
