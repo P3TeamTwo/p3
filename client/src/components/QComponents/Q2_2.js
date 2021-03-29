@@ -8,7 +8,6 @@ function Q2_2(props) {
 
     return(
         <>
-        <b>Question 2_2</b>
             <div className='container'>
             <FormControl component="fieldset">
                 <FormLabel component="legend">{Q2questions[1].question}

@@ -8,35 +8,38 @@ import UserForm from '../../components/UserForm'
 const login = () => {
 
     const MyPaper = styled(Paper)({
-        position: 'fixed',
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        border: 0,
-        borderRadius: 3,
-        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        // display: "gridGap",
+        placeItems: "center",
+        position: 'relative',
+        background: '#aacfcf',
+        // border: 0,
+        borderRadius: "2px",
+        boxShadow:  '0 9px 30px -5px #a6aa9c',
+
         color: 'white',
-        marginLeft: '5vw',
-        marginTop: '5vh',
-        height: "90vh",
-        width: "90vw",
-        padding: '0 30px',
+        left: '10%',
+        top: '12%',
+        height: "80vh",
+        width: "90%",
+        // padding: '0 30px',
     });
 
     return (
         <div
             style={{
-                width: "100vw",
-                height: "100vh",
+                width: "90vw",
+                height: "90vh",
                 textAlign: 'center',
             }}>
 
             <MyPaper>
-                <div style = {{height:  '20vh'}}>
+                <div >
                 <p
                     className={'title'}
                     style={{  fontSize: '150px', marginTop:'-4vh'}}>Journal
                 </p>
                 <p  className={'title'}
-                style={{ fontSize: '30px', marginTop:'-8vh' }}>
+                style={{ fontSize: '30px', marginTop:'-6vh' }}>
                     Find it, in you!
                 </p>
                 </div>

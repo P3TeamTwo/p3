@@ -1,22 +1,24 @@
 body{
-    background-color:#FFF0E0;
+    background-color:#f5efe3;
 }
 .gridContainer {
-    background-color: #C7FAF4;
+    background-color: #d0e8f2;
     border-radius: 25px;
     border: 40px solid #E9E9E9;
+    box-shadow:  '0 9px 30px -5px #a6aa9c'
+
 }
 /* MEDIA QUERIES */
 /* Extra small devices (Tested with Iphone X) */
 @media (min-width: 375px) { .gridContainer { border: 10px solid #E9E9E9 } }
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { .gridContainer { border: 20px solid #E9E9E9 } }
+@media (min-width: 576px) { .gridContainer { border: 10px solid #E9E9E9 } }
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .gridContainer { border: 30px solid #E9E9E9 } }
+@media (min-width: 768px) { .gridContainer { border: 10px solid #E9E9E9 } }
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .gridContainer { border: 35px solid #E9E9E9 } }
+@media (min-width: 992px) { .gridContainer { border: 10px solid #E9E9E9 } }
 /* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .gridContainer { border: 40px solid #E9E9E9 } }
+@media (min-width: 1200px) { .gridContainer { border: 10px solid #E9E9E9 } }
 
 /* Extra small devices (Tested with Iphone X) */
 @media (min-width: 375px) { .gridPadding { padding: 10px 10px 10px 10px !important; margin: auto !important; } }

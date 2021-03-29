@@ -15,7 +15,12 @@
 
 .canvasjs-chart-canvas{
     border-radius: 20px !important;
-    border: .5px #d6e4f0 solid;
+    border: 6px #d6e4f0 solid;
+}
+
+.makeStyles-root-1{
+    max-width: 99%;
+    margin: 50px 10px 20px 20px;
 }
 
 /* MEDIA QUERIES */
@@ -26,9 +31,9 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { .hoursSleepContainer { width: 100% !important}  }
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .hoursSleepContainer { width: 48% !important} }
+@media (min-width: 992px) { .hoursSleepContainer { width: 45% !important} }
 /* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .hoursSleepContainer {width: 48% !important} } 
+@media (min-width: 1200px) { .hoursSleepContainer {width: 45% !important} } 
 
 /* MEDIA QUERIES */
 /* Extra small devices (Tested with Iphone X) */
@@ -38,7 +43,7 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { .coffeeVsSleep { width: 100% !important}  }
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .coffeeVsSleep {width: 48% !important} }
+@media (min-width: 992px) { .coffeeVsSleep {width: 45% !important} }
 /* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .coffeeVsSleep {width: 48% !important} } 
+@media (min-width: 1200px) { .coffeeVsSleep {width: 45% !important} } 
 

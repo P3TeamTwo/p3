@@ -14,7 +14,6 @@ function Q4_3({ handleSubmit }) {
 
     return(
         <>
-        <b>Question 4_3</b>
             <form>
             <TextField
                 id="outlined-multiline-static"
