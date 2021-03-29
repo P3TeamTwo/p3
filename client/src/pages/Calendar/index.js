@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { useHistory } from 'react-router-dom'
 import Calendar from '../../components/Calendar'
 import './calendar.css'
+import Memo from '../../pages/Memo/Memo'
+
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -73,7 +75,21 @@ function ButtonBottom() {
 }
 
 
-const CalendarPage = () => {
+
+const CalendarPage = (mode) => {
+    
+    const [wordMap, setWordMap] = useState(false)
+
+    const onDay = (mode) => {
+        console.log('hi')
+        if(mode === "dailyMode"){
+            setWordMap(true)
+        }
+        else(
+            setWordMap(false)
+        )
+    }
+
     return (
         <div className="Container">
             <Grid container>
@@ -85,10 +101,10 @@ const CalendarPage = () => {
                     <div className="container-main">
                         <ButtonTop />                 
                     </div>
-                      
                 </Grid>
+                {wordMap&&<Memo style = {{position:'absolute'}}/>}      
                 <Grid item xs={8}>
-                    <Calendar />
+                    <Calendar  onDay = {onDay}/>
                 </Grid>
 
             </Grid>

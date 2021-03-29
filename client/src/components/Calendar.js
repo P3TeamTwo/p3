@@ -47,33 +47,44 @@ const makeEvent = () => {
                 }
                 events.push(event)
             })
-            console.log(events);
         })
 }
 
 makeEvent();
 
 
+
 class CalApp extends React.Component {
     constructor(props) {
         super(props);
         this.calendar = React.createRef();
+        this.setVoice = this.setVoice.bind(this);
+
     }
+
 
     componentDidMount() {
-        const details = this.calendar.current.getDetails();
-        // call get events endpoint
+        
     }
 
-    render() {
+
+
+    setVoice() {
+        const details = this.calendar.current.getDetails();
+        this.mode = details.mode;
+        console.log(this.mode)
+        this.props.onDay(this.mode)
+        this.props.onDay(details.mode)
+    }
+
+    render(props) {
+        console.log('hi');
         return (
             <div className={styles.pageCalendar}>
+                {/* {this.props.onDay()} */}
                 <Calendar
                     ref={this.calendar}
-                    onClickEvent={(event) => console.log('this is an event', event)}
-                    onChange={(dates) => localStorage.setItem('dates', dates)}
-                    onClickTimeLine={(date) => localStorage.setItem('date', date)}
-                    events={events}
+                    onChange={(dates) => this.setVoice()}
                 />
             </div>
         );
