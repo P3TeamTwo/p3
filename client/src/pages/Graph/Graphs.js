@@ -1,64 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-
-// //Importing line graph from
-// import HoursOfSleep from '../../components/Graphs/HoursOfSleep'
-// import CoffeeVsSleep from '../../components/Graphs/CoffeeVsSleep'
-// import ScreenVsSleep from '../../components/Graphs/ScreenVsSleep'
-// import ScreenTimeDoughnut from '../../components/Graphs/ScreenTimeDoughnut'
-
-// //Import api routes to db
-// import API from '../../utils/API'
-
-// import './Graph.css'
-
-// function Graphs() {
-
-//     // Getting User logged in
-//     const userId = localStorage.getItem("userId");
-
-//     //Setting state to store the journl entries
-//     const [entries, setEntries] = useState();
-
-//     useEffect(() => {
-//         //Get all journal data for the user logged in 
-//         API.getJournal(userId)
-//             .then(res => {
-//                 setEntries(res.data)
-//             }
-//             )
-//             .catch(err => console.log(err))
-
-//     }, [])
-
-// //     return (
-//         <div className="graphContainer">
-//             {/* once entries has value and linegraph can access values then execute */}
-//             {entries && <HoursOfSleep
-//                 // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
-//                 dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-//             />}
-
-//             {/* Coffee vs sleep double axis line graph */}
-//             {entries && <CoffeeVsSleep
-//                 datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-//                 datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
-//             />}
-
-//             {/* Screen time doughnut graph display */}
-//             {entries && <ScreenTimeDoughnut
-//                 screenTimeNights={entries.map(entry => ({ date: entry.created_at, point: entry.q1_2 }))}
-
-//             />}
-
-
-//             <ScreenVsSleep />
-// //         </div>
-//     )
-// }
-
-// export default Graphs;
-
-
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
@@ -74,10 +13,12 @@ import { useHistory } from 'react-router-dom'
 import HoursOfSleep from '../../components/Graphs/Sleep/HoursOfSleep'
 import CoffeeVsSleep from '../../components/Graphs/Sleep/CoffeeVsSleep'
 import SleepvsExercise from '../../components/Graphs/Sleep/SleepvsExercise'
-import ScreenTimeDoughnut from '../../components/Graphs/Sleep/ScreenTimeDoughnut'
 import HoursOfExercise from '../../components/Graphs/Exercise/HoursOfExercise';
 import ExerciseOverview from '../../components/Graphs/Exercise/ExerciseOverview';
 import WaterVsExercise from '../../components/Graphs/Exercise/WaterVsExercise';
+import Veggies from '../../components/Graphs/Eating/Veggies';
+import WaterVsSleep from '../../components/Graphs/Eating/WaterVsSleep';
+import EatingOverview from '../../components/Graphs/Eating/EatingOveriew';
 
 // import Social Display
 import SocialDisplay from '../../components/SocialDisplay'
@@ -293,8 +234,21 @@ export default function ScrollableTabsButtonAuto() {
 
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
-      </TabPanel>
+                {entries && <EatingOverview
+                    sumOfVeggies={entries.reduce((totalVeg, entry) => totalVeg = totalVeg + entry.q2_1, 0)}
+                    totalNights={entries.length}
+                    entries={entries}
+                />}
+                {entries && <Veggies
+                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                    servings={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
+                />}
+                {entries && <WaterVsSleep
+                    datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
+                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                />}
+
+            </TabPanel>
             <TabPanel value={value} index={3}>
                 <SocialDisplay entries={entries} />
             </TabPanel>

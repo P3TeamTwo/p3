@@ -1,15 +1,19 @@
 [
   {
     "id": 1,
-    "question": "Did you skip breakfast today?",
+    "question": "Did you eat veggies today?",
     "answers": [
       {
-        "answerText": "Yes",
-        "value": "true"
+        "answerText": "2 Servings",
+        "value": 2
       },
       {
-        "answerText": "No",
-        "value": "false"
+        "answerText": "More than 4",
+        "value": 4
+      },
+      {
+        "answerText": "Not Today!",
+        "value": 0
       }
     ]
   },
@@ -51,7 +55,6 @@
         "answerText": "I'm drowning!",
         "value": 10
       }
-
     ]
   }
 ]

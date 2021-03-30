@@ -3,10 +3,7 @@ import { FormControl, FormLabel, FormControlLabel, TextField, Button } from '@ma
 import Q4questions from '../Questions/Q4.json';
 
 function Q4_2({ handleSubmit }) {
-
-    console.log(Q4questions[1].question)
-    
-
+ 
     const [userResponse, setUserResponse] = useState();
 
     const handleChange = (e) => {
@@ -30,7 +27,6 @@ function Q4_2({ handleSubmit }) {
             />
             <Button variant="contained"
                 onClick={(e) => {
-                    console.log(userResponse)
                     if (!userResponse) {
                         return; 
                      } else {

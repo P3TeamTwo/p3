@@ -2,10 +2,13 @@ import React from 'react';
 import CanvasJSReact from '../../../canvasjs.react';
 import '../../../pages/Graph/Graph.css'
 
+import { Box, Grid } from '@material-ui/core';
+
+var Component = React.Component;
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-function WaterVsExercise({ datesAndWater, datesAndCalories }) {
+function WaterVsSleep({ datesAndSleep, datesAndWater }) {
 
 	CanvasJS.addColorSet("customColorSet1", ["#6eb6ff", "#7098da", "#bae8e8"])
 
@@ -15,7 +18,7 @@ function WaterVsExercise({ datesAndWater, datesAndCalories }) {
 		theme: "light2",
 		animationEnabled: true,
 		title: {
-			text: "Water Consumed vs Minutes of Exercise"
+			text: "Water Consumed vs Hours Slept"
 		},
 		subtitles: [{
 			text: "Click Legend to Hide or Unhide Data Series"
@@ -24,14 +27,14 @@ function WaterVsExercise({ datesAndWater, datesAndCalories }) {
 			title: "States"
 		},
 		axisY: {
-			title: "Water Consumed Oz",
+			title: "Water Consumed",
 			titleFontColor: "#6D78AD",
 			lineColor: "#6D78AD",
 			labelFontColor: "#6D78AD",
 			tickColor: "#6D78AD"
 		},
 		axisY2: {
-			title: "Minutes of exercise",
+			title: "Hours Slept",
 			titleFontColor: "#7098da",
 			lineColor: "#6eb6ff",
 			labelFontColor: "#6eb6ff",
@@ -45,7 +48,7 @@ function WaterVsExercise({ datesAndWater, datesAndCalories }) {
 		},
 		data: [{
 			type: "spline",
-			name: "Water Consumed Oz",
+			name: "Water Consumed",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
 			yValueFormatString: "#,##0 Units",
@@ -55,19 +58,19 @@ function WaterVsExercise({ datesAndWater, datesAndCalories }) {
 		},
 		{
 			type: "spline",
-			name: "Calories Burned",
+			name: "Hours Slept",
 			axisYType: "secondary",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
 			yValueFormatString: "#,##0.# hours",
 			dataPoints: [
-				...datesAndCalories.map(({ date, point }) => ({ x: new Date(date), y: point }))
+				...datesAndSleep.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		}]
 	}
 
 	return (
-		<div className="WaterVsExercise">
+		<div className="WaterVsSleep">
 			<CanvasJSChart options={options}
 			/>
 		</div>
@@ -76,4 +79,4 @@ function WaterVsExercise({ datesAndWater, datesAndCalories }) {
 
 
 
-export default WaterVsExercise;
+export default WaterVsSleep;

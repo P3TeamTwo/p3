@@ -4,8 +4,6 @@ import Q2questions from '../Questions/Q2.json';
 
 function Q2_1(props) {
 
-    console.log(Q2questions[0].question)
-
     return(
         <>
             <div className='container'>
