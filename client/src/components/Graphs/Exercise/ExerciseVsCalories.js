@@ -1,21 +1,19 @@
 import React from 'react';
 import CanvasJSReact from '../../../canvasjs.react';
-import '../../../pages/Graph/Graph.css'
-
+import { Box } from '@material-ui/core';
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-function WaterVsExercise({ datesAndWater, datesAndExercise }) {
+function DblAxisLine({ datesAndExercise, datesAndCalories }) {
 
-	CanvasJS.addColorSet("customColorSet1", ["#6eb6ff", "#7098da", "#bae8e8"])
-
+	CanvasJS.addColorSet("customColorSet1", ["#ffa372", "#a6dcef", "#ea9a96"])
 
 	const options = {
 		colorSet: "customColorSet1",
 		theme: "light2",
 		animationEnabled: true,
 		title: {
-			text: "Minutes of Exercise vs Water Consumed"
+			text: "Minutes of exercise vs Calories burned"
 		},
 		axisX: {
 			title: "States"
@@ -28,7 +26,7 @@ function WaterVsExercise({ datesAndWater, datesAndExercise }) {
 			tickColor: "#6D78AD"
 		},
 		axisY2: {
-			title: "Water Consumed Oz",
+			title: "Calories Burned",
 			titleFontColor: "#79a3b1",
 			lineColor: "#79a3b1",
 			labelFontColor: "#79a3b1",
@@ -45,31 +43,32 @@ function WaterVsExercise({ datesAndWater, datesAndExercise }) {
 			name: "Minutes of exercise",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0.# hours",
+			yValueFormatString: "#,##0 minutes",
 			dataPoints: [
 				...datesAndExercise.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		},
-		{
-			name: "Water Consumed Oz",
+		{ 
+			name: "Calories Burned",
 			axisYType: "secondary",
 			showInLegend: true,
 			fillOpacity: .5,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0 Units",
+			yValueFormatString: "###",
 			dataPoints: [
-				...datesAndWater.map(({ date, point }) => ({ x: new Date(date), y: point }))
+				...datesAndCalories.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		}]
 	}
 
 	return (
-		<div className="WaterVsExercise">
-				<CanvasJSChart options={options}/>
+		<div className="exerciseVsCalories">
+			<Box >
+				<CanvasJSChart options={options} />
+			</Box>
 		</div>
+
 	);
 }
 
-
-
-export default WaterVsExercise;
+export default DblAxisLine;

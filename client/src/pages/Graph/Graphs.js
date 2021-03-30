@@ -13,10 +13,12 @@ import { useHistory } from 'react-router-dom'
 import HoursOfSleep from '../../components/Graphs/Sleep/HoursOfSleep'
 import CoffeeVsSleep from '../../components/Graphs/Sleep/CoffeeVsSleep'
 import SleepvsExercise from '../../components/Graphs/Sleep/SleepvsExercise'
-import HoursOfExercise from '../../components/Graphs/Exercise/HoursOfExercise';
+import MinutesOfExercise from '../../components/Graphs/Exercise/MinutesOfExercise';
 import ExerciseOverview from '../../components/Graphs/Exercise/ExerciseOverview';
 import WaterVsExercise from '../../components/Graphs/Exercise/WaterVsExercise';
+import ExerciseVsCalories from '../../components/Graphs/Exercise/ExerciseVsCalories.js';
 import Veggies from '../../components/Graphs/Eating/Veggies';
+import VeggiesVsWater from '../../components/Graphs/Eating/VeggiesVsWater';
 import WaterVsSleep from '../../components/Graphs/Eating/WaterVsSleep';
 import EatingOverview from '../../components/Graphs/Eating/EatingOveriew';
 
@@ -230,23 +232,25 @@ export default function ScrollableTabsButtonAuto() {
                     calories={calories}
                     active={active}
                 />}
-                {/* once entries has value and linegraph can access values then execute */}
-                {entries && <HoursOfExercise
-                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q3_
+                {entries && <MinutesOfExercise
                     dates={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
                 />}
+
+                {entries && <ExerciseVsCalories
+                    datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+                    datesAndCalories={entries.map(entry => ({ date: entry.created_at, point: entry.q3_2 }))}
+                />}
+
                 {/* Water vs exercise double axis line graph */}
                 {entries && <WaterVsExercise
                     datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
-                    datesAndCalories={entries.map(entry => ({ date: entry.created_at, point: entry.q3_2 }))}
+                    datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
                 />}
 
 
             </TabPanel>
             <TabPanel value={value} index={2}>
                 {entries && <EatingOverview
-                    // sumOfVeggies={entries.reduce((totalVeg, entry) => totalVeg = totalVeg + entry.q2_1, 0)}
-                    // totalNights={entries.length}
                     entries={entries}
                     veg={veg}
                     meals={meals}
@@ -256,6 +260,12 @@ export default function ScrollableTabsButtonAuto() {
                     // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
                     dates={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
                 />}
+
+                {entries && <VeggiesVsWater
+                    datesAndVegies={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
+                    datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
+                />}
+
                 {entries && <WaterVsSleep
                     datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
                     datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
