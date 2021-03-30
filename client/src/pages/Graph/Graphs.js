@@ -172,14 +172,15 @@ export default function ScrollableTabsButtonAuto() {
         <div className={classes.root}>
             <AppBar position="static" color="default" >
                 <Tabs
+                centered
                     value={value}
                     onChange={handleChange}
                     indicatorColor="primary"
-                    textColor="primary"
-                    variant="scrollable"
+                    // textColor="primary"
+                    // variant="scrollable"
                     scrollButtons="auto"
                     aria-label="scrollable auto tabs example" 
-                    centered
+                    centered 
                     
                 >
                     <Tab label="Sleep" {...a11yProps(0)} />
