@@ -104,7 +104,7 @@ const SocialDisplay = ({ entries }) => {
             <Grid item xs={12} sm={12} md={4}>
                 <Paper className={classes.contentHolder}>
                     <div className={classes.listContent}>
-                    <h2 className={classes.questionTitle}>Recent Plans:</h2>
+                    <h2 className={classes.questionTitle}>Recent Plans you've made:</h2>
                         {entries.map(entry => {
                             return (
                                 <Button className={classes.buttonPlan}>{entry.q4_3}</Button>

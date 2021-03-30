@@ -13,7 +13,7 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 		theme: "light2",
 		animationEnabled: true,
 		title: {
-			text: "Hours of Sleep vs Time of coffee consumption"
+			text: "Hours of Sleep vs Time of Coffee"
 		},
 		axisX: {
 			title: "States"
@@ -26,7 +26,7 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 			tickColor: "#6D78AD"
 		},
 		axisY2: {
-			title: "Time of drinking coffee",
+			title: "Time of Coffee",
 			titleFontColor: "#79a3b1",
 			lineColor: "#79a3b1",
 			labelFontColor: "#79a3b1",
@@ -43,18 +43,18 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 			name: "Hours of Sleep",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0 minutes",
+			yValueFormatString: "#,##0",
 			dataPoints: [
 				...datesAndSleep.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		},
 		{ 
-			name: "Time of drinking coffee",
+			name: "Time of Coffee",
 			axisYType: "secondary",
 			showInLegend: true,
 			fillOpacity: .5,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0.# hours",
+			yValueFormatString: "#,##0.#",
 			dataPoints: [
 				...datesAndCoffee.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]

@@ -13,13 +13,13 @@ function DblAxisLine({ datesAndExercise, datesAndCalories }) {
 		theme: "light2",
 		animationEnabled: true,
 		title: {
-			text: "Minutes of exercise vs Calories burned"
+			text: "Minutes of Exercise vs Calories Burned"
 		},
 		axisX: {
 			title: "States"
 		},
 		axisY: {
-			title: "Minutes of exercise",
+			title: "Minutes of Exercise",
 			titleFontColor: "#6D78AD",
 			lineColor: "#6D78AD",
 			labelFontColor: "#6D78AD",
@@ -40,10 +40,10 @@ function DblAxisLine({ datesAndExercise, datesAndCalories }) {
 		},
 		data: [{
 			type: "spline",
-			name: "Minutes of exercise",
+			name: "Minutes of Exercise",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0 minutes",
+			yValueFormatString: "#,##0",
 			dataPoints: [
 				...datesAndExercise.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]

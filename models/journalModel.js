@@ -45,7 +45,7 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q3_2: {
-    type: String,
+    type: Number,
     required: true
   },
   q3_3: {

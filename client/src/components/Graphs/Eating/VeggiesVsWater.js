@@ -13,7 +13,7 @@ function DblAxisLine({ datesAndVegies, datesAndWater }) {
 		theme: "light2",
 		animationEnabled: true,
 		title: {
-			text: "Veggie servings vs Water consumption"
+			text: "Veggie Servings vs Water Consumed"
 		},
 		axisX: {
 			title: "States"
@@ -26,7 +26,7 @@ function DblAxisLine({ datesAndVegies, datesAndWater }) {
 			tickColor: "#6D78AD"
 		},
 		axisY2: {
-			title: "Water Consumption",
+			title: "Water Consumed",
 			titleFontColor: "#79a3b1",
 			lineColor: "#79a3b1",
 			labelFontColor: "#79a3b1",
@@ -43,18 +43,18 @@ function DblAxisLine({ datesAndVegies, datesAndWater }) {
 			name: "Veggie Servings",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0 Units",
+			yValueFormatString: "#,##0",
 			dataPoints: [
 				...datesAndVegies.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		},
 		{ 
-			name: "Water Consumption",
+			name: "Water Consumed",
 			axisYType: "secondary",
 			showInLegend: true,
 			fillOpacity: .5,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0 Units",
+			yValueFormatString: "#,##0oz",
 			dataPoints: [
 				...datesAndWater.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]

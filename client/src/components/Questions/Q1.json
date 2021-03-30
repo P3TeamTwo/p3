@@ -5,38 +5,31 @@
     "answers": [
       {
         "answerText": "2 hours",
-        "value": 2,
-        "test": "2"
+        "value": 2
       },
       {
         "answerText": "3 hours",
-        "value": 3,
-        "test": "3"
+        "value": 3
       },
       {
         "answerText": "4 hours",
-        "value": 4,
-        "test": "4"
+        "value": 4
       },
       {
         "answerText": "6 hours",
-        "value": 6,
-        "test": "6"
+        "value": 6
       },
       {
         "answerText": "7 hours",
-        "value": 7,
-        "test": "7"
+        "value": 7
       },
       {
         "answerText": "8 hours",
-        "value": 8,
-        "test": "8"
+        "value": 8
       },
       {
         "answerText": ">9 hours",
-        "value": 9,
-        "test": "9"
+        "value": 9
       }
     ]
   },

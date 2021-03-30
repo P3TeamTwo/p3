@@ -17,21 +17,18 @@ function SleepvsExercise({ datesAndSleep, datesAndExercise }) {
 		title: {
 			text: "Hours Slept vs Minutes of Exercise"
 		},
-		subtitles: [{
-			text: "Click Legend to Hide or Unhide Data Series"
-		}],
 		axisX: {
 			title: "States"
 		},
 		axisY: {
-			title: "Hours slept",
+			title: "Hours Slept",
 			titleFontColor: "#6D78AD",
 			lineColor: "#6D78AD",
 			labelFontColor: "#6D78AD",
 			tickColor: "#6D78AD"
 		},
 		axisY2: {
-			title: "Minutes of exercise",
+			title: "Minutes of Exercise",
 			titleFontColor: "#7098da",
 			lineColor: "#6eb6ff",
 			labelFontColor: "#6eb6ff",
@@ -48,7 +45,7 @@ function SleepvsExercise({ datesAndSleep, datesAndExercise }) {
 			name: "Hours of Sleep",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0 Units",
+			yValueFormatString: "#,##0",
 			dataPoints: [
 				...datesAndSleep.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
@@ -59,7 +56,7 @@ function SleepvsExercise({ datesAndSleep, datesAndExercise }) {
 			axisYType: "secondary",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0.# hours",
+			yValueFormatString: "#,##0.#",
 			dataPoints: [
 				...datesAndExercise.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]

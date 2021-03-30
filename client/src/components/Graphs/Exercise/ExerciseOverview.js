@@ -60,13 +60,13 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
             console.log(entries[i].q3_2)
             if(entries[i].q3_2 === '0'){
                 calories.none += 1
-            } else if (entries[i].q3_2 === '100'){
+            } else if (entries[i].q3_2 === 100){
                 calories.min += 1
-            } else if (entries[i].q3_2 === '200'){
+            } else if (entries[i].q3_2 === 200){
                 calories.midOne += 1
-            } else if (entries[i].q3_2 === '300'){
+            } else if (entries[i].q3_2 === 300){
                 calories.midTwo += 1
-            } else if (entries[i].q3_2 === '400'){
+            } else if (entries[i].q3_2 === 400){
                 calories.max += 1
             }
         }
