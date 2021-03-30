@@ -19,13 +19,20 @@ const UserForm = () => {
 
     const useStyles = makeStyles((theme) => ({
         form: {
-            width: '40%',
-            marginTop: '12vh',
-            marginLeft: '30%'
+            position: 'relative',
+            width: '80%',
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%)",
+            textAlign: 'center',     
         },
         submit: {
             margin: theme.spacing(3, 0, 2),
         },
+        formContainer: {
+            display: "flex",
+            flexDirection: 'column',
+        }
     }));
 
     const handleEmailChange = (e) => {
@@ -61,20 +68,17 @@ const UserForm = () => {
                         break;
                     default: console.log('fail')
                 }
-                console.log(response)
                 if (response.data.success) {
                     history.push("/welcome");
                 }
 
             })
-
-
     }
 
     const classes = useStyles();
 
     return (
-        <div>
+        <div className={classes.formContainer}>
             <form className={classes.form} noValidate>
                 {(login) && <LoginForm />}
                 {(!login) && <RegisterForm />}
