@@ -84,14 +84,14 @@ const UserForm = () => {
                 {(!login) && <RegisterForm />}
                 <Grid item xs>
                     <div onClick={() => setLogin(!login)}
-                        style={{ cursor: 'pointer', fontSize:22 }}>
+                        style={{ cursor: 'pointer', fontSize:22, marginBottom: "30px" }}>
                         {(login) ? "Don't have an account? Sign Up" : "Go Back To Login?"}
                     </div>
                 </Grid>
             </form>
             {(login) && <GoogleBtn />}
         </div>
-    );
+    ); 
 }
 
 export default UserForm

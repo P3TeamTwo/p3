@@ -8,7 +8,7 @@ return(
     <div className="loginContainer">
         <br></br>
         <h1>MindShare</h1>
-        <h2>It's good to let it out</h2>
+        <h3>It's good to let it out</h3>
         <UserForm />
     </div>
 )
