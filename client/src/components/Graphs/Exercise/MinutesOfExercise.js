@@ -13,7 +13,7 @@ function LineGraph({ dates }) {
     theme: "light2",
     
     title: {
-      text: "Hours of Exercise"
+      text: "Minutes of Exercise"
     },
     data: [{
       type: "spline",

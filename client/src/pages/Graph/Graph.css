@@ -5,7 +5,7 @@
     background: #d0e8f2
 }
 
-.hoursSleepContainer, .coffeeVsSleep, .hoursExerciseContainer, .WaterVsExercise, .veggiesContainer, .WaterVsSleep{
+.hoursSleepContainer, .coffeeVsSleep, .hoursExerciseContainer, .veggiesContainer, .veggiesVsWater, .exerciseVsCalories{
     display: inline-block;
     margin:25px 4px;
     box-shadow: 0 9px 30px -5px rgba(150,170,180,0.5);
@@ -37,15 +37,15 @@
 
 /* MEDIA QUERIES */
 /* Extra small devices (Tested with Iphone X) */
-@media (min-width: 375px) { .coffeeVsSleep, .WaterVsExercise, .WaterVsSleep {width: 100% !important} }
+@media (min-width: 375px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 100% !important} }
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { .coffeeVsSleep, .WaterVsExercise, .WaterVsSleep { width: 100% !important} }
+@media (min-width: 576px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater { width: 100% !important} }
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .coffeeVsSleep, .WaterVsExercise, .WaterVsSleep { width: 100% !important}  }
+@media (min-width: 768px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater { width: 100% !important}  }
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .coffeeVsSleep, .WaterVsExercise, .WaterVsSleep {width: 45% !important} }
+@media (min-width: 992px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 45% !important} }
 /* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .coffeeVsSleep, .WaterVsExercise, .WaterVsSleep {width: 45% !important} } 
+@media (min-width: 1200px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 45% !important} } 
 
 
 
