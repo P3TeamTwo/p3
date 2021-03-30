@@ -4,16 +4,16 @@
     "question": "Did you eat veggies today?",
     "answers": [
       {
+        "answerText": "Not Today!",
+        "value": 0
+      },
+      {
         "answerText": "2 Servings",
         "value": 2
       },
       {
         "answerText": "More than 4",
         "value": 4
-      },
-      {
-        "answerText": "Not Today!",
-        "value": 0
       }
     ]
   },
@@ -22,16 +22,16 @@
     "question": "How often do you normally cook meals at home?",
     "answers": [
       {
-        "answerText": "Everynight",
-        "value": 7
+        "answerText": "Never",
+        "value": 0
       },
       {
         "answerText": "Half and Half",
         "value": 3
       },
       {
-        "answerText": "Never",
-        "value": 0
+        "answerText": "Everynight",
+        "value": 7
       }
     ]
   },

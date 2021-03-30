@@ -1,5 +1,5 @@
 import React from 'react';
-import { GiTimeTrap, GiSandsOfTime, GiRun, GiWeightLiftingUp, GiSofa, GiGymBag, GiHeartBeats, GiHeartDrop, GiGlassHeart, GiBrokenHeart, GiCrownedHeart, GiPerson } from 'react-icons/gi';
+import { GiTimeTrap, GiSandsOfTime, GiEmptyHourglass, GiRun, GiWeightLiftingUp, GiSofa, GiGymBag, GiHeartBeats, GiHeartDrop, GiGlassHeart, GiBrokenHeart, GiCrownedHeart, GiPerson } from 'react-icons/gi';
 import { Grid } from '@material-ui/core';
 
 function exerciseOverview({ entries, active, exerciseTime, calories }) {
@@ -7,7 +7,6 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
     // Calculating how long a user exercises for on average
     function exerciseTimeFunc() {
         for (var i = 0; i < entries.length; i++) {
-            console.log(entries[i].q3_3)
             if (entries[i].q3_3 === 0) {
                 exerciseTime.noExercise += 1;
             } else if (entries[i].q3_3 === 30) {
@@ -18,18 +17,16 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
                 exerciseTime.more += 1;
             }
         }
-        console.log(exerciseTime)
-    }
+    };
     exerciseTimeFunc();
     
-    // Calcualting how long on average a user exercises
     let index, max = 0;
     for (const [key, value] of Object.entries(exerciseTime)) {
         if (value > max) {
             max = value;
             index = key
         }
-    }
+    };
     
     // Calculating what time of day the user consumes coffee
     function activeFunc() {
@@ -46,19 +43,18 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
             }
         }
         console.log(active)
-    }
+    };
     activeFunc();
 
-    // Calcualting how what exercise a user performs on average
     let activity, total = 0;
     for (const [key, value] of Object.entries(active)) {
         if (value > total) {
             total = value;
             activity = key
         }
-    }
+    };
 
-    // Calculating how often a user raises their heartrate
+    // Calculating how much calories a user burns on average
     function caloriesAnalysis(){
         for(var i = 0; i < entries.length; i++){
             console.log(entries[i].q3_2)
@@ -74,35 +70,34 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
                 calories.max += 1
             }
         }
-    }
+    };
     caloriesAnalysis();
 
-    // Calcualting on average how often a user raises their heartrate
     let beat, equal = 0;
     for (const [key, value] of Object.entries(calories)) {
         if (value > equal) {
             equal = value;
             beat = key
         }
-    }
+    };
 
 
     return (
         <div className="exerciseStats">
             <Grid container >
                 <Grid item xs={4}  style={{textAlign: "center"}}>
-                    {activity === 'cardio' ? <div><GiRun style={{height:"25px", width:"25px"}}/> <p>Our data shows that you enjoy cardio!</p></div> :
-                    activity === 'weights' ? <div><GiWeightLiftingUp style={{height:"25px", width:"25px"}}/><p>Our data shows that you enjoy lifting weights!</p></div> :
-                    activity === 'rest' ? <div><GiSofa style={{height:"25px", width:"25px"}}/><p>Our data shows that you have more rest days than exercise days.</p></div> : 
+                    {activity === 'cardio' ? <div><GiRun style={{height:"25px", width:"25px"}}/> <p>You enjoy cardio!</p></div> :
+                    activity === 'weights' ? <div><GiWeightLiftingUp style={{height:"25px", width:"25px"}}/><p>You enjoy lifting weights!</p></div> :
+                    activity === 'rest' ? <div><GiSofa style={{height:"25px", width:"25px"}}/><p>You have more rest days than exercise days</p></div> : 
                     activity === 'zero' ?  <div><GiPerson style={{height:"25px", width:"25px"}}/><p>Our data shows that you do not workout</p></div> :
                     <div><GiGymBag style={{height:"25px", width:"25px"}}/><p>Not enough data obtained to calculate your workout statistic</p></div>}
                 </Grid>
                 
                 <Grid item xs={4}  style={{textAlign: "center"}}>
-                    {index === 'thirty' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>You have recently been exercising for 30 minutes a day.</p></div> : 
-                    index === 'hour' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>You have recently been exercising for an hour a day</p></div> : 
-                    index === 'more' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>You have recently been exercising for more than an hour a day!</p></div> :
-                    index === 'noExercise' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>You haven't been exercising often, if at all.</p></div> :
+                    {index === 'thirty' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>On average you exercise for 30 minutes a day.</p></div> : 
+                    index === 'hour' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>On average you exercise for an hour a day</p></div> : 
+                    index === 'more' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>On average you exercise for more than an hour a day!</p></div> :
+                    index === 'noExercise' ? <div><GiEmptyHourglass style={{height:"25px", width:"25px"}}/><p>You haven't been exercising often, if at all.</p></div> :
                     <div><GiSandsOfTime style={{height:"25px", width:"25px"}}/><p>Not enough data obtained to calculate how long you workout for</p></div>}
                 </Grid>
 
@@ -117,6 +112,6 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
             </Grid>
         </div>
     )
-}
+};
 
 export default exerciseOverview;

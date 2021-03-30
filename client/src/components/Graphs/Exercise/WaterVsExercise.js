@@ -17,9 +17,6 @@ function WaterVsExercise({ datesAndWater, datesAndCalories }) {
 		title: {
 			text: "Water Consumed vs Minutes of Exercise"
 		},
-		subtitles: [{
-			text: "Click Legend to Hide or Unhide Data Series"
-		}],
 		axisX: {
 			title: "States"
 		},
@@ -32,10 +29,10 @@ function WaterVsExercise({ datesAndWater, datesAndCalories }) {
 		},
 		axisY2: {
 			title: "Minutes of exercise",
-			titleFontColor: "#7098da",
-			lineColor: "#6eb6ff",
-			labelFontColor: "#6eb6ff",
-			tickColor: "#6eb6ff"
+			titleFontColor: "#79a3b1",
+			lineColor: "#79a3b1",
+			labelFontColor: "#79a3b1",
+			tickColor: "#79a3b1"
 		},
 		toolTip: {
 			shared: true
@@ -54,10 +51,10 @@ function WaterVsExercise({ datesAndWater, datesAndCalories }) {
 			]
 		},
 		{
-			type: "spline",
-			name: "Calories Burned",
+			name: "Minutes of exercise",
 			axisYType: "secondary",
 			showInLegend: true,
+			fillOpacity: .5,
 			xValueFormatString: "MMM YYYY",
 			yValueFormatString: "#,##0.# hours",
 			dataPoints: [
@@ -68,8 +65,7 @@ function WaterVsExercise({ datesAndWater, datesAndCalories }) {
 
 	return (
 		<div className="WaterVsExercise">
-			<CanvasJSChart options={options}
-			/>
+				<CanvasJSChart options={options}/>
 		</div>
 	);
 }

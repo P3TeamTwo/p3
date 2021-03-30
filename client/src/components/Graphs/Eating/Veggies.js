@@ -1,17 +1,12 @@
 import React from 'react';
 import CanvasJSReact from '../../../canvasjs.react';
 import '../../../pages/Graph/Graph.css'
-
-import { Box, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 // var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-var CanvasJS = CanvasJSReact.CanvasJS;
 
-function Veggies({ servings }) {
-
-    CanvasJS.addColorSet("customColorSet1", ["#ffa372", "#a6dcef", "#ea9a96"])
-
+function LineGraph({ dates }) {
 
     const options = {
         // backgroundColor: "#eaf6f6",
@@ -19,12 +14,12 @@ function Veggies({ servings }) {
         theme: "light2",
 
         title: {
-            text: "Veggies Servings"
+            text: "Veggie Servings"
         },
         data: [{
             type: "spline",
             dataPoints: [
-                ...servings.map(({ date, point }) => ({ x: new Date(date), y: point }))
+                ...dates.map(({ date, point }) => ({ x: new Date(date), y: point }))
             ]
         }
         ]
@@ -39,4 +34,4 @@ function Veggies({ servings }) {
 
 }
 
-export default Veggies;
+export default LineGraph;

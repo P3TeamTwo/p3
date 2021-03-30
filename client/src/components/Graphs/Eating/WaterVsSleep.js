@@ -2,9 +2,6 @@ import React from 'react';
 import CanvasJSReact from '../../../canvasjs.react';
 import '../../../pages/Graph/Graph.css'
 
-import { Box, Grid } from '@material-ui/core';
-
-var Component = React.Component;
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -35,10 +32,10 @@ function WaterVsSleep({ datesAndSleep, datesAndWater }) {
 		},
 		axisY2: {
 			title: "Hours Slept",
-			titleFontColor: "#7098da",
-			lineColor: "#6eb6ff",
-			labelFontColor: "#6eb6ff",
-			tickColor: "#6eb6ff"
+			titleFontColor: "#79a3b1",
+			lineColor: "#79a3b1",
+			labelFontColor: "#79a3b1",
+			tickColor: "#79a3b1"
 		},
 		toolTip: {
 			shared: true
@@ -71,8 +68,7 @@ function WaterVsSleep({ datesAndSleep, datesAndWater }) {
 
 	return (
 		<div className="WaterVsSleep">
-			<CanvasJSChart options={options}
-			/>
+			<CanvasJSChart options={options}/>
 		</div>
 	);
 }

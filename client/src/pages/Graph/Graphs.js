@@ -6,7 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Grid, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom'
 
 //importing elements
@@ -90,34 +90,51 @@ const useStyles = makeStyles((theme) => ({
 export default function ScrollableTabsButtonAuto() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+
     const coffeeTimes = {
         noCoffee: 0,
         morning: 0,
         afternoon: 0,
         evening: 0
-    }
+    };
     const screenTime = {
         true: 0,
         false: 0
-    }
+    };
     const exerciseTime = {
         noExercise: 0,
          thirty: 0,
          hour: 0,
          more: 0
-    }
+    };
     const calories = {
         none: 0,
         min: 0,
         midOne: 0,
         midTwo: 0,
         max: 0
-    }
+    };
     const active = {
         cardio: 0,
         weights: 0,
         rest: 0,
         zero: 0
+    };
+    const veg = {
+        none: 0,
+        two: 0,
+        four: 0
+    };
+    const meals = {
+        never: 0,
+        half: 0,
+        night: 0
+    };
+    const water = {
+        none: 0,
+        min: 0,
+        mid: 0,
+        max: 0
     }
 
     const handleChange = (event, newValue) => {
@@ -169,13 +186,11 @@ export default function ScrollableTabsButtonAuto() {
                     <Tab label="Eating Habits" {...a11yProps(2)} />
                     <Tab label="social" {...a11yProps(3)} />
                     
-                    <Button className={classes.homeButton} onClick={directHome}>Home</Button>
-                    
-                    
-                    
-                    
+                    <Button className={classes.homeButton} onClick={directHome}>Home</Button>                  
+                        
                 </Tabs>
             </AppBar>
+
             <TabPanel value={value} index={0}>
                 {/* Average hours of sleep per nighth  */}
                 {/* sum of all input / number of inputs  */}
@@ -209,12 +224,7 @@ export default function ScrollableTabsButtonAuto() {
             </TabPanel>
             <TabPanel value={value} index={1}>
 
-                {/* Average hours of sleep per nighth  */}
-                {/* sum of all input / number of inputs  */}
                 {entries && <ExerciseOverview
-                    sumOfExercise={entries.reduce((totalExercise, entry) => totalExercise = totalExercise + entry.q3_3, 0)}
-                    // totalNights={entries.length} 
-                    // coffeeConsumption={exerciseTime}
                     entries={entries}
                     exerciseTime={exerciseTime}
                     calories={calories}
@@ -222,10 +232,10 @@ export default function ScrollableTabsButtonAuto() {
                 />}
                 {/* once entries has value and linegraph can access values then execute */}
                 {entries && <HoursOfExercise
-                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q3_
                     dates={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
                 />}
-                {/* Coffee vs sleep double axis line graph */}
+                {/* Water vs exercise double axis line graph */}
                 {entries && <WaterVsExercise
                     datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
                     datesAndCalories={entries.map(entry => ({ date: entry.created_at, point: entry.q3_2 }))}
@@ -235,13 +245,16 @@ export default function ScrollableTabsButtonAuto() {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 {entries && <EatingOverview
-                    sumOfVeggies={entries.reduce((totalVeg, entry) => totalVeg = totalVeg + entry.q2_1, 0)}
-                    totalNights={entries.length}
+                    // sumOfVeggies={entries.reduce((totalVeg, entry) => totalVeg = totalVeg + entry.q2_1, 0)}
+                    // totalNights={entries.length}
                     entries={entries}
+                    veg={veg}
+                    meals={meals}
+                    water={water}
                 />}
                 {entries && <Veggies
                     // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
-                    servings={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
+                    dates={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
                 />}
                 {entries && <WaterVsSleep
                     datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
