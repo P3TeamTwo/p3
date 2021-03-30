@@ -141,8 +141,6 @@ export default function ScrollableTabsButtonAuto() {
         setValue(newValue);
     };
 
-    
-
 
     //Getting the user ID
     const userId = localStorage.getItem("userId");
@@ -179,6 +177,7 @@ export default function ScrollableTabsButtonAuto() {
                     variant="scrollable"
                     scrollButtons="auto"
                     aria-label="scrollable auto tabs example"
+                    centered
                     
                 >
                     <Tab label="Sleep" {...a11yProps(0)} />

@@ -8,7 +8,7 @@ function Q1_3(props) {
         <>
             <div className='container'>
             <FormControl component="fieldset">
-                <FormLabel component="legend">{Q1questions[2].question}
+                <FormLabel component="legend"><b>{Q1questions[2].question}</b>
                 </FormLabel>
                 {Q1questions[2].answers.map(answer => {
                     return (

@@ -13,11 +13,6 @@ function handleChange (e) {
     setEmotion(emotionValue)
 }
 
-// 0 = Very Unhappy
-// 1 = Unhappy
-// 2 = Ok
-// 3 = Happy
-// 4 = Very Happy    
 
     function renderSwitch() {
         // console.log(emotion)
@@ -40,14 +35,14 @@ function handleChange (e) {
     
     return (
         <>
-        <strong>Daily Reflection</strong>
-        <p>How are you feeling today?</p>
+        <strong><p>Daily Reflection</p></strong>
+       <p className="feeling">How are you feeling today?</p> 
         <div className='container'>
         <div>{renderSwitch()}</div>
         <input onChange={handleChange} type='range' min='0' max='4' defaultValue='2' id='slider'/>
         <br/>
 
-        <Button variant="outlined" onClick={(e)=>{props.handleSubmit(e, emotion)}}>SUBMIT</Button>
+        <Button variant="outlined" style={{ boxShadow: "3px 3px 10px rgba(0,0,0,0.2)" }}  onClick={(e)=>{props.handleSubmit(e, emotion)}}>SUBMIT</Button>
 
         </div>
         </>
