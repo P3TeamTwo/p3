@@ -5,7 +5,8 @@ const Entry = ({memo}) => {
     return (
         <div>
             <p>{memo.created_at}</p>
-            <h3>{memo.longForm}</h3>
+            <h3 style = {{paddingBottom:20}}>{memo.longFormQuestion}</h3>
+            <p>{memo.longForm}</p>
             {(memo.voiceMemo) && <Player url = {memo.voiceMemo}/>}
         </div>
     )

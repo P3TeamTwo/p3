@@ -120,7 +120,7 @@ const onDay = (details) => {
                 </Grid>
                 <Grid item xs={8}>
                     <Calendar onDay={onDay} />
-                    {(calDate.mode==="dailyMode")&& <Memo date = {calDate.date}/>}
+                    {(calDate.mode==="dailyMode")&& <Memo style = {{marginLeft:50, marginRight:50}} date = {calDate.date}/>}
                 </Grid>
 
             </Grid>

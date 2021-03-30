@@ -26,6 +26,7 @@ const Journal = ({date}) => {
             const filteredMemos = journal.filter(memo => {
                 let memoDate = memo.created_at
                 let memoCut = memoDate.slice(0, 10)
+                memo.created_at = memoCut
                 return memoCut === date
             })
             console.log(filteredMemos)
@@ -37,9 +38,9 @@ const Journal = ({date}) => {
 
     return (
         <>
-            <Player style={{ position: 'absolute' }} />
 
             { memos.length > 0 ? <Memos memos={memos} /> : 'No Saved Memos'}
+            <Player style={{ position: 'absolute' }} />
 
     // {/* <Memos /> */}
         </>

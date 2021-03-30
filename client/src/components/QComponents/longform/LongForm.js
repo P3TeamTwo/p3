@@ -11,7 +11,7 @@ questions.map(question => {
 });
 
 const randomQuestion = storeQuestions[Math.floor(storeQuestions.length * Math.random())];
-
+localStorage.setItem("longFormQuestion", randomQuestion)
 
 function LongForm(props) {
 

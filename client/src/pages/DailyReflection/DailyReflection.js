@@ -66,7 +66,8 @@ const DailyReflection = () => {
   const [q4_3, setQ4_3] = useState('')
 
   const [longForm, setLongForm] = useState('')
-  const [ voiceMemo, setVoiceMemo] = useState('');
+  const [longFormQuestion, setLongQuestion] = useState()
+  const [voiceMemo, setVoiceMemo] = useState('');
 
   // State that stores the emotion state
   const [emotionState, setEmotionState] = useState('')
@@ -99,41 +100,42 @@ const DailyReflection = () => {
 
   function storeResponses() {
 
-    
 
-  API.saveJournal({ 
+
+    API.saveJournal({
       postedBy: userId,
       mood: emotion, moodState: emotionState,
-      q1_1: q1_1, 
-      q1_2: q1_2, 
-      q1_3: q1_3, 
+      q1_1: q1_1,
+      q1_2: q1_2,
+      q1_3: q1_3,
 
-      q2_1: q2_1, 
-      q2_2: q2_2, 
-      q2_3: q2_3, 
+      q2_1: q2_1,
+      q2_2: q2_2,
+      q2_3: q2_3,
 
-      q3_1: q3_1, 
-      q3_2: q3_2, 
-      q3_3: q3_3, 
+      q3_1: q3_1,
+      q3_2: q3_2,
+      q3_3: q3_3,
 
-      q4_1: q4_1, 
-      q4_2: q4_2, 
-      q4_3: q4_3, 
+      q4_1: q4_1,
+      q4_2: q4_2,
+      q4_3: q4_3,
       longForm: longForm,
+      longFormQuestion: longFormQuestion,
       voiceMemo: voiceMemo
-      
-      });
 
-      console.log('responses saved to database')
-      directToGraphs()
+    });
 
-    }
+    console.log('responses saved to database')
+    directToGraphs()
+
+  }
 
 
-    // Run switch case once emotion has been set
-    useEffect(() => {
-      renderMoodPoints()
-    }, [emotion]);
+  // Run switch case once emotion has been set
+  useEffect(() => {
+    renderMoodPoints()
+  }, [emotion]);
 
 
   // Function to handle what happens when the submit button is clicked
@@ -242,8 +244,10 @@ const DailyReflection = () => {
     setLongFormVisible(false)
     setQuizComplete(true)
     const blob = localStorage.getItem("voice")
+    const longQuestion = localStorage.getItem("longFormQuestion");
+    setLongQuestion(longQuestion);
     setVoiceMemo(blob)
-    
+
   }
 
   const useStyles = makeStyles((theme) => ({
