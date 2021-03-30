@@ -176,7 +176,7 @@ export default function ScrollableTabsButtonAuto() {
                     textColor="primary"
                     variant="scrollable"
                     scrollButtons="auto"
-                    aria-label="scrollable auto tabs example"
+                    aria-label="scrollable auto tabs example" 
                     centered
                     
                 >
