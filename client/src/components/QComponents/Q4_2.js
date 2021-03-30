@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormControl, FormLabel, FormControlLabel, TextField, Button } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import Q4questions from '../Questions/Q4.json';
 
 function Q4_2({ handleSubmit }) {
@@ -30,7 +30,7 @@ function Q4_2({ handleSubmit }) {
                     if (!userResponse) {
                         return; 
                      } else {
-                         handleSubmit(e, null, null, null, null, null, null, null, null, null, null, userResponse)
+                         handleSubmit(e, null, null, null, null, null, null, null, null, null, null, null, userResponse)
                      }
  
                 }
