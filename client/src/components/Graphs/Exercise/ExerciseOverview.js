@@ -1,5 +1,5 @@
 import React from 'react';
-import { GiTimeTrap, GiSandsOfTime, GiRun, GiWeightLiftingUp, GiSofa, GiGymBag, GiHeartBeats, GiHeartDrop, GiBrokenHeart, GiPerson } from 'react-icons/gi';
+import { GiTimeTrap, GiSandsOfTime, GiRun, GiWeightLiftingUp, GiSofa, GiGymBag, GiHeartBeats, GiHeartDrop, GiGlassHeart, GiBrokenHeart, GiCrownedHeart, GiPerson } from 'react-icons/gi';
 import { Grid } from '@material-ui/core';
 
 function exerciseOverview({ entries, active, exerciseTime, calories }) {
@@ -62,15 +62,15 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
     function caloriesAnalysis(){
         for(var i = 0; i < entries.length; i++){
             console.log(entries[i].q3_2)
-            if(entries[i].q3_2 === 0){
+            if(entries[i].q3_2 === '0'){
                 calories.none += 1
-            } else if (entries[i].q3_2 === 100){
+            } else if (entries[i].q3_2 === '100'){
                 calories.min += 1
-            } else if (entries[i].q3_2 === 200){
+            } else if (entries[i].q3_2 === '200'){
                 calories.midOne += 1
-            } else if (entries[i].q3_2 === 300){
+            } else if (entries[i].q3_2 === '300'){
                 calories.midTwo += 1
-            } else if (entries[i].q3_2 === 400){
+            } else if (entries[i].q3_2 === '400'){
                 calories.max += 1
             }
         }
@@ -107,8 +107,11 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
                 </Grid>
 
                 <Grid item xs={4}  style={{textAlign: "center"}}>
-                    {beat === 'true' ? <div><GiHeartBeats style={{height:"25px", width:"25px"}}/><p>You often raise your heartrate</p></div> :
-                    beat === 'false' ? <div><GiHeartDrop style={{height:"25px", width:"25px"}}/><p>You do not often raise your heartrate</p></div> :
+                    {beat === 'none' ? <div><GiBrokenHeart style={{height:"25px", width:"25px"}}/><p>You have burned no calories</p></div> :
+                    beat === 'min' ? <div><GiHeartDrop style={{height:"25px", width:"25px"}}/><p>You burn an average of 100 calories a day</p></div> :
+                    beat === 'midOne' ? <div><GiGlassHeart style={{height:"25px", width:"25px"}}/><p>You burn an average of 200 calories a day</p></div> :
+                    beat === 'midTwo' ? <div><GiHeartBeats style={{height:"25px", width:"25px"}}/><p>You burn an average of 300 calories a day</p></div> :
+                    beat === 'max' ? <div><GiCrownedHeart style={{height:"25px", width:"25px"}}/><p>You burn an average of 400 calories a day</p></div> :
                     <div><GiBrokenHeart style={{height:"25px", width:"25px"}}/><p>Not enough data to determin how much calories you burn on average</p></div>}
                 </Grid>
             </Grid>

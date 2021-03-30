@@ -15,7 +15,6 @@ function Q4_2({ handleSubmit }) {
 
     return(
         <>
-        <b>Question 4_2</b>
             <div className='container'>
             <form>
             <TextField
