@@ -29,7 +29,7 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q2_1: {
-    type: String,
+    type: Number,
     required: true
   },
   q2_2: {

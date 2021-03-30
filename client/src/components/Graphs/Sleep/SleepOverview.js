@@ -1,7 +1,5 @@
 import React from 'react';
-import { GiNightSleep } from 'react-icons/gi';
-import { GiCoffeeCup } from 'react-icons/gi';
-import { GiSmartphone } from 'react-icons/gi';
+import { GiNightSleep, GiCoffeeCup, GiSmartphone } from 'react-icons/gi';
 import { Grid } from '@material-ui/core';
 
 

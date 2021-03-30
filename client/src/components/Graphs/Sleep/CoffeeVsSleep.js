@@ -15,9 +15,6 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 		title: {
 			text: "Hours of Sleep vs Time of coffee consumption"
 		},
-		subtitles: [{
-			text: "Click Legend to Hide or Unhide Data Series"
-		}],
 		axisX: {
 			title: "States"
 		},
