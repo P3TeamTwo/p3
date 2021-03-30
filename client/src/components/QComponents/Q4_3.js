@@ -29,7 +29,7 @@ function Q4_3({ handleSubmit }) {
                     if (!Q4_2Response) {
                         return; 
                      } else {
-                         handleSubmit(e, null, null, null, null, null, null, null, null, null, null, Q4_2Response)
+                         handleSubmit(e, null, null, null, null, null, null, null, null, null, null, null, null, Q4_2Response)
                      }
  
                 }
