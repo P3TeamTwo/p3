@@ -2,9 +2,6 @@ import React from 'react';
 import CanvasJSReact from '../../../canvasjs.react';
 import '../../../pages/Graph/Graph.css'
 
-import { Box, Grid } from '@material-ui/core';
-
-var Component = React.Component;
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 

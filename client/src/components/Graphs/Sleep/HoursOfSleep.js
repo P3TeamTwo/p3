@@ -1,8 +1,7 @@
 import React from 'react';
 import CanvasJSReact from '../../../canvasjs.react';
 import '../../../pages/Graph/Graph.css'
-
-import { Box, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 // var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
