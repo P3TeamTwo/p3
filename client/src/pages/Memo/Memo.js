@@ -10,7 +10,7 @@ import WordMap from './WordMap'
 import Memos from './Memos'
 import '../Graph/Graph.css'
 
-const Journal = () => {
+const Journal = ({date}) => {
 
     const userId = localStorage.getItem('userId')
     const data = [];
@@ -22,18 +22,27 @@ const Journal = () => {
     useEffect(() => {
         const loadMemos = async () => {
             const memosFromServer = await API.getJournal(userId)
-            setMemos(memosFromServer.data)
+            let journal = memosFromServer.data
+            const filteredMemos = journal.filter(memo => {
+                let memoDate = memo.created_at
+                let memoCut = memoDate.slice(0, 10)
+                return memoCut === date
+            })
+            console.log(filteredMemos)
+            setMemos(filteredMemos)
         }
         loadMemos()
     }, [])
     console.log(memos);
 
     return (
-         <Player style = {{position:'absolute'}}/> 
+        <>
+            <Player style={{ position: 'absolute' }} />
 
-    // {/* { memos.length > 0 ? <Memos memos={memos} /> : 'No Saved Memos'} */ }
+            { memos.length > 0 ? <Memos memos={memos} /> : 'No Saved Memos'}
 
-    // {/* <Memos /> */ }
+    // {/* <Memos /> */}
+        </>
     )
 }
 

@@ -4,7 +4,6 @@ import { Container, Paper } from '@material-ui/core'
 import Entry from './Entry'
 
 const Memos = ({ memos }) => {
-console.log(memos)
   return (
     <>
       {memos.map((memo) => (

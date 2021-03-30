@@ -4,8 +4,8 @@ import Grid from '@material-ui/core/Grid'
 import { useHistory } from 'react-router-dom'
 import Calendar from '../../components/Calendar'
 import './calendar.css'
-import Player from '../../components/QComponents/longform/Recorder/Player'
-// import Memo from '../../pages/Memo/Player'
+// import Player from '../../components/QComponents/longform/Recorder/Player'
+import Memo from '../../pages/Memo/Memo'
 
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -85,11 +85,26 @@ function ButtonBottom() {
 const CalendarPage = (mode) => {
 
     const [notePlay, setNotePlay] = useState(false)
-
+    const [memo, setMemo] = useState(false)
+    const [calDate, setCalDate] = useState({
+        mode:""
+    })
 
     useEffect(() => {
 
     }, [])
+
+
+
+const onDay = (details) => {
+    const date = `${details.year}-0${details.month+1}-${details.day}`
+    setCalDate({
+        "mode": details.mode,
+        "date": date
+    });
+}
+
+    
 
     return (
         <div className="Container">
@@ -103,8 +118,9 @@ const CalendarPage = (mode) => {
                         <ButtonTop />
                     </div>
                 </Grid>
-                <Grid item xs={8}>  
-                <Calendar/>
+                <Grid item xs={8}>
+                    <Calendar onDay={onDay} />
+                    {(calDate.mode==="dailyMode")&& <Memo date = {calDate.date}/>}
                 </Grid>
 
             </Grid>
