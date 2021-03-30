@@ -48,7 +48,7 @@ function WaterVsSleep({ datesAndSleep, datesAndWater }) {
 			name: "Water Consumed",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0 Units",
+			yValueFormatString: "#,##0oz",
 			dataPoints: [
 				...datesAndWater.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
@@ -59,7 +59,7 @@ function WaterVsSleep({ datesAndSleep, datesAndWater }) {
 			axisYType: "secondary",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0.# hours",
+			yValueFormatString: "#,##0.#",
 			dataPoints: [
 				...datesAndSleep.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
