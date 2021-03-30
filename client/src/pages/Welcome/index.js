@@ -26,8 +26,7 @@ const useStyle = makeStyles({
             backgroundColor: '#7eca9c',
             color: 'white'
         },
-        boxShadow:  '0 9px 30px -5px #a6aa9c'
-
+        boxShadow:  '0 9px 30px -5px #a6aa9c' 
     },
     buttonRight: {
         padding: '80px 80px 80px 80px',
