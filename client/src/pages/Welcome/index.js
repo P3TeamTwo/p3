@@ -81,8 +81,8 @@ const Welcome = () => {
             <WelcomeHeader />
             <div className="typewriter">
                 <h3>Welcome to your safe space, lets talk!</h3>
-                <h4>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices and responsible actions.</h4>
             </div>
+                <h4>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices for you and your wellbeing.</h4>
             <div className="container-main">
                 <ButtonLeft />
                 <ButtonRight />

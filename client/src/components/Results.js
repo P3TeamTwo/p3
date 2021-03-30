@@ -1,15 +1,15 @@
 import React from 'react'
 import {  MdBook } from 'react-icons/md';
-import { Button } from '@material-ui/core'
-
+import { Button } from '@material-ui/core';
 
 const Results = ({ onClick }) => {
-    return (
+   
+      return (
         <div>
             <div>
                 <MdBook className='material-icons'/>
                 <h3>Journal Complete</h3>
-                <Button onClick={onClick}>Submit Entry</Button>
+                <Button style={{ boxShadow: "3px 3px 10px rgba(0,0,0,0.2)" }} onClick={onClick}>Submit Entry</Button>
             </div>
             
         </div>

@@ -26,7 +26,7 @@
     "question": "How many calories did you burn today?",
     "answers": [
       {
-        "answerText": "none",
+        "answerText": "None",
         "value": 0
       },
       {

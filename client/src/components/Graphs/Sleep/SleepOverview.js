@@ -5,15 +5,13 @@ import { Grid } from '@material-ui/core';
 
 function sleepOverview({ sumOfSleep, totalNights, entries, coffeeTimes, screenTime }) {
 
-    const AvgHours = sumOfSleep / totalNights;
-    console.log(AvgHours)
+    const AvgHours = (sumOfSleep / totalNights).toFixed(2);
     let phoneTime;
     let otherTime;
 
     //Calculating what time of day the user consumes coffee
     function coffeeConsumptionTime() {
         for (var i = 0; i < entries.length; i++) {
-            console.log(entries[i].q1_3)
             if (entries[i].q1_3 === 0) {
                 coffeeTimes.noCoffee += 1;
             } else if (entries[i].q1_3 === 3) {
@@ -24,7 +22,6 @@ function sleepOverview({ sumOfSleep, totalNights, entries, coffeeTimes, screenTi
                 coffeeTimes.evening += 1;
             }
         }
-        console.log(coffeeTimes)
     }
     coffeeConsumptionTime();
     //calcualting which time of day is most common for the user to drink coffee
@@ -60,7 +57,7 @@ function sleepOverview({ sumOfSleep, totalNights, entries, coffeeTimes, screenTi
             <Grid container >
                 <Grid item xs={4}  style={{textAlign: "center"}}>
                     <GiNightSleep style={{height:"25px", width:"25px"}}/> 
-                    {!AvgHours ? <p>Not enough data to determine average hours of sleep</p> : <p>On average you sleep <strong>{AvgHours}</strong> hours per night</p>} 
+                    {!AvgHours ? <p style={{maxWidth: "30ch"}}>Not enough data to determine average hours of sleep</p> : <p>On average you sleep {AvgHours} hours per night</p>} 
                 </Grid>
                 <Grid item xs={4} style={{textAlign: "center"}}>
                     <GiCoffeeCup style={{height:"25px", width:"25px"}} />

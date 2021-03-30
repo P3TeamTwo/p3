@@ -239,6 +239,7 @@ const DailyReflection = () => {
       padding: theme.spacing(2),
       textAlign: 'center',
       color: theme.palette.text.secondary,
+      minWidth: "50vw"
     },
   }));
 
@@ -247,8 +248,8 @@ const DailyReflection = () => {
   return (
     <div>
       <Grid className='containerPadding' container alignItems='center' justify='center' style={{ minHeight: "100vh" }}>
-        <Grid container className='gridContainer' spacing={3}>
-          <Grid className='gridPadding' item xs={12} sm={6}>
+        <Grid container className='gridContainer' spacing={15}>
+          <Grid className='gridPadding' >
             <Paper className={classes.paper}>
               {/* dynamically render components */}
               {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit} /> :
