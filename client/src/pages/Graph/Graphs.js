@@ -6,6 +6,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { Grid, Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom'
 
 //importing elements
 import HoursOfSleep from '../../components/Graphs/Sleep/HoursOfSleep'
@@ -61,12 +63,28 @@ function a11yProps(index) {
     };
 }
 
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         width: '100%',
         backgroundColor: theme.palette.background.paper,
     },
+    homeButton: {
+        marginLeft: 'auto',
+        paddingLeft: '20px',
+        paddingRight: '20px',
+        width: '10%',
+        backgroundColor: '#3f51b5',
+        color: 'white',
+        borderRadius: 0, 
+        '&:hover' : {
+            backgroundColor: '#d0e8f2',
+            color: 'black'
+        }
+    }
+
 }));
 
 export default function ScrollableTabsButtonAuto() {
@@ -106,6 +124,8 @@ export default function ScrollableTabsButtonAuto() {
         setValue(newValue);
     };
 
+    
+
 
     //Getting the user ID
     const userId = localStorage.getItem("userId");
@@ -124,6 +144,11 @@ export default function ScrollableTabsButtonAuto() {
 
     }, [])
 
+    let history = useHistory();
+
+    function directHome() {
+        history.push('/welcome')
+    }
 
 
     return (
@@ -137,12 +162,18 @@ export default function ScrollableTabsButtonAuto() {
                     variant="scrollable"
                     scrollButtons="auto"
                     aria-label="scrollable auto tabs example"
+                    
                 >
                     <Tab label="Sleep" {...a11yProps(0)} />
                     <Tab label="Exercise" {...a11yProps(1)} />
                     <Tab label="Eating Habits" {...a11yProps(2)} />
                     <Tab label="social" {...a11yProps(3)} />
-
+                    
+                    <Button className={classes.homeButton} onClick={directHome}>Home</Button>
+                    
+                    
+                    
+                    
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
