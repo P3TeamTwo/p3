@@ -12,7 +12,6 @@ function Q4_2({ handleSubmit }) {
 
     return(
         <>
-            <div className='container'>
             <form>
             <TextField
                 id="outlined-multiline-static"
@@ -38,7 +37,6 @@ function Q4_2({ handleSubmit }) {
                 }>SUBMIT</Button>
 
         </form>
-        </div>
         </>  
     )
 };
