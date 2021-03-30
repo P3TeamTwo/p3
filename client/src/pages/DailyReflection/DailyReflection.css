@@ -1,5 +1,12 @@
 body{
-    background-color:#f5efe3;
+    background-image: url("../../images/hex3.png");
+    background-color: #f5efe3;
+    background-position: center;
+    background-size: auto 160%;
+
+
+    
+    /* background-image:#f5efe3; */
 }
 .gridContainer {
     background-color: #d0e8f2;

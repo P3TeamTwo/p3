@@ -10,17 +10,17 @@ const useStyle = makeStyles({
     root: {
         fontSize: '55px',
         color: 'black',
-        padding: '5px 30px',
+        padding: '5px 5px',
         borderRadius: '5',
-        marginBottom: '20',
+        marginBottom: '10',
     },
     buttonLeft: {
-        padding: '130px 130px 130px 130px',
+        padding: '80px 80px 80px 80px',
         borderRadius: '15px',
         backgroundColor: '#ccffbd',
         color: 'black',
         fontSize: '40px',
-        top: "-80px",
+        top: "-180px",
         marginRight: '3rem',
         "&:hover": {
             backgroundColor: '#7eca9c',
@@ -30,12 +30,12 @@ const useStyle = makeStyles({
 
     },
     buttonRight: {
-        padding: '130px 130px 130px 130px',
+        padding: '80px 80px 80px 80px',
         borderRadius: '15px',
         backgroundColor: '#bbf1fa',
         color: 'black',
         fontSize: '40px',
-        top: "-80px",
+        top: "-180px",
         marginRight: '3rem',
         "&:hover": {
             backgroundColor: '#a4ebf3',
@@ -82,6 +82,10 @@ const Welcome = () => {
     return (
         <div className="Container">
             <WelcomeHeader />
+            <div className="typewriter">
+                <h3>Welcome to your safe space, lets talk!</h3>
+                <h4>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices and responsible actions.</h4>
+            </div>
             <div className="container-main">
                 <ButtonLeft />
                 <ButtonRight />

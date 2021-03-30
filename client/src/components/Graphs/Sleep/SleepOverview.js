@@ -62,7 +62,7 @@ function sleepOverview({ sumOfSleep, totalNights, entries, coffeeTimes, screenTi
             <Grid container >
                 <Grid item xs={4}  style={{textAlign: "center"}}>
                     <GiNightSleep style={{height:"25px", width:"25px"}}/> 
-                    {!AvgHours ? <p>Not enough data to determin average hours of sleep</p> : <p>On average you sleep <strong>{AvgHours}</strong> hours per night</p>} 
+                    {!AvgHours ? <p>Not enough data to determine average hours of sleep</p> : <p>On average you sleep <strong>{AvgHours}</strong> hours per night</p>} 
                 </Grid>
                 <Grid item xs={4} style={{textAlign: "center"}}>
                     <GiCoffeeCup style={{height:"25px", width:"25px"}} />
