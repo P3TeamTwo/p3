@@ -77,6 +77,9 @@ import ScreenTimeDoughnut from '../../components/Graphs/Sleep/ScreenTimeDoughnut
 import HoursOfExercise from '../../components/Graphs/Exercise/HoursOfExercise';
 import ExerciseOverview from '../../components/Graphs/Exercise/ExerciseOverview';
 import WaterVsExercise from '../../components/Graphs/Exercise/WaterVsExercise';
+import Veggies from '../../components/Graphs/Eating/Veggies';
+import WaterVsSleep from '../../components/Graphs/Eating/WaterVsSleep';
+import EatingOverview from '../../components/Graphs/Eating/EatingOveriew';
 
 // import Social Display
 import SocialDisplay from '../../components/SocialDisplay'
@@ -263,8 +266,21 @@ export default function ScrollableTabsButtonAuto() {
 
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
-      </TabPanel>
+                {entries && <EatingOverview
+                    sumOfVeggies={entries.reduce((totalVeg, entry) => totalVeg = totalVeg + entry.q2_1, 0)}
+                    totalNights={entries.length}
+                    entries={entries}
+                />}
+                {entries && <Veggies
+                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                    servings={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
+                />}
+                {entries && <WaterVsSleep
+                    datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
+                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                />}
+
+            </TabPanel>
             <TabPanel value={value} index={3}>
                 <SocialDisplay entries={entries} />
             </TabPanel>
