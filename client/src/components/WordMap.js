@@ -1,4 +1,4 @@
-import API from '../../utils/API'
+import API from '../utils/API'
 
 import React, { useState } from 'react'
 
@@ -11,14 +11,18 @@ const WordMap = () => {
     const userId = localStorage.getItem('userId')
     API.getJournal(userId)
         .then(res => {
+
+            //this array will hold all the long form answers
             const text = [];
+            // taking all the long form 
             res.data.map((daily) => {
                 text.push(daily.longForm);
             })
-
+            // Joining with space
             const allLong = text.join(' ')
             setWords(allLong)
         })
+        // Api Call
         .then(() => {
             fetch("https://textvis-word-cloud-v1.p.rapidapi.com/v1/textToCloud", {
                 method: "POST",
@@ -28,6 +32,7 @@ const WordMap = () => {
                     "content-type": "application/json",
                     accept: "application/json"
                 },
+                // Configuration of word map
                 body: JSON.stringify({
                     text: words,
                     scale: 1,
@@ -43,8 +48,8 @@ const WordMap = () => {
                 .then(response => {
                     return response.text();
                 })
+                // Set the src of the Img element
                 .then(wordCloud => {
-
                     setImageApi(wordCloud);
                 })
                 .catch(err => {
@@ -52,8 +57,8 @@ const WordMap = () => {
                 });
         })
     return (
-        <div style = {{marginLeft:"-20%",marginTop:"-20%"}}>
-            <img src={imageApi}></img>
+        <div style = {{display:"flex", justifyContent:"center"}}>
+            <img style={{width: 300, height: 337, objectFit: "none"}} src={imageApi}></img>
         </div>
     )
 }

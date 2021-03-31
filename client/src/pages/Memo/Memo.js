@@ -6,7 +6,7 @@ import { Container, Tab, Tabs, Box, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 import Player from '../../components/QComponents/longform/Recorder/Player'
-import WordMap from './WordMap'
+// import WordMap from './WordMap'
 import Memos from './Memos'
 import '../Graph/Graph.css'
 
