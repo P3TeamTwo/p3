@@ -45,6 +45,12 @@ router.post("/register", (req, res) => {
   });
 });
 
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.json('user logged out!')
+  res.redirect('/')
+});
+
 // @route POST api/users/login
 // @desc Login user and return JWT token
 router.post("/login", (req, res) => {
@@ -95,5 +101,7 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+
 
 module.exports = router;

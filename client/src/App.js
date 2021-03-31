@@ -27,6 +27,7 @@ function App() {
         <Route exact path='/Graphs' component={Graphs} />
         <Route exact path='/Memo' component={Memo} />
         <Route exact path='*' component={NoMatch} />
+        <Route exact path='/logout' />
       </Switch>
 
     </Router>
