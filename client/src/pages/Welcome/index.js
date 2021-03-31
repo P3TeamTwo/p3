@@ -4,6 +4,8 @@ import './welcome.css'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 
+
+
 const useStyle = makeStyles({
     root: {
         fontSize: '55px',
@@ -15,7 +17,7 @@ const useStyle = makeStyles({
     buttonLeft: {
         padding: '80px 80px 80px 80px',
         borderRadius: '15px',
-        backgroundColor: '#ccffbd',
+        backgroundColor: '#c8f4de',
         color: 'black',
         fontSize: '40px',
         top: "-180px",
@@ -80,8 +82,10 @@ const Welcome = () => {
         <div className="Container">
             <WelcomeHeader />
             <div className="typewriter">
-                <h3>Welcome to your safe space, lets talk!</h3>
+                <h3 className="talkLine">Welcome to your safe space, lets talk!</h3>
             </div>
+            <br></br>
+            <br></br>
                 <h4>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices for you and your wellbeing.</h4>
             <div className="container-main">
                 <ButtonLeft />

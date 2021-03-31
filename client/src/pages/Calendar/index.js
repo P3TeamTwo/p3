@@ -11,32 +11,24 @@ const useStyle = makeStyles({
     root: {
         fontSize: '40px',
         color: 'black',
-        padding: '5px 30px',
-        borderRadius: '5',
-        marginBottom: '20',
+        marginBottom: '10px;',
     },
     buttonLeft: {
-        padding: '50px 50px 50px 50px',
+        padding: '5px 5px ',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: '100%',
         borderRadius: '15px',
-        backgroundColor: '#ccffbd',
+        backgroundColor: '#c8f4de',
         color: 'black',
         fontSize: '30px',
         display: 'block',
         "&:hover": {
             backgroundColor: '#7eca9c',
             color: 'white'
-        }
-    },
-    buttonRight: {
-        padding: '50px 50px 50px 50px',
-        borderRadius: '15px',
-        backgroundColor: '#bbf1fa',
-        color: 'black',
-        fontSize: '30px',
-        "&:hover": {
-            backgroundColor: '#a4ebf3',
-            color: 'white'
-        }
+        },
+        boxShadow:  '0 9px 30px -5px #a6aa9c' 
+
     }
 })
 
@@ -59,20 +51,6 @@ function ButtonTop() {
     return <Button className={classes.buttonLeft} onClick={directToDaily}>View Data</Button>
 }
 
-function ButtonBottom() {
-    const classes = useStyle();
-
-    const history = useHistory();
-
-    const directToWelcome = () => {
-        let path = '/welcome'
-        history.push(path)
-    }
-
-    return <Button className={classes.buttonRight} onClick={directToWelcome}>View Data</Button>
-}
-
-
 const CalendarPage = () => {
     return (
         <div className="Container">
@@ -82,16 +60,16 @@ const CalendarPage = () => {
                     <WelcomeHeader />
                 </Grid>
                 <Grid item xs={3}>
-                    <div className="container-main">
-                        <ButtonTop />                 
-                    </div>
+                    {/* <div className="container-main"> */}
+                    {/* </div> */}
                       
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={12}>
                     <Calendar />
                 </Grid>
 
             </Grid>
+                        <ButtonTop />                 
         </div>
         
     )

@@ -3,16 +3,14 @@
     vertical-align: middle;
 }
 
-.container-main {
-    background-color: #FFEFD5;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-
+.calendarHeaderButtons{
+    color: black !important;
 }
 
-.daily-reflection {
-    background-color: #d2f8d2;
+.dayCell{
+    background-color:rgba(255,255,255, 0.5);
+}
+
+h1{ 
+    margin: 20px !important;
 }

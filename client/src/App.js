@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
+
 import Welcome from './pages/Welcome/index.js';
 import Login from './pages/Login/login';
 import NoMatch from './pages/NoMatch/NoMatch';
@@ -26,6 +27,7 @@ function App() {
         <Route exact path='/Graphs' component={Graphs} />
         <Route exact path='*' component={NoMatch} />
       </Switch>
+
     </Router>
 
 

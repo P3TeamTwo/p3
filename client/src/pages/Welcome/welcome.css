@@ -1,7 +1,14 @@
 .Container {
     text-align: center;
     vertical-align: middle;
-}
+  }
+
+  .talkLine, .typewriter{ 
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 
 .container-main {
     background-color: transparent !important;
@@ -19,12 +26,12 @@
 
 .typewriter h3 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid black; /* The typwriter cursor */
+    border-right: .1em solid black; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .03em; /* Adjust as needed */
     animation: 
-      typing 3.5s steps(40, end),
+      typing 3.5s steps(40, end) ,
       blink-caret 1s step-end infinite;
   }
   
@@ -39,3 +46,4 @@
     from, to { border-color: transparent }
     50% { border-color: black; }
   }
+
