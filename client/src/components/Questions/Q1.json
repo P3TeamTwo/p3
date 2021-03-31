@@ -39,33 +39,33 @@
     "answers": [
       {
         "answerText": "No",
-        "value": "false"
+        "value": "no"
       },
       {
         "answerText": "Yes",
-        "value": "true"
+        "value": "yes"
       }
     ]
   },
   {
     "id": 3,
-    "question": "What time of day did you have caffiene?",
+    "question": "How many cups of coffee did you have today?",
     "answers": [
       {
-        "answerText": "I didn't have any today",
+        "answerText": "None",
         "value": 0
       },
       {
-        "answerText": "Morning",
-        "value":3
+        "answerText": "1",
+        "value": 1
       },
       {
-        "answerText": "Afternoon",
-        "value": 6
+        "answerText": "2",
+        "value": 2
       },
       {
-        "answerText": "Evening",
-        "value": 9
+        "answerText": "3+",
+        "value": 3
       }
     ]
   }

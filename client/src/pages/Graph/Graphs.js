@@ -25,6 +25,9 @@ import EatingOverview from '../../components/Graphs/Eating/EatingOveriew';
 // import Social Display
 import SocialDisplay from '../../components/SocialDisplay'
 
+// Import Word Map
+import WordMap from '../../components/WordMap'
+
 //import overview from 
 import SleepOverview from '../../components/Graphs/Sleep/SleepOverview'
 // //Import api routes to db
@@ -94,14 +97,14 @@ export default function ScrollableTabsButtonAuto() {
     const [value, setValue] = React.useState(0);
 
     const coffeeTimes = {
-        noCoffee: 0,
-        morning: 0,
-        afternoon: 0,
-        evening: 0
+        none: 0,
+        min: 0,
+        mid: 0,
+        max: 0
     };
     const screenTime = {
-        true: 0,
-        false: 0
+        yes: 0,
+        no: 0
     };
     const exerciseTime = {
         noExercise: 0,
@@ -187,6 +190,7 @@ export default function ScrollableTabsButtonAuto() {
                     <Tab label="Exercise" {...a11yProps(1)} />
                     <Tab label="Eating Habits" {...a11yProps(2)} />
                     <Tab label="social" {...a11yProps(3)} />
+                    <Tab label="Word Map" {...a11yProps(4)} />
                     
                     <Button className={classes.homeButton} onClick={directHome}>Home</Button>                  
                         
@@ -274,6 +278,11 @@ export default function ScrollableTabsButtonAuto() {
             </TabPanel>
             <TabPanel value={value} index={3}>
                 <SocialDisplay entries={entries} />
+            </TabPanel>
+            
+            {/* Word Map */}
+            <TabPanel  value={value} index={4}>
+                <WordMap />
             </TabPanel>
 
         </div>
