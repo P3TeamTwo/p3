@@ -1,33 +1,29 @@
 import React, { useEffect } from 'react'
-import Button from '@material-ui/core/Button'
+// import Button from '@material-ui/core/Button'
+import JenOrd2 from '../images/JenOrd2.png'
 
-// const changeBackgroundOne = () => {
-
-//     useEffect(() => {
-//         document.body.style.backgroundImage = 'url(../images/JenOrd.png)'
-//         return () => {
-            
-//         }
-//     })
 
 const Colourways = () => {
 
+    // const [activeColourwayId, setActiveColourwayId] = useState(0)
 
-        return (
-            <div>
-                <Button
-                    id="1"
-                    // backgroundImage="url(../images/JenOrd2.png)"
-                    onClick={() => document.body.style.backgroundImage = 'url(../images/JenOrd2.png)'}
-                >I'm a colour</Button>
-                {/* <Button 
-            id="2"
-            backgroundImage="url(../images/JenOrd3.png)"
-            onClick={changeBackground()}
-            /> */}
-            </div>
-        )
+
+    var colourOptionOne = {
+        document.body.stylebackgroundImage =  `url + (${JenOrd2 })`
     }
+
+    return (
+        <div>
+            <button
+                id="1"
+                // onClick={() => document.body.style.backgroundImage = {JenOrd2}}
+                onClick={() => document.body.style.backgroundColor = "red"}
+                // onClick={() => console.log("test")}
+            >I'm a colour</button>
+
+        </div>
+    )
+}
 
 
 export default Colourways
