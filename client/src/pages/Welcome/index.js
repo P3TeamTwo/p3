@@ -3,12 +3,16 @@ import Button from '@material-ui/core/Button'
 import './welcome.css'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+
 
 const useStyle = makeStyles({
     root: {
         fontSize: '55px',
         color: 'black',
-        padding: '5px 5px',
         borderRadius: '5',
         marginBottom: '10',
     },
@@ -40,6 +44,9 @@ const useStyle = makeStyles({
         },
         boxShadow:  '0 9px 30px -5px #a6aa9c'
 
+    },
+    toolbar: {
+        backgroundColor: '#f5f5f5'
     }
 })
 
@@ -75,18 +82,31 @@ function ButtonRight() {
     return <Button className={classes.buttonRight} onClick={directToCalendar}>My Reflections</Button>
 }
 
+
+
 const Welcome = () => {
+
     return (
-        <div className="Container">
-            <WelcomeHeader />
-            <div className="typewriter">
-                <h3>Welcome to your safe space, lets talk!</h3>
+
+        <div style={{width: '100%'}}>
+            <AppBar position="static">
+                <Toolbar style={{backgroundColor: "#f5f5f5"}}>
+                    <Button color="inherit" style={{marginRight: "auto"}}>Home</Button>
+                    <Button color="inherit" style={{marginLeft: "auto"}}>Logout</Button>
+                </Toolbar>
+            </AppBar>  
+            <div className="Container">
+                <WelcomeHeader />
+                <div className="typewriter">
+                    <h3>Welcome to your safe space, lets talk!</h3>
+                </div>
+                    <h4>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices for you and your wellbeing.</h4>
+                <div className="container-main">
+                    <ButtonLeft />
+                    <ButtonRight />
+                </div>
             </div>
-                <h4>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices for you and your wellbeing.</h4>
-            <div className="container-main">
-                <ButtonLeft />
-                <ButtonRight />
-            </div>
+
         </div>
     )
 }

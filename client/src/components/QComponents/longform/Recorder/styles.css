@@ -27,8 +27,8 @@ body {
   color: #0d122b;
   display: flex;
   flex-direction: column;
-  padding-left: 1em;
-  padding-right: 1em;
+  /* padding-left: 1em;
+  padding-right: 1em; */
 }
 h1 {
   text-align: center;
