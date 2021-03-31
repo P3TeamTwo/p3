@@ -1,11 +1,12 @@
 import React from 'react';
-import CanvasJSReact from '../../canvasjs.react';
+import CanvasJSReact from '../../../canvasjs.react';
 import { Box } from '@material-ui/core';
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
-
+function DblAxisLine({ datesAndExercise, datesAndCalories }) {
+	console.log(...datesAndCalories.map(({ date, point }) => ({ x: new Date(date), y: point }))
+)
 	CanvasJS.addColorSet("customColorSet1", ["#ffa372", "#a6dcef", "#ea9a96"])
 
 	const options = {
@@ -13,23 +14,20 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 		theme: "light2",
 		animationEnabled: true,
 		title: {
-			text: "Hours of Sleep vs Time of coffee consumption"
+			text: "Minutes of Exercise vs Calories Burned"
 		},
-		subtitles: [{
-			text: "Click Legend to Hide or Unhide Data Series"
-		}],
 		axisX: {
 			title: "States"
 		},
 		axisY: {
-			title: "Hours of Sleep",
+			title: "Minutes of Exercise",
 			titleFontColor: "#6D78AD",
 			lineColor: "#6D78AD",
 			labelFontColor: "#6D78AD",
 			tickColor: "#6D78AD"
 		},
 		axisY2: {
-			title: "Time of drinking coffee",
+			title: "Calories Burned",
 			titleFontColor: "#79a3b1",
 			lineColor: "#79a3b1",
 			labelFontColor: "#79a3b1",
@@ -43,29 +41,29 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 		},
 		data: [{
 			type: "spline",
-			name: "Hours of Sleep",
+			name: "Minutes of Exercise",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0 minutes",
+			yValueFormatString: "#,##0",
 			dataPoints: [
-				...datesAndSleep.map(({ date, point }) => ({ x: new Date(date), y: point }))
+				...datesAndExercise.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		},
 		{ 
-			name: "Time of drinking coffee",
+			name: "Calories Burned",
 			axisYType: "secondary",
 			showInLegend: true,
 			fillOpacity: .5,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0.# hours",
+			yValueFormatString: "###",
 			dataPoints: [
-				...datesAndCoffee.map(({ date, point }) => ({ x: new Date(date), y: point }))
+				...datesAndCalories.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		}]
 	}
 
 	return (
-		<div className="coffeeVsSleep">
+		<div className="exerciseVsCalories">
 			<Box >
 				<CanvasJSChart options={options} />
 			</Box>

@@ -32,7 +32,7 @@ function LongForm(props) {
     return (
         <div >
             <form>
-                <h2 style={{ marginBottom: '5%' }}>{randomQuestion} </h2>
+                <b style={{ marginBottom: '5%' }}>{randomQuestion}</b> 
                 <Box m={2}>
                 <Voice speechText={voiceToText}  />
                 </Box>
@@ -48,10 +48,15 @@ function LongForm(props) {
                         handleChange(e)
                     }}
                 />
-                <Button variant="contained"
-                    style={{ marginTop: '5%' }}
+                <Button variant="container"
+                    style={{ marginTop: '5%', boxShadow: "5px 5px 10px rgba(0,0,0,0.2)" }}
                     onClick={(e) => {
-                        props.handleSubmit(e, userResponse)
+                        if (!userResponse) {
+                            return;
+                        } else {
+                            props.handleSubmit(e, userResponse)
+                        }
+                        
                     }
                     }>SUBMIT</Button>
             </form>

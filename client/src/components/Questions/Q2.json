@@ -1,15 +1,19 @@
 [
   {
     "id": 1,
-    "question": "Did you skip breakfast today?",
+    "question": "Did you eat veggies today?",
     "answers": [
       {
-        "answerText": "Yes",
-        "value": "true"
+        "answerText": "Not Today!",
+        "value": 0
       },
       {
-        "answerText": "No",
-        "value": "false"
+        "answerText": "2 Servings",
+        "value": 2
+      },
+      {
+        "answerText": "More than 4",
+        "value": 4
       }
     ]
   },
@@ -18,16 +22,16 @@
     "question": "How often do you normally cook meals at home?",
     "answers": [
       {
-        "answerText": "Everynight",
-        "value": 7
+        "answerText": "Never",
+        "value": 0
       },
       {
         "answerText": "Half and Half",
         "value": 3
       },
       {
-        "answerText": "Never",
-        "value": 0
+        "answerText": "Everynight",
+        "value": 7
       }
     ]
   },
@@ -51,7 +55,6 @@
         "answerText": "I'm drowning!",
         "value": 10
       }
-
     ]
   }
 ]

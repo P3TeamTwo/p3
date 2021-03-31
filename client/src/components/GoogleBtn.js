@@ -20,9 +20,9 @@ const LoginBtn = () => {
 
     const responseGoogle = (response) => {
         // Saving userId for data match
-        console.log(response.googleId)
         // var objectId = mongoose.Types.ObjectId(response.googleId);
         localStorage.setItem('userId', response.googleId)
+        localStorage.setItem('userName', response.profileObj.name)
         history.push("/welcome");
     }
     const failresponseGoogle = (response) => {

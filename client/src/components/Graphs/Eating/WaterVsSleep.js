@@ -1,14 +1,11 @@
 import React from 'react';
-import CanvasJSReact from '../../canvasjs.react';
-import '../../pages/Graph/Graph.css'
+import CanvasJSReact from '../../../canvasjs.react';
+import '../../../pages/Graph/Graph.css'
 
-import { Box, Grid } from '@material-ui/core';
-
-var Component = React.Component;
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-function SleepvsExercise({ datesAndSleep, datesAndExercise }) {
+function WaterVsSleep({ datesAndSleep, datesAndWater }) {
 
 	CanvasJS.addColorSet("customColorSet1", ["#6eb6ff", "#7098da", "#bae8e8"])
 
@@ -18,7 +15,7 @@ function SleepvsExercise({ datesAndSleep, datesAndExercise }) {
 		theme: "light2",
 		animationEnabled: true,
 		title: {
-			text: "Hours Slept vs Minutes of Exercise"
+			text: "Water Consumed vs Hours Slept"
 		},
 		subtitles: [{
 			text: "Click Legend to Hide or Unhide Data Series"
@@ -27,18 +24,18 @@ function SleepvsExercise({ datesAndSleep, datesAndExercise }) {
 			title: "States"
 		},
 		axisY: {
-			title: "Hours slept",
+			title: "Water Consumed",
 			titleFontColor: "#6D78AD",
 			lineColor: "#6D78AD",
 			labelFontColor: "#6D78AD",
 			tickColor: "#6D78AD"
 		},
 		axisY2: {
-			title: "Minutes of exercise",
-			titleFontColor: "#7098da",
-			lineColor: "#6eb6ff",
-			labelFontColor: "#6eb6ff",
-			tickColor: "#6eb6ff"
+			title: "Hours Slept",
+			titleFontColor: "#79a3b1",
+			lineColor: "#79a3b1",
+			labelFontColor: "#79a3b1",
+			tickColor: "#79a3b1"
 		},
 		toolTip: {
 			shared: true
@@ -48,35 +45,34 @@ function SleepvsExercise({ datesAndSleep, datesAndExercise }) {
 		},
 		data: [{
 			type: "spline",
-			name: "Hours of Sleep",
+			name: "Water Consumed",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0 Units",
+			yValueFormatString: "#,##0oz",
 			dataPoints: [
-				...datesAndSleep.map(({ date, point }) => ({ x: new Date(date), y: point }))
+				...datesAndWater.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		},
 		{
 			type: "spline",
-			name: "Minutes of Exercise",
+			name: "Hours Slept",
 			axisYType: "secondary",
 			showInLegend: true,
 			xValueFormatString: "MMM YYYY",
-			yValueFormatString: "#,##0.# hours",
+			yValueFormatString: "#,##0.#",
 			dataPoints: [
-				...datesAndExercise.map(({ date, point }) => ({ x: new Date(date), y: point }))
+				...datesAndSleep.map(({ date, point }) => ({ x: new Date(date), y: point }))
 			]
 		}]
 	}
 
 	return (
-		<div className="SleepvsExercise">
-			<CanvasJSChart options={options}
-			/>
+		<div className="WaterVsSleep">
+			<CanvasJSChart options={options}/>
 		</div>
 	);
 }
 
 
 
-export default SleepvsExercise;
+export default WaterVsSleep;

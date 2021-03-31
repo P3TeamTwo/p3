@@ -4,14 +4,11 @@ import Q1questions from '../Questions/Q1.json';
 
 function Q1_2(props) {
 
-    console.log(Q1questions[1].question)
-
     return(
         <>
-        <b>Question 1_2</b>
             <div className='container'>
             <FormControl component="fieldset">
-                <FormLabel component="legend">{Q1questions[1].question}
+                <FormLabel component="legend"><b>{Q1questions[1].question}</b>
                 </FormLabel>
                 {Q1questions[1].answers.map(answer => {
                     return (

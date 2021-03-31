@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import { FormControl,  FormLabel, FormControlLabel, Radio, TextField, Button } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import Q4questions from '../Questions/Q4.json';
 
 function Q4_1({ handleSubmit }) {
 
-    console.log(Q4questions[0].question)
-
     const [userResponse, setUserResponse] = useState();
 
     const handleChange = (e) => {
+        e.preventDefault()
         setUserResponse(e.target.value);
     }
 
 
     return(
         <>
-        <b>Question 4_1</b>
         <form>
             <TextField
                 id="outlined-multiline-static"
@@ -28,10 +26,18 @@ function Q4_1({ handleSubmit }) {
                     handleChange(e)
                 }}
             />
-            <Button variant="contained"
-                onClick={(e) => {
-                    console.log(userResponse)
-                    handleSubmit(e, null, null, null, null, null, null, null, null, null, null, userResponse)
+            <Button  variant="container"
+            style={{ marginTop: '5%', boxShadow: "3px 3px 10px rgba(0,0,0,0.2)" }}
+            onClick={(e) => {
+                    e.preventDefault()
+
+                    if (!userResponse) {
+                       return; 
+                    } else {
+                        handleSubmit(e, null, null, null, null, null, null, null, null, null, null, userResponse)
+                    }
+
+                    
                 }
                 }>SUBMIT</Button>
 

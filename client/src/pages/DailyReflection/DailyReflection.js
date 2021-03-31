@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './DailyReflection.css';
 // Material UI imports
-import { Grid, Paper, makeStyles, Button } from '@material-ui/core';
+import { Grid, Paper, makeStyles } from '@material-ui/core';
 // import useHistory for redirecting once quiz is done
 import { useHistory } from 'react-router-dom'
 //Import api routes to db
@@ -21,9 +21,6 @@ import Q4_1 from '../../components/QComponents/Q4_1';
 import Q4_2 from '../../components/QComponents/Q4_2';
 import Q4_3 from '../../components/QComponents/Q4_3';
 import LongForm from '../../components/QComponents/longform/LongForm'
-
-
-
 import Results from '../../components/Results';
 
 const DailyReflection = () => {
@@ -42,12 +39,10 @@ const DailyReflection = () => {
   const [q4_1Visible, setQ4_1Visible] = useState(false)
   const [q4_2Visible, setQ4_2Visible] = useState(false)
   const [q4_3Visible, setQ4_3Visible] = useState(false)
-
   const [longFormVisible, setLongFormVisible] = useState(false)
-
   const [quizComplete, setQuizComplete] = useState(false)
 
-  // Getting User
+  // Getting the id of the current user that is logged in
   const userId = localStorage.getItem("userId");
 
   // State that stores value from answer
@@ -64,32 +59,12 @@ const DailyReflection = () => {
   const [q4_1, setQ4_1] = useState('')
   const [q4_2, setQ4_2] = useState('')
   const [q4_3, setQ4_3] = useState('')
-
   const [longForm, setLongForm] = useState('')
   const [longFormQuestion, setLongQuestion] = useState()
   const [voiceMemo, setVoiceMemo] = useState('');
 
   // State that stores the emotion state
   const [emotionState, setEmotionState] = useState('')
-
-
-  // Set points for current mood
-  function renderMoodPoints() {
-    switch (emotion) {
-      case '0':
-        return setEmotionState('Very Unhappy');
-      case '1':
-        return setEmotionState('Unhappy');
-      case '2':
-        return setEmotionState('Ok');
-      case '3':
-        return setEmotionState('Happy');
-      case '4':
-        return setEmotionState('Very Happy');
-      default:
-        return setEmotion('2') + setEmotionState('Ok');
-    }
-  };
 
   const history = useHistory();
 
@@ -101,40 +76,52 @@ const DailyReflection = () => {
   function storeResponses() {
 
 
-
+    // Saving values to the database
     API.saveJournal({
       postedBy: userId,
-      mood: emotion, moodState: emotionState,
+      mood: emotion,
+      moodState: emotionState,
       q1_1: q1_1,
       q1_2: q1_2,
       q1_3: q1_3,
-
       q2_1: q2_1,
       q2_2: q2_2,
       q2_3: q2_3,
-
       q3_1: q3_1,
       q3_2: q3_2,
       q3_3: q3_3,
-
       q4_1: q4_1,
       q4_2: q4_2,
       q4_3: q4_3,
       longForm: longForm,
       longFormQuestion: longFormQuestion,
       voiceMemo: voiceMemo
-
     });
-
-    console.log('responses saved to database')
     directToGraphs()
-
   }
+
 
 
   // Run switch case once emotion has been set
   useEffect(() => {
-    renderMoodPoints()
+    // Set value for current mood
+    function renderMoodValue() {
+      switch (emotion) {
+        case '0':
+          return setEmotionState('Very Unhappy');
+        case '1':
+          return setEmotionState('Unhappy');
+        case '2':
+          return setEmotionState('Ok');
+        case '3':
+          return setEmotionState('Happy');
+        case '4':
+          return setEmotionState('Very Happy');
+        default:
+          return setEmotion('2') + setEmotionState('Ok');
+      }
+    };
+    renderMoodValue()
   }, [emotion]);
 
 
@@ -240,7 +227,6 @@ const DailyReflection = () => {
   const longFormSubmit = (e, getLongForm) => {
     e.preventDefault()
     setLongForm(getLongForm)
-    console.log(getLongForm)
     setLongFormVisible(false)
     setQuizComplete(true)
     const blob = localStorage.getItem("voice")
@@ -258,14 +244,17 @@ const DailyReflection = () => {
       padding: theme.spacing(2),
       textAlign: 'center',
       color: theme.palette.text.secondary,
+      minWidth: "50vw"
     },
   }));
+
   const classes = useStyles();
+
   return (
     <div>
       <Grid className='containerPadding' container alignItems='center' justify='center' style={{ minHeight: "100vh" }}>
-        <Grid container className='gridContainer' spacing={3}>
-          <Grid className='gridPadding' item xs={12} sm={6}>
+        <Grid container className='gridContainer' spacing={15}>
+          <Grid className='gridPadding' >
             <Paper className={classes.paper}>
               {/* dynamically render components */}
               {moodVisible === true ? <MoodSlider handleSubmit={handleSubmit} /> :

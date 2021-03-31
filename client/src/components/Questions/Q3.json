@@ -1,33 +1,49 @@
 [
   {
     "id": 1,
-    "question": "Were you active today?",
+    "question": "What kind of workout did you do?",
     "answers": [
       {
-        "answerText": "No",
-        "value": "false"
+        "answerText": "Cardio",
+        "value": "cardio"
       },
       {
-        "answerText": "Yes",
-        "value": "true"
+        "answerText": "Weights",
+        "value": "weights"
       },
       {
-        "answerText": "It's a rest day!",
-        "value": "false"
+        "answerText": "Rest day",
+        "value": "rest"
+      },
+      {
+        "answerText": "I don't workout",
+        "value": "zero"
       }
     ]
   },
   {
     "id": 2,
-    "question": "Did you raise your heartrate?",
+    "question": "How many calories did you burn today?",
     "answers": [
       {
-        "answerText": "No",
-        "value": "false"
+        "answerText": "None",
+        "value": 0
       },
       {
-        "answerText": "Yes",
-        "value": "true"
+        "answerText": "100",
+        "value": 100
+      },
+      {
+        "answerText": "200",
+        "value": 200
+      },
+      {
+        "answerText": "300",
+        "value": 300
+      },
+      {
+        "answerText": "400",
+        "value": 400
       }
     ]
   },
@@ -41,7 +57,7 @@
       },
       {
         "answerText": "30",
-        "value": 40
+        "value": 30
       },
       {
         "answerText": "60",
@@ -51,28 +67,6 @@
         "answerText": "Lost track of time!",
         "value": 100
       } 
-    ]
-  },
-  {
-    "id": 4,
-    "question": "What kind of workout did you do?",
-    "answers": [
-      {
-        "answerText": "Cardio",
-        "value": "cardio"
-      },
-      {
-        "answerText": "Weights",
-        "value": "weights"
-      },
-      {
-        "answerText": "Rest day",
-        "value": "rest day"
-      },
-      {
-        "answerText": "I don't workout",
-        "value": "weights"
-      }
     ]
   }
 ]

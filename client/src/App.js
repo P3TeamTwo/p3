@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import ProtectedRoute from './components/ProtectedRoute';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+// import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+// import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
 import Welcome from './pages/Welcome/index.js';
 import Login from './pages/Login/login';
 import NoMatch from './pages/NoMatch/NoMatch';
-// Testing purposes
 import DailyReflection from './pages/DailyReflection/DailyReflection';
-// import Welcome from './pages/Welcome';
 import Graphs from './pages/Graph/Graphs'
 import CalendarPage from './pages/Calendar'
 import Memo from './pages/Memo/Memo';
