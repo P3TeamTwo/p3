@@ -28,7 +28,6 @@ function App() {
         <Route exact path='/Memo' component={Memo} />
         <Route exact path='*' component={NoMatch} />
       </Switch>
-
     </Router>
 
 
