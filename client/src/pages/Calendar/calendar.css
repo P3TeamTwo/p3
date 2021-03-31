@@ -16,3 +16,9 @@
 .daily-reflection {
     background-color: #d2f8d2;
 }
+
+.dailyTimeLineWrapper{
+    opacity:0;
+    height:0;
+    
+}
