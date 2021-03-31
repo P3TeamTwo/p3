@@ -23,6 +23,19 @@
     margin: 50px 10px 20px 20px;
 }  */
 
+
+.graphContainer{
+    width: 80%;
+    border: 1px solid black;
+    padding: 0px 20px 20px 0px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.hoursExerciseContainer, .veggiesContainer {
+    margin-bottom: 5rem;
+}
+
 /* MEDIA QUERIES */
 /* Extra small devices (Tested with Iphone X) */
 @media (min-width: 375px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer { width: 100% !important} }
@@ -47,16 +60,9 @@
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 45% !important} } 
 
-
-
-.graphContainer{
-    width: 80%;
-    border: 1px solid black;
-    padding: 0px 20px 20px 0px;
+.center {
     margin: auto;
-    margin-top: 40px;
-}
-
-.hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer {
-    margin-bottom: 5rem;
-}
+    width: -20%;
+    /* border: 3px solid green;
+    padding: 10px; */
+  }

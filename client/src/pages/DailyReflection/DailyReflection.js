@@ -60,7 +60,8 @@ const DailyReflection = () => {
   const [q4_2, setQ4_2] = useState('')
   const [q4_3, setQ4_3] = useState('')
   const [longForm, setLongForm] = useState('')
-  const [ voiceMemo, setVoiceMemo] = useState('');
+  const [longFormQuestion, setLongQuestion] = useState()
+  const [voiceMemo, setVoiceMemo] = useState('');
 
   // State that stores the emotion state
   const [emotionState, setEmotionState] = useState('')
@@ -74,52 +75,54 @@ const DailyReflection = () => {
 
   function storeResponses() {
 
-    
-  // Saving values to the database
-  API.saveJournal({ 
+
+    // Saving values to the database
+    API.saveJournal({
       postedBy: userId,
-      mood: emotion, 
+      mood: emotion,
       moodState: emotionState,
-      q1_1: q1_1, 
-      q1_2: q1_2, 
-      q1_3: q1_3, 
-      q2_1: q2_1, 
-      q2_2: q2_2, 
-      q2_3: q2_3, 
-      q3_1: q3_1, 
-      q3_2: q3_2, 
-      q3_3: q3_3, 
-      q4_1: q4_1, 
-      q4_2: q4_2, 
-      q4_3: q4_3, 
+      q1_1: q1_1,
+      q1_2: q1_2,
+      q1_3: q1_3,
+      q2_1: q2_1,
+      q2_2: q2_2,
+      q2_3: q2_3,
+      q3_1: q3_1,
+      q3_2: q3_2,
+      q3_3: q3_3,
+      q4_1: q4_1,
+      q4_2: q4_2,
+      q4_3: q4_3,
       longForm: longForm,
+      longFormQuestion: longFormQuestion,
       voiceMemo: voiceMemo
-      });
-      directToGraphs()
-    }
+    });
+    directToGraphs()
+  }
 
 
-    // Run switch case once emotion has been set
-    useEffect(() => {
-      // Set value for current mood
-      function renderMoodValue() {
-        switch (emotion) {
-          case '0':
-            return setEmotionState('Very Unhappy');
-          case '1':
-            return setEmotionState('Unhappy');
-          case '2':
-            return setEmotionState('Ok');
-          case '3':
-            return setEmotionState('Happy');
-          case '4':
-            return setEmotionState('Very Happy');
-          default:
-            return setEmotion('2') + setEmotionState('Ok');
-        }
-      };
-      renderMoodValue()
-    }, [emotion]);
+
+  // Run switch case once emotion has been set
+  useEffect(() => {
+    // Set value for current mood
+    function renderMoodValue() {
+      switch (emotion) {
+        case '0':
+          return setEmotionState('Very Unhappy');
+        case '1':
+          return setEmotionState('Unhappy');
+        case '2':
+          return setEmotionState('Ok');
+        case '3':
+          return setEmotionState('Happy');
+        case '4':
+          return setEmotionState('Very Happy');
+        default:
+          return setEmotion('2') + setEmotionState('Ok');
+      }
+    };
+    renderMoodValue()
+  }, [emotion]);
 
 
   // Function to handle what happens when the submit button is clicked
@@ -227,8 +230,10 @@ const DailyReflection = () => {
     setLongFormVisible(false)
     setQuizComplete(true)
     const blob = localStorage.getItem("voice")
+    const longQuestion = localStorage.getItem("longFormQuestion");
+    setLongQuestion(longQuestion);
     setVoiceMemo(blob)
-    
+
   }
 
   const useStyles = makeStyles((theme) => ({
@@ -244,11 +249,11 @@ const DailyReflection = () => {
   }));
 
   const classes = useStyles();
-  
+
   return (
     <div>
       <Grid className='containerPadding' container alignItems='center' justify='center' style={{ minHeight: "100vh" }}>
-        <Grid container className='gridContainer' spacing={15}>
+        <Grid container className='gridContainer' spacing={10}>
           <Grid className='gridPadding' >
             <Paper className={classes.paper}>
               {/* dynamically render components */}

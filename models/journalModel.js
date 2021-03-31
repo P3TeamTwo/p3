@@ -68,6 +68,10 @@ const journalEntrySchema = new Schema({
     type: String,
     required: false
   },
+  longFormQuestion: {
+    type: String,
+    required: false
+  },
   voiceMemo: {
     type: String,
     required: false

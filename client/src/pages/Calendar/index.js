@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { useHistory } from 'react-router-dom'
 import Calendar from '../../components/Calendar'
 import './calendar.css'
+// import Player from '../../components/QComponents/longform/Recorder/Player'
+import Memo from '../../pages/Memo/Memo'
+
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -11,34 +14,31 @@ const useStyle = makeStyles({
     root: {
         fontSize: '40px',
         color: 'black',
-        padding: '5px 30px',
-        borderRadius: '5',
-        marginBottom: '20',
+        marginBottom: '10px;',
     },
     buttonLeft: {
-        padding: '50px 50px 50px 50px',
+        padding: '5px 5px ',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: '100%',
         borderRadius: '15px',
-        backgroundColor: '#ccffbd',
+        backgroundColor: '#c8f4de',
         color: 'black',
         fontSize: '30px',
         display: 'block',
         "&:hover": {
             backgroundColor: '#7eca9c',
             color: 'white'
-        }
-    },
-    buttonRight: {
-        padding: '50px 50px 50px 50px',
-        borderRadius: '15px',
-        backgroundColor: '#bbf1fa',
-        color: 'black',
-        fontSize: '30px',
-        "&:hover": {
-            backgroundColor: '#a4ebf3',
-            color: 'white'
-        }
+        },
+        boxShadow: '0 9px 30px -5px #a6aa9c'
+
     }
 })
+
+
+
+
+
 
 function WelcomeHeader() {
     const classes = useStyle();
@@ -59,42 +59,49 @@ function ButtonTop() {
     return <Button className={classes.buttonLeft} onClick={directToDaily}>View Data</Button>
 }
 
-function ButtonBottom() {
-    const classes = useStyle();
+const CalendarPage = (mode) => {
 
-    const history = useHistory();
+    const [notePlay, setNotePlay] = useState(false)
+    const [memo, setMemo] = useState(false)
+    const [calDate, setCalDate] = useState({
+        mode: ""
+    })
 
-    const directToWelcome = () => {
-        let path = '/welcome'
-        history.push(path)
+    useEffect(() => {
+
+    }, [])
+
+
+
+    const onDay = (details) => {
+        const date = `${details.year}-0${details.month + 1}-${details.day}`
+        setCalDate({
+            "mode": details.mode,
+            "date": date
+        });
     }
 
-    return <Button className={classes.buttonRight} onClick={directToWelcome}>View Data</Button>
-}
 
 
-const CalendarPage = () => {
     return (
         <div className="Container">
             <Grid container>
-                
-                <Grid item xs={12}> 
+
+                <Grid item xs={12}>
                     <WelcomeHeader />
                 </Grid>
                 <Grid item xs={3}>
-                    <div className="container-main">
-                        <ButtonTop />                 
-                    </div>
-                      
                 </Grid>
-                <Grid item xs={8}>
-                    <Calendar />
+                <Grid item xs={12}>
+                    <Calendar onDay={onDay} />
+                    {(calDate.mode === "dailyMode") && <Memo style={{ marginLeft: 50, marginRight: 50 }} date={calDate.date} />}
                 </Grid>
 
             </Grid>
+            <ButtonTop />
         </div>
-        
+
     )
 }
 
-export default CalendarPage
+export default CalendarPage;

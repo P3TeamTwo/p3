@@ -84,7 +84,6 @@ const useStyle = makeStyles({
 
 
 const SocialDisplay = ({ entries }) => {
-    console.log(entries)
 
     const classes = useStyle()
 

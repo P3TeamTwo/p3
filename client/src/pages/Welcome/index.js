@@ -5,8 +5,11 @@ import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import logo from '../../images/MINDSHARE.png'
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+// import IconButton from '@material-ui/core/IconButton';
+
+
 
 
 const useStyle = makeStyles({
@@ -16,10 +19,27 @@ const useStyle = makeStyles({
         borderRadius: '5',
         marginBottom: '10',
     },
+    homeButton: {
+        marginRight: "auto",
+        maxWidth: '5%',
+        height: '100%', 
+    },
+    title: {
+        flexGrow: 1,
+        textAlign: 'center',
+        color: '#E5616D'
+    },
+    logoutButton: {
+        marginLeft: "auto",
+        backgroundColor: "#9ba4b4",
+        width: '5%',
+        height: '100%', 
+    },
+
     buttonLeft: {
         padding: '80px 80px 80px 80px',
         borderRadius: '15px',
-        backgroundColor: '#ccffbd',
+        backgroundColor: '#c8f4de',
         color: 'black',
         fontSize: '40px',
         top: "-180px",
@@ -82,6 +102,36 @@ function ButtonRight() {
     return <Button className={classes.buttonRight} onClick={directToCalendar}>My Reflections</Button>
 }
 
+function HomeButton() {
+    const classes = useStyle();
+
+    const history = useHistory();
+
+    const directToHome = () => {
+        let path = '/calendar'
+        history.push(path)
+    }
+
+    return <img src={logo} className={classes.homeButton} onClick={directToHome}/>
+}
+function LogoutButton() {
+    const classes = useStyle();
+
+    const history = useHistory();
+
+    const directToHome = () => {
+        let path = '/welcome'
+        history.push(path)
+    }
+
+    return <Button color="inherit" className={classes.logoutButton}>Logout</Button>
+}
+
+function Title() {
+    const classes = useStyle();
+
+    return <h3 className={classes.title} >MindShare</h3>
+}
 
 
 const Welcome = () => {
@@ -91,14 +141,15 @@ const Welcome = () => {
         <div style={{width: '100%'}}>
             <AppBar position="static">
                 <Toolbar style={{backgroundColor: "#f5f5f5"}}>
-                    <Button color="inherit" style={{marginRight: "auto"}}>Home</Button>
-                    <Button color="inherit" style={{marginLeft: "auto"}}>Logout</Button>
+                    <HomeButton />
+                    <Title />
+                    <LogoutButton />
                 </Toolbar>
             </AppBar>  
             <div className="Container">
                 <WelcomeHeader />
                 <div className="typewriter">
-                    <h3>Welcome to your safe space, lets talk!</h3>
+                    <h3 className="talkLine">Welcome to your safe space, lets talk!</h3>
                 </div>
                     <h4>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices for you and your wellbeing.</h4>
                 <div className="container-main">

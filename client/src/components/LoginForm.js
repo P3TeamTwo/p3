@@ -57,9 +57,11 @@ const LoginForm = () => {
                     case "Not a valid email address":
                         setError("Not a valid email address")
                         break;
+                    default:
+                        setError('Error')
+                        break;
                 }
                 if (response.data.success) {
-                    console.log(response.data.user)
                     localStorage.setItem("userId", response.data.user);
                     history.push("/welcome");
                 }

@@ -15,7 +15,11 @@
   - [License](#license)
 
 ## Description
-Let's Go Travel Planner is a travel app that helps users plan their trips effortlessly. The app lets users input the name of the city that they would like to travel to. Whenever a user submits a city name, the app will display a list of recommendations for restaurants and activities to do in the city. Users will also be able to create an account and save their itinerary for easy viewing.
+Mindshare is designed to help individuals who are facing the turmoils of isolation. Unlike social media where all your entries are at the scrutiny and judgment of your family,  friends and peers. Mindshare is meant to be a safe place where you can make meaningful inputs and track your mood and feelings over a time period, away from scrutiny.
+
+This application is a smart and interactive journal, where you are given daily questions that allows an algorithm to analyze your responses and display correlations between your mood and your behaviours. Allowing you to pinpoint what makes a good vs a bad day. 
+
+It is meant for users to speak their minds and release any hidden feelings within. A shift towards wellbeing improvements starts from the inside. 
 
 ## Technologies Used
 

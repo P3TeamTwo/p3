@@ -6,14 +6,9 @@ import { Grid } from '@material-ui/core';
 
 function eatingOverview({ entries, veg, meals, water }) {
 
-    // const AvgVeggies = sumOfVeggies / totalNights;
-    // console.log(AvgVeggies)
-
-
     // Calculating how often a user eats veggies on average
     function veggiesServings() {
         for (var i = 0; i < entries.length; i++) {
-            console.log(entries[i].q2_1)
             if (entries[i].q2_1 === 0) {
                 veg.none += 1;
             } else if (entries[i].q2_1 === 2) {
@@ -22,7 +17,6 @@ function eatingOverview({ entries, veg, meals, water }) {
                 veg.four += 1;
             }
         }
-        console.log(veg)
     };
     veggiesServings();
 
@@ -37,7 +31,6 @@ function eatingOverview({ entries, veg, meals, water }) {
     // Calculating how often a user eats at home vs eats out
     function mealsFunc() {
         for (var i = 0; i < entries.length; i++) {
-            console.log(entries[i].q2_2)
             if (entries[i].q2_2 === 0) {
                 meals.never += 1;
             } else if (entries[i].q2_2 === 3) {
@@ -46,7 +39,6 @@ function eatingOverview({ entries, veg, meals, water }) {
                 meals.night += 1;
             }
         }
-        console.log(meals)
     };
     mealsFunc();
 
@@ -61,7 +53,6 @@ function eatingOverview({ entries, veg, meals, water }) {
     // Calculating how often a user drinks 8oz glasses of water on average
     function waterAnalysis(){
         for(var i = 0; i < entries.length; i++){
-            console.log(entries[i].q2_3)
             if(entries[i].q3_2 === 0){
                 water.none += 1
             } else if (entries[i].q2_3 === 4){
