@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom'
 
@@ -109,7 +105,7 @@ const RegisterForm = () => {
                 required
                 fullWidth
                 name="password"
-                label={password}
+                // label={password}
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -121,8 +117,8 @@ const RegisterForm = () => {
                 required
                 fullWidth
                 name="password2"
-                label={password2}
-                type="password2"
+                // label={password2}
+                type="password"
                 id="password2"
                 autoComplete="current-password"
                 onChange={handlePassword2Change}

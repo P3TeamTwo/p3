@@ -31,7 +31,6 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
     // Calculating what time of day the user consumes coffee
     function activeFunc() {
         for (var i = 0; i < entries.length; i++) {
-            console.log(entries[i].q3_1)
             if (entries[i].q3_1 === 'cardio') {
                 active.cardio += 1;
             } else if (entries[i].q3_1 === 'weights') {
@@ -42,7 +41,6 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
                 active.zero += 1;
             }
         }
-        console.log(active)
     };
     activeFunc();
 
@@ -57,7 +55,6 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
     // Calculating how much calories a user burns on average
     function caloriesAnalysis(){
         for(var i = 0; i < entries.length; i++){
-            console.log(entries[i].q3_2)
             if(entries[i].q3_2 === '0'){
                 calories.none += 1
             } else if (entries[i].q3_2 === 100){
