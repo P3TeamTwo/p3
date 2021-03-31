@@ -13,7 +13,7 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 		theme: "light2",
 		animationEnabled: true,
 		title: {
-			text: "Hours of Sleep vs Time of Coffee"
+			text: "Hours of Sleep vs Cups of Coffee"
 		},
 		axisX: {
 			title: "States"
@@ -26,7 +26,7 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 			tickColor: "#6D78AD"
 		},
 		axisY2: {
-			title: "Time of Coffee",
+			title: "Cups of Coffee",
 			titleFontColor: "#79a3b1",
 			lineColor: "#79a3b1",
 			labelFontColor: "#79a3b1",
@@ -49,7 +49,7 @@ function DblAxisLine({ datesAndSleep, datesAndCoffee }) {
 			]
 		},
 		{ 
-			name: "Time of Coffee",
+			name: "Cups of Coffee",
 			axisYType: "secondary",
 			showInLegend: true,
 			fillOpacity: .5,
