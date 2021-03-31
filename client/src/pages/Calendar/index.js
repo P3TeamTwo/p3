@@ -37,9 +37,6 @@ const useStyle = makeStyles({
 
 
 
-
-
-
 function WelcomeHeader() {
     const classes = useStyle();
 
