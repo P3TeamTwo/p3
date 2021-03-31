@@ -30,7 +30,7 @@ const useStyle = makeStyles({
             backgroundColor: '#7eca9c',
             color: 'white'
         },
-        boxShadow:  '0 9px 30px -5px #a6aa9c' 
+        boxShadow: '0 9px 30px -5px #a6aa9c'
 
     }
 })
@@ -59,28 +59,12 @@ function ButtonTop() {
     return <Button className={classes.buttonLeft} onClick={directToDaily}>View Data</Button>
 }
 
-const CalendarPage = () => {
-function ButtonBottom() {
-    const classes = useStyle();
-
-    const history = useHistory();
-
-    const directToWelcome = () => {
-        let path = '/welcome'
-        history.push(path)
-    }
-
-    return <Button className={classes.buttonRight} onClick={directToWelcome}>View Data</Button>
-}
-
-
-
 const CalendarPage = (mode) => {
 
     const [notePlay, setNotePlay] = useState(false)
     const [memo, setMemo] = useState(false)
     const [calDate, setCalDate] = useState({
-        mode:""
+        mode: ""
     })
 
     useEffect(() => {
@@ -89,15 +73,15 @@ const CalendarPage = (mode) => {
 
 
 
-const onDay = (details) => {
-    const date = `${details.year}-0${details.month+1}-${details.day}`
-    setCalDate({
-        "mode": details.mode,
-        "date": date
-    });
-}
+    const onDay = (details) => {
+        const date = `${details.year}-0${details.month + 1}-${details.day}`
+        setCalDate({
+            "mode": details.mode,
+            "date": date
+        });
+    }
 
-    
+
 
     return (
         <div className="Container">
@@ -107,24 +91,17 @@ const onDay = (details) => {
                     <WelcomeHeader />
                 </Grid>
                 <Grid item xs={3}>
-                      
                 </Grid>
                 <Grid item xs={12}>
-                    <Calendar />
-                    <div className="container-main">
-                        <ButtonTop />
-                    </div>
-                </Grid>
-                <Grid item xs={8}>
                     <Calendar onDay={onDay} />
-                    {(calDate.mode==="dailyMode")&& <Memo style = {{marginLeft:50, marginRight:50}} date = {calDate.date}/>}
+                    {(calDate.mode === "dailyMode") && <Memo style={{ marginLeft: 50, marginRight: 50 }} date={calDate.date} />}
                 </Grid>
 
             </Grid>
-                        <ButtonTop />                 
+            <ButtonTop />
         </div>
 
     )
 }
 
-export default CalendarPage
+export default CalendarPage;
