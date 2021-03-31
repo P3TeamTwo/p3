@@ -94,14 +94,14 @@ export default function ScrollableTabsButtonAuto() {
     const [value, setValue] = React.useState(0);
 
     const coffeeTimes = {
-        noCoffee: 0,
-        morning: 0,
-        afternoon: 0,
-        evening: 0
+        none: 0,
+        min: 0,
+        mid: 0,
+        max: 0
     };
     const screenTime = {
-        true: 0,
-        false: 0
+        yes: 0,
+        no: 0
     };
     const exerciseTime = {
         noExercise: 0,
