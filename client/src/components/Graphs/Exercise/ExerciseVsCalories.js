@@ -5,8 +5,7 @@ var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function DblAxisLine({ datesAndExercise, datesAndCalories }) {
-	console.log(...datesAndCalories.map(({ date, point }) => ({ x: new Date(date), y: point }))
-)
+
 	CanvasJS.addColorSet("customColorSet1", ["#ffa372", "#a6dcef", "#ea9a96"])
 
 	const options = {

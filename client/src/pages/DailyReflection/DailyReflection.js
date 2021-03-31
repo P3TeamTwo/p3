@@ -253,7 +253,7 @@ const DailyReflection = () => {
   return (
     <div>
       <Grid className='containerPadding' container alignItems='center' justify='center' style={{ minHeight: "100vh" }}>
-        <Grid container className='gridContainer' spacing={15}>
+        <Grid container className='gridContainer' spacing={10}>
           <Grid className='gridPadding' >
             <Paper className={classes.paper}>
               {/* dynamically render components */}

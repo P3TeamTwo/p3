@@ -4,15 +4,11 @@ import styles from '../components/calendar.css';
 import API from '../utils/API';
 
 const userId = localStorage.getItem("userId");
-
-
-
 const events = []
 
 const makeEvent = () => {
     API.getJournal(userId)
         .then((res) => {
-            console.log(res);
             res.data.map((reflection) => {
                 if (reflection.moodState === 'Very Unhappy') {
                     const event = {
@@ -109,11 +105,11 @@ class CalApp extends React.Component {
     openMemo() {}
 
     render(props) {
-        console.log('hi');
         return (
             <div className={styles.pageCalendar}>
                 <Calendar
                     ref={this.calendar}
+                    events={events}
                     onChange = {(date) => this.setVoice()}
                     />
             </div>

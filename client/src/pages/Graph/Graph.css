@@ -60,3 +60,9 @@
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 45% !important} } 
 
+.center {
+    margin: auto;
+    width: -20%;
+    /* border: 3px solid green;
+    padding: 10px; */
+  }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Box, TextField } from '@material-ui/core';
 import questions from '../../Questions/LongForm.json';
 import Voice from './Recorder/Recorder';
@@ -48,7 +48,7 @@ function LongForm(props) {
                         handleChange(e)
                     }}
                 />
-                <Button variant="container"
+                <Button variant="contained"
                     style={{ marginTop: '5%', boxShadow: "5px 5px 10px rgba(0,0,0,0.2)" }}
                     onClick={(e) => {
                         if (!userResponse) {
