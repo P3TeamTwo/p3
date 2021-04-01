@@ -289,13 +289,15 @@ export default function ScrollableTabsButtonAuto() {
                 />}
 
             </TabPanel>
+
+            {/* Social */}
             <TabPanel value={value} index={3}>
                 <SocialDisplay entries={entries} />
             </TabPanel>
             
             {/* Word Map */}
             <TabPanel  value={value} index={4}>
-                <WordMap />
+                <WordMap/>
             </TabPanel>
 
         </div>

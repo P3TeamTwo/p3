@@ -1,9 +1,13 @@
 import API from '../utils/API'
-
 import React, { useState } from 'react'
 
+// Importing dotenv to be able to use our .env file in react
+require('dotenv').config()
 
 const WordMap = () => {
+
+    const WORDCLOUD_API_KEY = process.env.REACT_APP_WORDMAP_KEY;
+
 
     const [imageApi, setImageApi] = useState();
     const [words, setWords] = useState();
@@ -14,9 +18,12 @@ const WordMap = () => {
 
             //this array will hold all the long form answers
             const text = [];
+            
             // taking all the long form 
             res.data.map((daily) => {
+                // console.log(daily)
                 text.push(daily.longForm);
+                text.push(daily.moodState)
             })
             // Joining with space
             const allLong = text.join(' ')
@@ -28,7 +35,7 @@ const WordMap = () => {
                 method: "POST",
                 headers: {
                     "x-rapidapi-host": "textvis-word-cloud-v1.p.rapidapi.com",
-                    "x-rapidapi-key": "727b25961amsh84487de4e64c10ep17ca98jsnaa8ee6b6e623",
+                    "x-rapidapi-key": WORDCLOUD_API_KEY,
                     "content-type": "application/json",
                     accept: "application/json"
                 },
@@ -38,7 +45,7 @@ const WordMap = () => {
                     scale: 1,
                     width: 750,
                     height: 750,
-                    colors: ["#375E97", "#FB6542", "#FFBB00", "#3F681C"],
+                    colors: ["#1a508b", "#a6dcef", "#957dad", "#a7d7c5", "#ffaaa5"],
                     font: "Tahoma",
                     use_stopwords: true,
                     language: "en",
@@ -57,8 +64,8 @@ const WordMap = () => {
                 });
         })
     return (
-        <div style = {{display:"flex", justifyContent:"center"}}>
-            <img style={{width: 300, height: 337, objectFit: "none"}} src={imageApi}></img>
+        <div className='wordDiv'>
+            <img className='wordCloud' src={imageApi}/>
         </div>
     )
 }
