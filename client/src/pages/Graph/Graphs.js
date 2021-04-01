@@ -6,7 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Button, Grid } from '@material-ui/core';
+import { Button, Grid, Toolbar } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios'
 
@@ -86,8 +86,8 @@ const useStyles = makeStyles((theme) => ({
         width: '10%',
         backgroundColor: '#3f51b5',
         color: 'white',
-        borderRadius: 0, 
-        '&:hover' : {
+        borderRadius: 0,
+        '&:hover': {
             backgroundColor: '#d0e8f2',
             color: 'black'
         }
@@ -97,11 +97,11 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '4%',
         height: '5%',
         paddingLeft: '0.3rem',
-        
+
         '&:hover': {
             cursor: 'pointer',
             transform: 'scale(1.1)',
-        } 
+        }
     }
 
 
@@ -123,9 +123,9 @@ export default function ScrollableTabsButtonAuto() {
     };
     const exerciseTime = {
         noExercise: 0,
-         thirty: 0,
-         hour: 0,
-         more: 0
+        thirty: 0,
+        hour: 0,
+        more: 0
     };
     const calories = {
         none: 0,
@@ -189,9 +189,6 @@ export default function ScrollableTabsButtonAuto() {
         history.push('/welcome')
     }
 
-    
-    
-        
     const signOut = (e) => {
         e.preventDefault()
 
@@ -204,41 +201,43 @@ export default function ScrollableTabsButtonAuto() {
                 console.log(response)
                 localStorage.clear()
                 history.push(response.data)
-                
-                    
             })
 
-        }
+    }
 
-    
+    const Nav = ({ value }) => (
+        <Grid container justify={"center"}>
+            <Tabs
+                centered
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
+            >
 
+                <Tab label="Sleep" {...a11yProps(0)} />
+                <Tab label="Exercise" {...a11yProps(1)} />
+                <Tab label="Eating Habits" {...a11yProps(2)} />
+                <Tab label="social" {...a11yProps(3)} />
+                <Tab label="Word Map" {...a11yProps(4)} />
+                <Button className={classes.logoutButton} onClick={signOut}>Logout</Button>
+
+            </Tabs>
+        </Grid>
+    )
 
     return (
         <div className={classes.root}>
             <AppBar position="static" color="default" >
-                <Tabs
-                centered
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    scrollButtons="auto"
-                    aria-label="scrollable auto tabs example" 
-                    
-                >
+                <Toolbar>
                     <img className={classes.homeLogo} src={logo} onClick={directHome} />
-                    <Tab label="Sleep" {...a11yProps(0)} />
-                    <Tab label="Exercise" {...a11yProps(1)} />
-                    <Tab label="Eating Habits" {...a11yProps(2)} />
-                    <Tab label="social" {...a11yProps(3)} />
-                    <Tab label="Word Map" {...a11yProps(4)} />
-                    
-                    <Button className={classes.logoutButton} onClick={signOut}>Logout</Button>                  
-                        
-                </Tabs>
+                    <Nav />
+                </Toolbar>
             </AppBar>
 
             <TabPanel value={value} index={0}>
-                
+
                 {/* Average hours of sleep per night  */}
                 {/* sum of all input / number of inputs  */}
                 {entries && <SleepOverview
@@ -248,20 +247,20 @@ export default function ScrollableTabsButtonAuto() {
                     entries={entries}
                     coffeeTimes={coffeeTimes}
                     screenTime={screenTime}
-                />}
+                />} 
 
-                <Grid item  style={{textAlign: "center", display: "flex", justifyContent: "space-around"}}>
-                {/* once entries has value and linegraph can access values then execute */}
-                {entries && <HoursOfSleep
-                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
-                    dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                />}
+                <Grid item style={{ textAlign: "center", display: "flex", justifyContent: "space-around" }}>
+                    {/* once entries has value and linegraph can access values then execute */}
+                    {entries && <HoursOfSleep
+                        // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                        dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                    />}
 
-                {/* Coffee vs sleep double axis line graph */}
-                {entries && <CoffeeVsSleep
-                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                    datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
-                />}
+                    {/* Coffee vs sleep double axis line graph */}
+                    {entries && <CoffeeVsSleep
+                        datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                        datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
+                    />}
                 </Grid>
 
                 {/* Screen time doughnut graph display */}
@@ -271,7 +270,7 @@ export default function ScrollableTabsButtonAuto() {
 
                 />}
 
-                    
+
             </TabPanel>
             <TabPanel value={value} index={1}>
 
@@ -282,15 +281,15 @@ export default function ScrollableTabsButtonAuto() {
                     active={active}
                 />}
 
-                <Grid item  style={{textAlign: "center", display: "flex", justifyContent: "space-between"}}>
-                {entries && <MinutesOfExercise
-                    dates={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
-                />}
+                <Grid item style={{ textAlign: "center", display: "flex", justifyContent: "space-between" }}>
+                    {entries && <MinutesOfExercise
+                        dates={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+                    />}
 
-                {entries && <ExerciseVsCalories
-                    datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
-                    datesAndCalories={entries.map(entry => ({ date: entry.created_at, point: entry.q3_2 }))}
-                />}
+                    {entries && <ExerciseVsCalories
+                        datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+                        datesAndCalories={entries.map(entry => ({ date: entry.created_at, point: entry.q3_2 }))}
+                    />}
                 </Grid>
 
                 {/* Water vs exercise double axis line graph */}
@@ -309,16 +308,16 @@ export default function ScrollableTabsButtonAuto() {
                     water={water}
                 />}
 
-                <Grid item  style={{textAlign: "center", display: "flex", justifyContent: "space-between"}}>
-                {entries && <Veggies
-                    // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
-                    dates={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
-                />}
+                <Grid item style={{ textAlign: "center", display: "flex", justifyContent: "space-between" }}>
+                    {entries && <Veggies
+                        // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                        dates={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
+                    />}
 
-                {entries && <VeggiesVsWater
-                    datesAndVegies={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
-                    datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
-                />}
+                    {entries && <VeggiesVsWater
+                        datesAndVegies={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
+                        datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
+                    />}
                 </Grid>
 
                 {entries && <WaterVsSleep
@@ -332,10 +331,10 @@ export default function ScrollableTabsButtonAuto() {
             <TabPanel value={value} index={3}>
                 <SocialDisplay entries={entries} />
             </TabPanel>
-            
+
             {/* Word Map */}
-            <TabPanel  value={value} index={4}>
-                <WordMap/>
+            <TabPanel value={value} index={4}>
+                <WordMap />
             </TabPanel>
 
         </div>

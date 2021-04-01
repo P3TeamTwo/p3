@@ -14,10 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import Navbar from '../../components/Navbar'
 // import IconButton from '@material-ui/core/IconButton';
 
-
-
-
-
 const useStyle = makeStyles({
     root: {
         fontSize: '55px',
@@ -90,8 +86,6 @@ function ButtonRight() {
 
     return <Button className={classes.buttonRight} onClick={directToCalendar}>My Reflections</Button>
 }
-
-
 
 
 const Welcome = () => {
