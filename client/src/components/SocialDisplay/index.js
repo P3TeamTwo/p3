@@ -95,7 +95,7 @@ const SocialDisplay = ({ entries }) => {
                     <h2 className={classes.questionTitle}>People you connected with:</h2>
                     {entries.map(entry => {
                         return (
-                            <Button disableRipple className={classes.buttonConnect}>{entry.q4_1}</Button>
+                            <Button key={entry} disableRipple className={classes.buttonConnect}>{entry.q4_1}</Button>
                         )
                     })}
                     </div>
@@ -107,7 +107,7 @@ const SocialDisplay = ({ entries }) => {
                     <h2 className={classes.questionTitle}>Gestures of Appreciation:</h2>
                         {entries.map(entry => {
                             return (
-                                <Button disableRipple className={classes.buttonGift}>{entry.q4_2}</Button>
+                                <Button key={entry} disableRipple className={classes.buttonGift}>{entry.q4_2}</Button>
                             )
                         })}
                     </div>
@@ -119,7 +119,7 @@ const SocialDisplay = ({ entries }) => {
                     <h2 className={classes.questionTitle}>Recent Plans you've made:</h2>
                         {entries.map(entry => {
                             return (
-                                <Button disableRipple className={classes.buttonPlan}>{entry.q4_3}</Button>
+                                <Button key={entry} disableRipple className={classes.buttonPlan}>{entry.q4_3}</Button>
                             )
                         })}
                     </div>
