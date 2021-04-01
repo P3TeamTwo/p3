@@ -7,7 +7,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Button, Grid } from '@material-ui/core';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import axios from 'axios'
 
 //importing elements
 import HoursOfSleep from '../../components/Graphs/Sleep/HoursOfSleep'
@@ -34,6 +35,7 @@ import SleepOverview from '../../components/Graphs/Sleep/SleepOverview'
 import API from '../../utils/API'
 
 import './Graph.css'
+import logo from '../../images/MINDSHARE.png'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -77,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.paper,
 
     },
-    homeButton: {
+    logoutButton: {
         marginLeft: 'auto',
         paddingLeft: '20px',
         paddingRight: '20px',
@@ -89,7 +91,19 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: '#d0e8f2',
             color: 'black'
         }
+    },
+    homeLogo: {
+        marginRight: "auto",
+        maxWidth: '4%',
+        height: '5%',
+        paddingLeft: '0.3rem',
+        
+        '&:hover': {
+            cursor: 'pointer',
+            transform: 'scale(1.1)',
+        } 
     }
+
 
 }));
 
@@ -175,6 +189,29 @@ export default function ScrollableTabsButtonAuto() {
         history.push('/welcome')
     }
 
+    
+    
+        
+    const signOut = (e) => {
+        e.preventDefault()
+
+        axios({
+            method: 'get',
+            url: 'api/user/logout',
+        })
+
+            .then((response) => {
+                console.log(response)
+                localStorage.clear()
+                history.push(response.data)
+                
+                    
+            })
+
+        }
+
+    
+
 
     return (
         <div className={classes.root}>
@@ -190,13 +227,14 @@ export default function ScrollableTabsButtonAuto() {
                     aria-label="scrollable auto tabs example" 
                     
                 >
+                    <img className={classes.homeLogo} src={logo} onClick={directHome} />
                     <Tab label="Sleep" {...a11yProps(0)} />
                     <Tab label="Exercise" {...a11yProps(1)} />
                     <Tab label="Eating Habits" {...a11yProps(2)} />
                     <Tab label="social" {...a11yProps(3)} />
                     <Tab label="Word Map" {...a11yProps(4)} />
                     
-                    <Button className={classes.homeButton} onClick={directHome}>Home</Button>                  
+                    <Button className={classes.logoutButton} onClick={signOut}>Logout</Button>                  
                         
                 </Tabs>
             </AppBar>
