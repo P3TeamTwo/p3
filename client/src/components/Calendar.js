@@ -92,6 +92,11 @@ class CalApp extends React.Component {
         this.memo = false;
     }
 
+    // Without this function, mood data will not show on the calendar
+    componentDidMount() {
+
+    }
+
     setVoice() {
         const details = this.calendar.current.getDetails();
         this.props.onDay(details)
