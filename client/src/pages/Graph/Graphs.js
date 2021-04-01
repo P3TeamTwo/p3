@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         width: '100%',
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor:"rgba(255,255,255, 0)"
 
     },
     logoutButton: {
@@ -112,7 +112,7 @@ export default function ScrollableTabsButtonAuto() {
     const [value, setValue] = React.useState(0);
 
     const coffeeTimes = {
-        none: 0,
+        none: 0, 
         min: 0,
         mid: 0,
         max: 0
