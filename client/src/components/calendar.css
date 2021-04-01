@@ -9,7 +9,8 @@ body {
   width: 800px;
 }
 
-.dailyTimeLineWrapper {
+.dailyTimeLineWrapper, .dailyHourTextWrapper, .dailyTimeLine, .dailyHourWrapper  {
   opacity:0;
   height:0;
 }
+

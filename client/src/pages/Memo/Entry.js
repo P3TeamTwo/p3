@@ -7,7 +7,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 const Entry = ({memo}) => {
     return (
         <Card variant="outlined" style = {{marginBottom:'2%', padding:'1%'}}>
-            <CardHeader title={memo.created_at}/>
+            <CardHeader/>
             <h4 style = {{paddingBottom:20}}>{memo.longFormQuestion}</h4>
             <p>{memo.longForm}</p>
         </Card>
