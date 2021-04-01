@@ -81,8 +81,7 @@ const CalendarPage = (mode) => {
 
     return (
         <div className="calendarContainer">
-        <div className="navBar"><Navbar /></div>
-            
+        <Navbar />          
         <div className="Container">
             
             <Grid container>
