@@ -37,7 +37,11 @@ const useStyle = makeStyles({
         marginBottom: '1rem',
         "&:hover": {
             backgroundColor: '#416894',
-            color: 'white'
+            color: 'white',
+            cursor: "default"
+        },
+        "&:focus": {
+            outline: "none"
         }
     },
     buttonGift: {
@@ -50,7 +54,11 @@ const useStyle = makeStyles({
         marginBottom: '1rem',
         "&:hover": {
             backgroundColor: '#7eca9c',
-            color: 'white'
+            color: 'white',
+            cursor: "default"
+        },
+        "&:focus": {
+            outline: "none"
         }
     },
     buttonPlan: {
@@ -63,15 +71,19 @@ const useStyle = makeStyles({
         marginBottom: '1rem',
         "&:hover": {
             backgroundColor: '#1687a7',
-            color: 'white'
+            color: 'white',
+            cursor: "default"
+        },
+        "&:focus": {
+            outline: "none"
         }
+
     }
 })
 
 
 
 const SocialDisplay = ({ entries }) => {
-    console.log(entries)
 
     const classes = useStyle()
 
@@ -83,7 +95,7 @@ const SocialDisplay = ({ entries }) => {
                     <h2 className={classes.questionTitle}>People you connected with:</h2>
                     {entries.map(entry => {
                         return (
-                            <Button className={classes.buttonConnect}>{entry.q4_1}</Button>
+                            <Button disableRipple className={classes.buttonConnect}>{entry.q4_1}</Button>
                         )
                     })}
                     </div>
@@ -95,7 +107,7 @@ const SocialDisplay = ({ entries }) => {
                     <h2 className={classes.questionTitle}>Gestures of Appreciation:</h2>
                         {entries.map(entry => {
                             return (
-                                <Button className={classes.buttonGift}>{entry.q4_2}</Button>
+                                <Button disableRipple className={classes.buttonGift}>{entry.q4_2}</Button>
                             )
                         })}
                     </div>
@@ -104,10 +116,10 @@ const SocialDisplay = ({ entries }) => {
             <Grid item xs={12} sm={12} md={4}>
                 <Paper className={classes.contentHolder}>
                     <div className={classes.listContent}>
-                    <h2 className={classes.questionTitle}>Recent Plans:</h2>
+                    <h2 className={classes.questionTitle}>Recent Plans you've made:</h2>
                         {entries.map(entry => {
                             return (
-                                <Button className={classes.buttonPlan}>{entry.q4_3}</Button>
+                                <Button disableRipple className={classes.buttonPlan}>{entry.q4_3}</Button>
                             )
                         })}
                     </div>

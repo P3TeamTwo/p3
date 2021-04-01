@@ -1,9 +1,7 @@
 import React from 'react';
-
 import CanvasJSReact from '../../../canvasjs.react';
 import '../../../pages/Graph/Graph.css';
-
-import { Box } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 // var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -11,8 +9,11 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 function LineGraph({ dates }) {
 
   const options = {
+    colorSet: "customColorSet1",
+    theme: "light2",
+    
     title: {
-      text: "Hours of Exercise"
+      text: "Minutes of Exercise"
     },
     data: [{
       type: "spline",
@@ -24,9 +25,9 @@ function LineGraph({ dates }) {
   }
   return (
     <div className="hoursExerciseContainer">
-      <Box width="100%">
+      <Grid item xs={12}>
         <CanvasJSChart margin="10px" options={options} />
-      </Box>
+      </Grid>
     </div>
   )
 

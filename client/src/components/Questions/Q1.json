@@ -5,38 +5,31 @@
     "answers": [
       {
         "answerText": "2 hours",
-        "value": 2,
-        "test": "2"
+        "value": 2
       },
       {
         "answerText": "3 hours",
-        "value": 3,
-        "test": "3"
+        "value": 3
       },
       {
         "answerText": "4 hours",
-        "value": 4,
-        "test": "4"
+        "value": 4
       },
       {
         "answerText": "6 hours",
-        "value": 6,
-        "test": "6"
+        "value": 6
       },
       {
         "answerText": "7 hours",
-        "value": 7,
-        "test": "7"
+        "value": 7
       },
       {
         "answerText": "8 hours",
-        "value": 8,
-        "test": "8"
+        "value": 8
       },
       {
         "answerText": ">9 hours",
-        "value": 9,
-        "test": "9"
+        "value": 9
       }
     ]
   },
@@ -46,33 +39,33 @@
     "answers": [
       {
         "answerText": "No",
-        "value": "false"
+        "value": "no"
       },
       {
         "answerText": "Yes",
-        "value": "true"
+        "value": "yes"
       }
     ]
   },
   {
     "id": 3,
-    "question": "What time of day did you have caffiene?",
+    "question": "How many cups of coffee did you have today?",
     "answers": [
       {
-        "answerText": "I didn't have any today",
+        "answerText": "None",
         "value": 0
       },
       {
-        "answerText": "Morning",
-        "value":3
+        "answerText": "1",
+        "value": 1
       },
       {
-        "answerText": "Afternoon",
-        "value": 6
+        "answerText": "2",
+        "value": 2
       },
       {
-        "answerText": "Evening",
-        "value": 9
+        "answerText": "3+",
+        "value": 3
       }
     ]
   }

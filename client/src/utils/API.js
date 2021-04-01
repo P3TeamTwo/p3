@@ -17,4 +17,5 @@ export default {
   saveJournal: function(journalData) {
     return axios.post("/api/journal", journalData);
   }
+
 };

@@ -6,7 +6,7 @@ const userRoutes = require("./user");
 
 // journal routes
 router.use("/journal", journalRoutes);
-
+// Users
 router.use("/user", userRoutes);
 
 // If no API routes are hit, send the React app

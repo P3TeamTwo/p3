@@ -29,7 +29,7 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q2_1: {
-    type: String,
+    type: Number,
     required: true
   },
   q2_2: {
@@ -45,7 +45,7 @@ const journalEntrySchema = new Schema({
     required: true
   },
   q3_2: {
-    type: String,
+    type: Number,
     required: true
   },
   q3_3: {
@@ -65,6 +65,10 @@ const journalEntrySchema = new Schema({
     required: false
   },
   longForm: {
+    type: String,
+    required: false
+  },
+  longFormQuestion: {
     type: String,
     required: false
   },

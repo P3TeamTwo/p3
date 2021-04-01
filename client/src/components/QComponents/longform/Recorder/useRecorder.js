@@ -5,6 +5,8 @@ const useRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [recorder, setRecorder] = useState(null);
 
+
+
   useEffect(() => {
 
     if (recorder === null) {
@@ -21,19 +23,20 @@ const useRecorder = () => {
       recorder.stop();
     }
 
+
     // Obtain the audio when ready.
     const handleData = e => {
       setAudioURL(URL.createObjectURL(e.data));
     };
-    
+
     recorder.addEventListener("dataavailable", handleData);
     return () => recorder.removeEventListener("dataavailable", handleData);
   }, [recorder, isRecording]);
-  
+
   const startRecording = () => {
     setIsRecording(true);
   };
-  
+
   const stopRecording = () => {
     setIsRecording(false);
   };

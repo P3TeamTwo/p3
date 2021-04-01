@@ -1,7 +1,6 @@
-import React, { useState, useRef } from "react";
-import { render } from "react-dom";
-import { Button, Box } from '@material-ui/core';
-import { FaMicrophoneAlt, FaMicrophoneAltSlash, FaUnderline } from 'react-icons/fa';
+import React, { useState} from "react";
+import { Box } from '@material-ui/core';
+import { FaMicrophoneAlt} from 'react-icons/fa';
 import useRecorder from "./useRecorder";
 import Player from "./Player";
 
@@ -10,7 +9,7 @@ import Player from "./Player";
 import "./styles.css";
 
 const Recorder = (props) => {
-    let [audioURL, isRecording, startRecording, stopRecording] = useRecorder();
+    let [audioURL, startRecording, stopRecording] = useRecorder();
     // const yourAudio = document.getElementById('yourAudio');
 
 
@@ -38,7 +37,6 @@ const Recorder = (props) => {
             }
 
             const onResult = event => {
-                console.log(event)
                 for (const res of event.results) {
                     const text = res[0].transcript;
                     localStorage.setItem("memoText", text)

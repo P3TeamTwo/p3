@@ -4,13 +4,11 @@ import Q3questions from '../Questions/Q3.json';
 
 function Q3_2(props) {
 
-    console.log(Q3questions[1].question)
-
     return(
         <>
             <div className='container'>
             <FormControl component="fieldset">
-                <FormLabel component="legend">{Q3questions[1].question}
+                <FormLabel component="legend"><b>{Q3questions[1].question}</b>
                 </FormLabel>
                 {Q3questions[1].answers.map(answer => {
                     return (

@@ -1,18 +1,25 @@
 .Container {
     text-align: center;
-    vertical-align: middle;
+    margin: auto;
+    width: 60%;
 }
 
-.container-main {
-    background-color: #FFEFD5;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-
+.calendarHeaderButtons{
+    color: black !important;
 }
 
-.daily-reflection {
-    background-color: #d2f8d2;
+.dayCell{
+    background-color:rgba(255,255,255, 0.5);
+}
+
+h1{ 
+    margin: 5px !important;
+}
+
+.navBar {
+    width: 100% !important
+}
+
+.calendarContainer{
+    width: 100% !important
 }

@@ -13,13 +13,6 @@ const LogoutBtn = () => {
     }
 
     return (
-        // <div>
-        //     <GoogleLogout
-        //         clientId={clientId}
-        //         buttonText="Logout"
-        //         onSuccess={onSuccess}
-        //     />
-        // </div>
         null
     )
 }

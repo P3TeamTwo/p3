@@ -1,18 +1,11 @@
-.sleepStats{
+.sleepStats, .exerciseStats, .VeggiesStats{
     box-shadow: 0 9px 30px -5px rgba(150,170,180,0.5);
     padding: 12px;
     border-radius: 20px;
     background: #d0e8f2
 }
 
-.exerciseStats{
-    box-shadow: 0 9px 30px -5px rgba(150,170,180,0.5);
-    padding: 12px;
-    border-radius: 20px;
-    background: #d0e8f2
-}
-
-.hoursSleepContainer, .coffeeVsSleep{
+.hoursSleepContainer, .coffeeVsSleep, .hoursExerciseContainer, .veggiesContainer, .veggiesVsWater, .exerciseVsCalories{
     display: inline-block;
     margin:25px 4px;
     box-shadow: 0 9px 30px -5px rgba(150,170,180,0.5);
@@ -25,37 +18,6 @@
     border: 6px #d6e4f0 solid;
 }
 
-.makeStyles-root-1{
-    max-width: 99%;
-    margin: 50px 10px 20px 20px;
-} 
-
-/* MEDIA QUERIES */
-/* Extra small devices (Tested with Iphone X) */
-@media (min-width: 375px) { .hoursSleepContainer { width: 100% !important} }
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { .hoursSleepContainer { width: 100% !important} }
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .hoursSleepContainer { width: 100% !important}  }
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .hoursSleepContainer { width: 45% !important} }
-/* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .hoursSleepContainer {width: 45% !important} } 
-
-/* MEDIA QUERIES */
-/* Extra small devices (Tested with Iphone X) */
-@media (min-width: 375px) { .coffeeVsSleep {width: 100% !important} }
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { .coffeeVsSleep { width: 100% !important} }
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .coffeeVsSleep { width: 100% !important}  }
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .coffeeVsSleep {width: 45% !important} }
-/* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .coffeeVsSleep {width: 45% !important} } 
-
-
-
 .graphContainer{
     width: 80%;
     border: 1px solid black;
@@ -64,6 +26,71 @@
     margin-top: 40px;
 }
 
-.hoursSleepContainer {
-    margin-bottom: 5rem;
-}
+
+/* MEDIA QUERIES */
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer { width: 100% !important}}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer { width: 100% !important}}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer { width: 100% !important}}
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer { width: 45% !important}}
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer {width: 45% !important}} 
+
+/* MEDIA QUERIES */
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 100% !important}}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater { width: 100% !important}}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater { width: 100% !important}}
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 45% !important}}
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 45% !important}} 
+
+/* MEDIA QUERIES */
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .confetti {width: 100% !important; height: 100% !important;}}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .confetti { width: 100% !important; height: 100% !important;}}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .confetti { width: 100% !important; height: 100% !important;}}
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .confetti {width: 100% !important; height: 100% !important;}}
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .confetti {width: 100% !important;}} 
+
+/* MEDIA QUERIES */
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .MuiTab-root {padding: 0px 12px !important; min-width: 40px !important}}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .MuiTab-root { padding: 0px 0px !important; min-width: 100px !important}}
+/* @media (min-width: 600px) {.MuiTab-root {min-width: 100px !important;}} */
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .MuiTab-root { padding: 6px 12px !important; min-width: 100px !important;}}
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .MuiTab-root {padding: 6px 12px !important; min-width: 160px !important}}
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .MuiTab-root {padding: 6px 12px !important; min-width: 200px !important}} 
+
+
+
+.center {
+    margin: auto;
+    width: -20%;
+
+  }
+
+  .wordDiv {
+      display: flex;
+      justify-content: center;
+      background-color: #F7EFE8;
+      border-radius: 25px;
+  }
+
+  .wordCloud {
+      object-fit: contain;
+  }
