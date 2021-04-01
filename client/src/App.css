@@ -1,12 +1,4 @@
-/* .App {
-  text-align: center;
-  vertical-align: middle;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
 
 
 
@@ -25,17 +17,6 @@ p, span, .MuiFormLabel-root, .MuiFormControl-root{
   font-family: 'Tajawal', sans-serif !important;
   font-size: 1em !important;
 }
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
 
 .App-link {
   color: #61dafb;

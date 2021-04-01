@@ -3,12 +3,17 @@ import Button from '@material-ui/core/Button'
 import './welcome.css'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
+
+//import colourway button
+import Colourways from '../../components/Colourways';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import logo from '../../images/MINDSHARE.png'
 import Typography from '@material-ui/core/Typography';
 import Navbar from '../../components/Navbar'
 // import IconButton from '@material-ui/core/IconButton';
+
 
 
 
@@ -106,6 +111,8 @@ const Welcome = () => {
                     <ButtonRight />
                 </div>
             </div>
+
+            <Colourways />
 
         </div>
     )
