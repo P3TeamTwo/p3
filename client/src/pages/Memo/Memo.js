@@ -33,7 +33,8 @@ const Journal = ({date}) => {
             setMemos(filteredMemos)
         }
         loadMemos()
-    }, [])
+    }, [date])
+    
     console.log(memos);
 
     return (
