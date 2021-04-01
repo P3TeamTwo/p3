@@ -29,7 +29,6 @@ function App() {
         <Route exact path='*' component={NoMatch} />
         <Route exact path='/logout' />
       </Switch>
-
     </Router>
 
 

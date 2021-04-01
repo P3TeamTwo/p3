@@ -60,9 +60,31 @@
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 45% !important} } 
 
+/* MEDIA QUERIES */
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .confetti {width: 100% !important; height: 100% !important;} }
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .confetti { width: 100% !important; height: 100% !important; } }
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .confetti { width: 100% !important; height: 100% !important;}  }
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .confetti {width: 100% !important; height: 100% !important;} }
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .confetti {width: 100% !important} } 
+
 .center {
     margin: auto;
     width: -20%;
     /* border: 3px solid green;
     padding: 10px; */
+  }
+
+  .wordDiv {
+      display: flex;
+      justify-content: center;
+      background-color: #F7EFE8;
+  }
+
+  .wordCloud {
+      object-fit: contain;
   }
