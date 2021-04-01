@@ -13,7 +13,7 @@ const makeEvent = () => {
                 if (reflection.moodState === 'Very Unhappy') {
                     const event = {
                         id: reflection._id,
-                        color: "#162447",
+                        color: "#1a508b",
                         from: reflection.created_at,
                         to: reflection.created_at,
 

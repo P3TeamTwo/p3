@@ -6,11 +6,14 @@ import { Button } from '@material-ui/core';
 
 const Results = ({ onClick }) => {
     const { width, height } = useWindowSize()
+    const colors = ["#1a508b", "#a6dcef", "#957dad", "#a7d7c5", "#ffaaa5"]
       return (
         <div>
             <Confetti
             width={width}
             height={height}
+            className='confetti'
+            colors={colors}
             />
             <div>
                 <MdBook className='material-icons'/>
