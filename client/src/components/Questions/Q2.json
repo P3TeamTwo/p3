@@ -8,12 +8,16 @@
         "value": 0
       },
       {
+        "answerText": "1 Serving",
+        "value": 1
+      },
+      {
         "answerText": "2 Servings",
         "value": 2
       },
       {
-        "answerText": "More than 4",
-        "value": 4
+        "answerText": "3 or more servings",
+        "value": 3
       }
     ]
   },
@@ -44,16 +48,16 @@
         "value": 0
       },
       {
-        "answerText": "3-5",
-        "value": 4
-      },
-      {
-        "answerText": "8",
+        "answerText": "1",
         "value": 8
       },
       {
+        "answerText": "2",
+        "value": 16
+      },
+      {
         "answerText": "I'm drowning!",
-        "value": 10
+        "value": 24
       }
     ]
   }

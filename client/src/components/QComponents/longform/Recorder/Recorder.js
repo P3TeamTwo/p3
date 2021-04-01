@@ -9,7 +9,7 @@ import Player from "./Player";
 import "./styles.css";
 
 const Recorder = (props) => {
-    let [audioURL, isRecording, startRecording, stopRecording] = useRecorder();
+    let [audioURL, startRecording, stopRecording] = useRecorder();
     // const yourAudio = document.getElementById('yourAudio');
 
 

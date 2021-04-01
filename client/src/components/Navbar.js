@@ -55,7 +55,7 @@ function HomeButton() {
         history.push(path)
     }
 
-    return <img src={logo} className={classes.homeButton} onClick={directToHome}/>
+    return <img src={logo} className={classes.homeButton} onClick={directToHome} alt='logo'/>
 }
 function LogoutButton() {
     const classes = useStyle();
