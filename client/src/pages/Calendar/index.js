@@ -6,6 +6,8 @@ import Calendar from '../../components/Calendar'
 import './calendar.css'
 import Memo from '../../pages/Memo/Memo'
 import Navbar from '../../components/Navbar'
+import API from '../../utils/API';
+
 
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -64,7 +66,7 @@ const CalendarPage = (mode) => {
     })
 
     useEffect(() => {
-
+        makeEvent()
     }, [])
 
 
@@ -90,6 +92,85 @@ const CalendarPage = (mode) => {
         });
     }
 
+    const userId = localStorage.getItem("userId");
+    const [moods, setMoods] = useState();
+    const events = [];
+    const makeEvent =  () => {
+        API.getJournal(userId)
+            .then((res) => {
+                res.data.map((reflection) => {
+                    if (reflection.moodState === 'Very Unhappy') {
+                        const event = {
+                            id: reflection._id,
+                            color: "#1a508b",
+                            from: reflection.created_at,
+                            to: reflection.created_at,
+    
+                            title: reflection.moodState,
+    
+                            src: reflection.voiceMemo,
+                            longForm: reflection.longForm
+                        }
+                        events.push(event)
+                    } else if (reflection.moodState === 'Unhappy') {
+                        const event = {
+                            id: reflection._id,
+                            color: "#a6dcef",
+                            from: reflection.created_at,
+                            to: reflection.created_at,
+    
+                            title: reflection.moodState,
+    
+                            src: reflection.voiceMemo,
+                            longForm: reflection.longForm
+                        }
+                        events.push(event)
+                    } else if (reflection.moodState === 'Ok') {
+                        const event = {
+                            id: reflection._id,
+                            color: "#957dad",
+                            from: reflection.created_at,
+                            to: reflection.created_at,
+    
+                            title: reflection.moodState,
+    
+                            src: reflection.voiceMemo,
+                            longForm: reflection.longForm
+                        }
+                        events.push(event)
+                    } else if (reflection.moodState === 'Happy') {
+                        const event = {
+                            id: reflection._id,
+                            color: "#a7d7c5",
+                            from: reflection.created_at,
+                            to: reflection.created_at,
+    
+                            title: reflection.moodState,
+    
+                            src: reflection.voiceMemo,
+                            longForm: reflection.longForm
+                        }
+                        events.push(event)
+                    } else if (reflection.moodState === 'Very Happy') {
+                        const event = {
+                            id: reflection._id,
+                            color: "#ffaaa5",
+                            from: reflection.created_at,
+                            to: reflection.created_at,
+    
+                            title: reflection.moodState,
+    
+                            src: reflection.voiceMemo,
+                            longForm: reflection.longForm
+                        }
+                        events.push(event)
+                    }
+                    
+                })
+                setMoods(events)
+            })
+    }
+    
 
 
     return (
@@ -105,7 +186,7 @@ const CalendarPage = (mode) => {
                 <Grid item xs={3}>
                 </Grid>
                 <Grid item xs={12}>
-                    <Calendar onDay={onDay} />
+                    <Calendar onDay={onDay} moods = {moods}/>
                     {/* when mode of cal is in daily mode > memo > entry then displays each card */}
                     {(calDate.mode === "dailyMode") && <Memo style={{ marginLeft: 50, marginRight: 50 }} date={calDate.date} />}
                 </Grid>
