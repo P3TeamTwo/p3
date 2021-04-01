@@ -5,7 +5,6 @@ body{
 
 .Container {
     text-align: center;
-    vertical-align: middle;
   }
 
   .talkLine, .typewriter{ 
@@ -17,11 +16,10 @@ body{
 
 .container-main {
     background-color: transparent !important;
-    min-height: 100vh;
-    display: flex;
+    /* min-height: 60vh; */
+    margin-top: 20%;
     align-items: center;
-    justify-content: center;
-    color: white;
+    /* justify-content: center; */
 
 }
 
@@ -52,3 +50,13 @@ body{
     50% { border-color: black; }
   }
 
+/* Extra small devices (Tested with Iphone X) */
+@media (min-width: 375px) { .buttonLeft { margin-right: 0 !important;} }
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { .buttonLeft {margin-right: 0 !important;} }
+ /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .buttonLeft { margin-right: "5px" !important;} }
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .buttonLeft { margin-right: "5px" !important;} }
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .buttonLeft { margin-right: "5px" !important;} }

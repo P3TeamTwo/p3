@@ -14,64 +14,44 @@ import JenOrd8 from '../images/JenOrd8.png'
 
 const Colourways = () => {
 
+    const colourOptions = [JenOrd, JenOrd2, JenOrd3, JenOrd4, JenOrd5, JenOrd6, JenOrd7, JenOrd8]
+
     const useStyles = makeStyles((theme) => ({
         button: {
             color: "black",
             fontSize: "40px",
-            // height: "50px",
-            // width: "50px",
-            border: "solid 0.5 black"
-        }
+            border: "solid 0.2px grey",
+            borderRadius: "10px",
+            boxShadow: '0 9px 30px -5px #a6aa9c',
+            height: "50px",
+            width: "50px",
+            margin: "10px",
 
+        },
+        colourwaysBtns: {
+            textAlign: "center",
+            marginTop: "100px",
+        }
     }));
 
-    console.log(document.body.style)
     const classes = useStyles();
 
     return (
-        <div>
-            <button
-                className={classes.button}
-                style={{backgroundImage: `url(${JenOrd})`}}
-                onClick={() => document.body.style.backgroundImage = `url(${JenOrd})`}
-                >cream</button>
-            <button
-                className={classes.button}
-                style={{backgroundImage: `url(${JenOrd2})`}}
-                onClick={() => document.body.style.backgroundImage = `url(${JenOrd2})`}
-                >Turq</button>
-            <button
-                className={classes.button}
-                style={{backgroundImage: `url(${JenOrd3})`}}
-                onClick={() => document.body.style.backgroundImage = `url(${JenOrd3})`}
-                >Green</button>
-            <button
-                className={classes.button}
-                style={{backgroundImage: `url(${JenOrd4})`}}
-                onClick={() => document.body.style.backgroundImage = `url(${JenOrd4})`}
-                >Pink</button>
-            <button
-                className={classes.button}
-                style={{backgroundImage: `url(${JenOrd5})`}}
-                onClick={() => document.body.style.backgroundImage = `url(${JenOrd5})`}
-                >Red</button>
-            <button
-                className={classes.button}
-                style={{backgroundImage: `url(${JenOrd6})`}}
-                onClick={() => document.body.style.backgroundImage = `url(${JenOrd6})`}
-                >Orange</button>
-            <button
-                className={classes.button}
-                style={{backgroundImage: `url(${JenOrd7})`}}
-                onClick={() => document.body.style.backgroundImage = `url(${JenOrd7})`}
-                >Black</button>
-            <button
-                className={classes.button} 
-                style={{backgroundImage: `url(${JenOrd8})`}}
-                onClick={() => document.body.style.backgroundImage = `url(${JenOrd8})`}
-            >Blue</button>
+        <div className={classes.colourwaysBtns}>
+            <p>Choose your journal colour</p>
 
+            {colourOptions.map(option => {
+                return (<button
+                    key={option}
+                    className={classes.button}
+                    style={{ backgroundImage: `url(${option})` }}
+                    onClick={() => document.body.style.backgroundImage = `url(${option})`}
+                ></button>
+                )
+            })}
         </div>
+
+
     )
 }
 
