@@ -6,7 +6,7 @@ import API from '../utils/API';
 const userId = localStorage.getItem("userId");
 const events = []
 
-const makeEvent = (props) => {
+const makeEvent =  () => {
     API.getJournal(userId)
         .then((res) => {
             res.data.map((reflection) => {
@@ -76,7 +76,6 @@ const makeEvent = (props) => {
                     }
                     events.push(event)
                 }
-
             })
         })
 }
@@ -90,6 +89,7 @@ class CalApp extends React.Component {
         this.calendar = React.createRef();
         this.setVoice = this.setVoice.bind(this);
         this.memo = false;
+        this.moods = props.moods
     }
 
     setVoice() {
@@ -104,7 +104,7 @@ class CalApp extends React.Component {
             <div className={styles.pageCalendar}>
                 <Calendar
                     ref={this.calendar}
-                    events={events}
+                    events={this.moods}
                     onChange = {(date) => this.setVoice()}
                     />
             </div>
