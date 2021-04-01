@@ -96,6 +96,7 @@ const CalendarPage = (mode) => {
                 </Grid>
                 <Grid item xs={12}>
                     <Calendar onDay={onDay} />
+                    {/* when mode of cal is in daily mode > memo > entry then displays each card */}
                     {(calDate.mode === "dailyMode") && <Memo style={{ marginLeft: 50, marginRight: 50 }} date={calDate.date} />}
                 </Grid>
 
