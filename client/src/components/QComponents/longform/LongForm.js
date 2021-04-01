@@ -27,8 +27,6 @@ function LongForm(props) {
         setUserResponse(text);
     }
 
-
-
     return (
         <div >
             <form>

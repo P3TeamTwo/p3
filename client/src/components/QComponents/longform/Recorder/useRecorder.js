@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
 
-
-
-
-
-
 const useRecorder = () => {
   const [audioURL, setAudioURL] = useState("");
   const [isRecording, setIsRecording] = useState(false);
@@ -32,21 +27,6 @@ const useRecorder = () => {
     // Obtain the audio when ready.
     const handleData = e => {
       setAudioURL(URL.createObjectURL(e.data));
-      // const audioPath = e.data
-      // conn.once('open', function(){
-      //   console.log('-Connection open -')
-      //   const gfs = Grid(conn.db);
-
-      //   const writestream = gfs.createWriteStream({
-      //     filename: randomId()
-      //   })
-
-      //   fs.createReadStream(audioPath).pipe(writestream);
-
-      //   writestream.on('close', function (file) {
-      //     console.log(file.filename + " Written To DB");
-      //   })
-      // })
     };
 
     recorder.addEventListener("dataavailable", handleData);

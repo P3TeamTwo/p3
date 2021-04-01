@@ -92,13 +92,8 @@ class CalApp extends React.Component {
         this.memo = false;
     }
 
-
-    componentDidMount() {
-        
-    }
     setVoice() {
         const details = this.calendar.current.getDetails();
-        console.log(details)
         this.props.onDay(details)
     }
 

@@ -59,8 +59,7 @@ function ButtonTop() {
 
 const CalendarPage = (mode) => {
 
-    const [notePlay, setNotePlay] = useState(false)
-    const [memo, setMemo] = useState(false)
+
     const [calDate, setCalDate] = useState({
         mode: ""
     })

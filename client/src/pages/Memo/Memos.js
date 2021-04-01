@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Container, Paper } from '@material-ui/core'
 
 import Entry from './Entry'
 

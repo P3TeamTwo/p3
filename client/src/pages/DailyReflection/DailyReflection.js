@@ -129,8 +129,6 @@ const DailyReflection = () => {
 
   // Function to handle what happens when the submit button is clicked
   function handleSubmit(e, getEmotion, getQ1_1, getQ1_2, getQ1_3, getQ2_1, getQ2_2, getQ2_3, getQ3_1, getQ3_2, getQ3_3, getQ4_1, getQ4_2, getQ4_3,) {
-    // Do not submit until checks have completed
-    e.preventDefault()
 
     if (moodVisible === true) {
 

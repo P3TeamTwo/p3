@@ -65,7 +65,7 @@ const WordMap = () => {
         })
     return (
         <div className='wordDiv'>
-            <img className='wordCloud' src={imageApi}/>
+            <img className='wordCloud' src={imageApi} alt = {"A Word Map using all the words you have written in the Daily Long Form Question"}/>
         </div>
     )
 }
