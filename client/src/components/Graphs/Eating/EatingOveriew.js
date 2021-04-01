@@ -1,5 +1,5 @@
 import React from 'react';
-import { GiPlantRoots, GiTreeBranch, GiPlantWatering, GiHotMeal, GiCook, GiWaterSplash, GiWaterFlask, GiWaterBottle, GiWaterGallon } from 'react-icons/gi';
+import { GiPlantRoots, GiTreeBranch, GiPlantWatering, GiFruitTree, GiHotMeal, GiCook, GiWaterSplash, GiWaterFlask, GiWaterBottle, GiWaterGallon } from 'react-icons/gi';
 import { BiFoodMenu } from 'react-icons/bi';
 import { IoFastFood } from 'react-icons/io5';
 import { Grid } from '@material-ui/core';
@@ -11,10 +11,12 @@ function eatingOverview({ entries, veg, meals, water }) {
         for (var i = 0; i < entries.length; i++) {
             if (entries[i].q2_1 === 0) {
                 veg.none += 1;
+            } else if (entries[i].q2_1 === 1) {
+                veg.one += 1;
             } else if (entries[i].q2_1 === 2) {
                 veg.two += 1;
-            } else if (entries[i].q2_1 === 4) {
-                veg.four += 1;
+            } else if (entries[i].q2_1 === 3) {
+                veg.three += 1;
             }
         }
     };
@@ -55,11 +57,11 @@ function eatingOverview({ entries, veg, meals, water }) {
         for(var i = 0; i < entries.length; i++){
             if(entries[i].q3_2 === 0){
                 water.none += 1
-            } else if (entries[i].q2_3 === 4){
-                water.min += 1
             } else if (entries[i].q2_3 === 8){
+                water.min += 1
+            } else if (entries[i].q2_3 === 16){
                 water.mid += 1
-            } else if (entries[i].q2_3 === 10){
+            } else if (entries[i].q2_3 === 24){
                 water.max += 1
             }
         }
@@ -78,15 +80,12 @@ function eatingOverview({ entries, veg, meals, water }) {
     return (
         <div className="VeggiesStats">
             <Grid container >
-                {/* <Grid item xs={4} style={{ textAlign: "center" }}>
-                    <GiPlantRoots style={{ height: "25px", width: "25px" }} />
-                    {!AvgVeggies ? <p>Not enough data to determin average amount of veggies consumed</p> : <p>On average you eat  <strong>{AvgVeggies}</strong> Servings per night</p>}
-                </Grid> */}
 
                 <Grid item xs={4}  style={{textAlign: "center"}}>
                     {index === 'none' ? <div><GiTreeBranch style={{height:"25px", width:"25px"}}/><p>You don't eat your veggies!</p></div> : 
-                    index === 'two' ? <div><GiPlantWatering style={{height:"25px", width:"25px"}}/><p>You have two servings of veggies a day</p></div> : 
-                    index === 'four' ? <div><GiPlantRoots style={{height:"25px", width:"25px"}}/><p>You have four or more servings of veggies a day!</p></div> :
+                    index === 'one' ? <div><GiPlantWatering style={{height:"25px", width:"25px"}}/><p>You eat 1 serving of veggies a day</p></div> : 
+                    index === 'two' ? <div><GiPlantRoots style={{height:"25px", width:"25px"}}/><p>You eat 2 servings of veggies a day!</p></div> :
+                    index === 'three' ? <div><GiFruitTree style={{height:"25px", width:"25px"}}/><p>You have 3 or more servings of veggies a day!</p></div> :
                     <div><GiTreeBranch style={{height:"25px", width:"25px"}}/><p>Not enough data obtained to calculate your veggie intake</p></div>}
                 </Grid>
 
@@ -99,9 +98,9 @@ function eatingOverview({ entries, veg, meals, water }) {
 
                 <Grid item xs={4}  style={{textAlign: "center"}}>
                     {beat === 'none' ? <div><GiWaterSplash style={{height:"25px", width:"25px"}}/><p>You don't drink enough water!</p></div> :
-                    beat === 'min' ? <div><GiWaterFlask style={{height:"25px", width:"25px"}}/><p>You drink 3-5 ounces of water a day</p></div> :
-                    beat === 'mid' ? <div><GiWaterBottle style={{height:"25px", width:"25px"}}/><p>You drink at least 8 ounces of water a day</p></div> :
-                    beat === 'max' ? <div><GiWaterGallon style={{height:"25px", width:"25px"}}/><p>You drink over 10 ounces of water a day!</p></div> :
+                    beat === 'min' ? <div><GiWaterFlask style={{height:"25px", width:"25px"}}/><p>You drink 8oz of water a day</p></div> :
+                    beat === 'mid' ? <div><GiWaterBottle style={{height:"25px", width:"25px"}}/><p>You drink 16oz of water a day</p></div> :
+                    beat === 'max' ? <div><GiWaterGallon style={{height:"25px", width:"25px"}}/><p>You drink over 24oz of water a day!</p></div> :
                     <div><GiWaterSplash style={{height:"25px", width:"25px"}}/><p>Not enough data to determin how much water you drink on average</p></div>}
                 </Grid>
 

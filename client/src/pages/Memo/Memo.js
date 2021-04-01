@@ -20,7 +20,6 @@ const Journal = ({date}) => {
                 memo.created_at = memoCut
                 return memoCut === date
             })
-            console.log(filteredMemos)
             setMemos(filteredMemos)
         }
         loadMemos()

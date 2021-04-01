@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid'
 import { useHistory } from 'react-router-dom'
 import Calendar from '../../components/Calendar'
 import './calendar.css'
-// import Player from '../../components/QComponents/longform/Recorder/Player'
 import Memo from '../../pages/Memo/Memo'
 import Navbar from '../../components/Navbar'
 

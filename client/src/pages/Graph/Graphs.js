@@ -142,8 +142,9 @@ export default function ScrollableTabsButtonAuto() {
     };
     const veg = {
         none: 0,
+        one: 0,
         two: 0,
-        four: 0
+        three: 0
     };
     const meals = {
         never: 0,
@@ -206,7 +207,7 @@ export default function ScrollableTabsButtonAuto() {
     }
 
     const Nav = ({ value }) => (
-        <Grid container justify={"center"}>
+        <Grid container justify={"center"} className='navGrid'>
             <Tabs
                 centered
                 value={value}
@@ -218,7 +219,7 @@ export default function ScrollableTabsButtonAuto() {
 
                 <Tab label="Sleep" {...a11yProps(0)} />
                 <Tab label="Exercise" {...a11yProps(1)} />
-                <Tab label="Eating Habits" {...a11yProps(2)} />
+                <Tab label="Eating" {...a11yProps(2)} />
                 <Tab label="social" {...a11yProps(3)} />
                 <Tab label="Word Map" {...a11yProps(4)} />
                 <Button className={classes.logoutButton} onClick={signOut}>Logout</Button>
@@ -231,7 +232,7 @@ export default function ScrollableTabsButtonAuto() {
         <div className={classes.root}>
             <AppBar position="static" color="default" >
                 <Toolbar>
-                    <img className={classes.homeLogo} src={logo} onClick={directHome} />
+                    <img className={classes.homeLogo} src={logo} onClick={directHome} alt='logo' />
                     <Nav />
                 </Toolbar>
             </AppBar>

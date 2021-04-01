@@ -6,11 +6,6 @@ import { makeStyles } from '@material-ui/core/styles'
 
 //import colourway button
 import Colourways from '../../components/Colourways';
-
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import logo from '../../images/MINDSHARE.png'
-import Typography from '@material-ui/core/Typography';
 import Navbar from '../../components/Navbar'
 // import IconButton from '@material-ui/core/IconButton';
 
