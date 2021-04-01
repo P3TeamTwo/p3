@@ -1,13 +1,11 @@
 import React from "react";
+import error from "../../images/404.png";
+
 function NoMatch() {
   return (
     <div>
-            <h1>404 Page Not Found</h1>
-            <h1>
-              <span role="img" aria-label="Face With Rolling Eyes Emoji">
-                🙄
-              </span>
-            </h1>
+            <h1>We can't find this for you but don't let that stop you from finding yourself.</h1>
+              <img src={error} alt="404 message"></img>
     </div>
   )
 }

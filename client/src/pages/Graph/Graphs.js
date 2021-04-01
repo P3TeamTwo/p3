@@ -97,7 +97,6 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '4%',
         height: '5%',
         paddingLeft: '0.3rem',
-
         '&:hover': {
             cursor: 'pointer',
             transform: 'scale(1.1)',
@@ -199,14 +198,13 @@ export default function ScrollableTabsButtonAuto() {
         })
 
             .then((response) => {
-                console.log(response)
                 localStorage.clear()
                 history.push(response.data)
             })
 
     }
 
-    const Nav = ({ value }) => (
+    const Nav = () => (
         <Grid container justify={"center"} className='navGrid'>
             <Tabs
                 centered
@@ -239,8 +237,6 @@ export default function ScrollableTabsButtonAuto() {
 
             <TabPanel value={value} index={0}>
 
-                {/* Average hours of sleep per night  */}
-                {/* sum of all input / number of inputs  */}
                 {entries && <SleepOverview
                     sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
                     totalNights={entries.length}

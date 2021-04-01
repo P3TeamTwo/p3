@@ -25,7 +25,6 @@ const Journal = ({date}) => {
         loadMemos()
     }, [date])
     
-
     return (
         <>
 
