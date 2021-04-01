@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
-
+import axios from 'axios';
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar';
@@ -62,13 +62,28 @@ function LogoutButton() {
 
     const history = useHistory();
 
-    const logout = () => {
-        let path = '/'
-        history.push(path)
-    }
+    
+    const signOut = (e) => {
+        e.preventDefault()
 
-    return <Button color="inherit" className={classes.logoutButton} onClick={logout}>Logout</Button>
+        axios({
+            method: 'get',
+            url: 'api/user/logout',
+        })
+
+            .then((response) => {
+                console.log(response)
+                localStorage.clear()
+                history.push(response.data)
+                
+                    
+            })
+
+        }
+
+    return <Button color="inherit" className={classes.logoutButton} onClick={signOut}>Logout</Button>
 }
+
 
 function Title() {
     const classes = useStyle();
