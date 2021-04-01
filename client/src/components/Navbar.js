@@ -51,7 +51,7 @@ function HomeButton() {
     const history = useHistory();
 
     const directToHome = () => {
-        let path = '/calendar'
+        let path = '/welcome'
         history.push(path)
     }
 
