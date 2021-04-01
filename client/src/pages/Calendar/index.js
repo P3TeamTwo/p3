@@ -6,6 +6,7 @@ import Calendar from '../../components/Calendar'
 import './calendar.css'
 // import Player from '../../components/QComponents/longform/Recorder/Player'
 import Memo from '../../pages/Memo/Memo'
+import Navbar from '../../components/Navbar'
 
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -81,7 +82,11 @@ const CalendarPage = (mode) => {
 
 
     return (
+        <div>
+        <div className="navBar"><Navbar /></div>
+            
         <div className="Container">
+            
             <Grid container>
 
                 <Grid item xs={12}>
@@ -97,7 +102,7 @@ const CalendarPage = (mode) => {
             </Grid>
             <ButtonTop />
         </div>
-
+        </div>
     )
 }
 

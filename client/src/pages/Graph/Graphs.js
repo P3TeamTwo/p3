@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         width: '100%',
         backgroundColor: theme.palette.background.paper,
+
     },
     homeButton: {
         marginLeft: 'auto',
@@ -201,6 +202,7 @@ export default function ScrollableTabsButtonAuto() {
             </AppBar>
 
             <TabPanel value={value} index={0}>
+                
                 {/* Average hours of sleep per nighth  */}
                 {/* sum of all input / number of inputs  */}
                 {entries && <SleepOverview
@@ -233,7 +235,7 @@ export default function ScrollableTabsButtonAuto() {
 
                 />}
 
-
+                    
             </TabPanel>
             <TabPanel value={value} index={1}>
 
@@ -289,13 +291,15 @@ export default function ScrollableTabsButtonAuto() {
                 />}
 
             </TabPanel>
+
+            {/* Social */}
             <TabPanel value={value} index={3}>
                 <SocialDisplay entries={entries} />
             </TabPanel>
             
             {/* Word Map */}
             <TabPanel  value={value} index={4}>
-                <WordMap />
+                <WordMap/>
             </TabPanel>
 
         </div>

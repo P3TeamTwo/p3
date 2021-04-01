@@ -15,7 +15,7 @@
   - [License](#license)
 
 ## Description
-Mindshare is designed to help individuals who are facing the turmoils of isolation. Unlike social media where all your entries are at the scrutiny and judgment of your family,  friends and peers. Mindshare is meant to be a safe place where you can make meaningful inputs and track your mood and feelings over a time period, away from scrutiny.
+Mindshare is designed to help individuals who are facing the turmoil of isolation. Unlike social media where all your entries are at the scrutiny and judgment of your family,  friends and peers. Mindshare is meant to be a safe place where you can make meaningful inputs and track your mood and feelings over a time period, away from scrutiny.
 
 This application is a smart and interactive journal, where you are given daily questions that allows an algorithm to analyze your responses and display correlations between your mood and your behaviours. Allowing you to pinpoint what makes a good vs a bad day. 
 
@@ -24,7 +24,35 @@ It is meant for users to speak their minds and release any hidden feelings withi
 ## Technologies Used
 
 The application was developed using the following technologies:
-- 
+
+- React
+- Material Ui
+- Bcrypt
+- MongoDB/Atlas
+- Dotenv
+- Node
+- Express
+- Joi
+- Jsonwebtoken
+- Mobiscroll
+- Mongoose
+- Passport
+- Path
+- React-calendar
+- React-use-window-size
+- Jest
+- Axios
+- React-confetti
+- React-dom
+- React-google-login
+- React-icons
+- React-player
+- React-router-dom
+- Travis-ci
+- Heroku
+- Validator
+- Canvasjs
+
 
 ## Screenshots
 
