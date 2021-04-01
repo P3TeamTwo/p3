@@ -91,8 +91,8 @@ const Welcome = () => {
             <div className="container-main">
                 <ButtonLeft />
                 <ButtonRight />
-            <Colourways />
             </div>
+            <Colourways />
         </div>
     )
 }
