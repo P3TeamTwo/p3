@@ -22,32 +22,39 @@ const useStyle = makeStyles({
         marginBottom: '10',
     },
     buttonLeft: {
-        padding: '50px 80px 50px 80px',
+        padding: '50px 60px 50px 60px',
         borderRadius: '15px',
         backgroundColor: '#c8f4de',
         color: 'black',
-        fontSize: '2em',
-        marginRight: '3rem',
-        marginTop: "1em",
+        fontSize: '140%',
+        ['@media (min-width:375px)']: { // eslint-disable-line no-useless-computed-key
+            marginBottom: '1em',
+        },
+        ['@media (min-width:1200px)']: { // eslint-disable-line no-useless-computed-key
+            marginBottom: '0em',
+        },
+
 
         "&:hover": {
             backgroundColor: '#7eca9c',
             color: 'white'
         },
-        boxShadow:  '0 9px 30px -5px #a6aa9c' 
+        boxShadow: '0 9px 30px -5px #a6aa9c'
     },
     buttonRight: {
         padding: '50px 80px 50px 80px',
         borderRadius: '15px',
         backgroundColor: '#bbf1fa',
         color: 'black',
-        fontSize: '2em',
-        marginTop: "1em",
+        fontSize: '140%',
+        ['@media (min-width:1200px)']: { // eslint-disable-line no-useless-computed-key
+            marginLeft: '1em',
+        },
         "&:hover": {
             backgroundColor: '#a4ebf3',
             color: 'white'
         },
-        boxShadow:  '0 9px 30px -5px #a6aa9c'
+        boxShadow: '0 9px 30px -5px #a6aa9c'
 
     },
     toolbar: {
@@ -92,16 +99,16 @@ const Welcome = () => {
 
     return (
 
-        <div style={{width: '100%'}}>
+        <div style={{ width: '100%' }}>
             <Navbar />
             <div className="Container">
                 <WelcomeHeader />
-                    <h4>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices for you and your wellbeing.</h4>
+                <h4>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices for you and your wellbeing.</h4>
                 <div className="typewriter">
                     <h3 className="talkLine">Welcome to your safe space, lets talk!</h3>
                 </div>
                 <div className="container-main">
-                    <ButtonLeft className="buttonLeft"/>
+                    <ButtonLeft className="buttonLeft" />
                     <ButtonRight />
                 </div>
             </div>

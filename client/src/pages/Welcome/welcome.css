@@ -2,7 +2,6 @@ body{
   background-image: url(../../images/JenOrd.png);
 }
 
-
 .Container {
     text-align: center;
   }
@@ -11,8 +10,8 @@ body{
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    align-items: center;
   }
-
 
 .container-main {
     background-color: transparent !important;
@@ -20,7 +19,6 @@ body{
     margin-top: 20%;
     align-items: center;
     /* justify-content: center; */
-
 }
 
 .daily-reflection {
@@ -50,13 +48,14 @@ body{
     50% { border-color: black; }
   }
 
+
 /* Extra small devices (Tested with Iphone X) */
-@media (min-width: 375px) { .buttonLeft { margin-right: 0 !important;} }
+@media (min-width: 375px) { .talkLine { font-size: 3vw !important;} }
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { .buttonLeft {margin-right: 0 !important;} }
+@media (min-width: 576px) { .talkLine {font-size: 3vw !important;} }
  /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .buttonLeft { margin-right: "5px" !important;} }
+@media (min-width: 768px) { .talkLine { font-size: 3vw !important;} }
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .buttonLeft { margin-right: "5px" !important;} }
+@media (min-width: 992px) { .talkLine { font-size: 3vw !important;} }
 /* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .buttonLeft { margin-right: "5px" !important;} }
+@media (min-width: 1200px) { .talkLine { font-size: 2vw !important;} }
