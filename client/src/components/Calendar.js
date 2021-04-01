@@ -92,6 +92,10 @@ class CalApp extends React.Component {
         this.moods = props.moods
     }
 
+    componentDidMount() {
+
+    }
+
     setVoice() {
         const details = this.calendar.current.getDetails();
         this.props.onDay(details)
@@ -104,7 +108,7 @@ class CalApp extends React.Component {
             <div className={styles.pageCalendar}>
                 <Calendar
                     ref={this.calendar}
-                    events={this.moods}
+                    events={this.props.moods}
                     onChange = {(date) => this.setVoice()}
                     />
             </div>
