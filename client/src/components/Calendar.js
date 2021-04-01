@@ -6,7 +6,7 @@ import API from '../utils/API';
 const userId = localStorage.getItem("userId");
 const events = []
 
-const makeEvent = () => {
+const makeEvent = (props) => {
     API.getJournal(userId)
         .then((res) => {
             res.data.map((reflection) => {
@@ -90,6 +90,11 @@ class CalApp extends React.Component {
         this.calendar = React.createRef();
         this.setVoice = this.setVoice.bind(this);
         this.memo = false;
+    }
+
+    // Without this function, mood data will not show on the calendar
+    componentDidMount() {
+
     }
 
     setVoice() {
