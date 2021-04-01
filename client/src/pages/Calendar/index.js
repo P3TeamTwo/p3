@@ -85,7 +85,7 @@ const CalendarPage = (mode) => {
 
 
     return (
-        <div>
+        <div className="calendarContainer">
         <div className="navBar"><Navbar /></div>
             
         <div className="Container">

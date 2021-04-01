@@ -184,8 +184,6 @@ export default function ScrollableTabsButtonAuto() {
                     value={value}
                     onChange={handleChange}
                     indicatorColor="primary"
-                    // textColor="primary"
-                    // variant="scrollable"
                     scrollButtons="auto"
                     aria-label="scrollable auto tabs example" 
                     
@@ -203,7 +201,7 @@ export default function ScrollableTabsButtonAuto() {
 
             <TabPanel value={value} index={0}>
                 
-                {/* Average hours of sleep per nighth  */}
+                {/* Average hours of sleep per night  */}
                 {/* sum of all input / number of inputs  */}
                 {entries && <SleepOverview
                     sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
@@ -214,7 +212,7 @@ export default function ScrollableTabsButtonAuto() {
                     screenTime={screenTime}
                 />}
 
-                <Grid item  style={{textAlign: "center"}}>
+                <Grid item  style={{textAlign: "center", display: "flex", justifyContent: "space-around"}}>
                 {/* once entries has value and linegraph can access values then execute */}
                 {entries && <HoursOfSleep
                     // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
@@ -246,7 +244,7 @@ export default function ScrollableTabsButtonAuto() {
                     active={active}
                 />}
 
-                <Grid item  style={{textAlign: "center"}}>
+                <Grid item  style={{textAlign: "center", display: "flex", justifyContent: "space-between"}}>
                 {entries && <MinutesOfExercise
                     dates={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
                 />}
@@ -273,7 +271,7 @@ export default function ScrollableTabsButtonAuto() {
                     water={water}
                 />}
 
-                <Grid item  style={{textAlign: "center"}}>
+                <Grid item  style={{textAlign: "center", display: "flex", justifyContent: "space-between"}}>
                 {entries && <Veggies
                     // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
                     dates={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}

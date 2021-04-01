@@ -62,7 +62,7 @@ function sleepOverview({ sumOfSleep, totalNights, entries, coffeeTimes, screenTi
                     {!AvgHours ? <p style={{maxWidth: "30ch"}}>Not enough data to determine average hours of sleep</p> : <p>On average you sleep {AvgHours} hours per night</p>} 
                 </Grid>
 
-                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <Grid item xs={4}  style={{textAlign: "center" }}>
                     {index === 'none' ? <div><GiCoffeeBeans style={{height:"25px", width:"25px"}}/> <p>You drink no coffee!</p></div> :
                     index === 'min' ? <div><SiBuymeacoffee style={{height:"25px", width:"25px"}}/><p>On average you drink 1 cup of coffee a day</p></div> :
                     index === 'mid' ? <div><SiCoffeescript style={{height:"25px", width:"25px"}}/><p>On average you drink 2 cups of coffee a day</p></div> : 

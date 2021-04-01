@@ -1,6 +1,7 @@
 .Container {
     text-align: center;
-    vertical-align: middle;
+    margin: auto;
+    width: 60%;
 }
 
 .calendarHeaderButtons{
@@ -12,9 +13,13 @@
 }
 
 h1{ 
-    margin: 20px !important;
+    margin: 5px !important;
 }
 
 .navBar {
+    width: 100% !important
+}
+
+.calendarContainer{
     width: 100% !important
 }
