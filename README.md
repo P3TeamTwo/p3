@@ -52,18 +52,22 @@ The application was developed using the following technologies:
 - Heroku
 - Validator
 - Canvasjs
+- word-map API
+- Google Speech-to-Text API 
 
 
 ## Screenshots
+![Screenshot of the Mindshare application](client/src/images/Screenshot1.png "Screenshot of the Mindshare application")
+![Screenshot of the Mindshare application](client/src/images/Screenshot2.png "Screenshot of the Mindshare application")
+![Screenshot of the Mindshare application](client/src/images/Screenshot3.png "Screenshot of the Mindshare application")
+![Screenshot of the Mindshare application](client/src/images/Screenshot4.png "Screenshot of the Mindshare application")
+![Screenshot of the Mindshare application](client/src/images/Screenshot5.png "Screenshot of the Mindshare application")
+![Screenshot of the Mindshare application](client/src/images/Screenshot6.png "Screenshot of the Mindshare application")
+![Screenshot of the Mindshare application](client/src/images/Screenshot7.png "Screenshot of the Mindshare application")
+![Screenshot of the Mindshare application](client/src/images/Screenshot8.png "Screenshot of the Mindshare application")
 
 Homepage 
 ![](insertpics)
-
-
-## Installation
-
-
-## Usage
 
 
 ## View Live Website  
