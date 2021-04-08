@@ -23,9 +23,6 @@
     margin-top: 40px;
 }
 
-
-/
-
 /* MEDIA QUERIES */
 /* Extra small devices (Tested with Iphone X) */
 @media (min-width: 375px) { .confetti {width: 100% !important; height: 100% !important;}}

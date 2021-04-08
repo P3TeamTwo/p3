@@ -81,7 +81,7 @@ function eatingOverview({ entries, veg, meals, water }) {
         <div className="VeggiesStats">
             <Grid container >
 
-                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <Grid item xs={4}  style={{textAlign: "center", fontSize: ".75em"}}>
                     {index === 'none' ? <div><GiTreeBranch style={{height:"25px", width:"25px"}}/><p>You don't eat your veggies!</p></div> : 
                     index === 'one' ? <div><GiPlantWatering style={{height:"25px", width:"25px"}}/><p>You eat 1 serving of veggies a day</p></div> : 
                     index === 'two' ? <div><GiPlantRoots style={{height:"25px", width:"25px"}}/><p>You eat 2 servings of veggies a day!</p></div> :
@@ -89,14 +89,14 @@ function eatingOverview({ entries, veg, meals, water }) {
                     <div><GiTreeBranch style={{height:"25px", width:"25px"}}/><p>Not enough data obtained to calculate your veggie intake</p></div>}
                 </Grid>
 
-                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <Grid item xs={4}  style={{textAlign: "center", fontSize: ".75em"}}>
                     {activity === 'never' ? <div><IoFastFood style={{height:"25px", width:"25px"}}/> <p>You eat out more on average</p></div> :
                     activity === 'half' ? <div><GiHotMeal style={{height:"25px", width:"25px"}}/><p>You have an even split between cooking at home and eating out</p></div> :
                     activity === 'night' ? <div><GiCook style={{height:"25px", width:"25px"}}/><p>You eat more home cooked meals on average</p></div> : 
                     <div><BiFoodMenu style={{height:"25px", width:"25px"}}/><p>Not enough data obtained to calculate your meal statistic</p></div>}
                 </Grid>
 
-                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <Grid item xs={4}  style={{textAlign: "center", fontSize: ".75em"}}>
                     {beat === 'none' ? <div><GiWaterSplash style={{height:"25px", width:"25px"}}/><p>You don't drink enough water!</p></div> :
                     beat === 'min' ? <div><GiWaterFlask style={{height:"25px", width:"25px"}}/><p>You drink 8oz of water a day</p></div> :
                     beat === 'mid' ? <div><GiWaterBottle style={{height:"25px", width:"25px"}}/><p>You drink 16oz of water a day</p></div> :
