@@ -29,6 +29,10 @@ const useStyle = makeStyles({
         borderRadius: '15px',
         backgroundColor: '#bbf1fa',
         fontSize: '140%',
+        "&:hover": {
+            backgroundColor: '#a4ebf3',
+            color: 'white'
+        },
         boxShadow: '0 9px 30px -5px #a6aa9c'
     },
     toolbar: {

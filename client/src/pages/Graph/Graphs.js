@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         width: '100%',
-        backgroundColor:"rgba(255,255,255, 0)"
+        backgroundColor: "rgba(255,255,255, 0)"
 
     },
     logoutButton: {
@@ -111,7 +111,7 @@ export default function ScrollableTabsButtonAuto() {
     const [value, setValue] = React.useState(0);
 
     const coffeeTimes = {
-        none: 0, 
+        none: 0,
         min: 0,
         mid: 0,
         max: 0
@@ -244,28 +244,34 @@ export default function ScrollableTabsButtonAuto() {
                     entries={entries}
                     coffeeTimes={coffeeTimes}
                     screenTime={screenTime}
-                />} 
+                />}
+                <Grid container justify="center" spacing={4}>
+                    <Grid item xs={12} lg={6}>
+                        {entries && <HoursOfSleep
+                            // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                            dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                        />}
+                    </Grid>
+                    <Grid item xs={12} lg={6}>
 
-                <Grid item style={{ textAlign: "center", display: "flex", justifyContent: "space-around" }}>
-                    {/* once entries has value and linegraph can access values then execute */}
-                    {entries && <HoursOfSleep
-                        // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
-                        dates={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                    />}
+                        {/* Coffee vs sleep double axis line graph */}
+                        {entries && <CoffeeVsSleep
+                            datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                            datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
+                        />}
+                    </Grid>
+                    <Grid item xs={12}>
+                        {/* Screen time doughnut graph display */}
+                        {entries && <SleepvsExercise
+                            datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                            datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
 
-                    {/* Coffee vs sleep double axis line graph */}
-                    {entries && <CoffeeVsSleep
-                        datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                        datesAndCoffee={entries.map(entry => ({ date: entry.created_at, point: entry.q1_3 }))}
-                    />}
+                        />}
+                    </Grid>
                 </Grid>
 
-                {/* Screen time doughnut graph display */}
-                {entries && <SleepvsExercise
-                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                    datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
 
-                />}
+
 
 
             </TabPanel>
@@ -277,23 +283,28 @@ export default function ScrollableTabsButtonAuto() {
                     calories={calories}
                     active={active}
                 />}
+                <Grid container justify="center" spacing={4}>
+                    <Grid item xs={12} lg={6}>
+                        {entries && <MinutesOfExercise
+                            dates={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+                        />}
+                    </Grid>
+                    <Grid item xs={12} lg={6}>
+                        {entries && <ExerciseVsCalories
+                            datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+                            datesAndCalories={entries.map(entry => ({ date: entry.created_at, point: entry.q3_2 }))}
+                        />}
+                    </Grid>
+                    <Grid item xs={12}>
+                        {entries && <WaterVsExercise
+                            datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
+                            datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
+                        />}
 
-                <Grid item style={{ textAlign: "center", display: "flex", justifyContent: "space-between" }}>
-                    {entries && <MinutesOfExercise
-                        dates={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
-                    />}
-
-                    {entries && <ExerciseVsCalories
-                        datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
-                        datesAndCalories={entries.map(entry => ({ date: entry.created_at, point: entry.q3_2 }))}
-                    />}
+                    </Grid>
                 </Grid>
 
                 {/* Water vs exercise double axis line graph */}
-                {entries && <WaterVsExercise
-                    datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
-                    datesAndExercise={entries.map(entry => ({ date: entry.created_at, point: entry.q3_3 }))}
-                />}
 
 
             </TabPanel>
@@ -305,22 +316,28 @@ export default function ScrollableTabsButtonAuto() {
                     water={water}
                 />}
 
-                <Grid item style={{ textAlign: "center", display: "flex", justifyContent: "space-between" }}>
-                    {entries && <Veggies
-                        // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
-                        dates={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
-                    />}
+                <Grid container justify="center" spacing={4}>
+                    <Grid item xs={12} lg={6}>
+                        {entries && <Veggies
+                            // set the prop dates as a map of the entries, taking the date entered and the data poitns from q1_
+                            dates={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
+                        />}
+                    </Grid>
+                    <Grid item xs={12} lg={6}>
 
-                    {entries && <VeggiesVsWater
-                        datesAndVegies={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
-                        datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
-                    />}
+                        {entries && <VeggiesVsWater
+                            datesAndVegies={entries.map(entry => ({ date: entry.created_at, point: entry.q2_1 }))}
+                            datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
+                        />}
+                    </Grid>
+                    <Grid item xs={12}>
+
+                        {entries && <WaterVsSleep
+                            datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
+                            datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
+                        />}
+                    </Grid>
                 </Grid>
-
-                {entries && <WaterVsSleep
-                    datesAndWater={entries.map(entry => ({ date: entry.created_at, point: entry.q2_3 }))}
-                    datesAndSleep={entries.map(entry => ({ date: entry.created_at, point: entry.q1_1 }))}
-                />}
 
             </TabPanel>
 
