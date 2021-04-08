@@ -1,14 +1,18 @@
-import React from 'react'
 import Button from '@material-ui/core/Button'
 import './welcome.css'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@material-ui/core';
 
+// //Import api routes to db
+import API from '../../utils/API'
+import React, { useEffect, useState } from 'react';
+
 
 //import colourway buttons
 import Colourways from '../../components/Colourways';
 import Navbar from '../../components/Navbar'
+import { GiConsoleController } from 'react-icons/gi';
 
 const useStyle = makeStyles({
 
@@ -40,18 +44,6 @@ const useStyle = makeStyles({
     }
 })
 
-function ButtonLeft() {
-    const classes = useStyle();
-    const history = useHistory();
-
-    const directToDaily = () => {
-        let path = '/Daily'
-        history.push(path)
-    }
-
-    return <Button className={classes.buttonLeft} onClick={directToDaily}>Enter Journal</Button>
-}
-
 function ButtonRight() {
     const classes = useStyle();
     const history = useHistory();
@@ -65,7 +57,60 @@ function ButtonRight() {
 }
 
 
+
 const Welcome = () => {
+   //Getting the user ID
+   const userId = localStorage.getItem("userId");
+    // Setting state to store the journl entries
+    const [entries, setEntries] = useState();
+
+    useEffect(() => {
+        //Get all journal data for the user logged in 
+        function fetchData() {
+
+            API.getJournal(userId)
+                .then(res => {
+                    setEntries(res.data)
+                }
+                )
+                .catch(err => console.log(err))
+        }
+        fetchData()
+
+    }, [userId])
+    console.log(entries)
+    
+    function ButtonLeft() {
+        const classes = useStyle();
+        const history = useHistory();
+    
+        const directToDaily = () => {
+            let path = '/Daily'
+            history.push(path)
+        }
+    
+        return <Button className={classes.buttonLeft} onClick={todaysEntries}>Enter Journal</Button>
+    }
+
+//Check for entry matching todays date from array
+function todaysEntries(){
+    entries.forEach(item => {
+        //Getting and formatting todays date
+        let today = new Date()
+        let ISOdate = today.toISOString()
+        let formattedDate = ISOdate.split("T")[0]
+
+        //Reformatting the date saved in the db as created_at
+        let mongoDate = item.created_at.split("T")[0]
+        if(mongoDate === formattedDate){
+            console.log("you made an entry today")
+        } else {
+            directToDaily()
+        }
+    })
+}
+
+
 
     return (
         // inline styling ensuring that the container div fills the whole screen
