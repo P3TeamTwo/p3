@@ -2,7 +2,11 @@ body{
   background-image: url(../../images/JenOrd.png);
 }
 
-.Container {
+.welcomeHeader {
+  font-size: 2.5em;
+}
+
+.mainContainer {
     text-align: center;
   }
 
@@ -11,18 +15,13 @@ body{
     margin-left: auto;
     margin-right: auto;
     align-items: center;
+    margin-bottom: 60px;
   }
 
 .container-main {
     background-color: transparent !important;
-    /* min-height: 60vh; */
-    margin-top: 20%;
+    /* margin-top: 20%; */
     align-items: center;
-    /* justify-content: center; */
-}
-
-.daily-reflection {
-    background-color: #d2f8d2;
 }
 
 .typewriter h3 {
@@ -48,15 +47,3 @@ body{
     from, to { border-color: transparent }
     50% { border-color: black; }
   }
-
-
-/* Extra small devices (Tested with Iphone X) */
-@media (min-width: 375px) { .talkLine { font-size: 3vw !important;} }
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { .talkLine {font-size: 3vw !important;} }
- /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .talkLine { font-size: 3vw !important;} }
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .talkLine { font-size: 3vw !important;} }
-/* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .talkLine { font-size: 2vw !important;} }
