@@ -2,14 +2,21 @@ body{
   background-image: url(../../images/JenOrd.png);
 }
 
-.welcomeHeader {
-  font-size: 2.5em;
+label{ 
+  max-width: 90%;
 }
 
 .mainContainer {
     text-align: center;
   }
 
+.welcomeHeader {
+  font-size: 2.5em;
+}
+
+.intro{
+  font-size: 1em;
+}
   .talkLine, .typewriter{ 
     width: fit-content;
     margin-left: auto;

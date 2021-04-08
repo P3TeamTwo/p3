@@ -70,7 +70,7 @@ const Welcome = () => {
             <div className="mainContainer">
                 <h1 className="welcomeHeader">Welcome to MindShare</h1>
 
-                <h2>MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices for you and your wellbeing.</h2>
+                <h2 className="intro">MindShare is about noticing trends in your feelings and behaviors to allow you to make healthy choices for you and your wellbeing.</h2>
                 {/* holds the functionality for typrewriter */}
                 <div className="typewriter">
                     {/* Defines the text to be typewritered out  */}
