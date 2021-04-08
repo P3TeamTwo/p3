@@ -82,7 +82,7 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
     return (
         <div className="exerciseStats">
             <Grid container >
-                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <Grid item xs={4}  style={{textAlign: "center", fontSize: ".75em"}}>
                     {activity === 'cardio' ? <div><GiRun style={{height:"25px", width:"25px"}}/> <p>You enjoy cardio!</p></div> :
                     activity === 'weights' ? <div><GiWeightLiftingUp style={{height:"25px", width:"25px"}}/><p>You enjoy lifting weights!</p></div> :
                     activity === 'rest' ? <div><GiSofa style={{height:"25px", width:"25px"}}/><p>You have more rest days than exercise days</p></div> : 
@@ -90,7 +90,7 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
                     <div><GiGymBag style={{height:"25px", width:"25px"}}/><p>Not enough data obtained to calculate your workout statistic</p></div>}
                 </Grid>
                 
-                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <Grid item xs={4}  style={{textAlign: "center", fontSize: ".75em"}}>
                     {index === 'thirty' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>On average you exercise for 30 minutes a day.</p></div> : 
                     index === 'hour' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>On average you exercise for an hour a day</p></div> : 
                     index === 'more' ? <div><GiTimeTrap style={{height:"25px", width:"25px"}}/><p>On average you exercise for more than an hour a day!</p></div> :
@@ -98,7 +98,7 @@ function exerciseOverview({ entries, active, exerciseTime, calories }) {
                     <div><GiSandsOfTime style={{height:"25px", width:"25px"}}/><p>Not enough data obtained to calculate how long you workout for</p></div>}
                 </Grid>
 
-                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <Grid item xs={4}  style={{textAlign: "center", fontSize: ".75em"}}>
                     {beat === 'none' ? <div><GiBrokenHeart style={{height:"25px", width:"25px"}}/><p>You have burned no calories</p></div> :
                     beat === 'min' ? <div><GiHeartDrop style={{height:"25px", width:"25px"}}/><p>You burn an average of 100 calories a day</p></div> :
                     beat === 'midOne' ? <div><GiGlassHeart style={{height:"25px", width:"25px"}}/><p>You burn an average of 200 calories a day</p></div> :

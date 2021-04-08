@@ -57,12 +57,12 @@ function sleepOverview({ sumOfSleep, totalNights, entries, coffeeTimes, screenTi
         <div className="sleepStats">
             <Grid container >
 
-                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <Grid item xs={4}  style={{textAlign: "center", fontSize: ".75em"}}>
                     <GiNightSleep style={{height:"25px", width:"25px"}}/> 
                     {!AvgHours ? <p style={{maxWidth: "30ch"}}>Not enough data to determine average hours of sleep</p> : <p>On average you sleep {AvgHours} hours per night</p>} 
                 </Grid>
 
-                <Grid item xs={4}  style={{textAlign: "center" }}>
+                <Grid item xs={4}  style={{textAlign: "center", fontSize: ".75em" }}>
                     {index === 'none' ? <div><GiCoffeeBeans style={{height:"25px", width:"25px"}}/> <p>You drink no coffee!</p></div> :
                     index === 'min' ? <div><SiBuymeacoffee style={{height:"25px", width:"25px"}}/><p>On average you drink 1 cup of coffee a day</p></div> :
                     index === 'mid' ? <div><SiCoffeescript style={{height:"25px", width:"25px"}}/><p>On average you drink 2 cups of coffee a day</p></div> : 
@@ -70,7 +70,7 @@ function sleepOverview({ sumOfSleep, totalNights, entries, coffeeTimes, screenTi
                     <div><GiCoffeeBeans style={{height:"25px", width:"25px"}}/><p>Not enough data obtained to calculate your coffee statistic</p></div>}
                 </Grid>
 
-                <Grid item xs={4}  style={{textAlign: "center"}}>
+                <Grid item xs={4}  style={{textAlign: "center", fontSize: ".75em"}}>
                     {beat === 'yes' ? <div><GiSmartphone style={{height:"25px", width:"25px"}}/> <p>You often use your phone before bed</p></div> :
                     beat === 'no' ? <div><FaBed style={{height:"25px", width:"25px"}}/><p>You rarely use your phone before bed</p></div> :
                     <div><GiCoffeeBeans style={{height:"25px", width:"25px"}}/><p>Not enough data obtained to calculate your screen time statistic</p></div>}

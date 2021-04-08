@@ -29,6 +29,10 @@ const useStyle = makeStyles({
         borderRadius: '15px',
         backgroundColor: '#bbf1fa',
         fontSize: '140%',
+        "&:hover": {
+            backgroundColor: '#a4ebf3',
+            color: 'white'
+        },
         boxShadow: '0 9px 30px -5px #a6aa9c'
     },
     toolbar: {
@@ -65,7 +69,7 @@ const Welcome = () => {
 
     return (
         // inline styling ensuring that the container div fills the whole screen
-        <div style={{ width: '100%', height: '100vh' }} >
+        <div className="welcomeContainer">
             <Navbar />
             <div className="mainContainer">
                 <h1 className="welcomeHeader">Welcome to MindShare</h1>

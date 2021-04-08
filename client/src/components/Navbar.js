@@ -9,12 +9,7 @@ import logo from '../images/MINDSHARE.png'
 
 
 const useStyle = makeStyles({
-    root: {
-        fontSize: '55px',
-        color: 'black',
-        borderRadius: '5',
-        marginBottom: '10',
-    },
+
     homeButton: {
         marginRight: "auto",
         maxWidth: '5%',
@@ -55,7 +50,7 @@ function HomeButton() {
         history.push(path)
     }
 
-    return <img src={logo} className={classes.homeButton} onClick={directToHome} alt='logo'/>
+    return <img src={logo} style={{height: "auto"}}className={classes.homeButton} onClick={directToHome} alt='logo'/>
 }
 function LogoutButton() {
     const classes = useStyle();

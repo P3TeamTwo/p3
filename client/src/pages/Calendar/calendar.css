@@ -1,7 +1,7 @@
 .Container {
     text-align: center;
     margin: auto;
-    width: 60%;
+    width: 95%;
 }
 
 .calendarHeaderButtons{
@@ -10,10 +10,6 @@
 
 .dayCell{
     background-color:rgba(255,255,255, 0.5);
-}
-
-h1{ 
-    margin: 5px !important;
 }
 
 .navBar {

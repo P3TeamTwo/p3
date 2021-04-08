@@ -2,15 +2,12 @@
     box-shadow: 0 9px 30px -5px rgba(150,170,180,0.5);
     padding: 12px;
     border-radius: 20px;
-    background: #d0e8f2
+    background: #d0e8f2;
+    margin-bottom: 40px;
 }
 
 .hoursSleepContainer, .coffeeVsSleep, .hoursExerciseContainer, .veggiesContainer, .veggiesVsWater, .exerciseVsCalories{
-    display: inline-block;
-    margin:25px 4px;
     box-shadow: 0 9px 30px -5px rgba(150,170,180,0.5);
-    border-radius: 20px !important;
-    border: .5 solid grey
 }
 
 .canvasjs-chart-canvas{
@@ -25,31 +22,6 @@
     margin: auto;
     margin-top: 40px;
 }
-
-
-/* MEDIA QUERIES */
-/* Extra small devices (Tested with Iphone X) */
-@media (min-width: 375px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer { width: 100% !important}}
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer { width: 100% !important}}
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer { width: 100% !important}}
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer { width: 45% !important}}
-/* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .hoursSleepContainer, .hoursExerciseContainer, .veggiesContainer {width: 45% !important}} 
-
-/* MEDIA QUERIES */
-/* Extra small devices (Tested with Iphone X) */
-@media (min-width: 375px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 100% !important}}
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater { width: 100% !important}}
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater { width: 100% !important}}
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 45% !important}}
-/* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .coffeeVsSleep, .exerciseVsCalories, .veggiesVsWater {width: 45% !important}} 
 
 /* MEDIA QUERIES */
 /* Extra small devices (Tested with Iphone X) */

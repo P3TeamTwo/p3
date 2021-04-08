@@ -6,9 +6,14 @@ label{
   max-width: 90%;
 }
 
+.welcomeContainer{
+  min-height: 100vh;
+  min-width: 100vw
+}
+/* 
 .mainContainer {
     text-align: center;
-  }
+  } */
 
 .welcomeHeader {
   font-size: 2.5em;
@@ -25,11 +30,10 @@ label{
     margin-bottom: 60px;
   }
 
-.container-main {
+/* .container-main {
     background-color: transparent !important;
-    /* margin-top: 20%; */
     align-items: center;
-}
+} */
 
 .typewriter h3 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
