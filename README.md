@@ -66,9 +66,6 @@ The application was developed using the following technologies:
 ![Screenshot of the Mindshare application](client/src/images/Screenshot7.png "Screenshot of the Mindshare application")
 ![Screenshot of the Mindshare application](client/src/images/Screenshot8.png "Screenshot of the Mindshare application")
 
-Homepage 
-![](insertpics)
-
 
 ## View Live Website  
 Please click **[here](https://guarded-dusk-24354.herokuapp.com/)** to view the live webpage hosted on Heroku.
