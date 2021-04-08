@@ -13,20 +13,15 @@ import API from '../../utils/API';
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyle = makeStyles({
-    root: {
-        fontSize: '40px',
-        color: 'black',
-        marginBottom: '10px;',
-    },
+
     buttonLeft: {
-        padding: '5px 5px ',
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        // padding: '5px 5px ',
+        margin: "10px auto 0 auto",
         width: '100%',
         borderRadius: '15px',
-        backgroundColor: '#c8f4de',
+        backgroundColor: '#bad7df',
         color: 'black',
-        fontSize: '30px',
+        fontSize: '20px',
         display: 'block',
         "&:hover": {
             backgroundColor: '#7eca9c',
@@ -38,16 +33,8 @@ const useStyle = makeStyles({
 })
 
 
-
-function WelcomeHeader() {
-    const classes = useStyle();
-
-    return <h1 className={classes.root}>Your Journal Entries</h1>
-}
-
 function ButtonTop() {
     const classes = useStyle();
-
     const history = useHistory();
 
     const directToDaily = () => {
@@ -59,7 +46,6 @@ function ButtonTop() {
 }
 
 const CalendarPage = (mode) => {
-
 
     const [calDate, setCalDate] = useState({
         mode: ""
@@ -74,12 +60,12 @@ const CalendarPage = (mode) => {
     const onDay = (details) => {
 
         let month = details.month + 1;
-        if(month < 10){
+        if (month < 10) {
             month = `0${month}`
             console.log(month)
         }
         let day = details.day;
-        if(day < 10){
+        if (day < 10) {
             day = `0${day}`
             console.log(day)
         }
@@ -95,7 +81,7 @@ const CalendarPage = (mode) => {
     const userId = localStorage.getItem("userId");
     const [moods, setMoods] = useState();
     const events = [];
-    const makeEvent =  () => {
+    const makeEvent = () => {
         API.getJournal(userId)
             .then((res) => {
                 res.data.map((reflection) => {
@@ -105,9 +91,9 @@ const CalendarPage = (mode) => {
                             color: "#1a508b",
                             from: reflection.created_at,
                             to: reflection.created_at,
-    
+
                             title: reflection.moodState,
-    
+
                             src: reflection.voiceMemo,
                             longForm: reflection.longForm
                         }
@@ -118,9 +104,9 @@ const CalendarPage = (mode) => {
                             color: "#a6dcef",
                             from: reflection.created_at,
                             to: reflection.created_at,
-    
+
                             title: reflection.moodState,
-    
+
                             src: reflection.voiceMemo,
                             longForm: reflection.longForm
                         }
@@ -131,9 +117,9 @@ const CalendarPage = (mode) => {
                             color: "#957dad",
                             from: reflection.created_at,
                             to: reflection.created_at,
-    
+
                             title: reflection.moodState,
-    
+
                             src: reflection.voiceMemo,
                             longForm: reflection.longForm
                         }
@@ -144,9 +130,9 @@ const CalendarPage = (mode) => {
                             color: "#a7d7c5",
                             from: reflection.created_at,
                             to: reflection.created_at,
-    
+
                             title: reflection.moodState,
-    
+
                             src: reflection.voiceMemo,
                             longForm: reflection.longForm
                         }
@@ -157,43 +143,43 @@ const CalendarPage = (mode) => {
                             color: "#ffaaa5",
                             from: reflection.created_at,
                             to: reflection.created_at,
-    
+
                             title: reflection.moodState,
-    
+
                             src: reflection.voiceMemo,
                             longForm: reflection.longForm
                         }
                         events.push(event)
                     }
-                    
+
                 })
                 setMoods(events)
             })
     }
-    
+
 
 
     return (
         <div className="calendarContainer">
-        <Navbar />          
-        <div className="Container">
-            
-            <Grid container>
+            <Navbar />
+            <div className="Container">
 
-                <Grid item xs={12}>
-                    <WelcomeHeader />
-                </Grid>
-                <Grid item xs={3}>
-                </Grid>
-                <Grid item xs={12}>
-                    <Calendar onDay={onDay} moods = {moods}/>
-                    {/* when mode of cal is in daily mode > memo > entry then displays each card */}
-                    {(calDate.mode === "dailyMode") && <Memo style={{ marginLeft: 50, marginRight: 50 }} date={calDate.date} />}
-                </Grid>
+                <Grid container   justify="center">
 
-            </Grid>
-            <ButtonTop />
-        </div>
+                    <Grid item xs={12}>
+                    <h1 style={{marginTop: "-15px"}}> Your Journal Entries</h1>                   
+                     </Grid>
+                    <Grid item xs={3}>
+                    </Grid>
+                    <Grid item xs={12} lg={10}>
+                        <Calendar onDay={onDay} moods={moods} />
+                        {/* when mode of cal is in daily mode > memo > entry then displays each card */}
+                        {(calDate.mode === "dailyMode") && <Memo style={{ marginLeft: 50, marginRight: 50 }} date={calDate.date} />}
+                        <ButtonTop />
+                    </Grid>
+
+                </Grid>
+            </div>
         </div>
     )
 }
