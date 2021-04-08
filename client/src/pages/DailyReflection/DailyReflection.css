@@ -9,6 +9,10 @@
     width: 60%;
 }
 
+.MuiInputLabel-outlined{
+    /* transform: translate(0, 24px) scale(1) !important */
+}
+
 /* .MuiFormControl-root{
     align-items: center;
 } */
