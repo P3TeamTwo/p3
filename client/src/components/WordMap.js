@@ -43,8 +43,8 @@ const WordMap = () => {
                 body: JSON.stringify({
                     text: words,
                     scale: 1,
-                    width: 750,
-                    height: 750,
+                    width: 250,
+                    height: 250,
                     colors: ["#1a508b", "#a6dcef", "#957dad", "#a7d7c5", "#ffaaa5"],
                     font: "Tahoma",
                     use_stopwords: true,
