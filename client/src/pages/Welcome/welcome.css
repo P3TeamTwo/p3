@@ -19,6 +19,19 @@ label{
   font-size: 2.5em;
 }
 
+.buttonLeft {
+  padding: 50px 60px 50px 60px !important;
+  border-radius: 15px !important;
+  background-color: #c8f4de !important;
+  font-size: 140% !important;
+  box-shadow: 0 9px 30px -5px #a6aa9c !important;
+}
+
+.buttonLeft:hover{
+  background-color: #7eca9c;
+  color: white;
+}
+
 .intro{
   font-size: 1em;
 }

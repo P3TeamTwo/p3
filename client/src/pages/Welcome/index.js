@@ -78,36 +78,45 @@ const Welcome = () => {
         fetchData()
 
     }, [userId])
-    console.log(entries)
+
     
-    function ButtonLeft() {
-        const classes = useStyle();
-        const history = useHistory();
-    
+    // const classes = useStyle();
+    const history = useHistory();
+    // function ButtonLeft() {
+        // directToDaily()
         const directToDaily = () => {
             let path = '/Daily'
             history.push(path)
         }
     
-        return <Button className={classes.buttonLeft} onClick={todaysEntries}>Enter Journal</Button>
-    }
+        // return <Button className={classes.buttonLeft} onClick={ButtonLeft}>Enter Journal</Button>
+    // }
 
 //Check for entry matching todays date from array
 function todaysEntries(){
-    entries.forEach(item => {
-        //Getting and formatting todays date
-        let today = new Date()
-        let ISOdate = today.toISOString()
-        let formattedDate = ISOdate.split("T")[0]
+    
+    //Getting and formatting todays date
+    let today = new Date()
+    let ISOdate = today.toISOString()
+    let formattedDate = ISOdate.split("T")[0]
 
-        //Reformatting the date saved in the db as created_at
-        let mongoDate = item.created_at.split("T")[0]
-        if(mongoDate === formattedDate){
-            console.log("you made an entry today")
-        } else {
-            directToDaily()
-        }
-    })
+    if(entries.length === 0){
+        directToDaily()
+    } else {
+        entries.forEach(item => {
+            //Reformatting the date saved in the db as created_at
+            let mongoDate = item.created_at.split("T")[0]
+
+            if(mongoDate == formattedDate){
+                console.log("you made an entry already today")
+                
+            } else {
+                console.log("no entries match for today")
+                directToDaily()
+
+            }
+        })
+    }
 }
 
 
@@ -128,7 +137,8 @@ function todaysEntries(){
                 {/* Container for buttons */}
                 <Grid container direction="row" spacing={3} alignItems="center" justify="center">
                     <Grid item>
-                        <ButtonLeft />
+                    <Button className="buttonLeft" onClick={todaysEntries}>Enter Journal</Button>
+                        {/* <ButtonLeft /> */}
                     </Grid>
                     <Grid item>
                         <ButtonRight />
