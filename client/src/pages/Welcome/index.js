@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@material-ui/core';
 
+import Alert from '../../components/Alert';
+
 // //Import api routes to db
 import API from '../../utils/API'
 import React, { useEffect, useState } from 'react';
@@ -59,8 +61,8 @@ function ButtonRight() {
 
 
 const Welcome = () => {
-   //Getting the user ID
-   const userId = localStorage.getItem("userId");
+    //Getting the user ID
+    const userId = localStorage.getItem("userId");
     // Setting state to store the journl entries
     const [entries, setEntries] = useState();
 
@@ -79,45 +81,45 @@ const Welcome = () => {
 
     }, [userId])
 
-    
-    // const classes = useStyle();
+
     const history = useHistory();
-    // function ButtonLeft() {
-        // directToDaily()
-        const directToDaily = () => {
-            let path = '/Daily'
-            history.push(path)
-        }
-    
-        // return <Button className={classes.buttonLeft} onClick={ButtonLeft}>Enter Journal</Button>
-    // }
 
-//Check for entry matching todays date from array
-function todaysEntries(){
-    
-    //Getting and formatting todays date
-    let today = new Date()
-    let ISOdate = today.toISOString()
-    let formattedDate = ISOdate.split("T")[0]
-
-    if(entries.length === 0){
-        directToDaily()
-    } else {
-        entries.forEach(item => {
-            //Reformatting the date saved in the db as created_at
-            let mongoDate = item.created_at.split("T")[0]
-
-            if(mongoDate == formattedDate){
-                console.log("you made an entry already today")
-                
-            } else {
-                console.log("no entries match for today")
-                directToDaily()
-
-            }
-        })
+    const directToDaily = () => {
+        let path = '/Daily'
+        history.push(path)
     }
-}
+
+const [alertVisible, setAlertVisible] = useState(false)
+
+    //Check for entry matching todays date from array
+    function todaysEntries() {
+
+        //Getting and formatting todays date
+        let today = new Date()
+        let ISOdate = today.toISOString()
+        let formattedDate = ISOdate.split("T")[0]
+
+
+        if (entries.length === 0) {
+            directToDaily()
+        } else {
+            var match = false;
+            for (var i = 0; i < entries.length; i++) {
+                //Reformatting the date saved in the db as created_at
+                let mongoDate = entries[i].created_at.split("T")[0]
+
+                if (mongoDate === formattedDate) {
+                    match = true
+                }
+            }
+            if (match === false) {
+                directToDaily()
+            } else{
+                console.log("lets give an alert at this point")
+                setAlertVisible(true)
+            }
+        }
+    }
 
 
 
@@ -132,12 +134,12 @@ function todaysEntries(){
                 {/* holds the functionality for typrewriter */}
                 <div className="typewriter">
                     {/* Defines the text to be typewritered out  */}
-                    <h3 className="talkLine" style={{fontSize: "1.25em"}}>Welcome to your safe space, lets talk!</h3>
+                    <h3 className="talkLine" style={{ fontSize: "1.25em" }}>Welcome to your safe space, lets talk!</h3>
                 </div>
                 {/* Container for buttons */}
                 <Grid container direction="row" spacing={3} alignItems="center" justify="center">
                     <Grid item>
-                    <Button className="buttonLeft" onClick={todaysEntries}>Enter Journal</Button>
+                        <Button className="buttonLeft" onClick={todaysEntries}>Enter Journal</Button>
                         {/* <ButtonLeft /> */}
                     </Grid>
                     <Grid item>
@@ -145,6 +147,10 @@ function todaysEntries(){
                     </Grid>
                 </Grid>
             </div>
+            <div>
+            {alertVisible === true ? <Alert /> : console.log("no alert")}
+            </div>
+
             <Colourways />
 
         </div>
