@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@material-ui/core';
 
+import Alert from '../../components/Alert';
+
 // //Import api routes to db
 import API from '../../utils/API'
 import React, { useEffect, useState } from 'react';
@@ -15,7 +17,7 @@ import Navbar from '../../components/Navbar'
 import { GiConsoleController } from 'react-icons/gi';
 
 const useStyle = makeStyles({
-
+    
     buttonLeft: {
         padding: '50px 60px 50px 60px',
         borderRadius: '15px',
@@ -27,7 +29,7 @@ const useStyle = makeStyles({
         },
         boxShadow: '0 9px 30px -5px #a6aa9c'
     },
-
+    
     buttonRight: {
         padding: '50px 60px 50px 60px',
         borderRadius: '15px',
@@ -47,22 +49,26 @@ const useStyle = makeStyles({
 function ButtonRight() {
     const classes = useStyle();
     const history = useHistory();
-
+    
+    
+    
     const directToCalendar = () => {
         let path = '/calendar'
         history.push(path)
     }
-
+    
     return <Button className={classes.buttonRight} onClick={directToCalendar}>My Reflections</Button>
 }
 
 
 
 const Welcome = () => {
-   //Getting the user ID
-   const userId = localStorage.getItem("userId");
+    //Getting the user ID
+    const userId = localStorage.getItem("userId");
     // Setting state to store the journl entries
     const [entries, setEntries] = useState();
+    //Setting alert state
+    const [fadeControl, setFadeControl] = useState(false)
 
     useEffect(() => {
         //Get all journal data for the user logged in 
@@ -79,47 +85,52 @@ const Welcome = () => {
 
     }, [userId])
 
-    
-    // const classes = useStyle();
+
     const history = useHistory();
-    // function ButtonLeft() {
-        // directToDaily()
-        const directToDaily = () => {
-            let path = '/Daily'
-            history.push(path)
-        }
-    
-        // return <Button className={classes.buttonLeft} onClick={ButtonLeft}>Enter Journal</Button>
-    // }
 
-//Check for entry matching todays date from array
-function todaysEntries(){
-    
-    //Getting and formatting todays date
-    let today = new Date()
-    let ISOdate = today.toISOString()
-    let formattedDate = ISOdate.split("T")[0]
-
-    if(entries.length === 0){
-        directToDaily()
-    } else {
-        entries.forEach(item => {
-            //Reformatting the date saved in the db as created_at
-            let mongoDate = item.created_at.split("T")[0]
-
-            if(mongoDate == formattedDate){
-                console.log("you made an entry already today")
-                
-            } else {
-                console.log("no entries match for today")
-                directToDaily()
-
-            }
-        })
+    const directToDaily = () => {
+        let path = '/Daily'
+        history.push(path)
     }
-}
 
 
+
+
+    //Check for entry matching todays date from array
+    function todaysEntries() {
+
+        //Getting and formatting todays date
+        let today = new Date()
+        let ISOdate = today.toISOString()
+        let formattedDate = ISOdate.split("T")[0]
+
+
+        if (entries.length === 0) {
+            directToDaily()
+        } else {
+            var match = false;
+            for (var i = 0; i < entries.length; i++) {
+                //Reformatting the date saved in the db as created_at
+                let mongoDate = entries[i].created_at.split("T")[0]
+
+                if (mongoDate === formattedDate) {
+                    match = true
+                }
+            }
+            if (match === false) {
+                directToDaily()
+            } else{
+                console.log("lets give an alert at this point")
+                if(fadeControl == false){
+                    setFadeControl(true)
+                    //Hide the notification after three seconds
+                    setTimeout(function(){
+                        setFadeControl(false)
+                    }, 3000)
+                }
+            }
+        }
+    }
 
     return (
         // inline styling ensuring that the container div fills the whole screen
@@ -132,19 +143,22 @@ function todaysEntries(){
                 {/* holds the functionality for typrewriter */}
                 <div className="typewriter">
                     {/* Defines the text to be typewritered out  */}
-                    <h3 className="talkLine" style={{fontSize: "1.25em"}}>Welcome to your safe space, lets talk!</h3>
+                    <h3 className="talkLine" style={{ fontSize: "1.25em" }}>Welcome to your safe space, lets talk!</h3>
                 </div>
                 {/* Container for buttons */}
                 <Grid container direction="row" spacing={3} alignItems="center" justify="center">
                     <Grid item>
-                    <Button className="buttonLeft" onClick={todaysEntries}>Enter Journal</Button>
-                        {/* <ButtonLeft /> */}
+                        <Button className="buttonLeft" onClick={todaysEntries}>Enter Journal</Button>
                     </Grid>
                     <Grid item>
                         <ButtonRight />
                     </Grid>
                 </Grid>
             </div>
+            <div className={fadeControl ? "fadeIn" : "fadeOut"}>
+            <Alert />
+            </div>
+
             <Colourways />
 
         </div>
