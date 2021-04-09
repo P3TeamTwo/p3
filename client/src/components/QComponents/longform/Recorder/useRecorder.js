@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ReactS3 from "react-s3";
+import S3FileUpload from 'react-s3';
 
 
 // //Optional Import
@@ -7,7 +7,6 @@ import ReactS3 from "react-s3";
 
 const config = {
     bucketName: 'voice-note',
-    dirName: 'memos',
     region: 'ca-central-1',
     accessKeyId: 'AKIAWNFFL3CWKUZWFZ5L',
     secretAccessKey: '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',
@@ -40,7 +39,9 @@ const useRecorder = () => {
         // Obtain the audio when ready.
         const handleData = e => {
             setAudioURL(URL.createObjectURL(e.data));
-            ReactS3.upload(e.data, config)
+            console.log(e.data)
+            S3FileUpload
+                .uploadFile(e.data, config)
                 .then(data => console.log(data))
                 .catch(err => console.error(err))
         };
