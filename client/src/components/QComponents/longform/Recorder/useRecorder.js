@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import S3FileUpload from 'react-s3';
 
-
 // //Optional Import
 // import { uploadFile } from 'react-s3';
 
+const user = localStorage.getItem('userId')
+
 const config = {
     bucketName: 'voice-note',
+    dirName: user,
     region: 'ca-central-1',
     accessKeyId: 'AKIAWNFFL3CWKUZWFZ5L',
     secretAccessKey: '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',
@@ -34,7 +36,6 @@ const useRecorder = () => {
         } else {
             recorder.stop();
         }
-
 
         // Obtain the audio when ready.
         const handleData = e => {
