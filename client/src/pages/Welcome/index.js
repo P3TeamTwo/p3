@@ -17,7 +17,7 @@ import Navbar from '../../components/Navbar'
 import { GiConsoleController } from 'react-icons/gi';
 
 const useStyle = makeStyles({
-
+    
     buttonLeft: {
         padding: '50px 60px 50px 60px',
         borderRadius: '15px',
@@ -29,7 +29,7 @@ const useStyle = makeStyles({
         },
         boxShadow: '0 9px 30px -5px #a6aa9c'
     },
-
+    
     buttonRight: {
         padding: '50px 60px 50px 60px',
         borderRadius: '15px',
@@ -49,12 +49,14 @@ const useStyle = makeStyles({
 function ButtonRight() {
     const classes = useStyle();
     const history = useHistory();
-
+    
+    
+    
     const directToCalendar = () => {
         let path = '/calendar'
         history.push(path)
     }
-
+    
     return <Button className={classes.buttonRight} onClick={directToCalendar}>My Reflections</Button>
 }
 
@@ -65,6 +67,8 @@ const Welcome = () => {
     const userId = localStorage.getItem("userId");
     // Setting state to store the journl entries
     const [entries, setEntries] = useState();
+    //Setting alert state
+    const [fadeControl, setFadeControl] = useState(false)
 
     useEffect(() => {
         //Get all journal data for the user logged in 
@@ -89,7 +93,8 @@ const Welcome = () => {
         history.push(path)
     }
 
-const [alertVisible, setAlertVisible] = useState(false)
+
+
 
     //Check for entry matching todays date from array
     function todaysEntries() {
@@ -116,12 +121,16 @@ const [alertVisible, setAlertVisible] = useState(false)
                 directToDaily()
             } else{
                 console.log("lets give an alert at this point")
-                setAlertVisible(true)
+                if(fadeControl == false){
+                    setFadeControl(true)
+                    //Hide the notification after three seconds
+                    setTimeout(function(){
+                        setFadeControl(false)
+                    }, 3000)
+                }
             }
         }
     }
-
-
 
     return (
         // inline styling ensuring that the container div fills the whole screen
@@ -140,15 +149,14 @@ const [alertVisible, setAlertVisible] = useState(false)
                 <Grid container direction="row" spacing={3} alignItems="center" justify="center">
                     <Grid item>
                         <Button className="buttonLeft" onClick={todaysEntries}>Enter Journal</Button>
-                        {/* <ButtonLeft /> */}
                     </Grid>
                     <Grid item>
                         <ButtonRight />
                     </Grid>
                 </Grid>
             </div>
-            <div>
-            {alertVisible === true ? <Alert /> : console.log("no alert")}
+            <div className={fadeControl ? "fadeIn" : "fadeOut"}>
+            <Alert />
             </div>
 
             <Colourways />
