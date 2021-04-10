@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
-import { Button, Box, TextField } from '@material-ui/core';
+import React, {
+    useState
+} from 'react';
+import {
+    Button,
+    Box,
+    TextField
+} from '@material-ui/core';
 import questions from '../../Questions/LongForm.json';
 import Voice from './Recorder/Recorder';
+
+import useRecorder from "./Recorder/useRecorder";
 
 
 const storeQuestions = []
@@ -27,42 +35,57 @@ function LongForm(props) {
         setUserResponse(text);
     }
 
+    let [audioURL, isRecording, startRecording, stopRecording,saveRecording] = useRecorder();
+
+
     return (
-        <div >
-            <form>
-                <b style={{ marginBottom: '5%' }}>{randomQuestion}</b> 
-                <Box m={2}>
-                <Voice speechText={voiceToText}  />
+        <div>
+            <form style={{ marginBottom: '5%' }}>
+                <b> {randomQuestion}
+                </b>
+                <Box m={2} >
+                    <Voice speechText={voiceToText} />
                 </Box>
                 <TextField
-                
                     id="outlined-multiline-static"
-                    multiline
-                    rows={4}
+                    multiline rows={
+                        4
+                    }
                     variant="outlined"
-                    style={{ minWidth: "100%" }}
-                    value={textField}
-                    onChange={(e) => {
-                        handleChange(e)
-                    }}
+                    style={
+                        {
+                            minWidth: "100%"
+                        }
+                    }
+                    value={
+                        textField
+                    }
+                    onChange={
+                        (e) => {
+                            handleChange(e)
+                        }
+                    }
                 />
                 <Button variant="contained"
-                    style={{ marginTop: '5%', boxShadow: "5px 5px 10px rgba(0,0,0,0.2)" }}
-                    onClick={(e) => {
-                        if (!userResponse) {
-                            return;
-                        } else {
-                            props.handleSubmit(e, userResponse)
+                    style={
+                        {
+                            marginTop: '5%',
+                            boxShadow: "5px 5px 10px rgba(0,0,0,0.2)"
                         }
-                        
                     }
-                    }>SUBMIT</Button>
-            </form>
-            
-            
+                    onClick={
+                        (e) => {
+                            if (!userResponse) {
+                                return;
+                            } else {
+                                props.handleSubmit(e, userResponse)
+                            }
+
+                        }
+                    } > SUBMIT </Button>
+            </form >
         </div>
     )
 }
 
 export default LongForm;
-

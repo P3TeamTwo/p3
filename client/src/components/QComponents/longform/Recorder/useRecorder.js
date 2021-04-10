@@ -1,28 +1,21 @@
 import { useEffect, useState } from "react";
-import S3FileUpload from 'react-s3';
+import S3 from '../../../../utils/S3';
 
 // //Optional Import
 // import { uploadFile } from 'react-s3';
 
-const user = localStorage.getItem('userId')
-
-const config = {
-    bucketName: 'voice-note',
-    dirName: user,
-    region: 'ca-central-1',
-    accessKeyId: 'AKIAWNFFL3CWKUZWFZ5L',
-    secretAccessKey: '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',
-}
 
 const useRecorder = () => {
     const [audioURL, setAudioURL] = useState("");
     const [isRecording, setIsRecording] = useState(false);
     const [recorder, setRecorder] = useState(null);
+    const [memo, setMemo] = useState();
 
 
+
+    const user = localStorage.getItem('userId')
 
     useEffect(() => {
-
         if (recorder === null) {
             if (isRecording) {
                 requestRecorder().then(setRecorder, console.error);
@@ -40,11 +33,8 @@ const useRecorder = () => {
         // Obtain the audio when ready.
         const handleData = e => {
             setAudioURL(URL.createObjectURL(e.data));
-            console.log(e.data)
-            S3FileUpload
-                .uploadFile(e.data, config)
-                .then(data => console.log(data))
-                .catch(err => console.error(err))
+            setMemo(e.data)
+            saveRecording(e.data,user)
         };
 
         recorder.addEventListener("dataavailable", handleData);
@@ -58,8 +48,14 @@ const useRecorder = () => {
     const stopRecording = () => {
         setIsRecording(false);
     };
+
+    const saveRecording = (memo,user) => {
+        console.log(memo)
+        S3.uploadMemo(memo, user);
+    };
+
     localStorage.setItem('voice', audioURL);
-    return [audioURL, isRecording, startRecording, stopRecording];
+    return [audioURL, isRecording, startRecording, stopRecording, saveRecording];
 };
 
 async function requestRecorder() {
