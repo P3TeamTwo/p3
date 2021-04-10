@@ -5,7 +5,8 @@ export default {
     uploadMemo: (memo, user) => {
 
         let today = new Date(); 
-        today.setDate(new Date().getDate()+2);
+        // To change date of save to s3 +1 means tommorow
+        // today.setDate(new Date().getDate()+1);
         const regex = /[^/]+/g;
         let formatDate = today.toLocaleDateString('fr-CA').match(regex)
 
