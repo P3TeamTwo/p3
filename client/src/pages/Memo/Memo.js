@@ -13,8 +13,8 @@ const Journal = ({date}) => {
     const userId = localStorage.getItem('userId')
     const [memos, setMemos] = useState([])
 
-    const deleteEntry = (userId) => {
-        API.deleteJournal(userId)
+    const deleteEntry = (journalId) => {
+        API.deleteJournal(journalId)
     }
 
     useEffect(() => {

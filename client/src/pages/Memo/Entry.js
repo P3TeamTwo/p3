@@ -11,7 +11,7 @@ const Entry = ({memo, deleteEntry}) => {
             <CardHeader/>
             <h4 style = {{paddingBottom:20}}>{memo.longFormQuestion}</h4>
             <p>{memo.longForm}</p>
-            <Button onClick={() => deleteEntry(memo._id)}>Delete</Button>
+            <Button onClick={() => console.log(memo.created_at)}>Delete</Button>
         </Card>
     )
 }
