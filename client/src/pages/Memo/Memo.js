@@ -18,7 +18,6 @@ const Journal = ({date}) => {
                 let memoDate = memo.created_at
                 let memoCut = memoDate.slice(0, 10)
                 memo.created_at = memoCut
-                console.log(memoCut)
                 return memoCut === date
             })
             setMemos(filteredMemos)
@@ -28,7 +27,6 @@ const Journal = ({date}) => {
     
     return (
         <>
-
             { memos.length > 0 ? <Memos memos={memos} /> : 'No Saved Memos'}
         </>
     )

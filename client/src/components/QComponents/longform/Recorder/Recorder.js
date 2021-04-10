@@ -57,7 +57,6 @@ const Recorder = (props) => {
                 size={30}
                 color={listening ? 'red' : 'grey'}
             />
-
             {speech && < Player url={audioURL}
             />
             }

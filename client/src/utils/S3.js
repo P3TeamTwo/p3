@@ -4,13 +4,15 @@ export default {
 
     uploadMemo: (memo, user) => {
 
-        let today = new Date();
+        let today = new Date(); 
+        today.setDate(new Date().getDate()+2);
         const regex = /[^/]+/g;
-        let formatDate = today.toLocaleDateString().match(regex)
+        let formatDate = today.toLocaleDateString('fr-CA').match(regex)
+
 
         const config = {
             bucketName: 'voice-note',
-            dirName: `${formatDate.join("-")}-${user}`,
+            dirName: `${formatDate}-${user}`,
             region: 'ca-central-1',
             accessKeyId: 'AKIAWNFFL3CWKUZWFZ5L',
             secretAccessKey: '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',
@@ -21,7 +23,7 @@ export default {
             .catch(err => console.error(err))
     },
 
-    
+
     deleteMemo: (memo, user) => {
         const config = {
             bucketName: 'voice-note',
