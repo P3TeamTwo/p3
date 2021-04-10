@@ -3,9 +3,9 @@ import React from 'react'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import Player from "../../components/QComponents/longform/Recorder/Player";
+import {Button} from '@material-ui/core'
 
-
-const Entry = ({ memo }) => {
+const Entry = ({ memo, deleteEntry }) => {
 
     sessionStorage.removeItem('AI_sentBuffer');
     sessionStorage.removeItem('AI_buffer');
