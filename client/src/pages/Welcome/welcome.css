@@ -8,7 +8,8 @@ label{
 
 .welcomeContainer{
   min-height: 100vh;
-  min-width: 100vw
+  min-width: 100vw;
+  
 }
 /* 
 .mainContainer {
@@ -17,6 +18,19 @@ label{
 
 .welcomeHeader {
   font-size: 2.5em;
+}
+
+.buttonLeft {
+  padding: 50px 60px 50px 60px !important;
+  border-radius: 15px !important;
+  background-color: #c8f4de !important;
+  font-size: 140% !important;
+  box-shadow: 0 9px 30px -5px #a6aa9c !important;
+}
+
+.buttonLeft:hover{
+  background-color: #7eca9c;
+  color: white;
 }
 
 .intro{
@@ -58,3 +72,30 @@ label{
     from, to { border-color: transparent }
     50% { border-color: black; }
   }
+
+/* Fade in and out the notification */
+  .fadeOut{
+    opacity:0;
+    width:0;
+    height:0;
+    transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+    background-color: rgba(235, 255, 246, 0.541);
+    margin-top: 30px;
+    border-radius: 15px;
+
+
+}
+.fadeIn{
+    opacity:1;
+    width:fit-content;
+    height:fit-content;
+    transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+    max-width: 600;
+    margin: 0 auto;
+    background-color: rgba(235, 255, 246, 0.466);
+    margin-top: 30px;
+    border-radius: 15px;
+    color: grey;
+
+
+}
