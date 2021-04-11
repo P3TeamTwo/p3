@@ -2,7 +2,6 @@ import React from "react";
 import {FaPlay} from 'react-icons/fa'
 
 const Player = ({ url }) => {
-    //   const [playing, toggle] = useAudio(url);
     const audioElement = new Audio(url)
     return (
         <div>
@@ -15,5 +14,4 @@ const Player = ({ url }) => {
         </div>
     );
 };
-
 export default Player;

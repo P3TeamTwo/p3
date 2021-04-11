@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export default {
   // Gets all journals
   getJournals: function() {
