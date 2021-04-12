@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+
 import API from '../../utils/API'
 
 // import WordMap from './WordMap'
 import Memos from './Memos'
 import '../Graph/Graph.css'
 
-
-
-
 const Journal = ({date}) => {
-
+    
+        const history = useHistory();
+    
+        const directToDaily = () => {
+            let path = '/Daily'
+            history.push(path)
+        }
+    
     const userId = localStorage.getItem('userId')
     const [memos, setMemos] = useState([])
 
@@ -32,11 +38,12 @@ const Journal = ({date}) => {
         }
         loadMemos()
     }, [date])
+
     
     return (
         <>
+            { memos.length > 0 ? <Memos memos={memos} deleteEntry={deleteEntry} /> : <historyEntry onClick={directToDaily}>test</historyEntry>}  
 
-            { memos.length > 0 ? <Memos memos={memos} deleteEntry={deleteEntry} /> : 'No Saved Memos'}
         </>
     )
 }

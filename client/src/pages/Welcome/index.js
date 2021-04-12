@@ -104,23 +104,25 @@ const Welcome = () => {
         let ISOdate = today.toISOString()
         let formattedDate = ISOdate.split("T")[0]
 
-
+        //if no entries, procees to quiz
         if (entries.length === 0) {
             directToDaily()
+            //otherwise, we check to see if you made an entry today
         } else {
             var match = false;
             for (var i = 0; i < entries.length; i++) {
                 //Reformatting the date saved in the db as created_at
                 let mongoDate = entries[i].created_at.split("T")[0]
-
+                //Set boolean value to true as standard
                 if (mongoDate === formattedDate) {
                     match = true
                 }
             }
+            //if no match to toadys date procees to quiz
             if (match === false) {
                 directToDaily()
             } else{
-                console.log("lets give an alert at this point")
+                //otherwise, block the route
                 if(fadeControl == false){
                     setFadeControl(true)
                     //Hide the notification after three seconds
