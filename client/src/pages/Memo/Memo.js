@@ -7,7 +7,6 @@ import API from '../../utils/API'
 import Memos from './Memos'
 import '../Graph/Graph.css'
 
-
 const Journal = ({date}) => {
     
         const history = useHistory();
@@ -19,6 +18,11 @@ const Journal = ({date}) => {
     
     const userId = localStorage.getItem('userId')
     const [memos, setMemos] = useState([])
+
+    const deleteEntry = () => {
+        console.log(memos[0]._id)
+        API.deleteJournal(memos[0]._id)
+    }
 
     useEffect(() => {
         const loadMemos = async () => {
@@ -38,7 +42,8 @@ const Journal = ({date}) => {
     
     return (
         <>
-            { memos.length > 0 ? <Memos memos={memos} /> : <historyEntry onClick={directToDaily}>test</historyEntry>}  
+            { memos.length > 0 ? <Memos memos={memos} deleteEntry={deleteEntry} /> : <historyEntry onClick={directToDaily}>test</historyEntry>}  
+
         </>
     )
 }

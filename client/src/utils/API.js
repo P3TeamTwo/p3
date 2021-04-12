@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export default {
   // Gets all journals
   getJournals: function() {
@@ -11,7 +12,9 @@ export default {
   },
   // Deletes the entries with the given id
   deleteJournal: function(id) {
+    console.log("deleting item: ",id)
     return axios.delete("/api/journal/" + id);
+    
   },
   // Saves an entry to the database
   saveJournal: function(journalData) {

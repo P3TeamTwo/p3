@@ -10,6 +10,7 @@ router.route("/")
 router
   .route("/:id")
   .get(journalController.findById)
+  .delete(journalController.remove)
   // .put(journalController.update)
   // .delete(journalController.remove);
 
