@@ -38,7 +38,7 @@ const Journal = ({date}) => {
     
     return (
         <>
-            { memos.length > 0 ? <Memos memos={memos} /> : <historyEntry onClick={directToDaily}>test</historyEntry>}
+            { memos.length > 0 ? <Memos memos={memos} /> : <historyEntry onClick={directToDaily}>test</historyEntry>}  
         </>
     )
 }
