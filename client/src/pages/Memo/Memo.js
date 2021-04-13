@@ -12,16 +12,26 @@ const Journal = ({date}) => {
         const history = useHistory();
     
         const directToDaily = () => {
-            let path = '/Daily'
+            let path = '/calendar'
             history.push(path)
         }
+
+        
     
     const userId = localStorage.getItem('userId')
     const [memos, setMemos] = useState([])
 
+    
+
     const deleteEntry = () => {
+        
+        
         console.log(memos[0]._id)
-        API.deleteJournal(memos[0]._id)
+        API.deleteJournal(memos[0]._id).then(() => {
+            window.location.reload();
+        })
+       
+
     }
 
     useEffect(() => {
