@@ -167,14 +167,18 @@ export default function ScrollableTabsButtonAuto() {
 
     // Setting state to store the journl entries
     const [entries, setEntries] = useState();
-
+    console.log(entries)
+ 
     useEffect(() => {
         //Get all journal data for the user logged in 
         function fetchData() {
 
             API.getJournal(userId)
                 .then(res => {
-                    setEntries(res.data)
+                    const storage = res.data.sort(function(a, b) {
+                        return (a.created_at < b.created_at)? -1 : (a.created_at > b.created_at) ? 1 : 0;
+                    })
+                    setEntries(storage)
                 }
                 )
                 .catch(err => console.log(err))
@@ -182,6 +186,7 @@ export default function ScrollableTabsButtonAuto() {
         fetchData()
 
     }, [userId])
+
 
     let history = useHistory();
 
