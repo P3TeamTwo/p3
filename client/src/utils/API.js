@@ -22,7 +22,9 @@ export default {
   },
 
   updateJournal: function(id) {
-    return axios.put("/api/journal/"+ id)
+    return axios.put("/api/journal/", {
+      
+    })
   }
 
 };
