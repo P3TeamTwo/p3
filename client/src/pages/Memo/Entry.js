@@ -7,9 +7,9 @@ import Player from "../../components/QComponents/longform/Recorder/Player";
 import {Button, TextField} from '@material-ui/core'
 
 
-const Entry = ({ memo, deleteEntry }) => {
+const Entry = ({ memo, deleteEntry, editEntry }) => {
 
-    const [editEntry, setEditEntry] = useState(false)
+    const [editEntryMode, setEditEntry] = useState(false)
     const [userResponse, setUserResponse] = useState();
     const [textField, setTextField] = useState()
 
@@ -18,8 +18,13 @@ const Entry = ({ memo, deleteEntry }) => {
     }    
 
     const editMode = (longFormData) => {
-        console.log("editing this post containing: " + longFormData)
+        // console.log("editing this post containing: " + longFormData)
         setEditEntry(true)
+        
+    }
+
+    const submitEdit = (longFormData) => {
+        editEntry(longFormData)
     }
 
     sessionStorage.removeItem('AI_sentBuffer');
@@ -32,17 +37,17 @@ const Entry = ({ memo, deleteEntry }) => {
             <CardHeader />
             <h4 style={{ paddingBottom: 20 }}>{memo.longFormQuestion}</h4>
             
-            {editEntry ? <form>
+            {editEntryMode ? <form>
                  <TextField value={textField} placeholder={memo.longForm} onChange={(e) => handleChange(e)} />
                 </form>
             : 
             <p>{memo.longForm}</p>}
            
             {memo.voiceMemo && < Player url={audioURL}></Player>}
-            {editEntry ? <Button onClick={(e) => {if (!userResponse) {
+            {editEntryMode ? <Button onClick={(e) => {if (!userResponse) {
                      return
                     } else {
-                        console.log(userResponse + " -> sending this to api")
+                        submitEdit(userResponse)
                      }}}>Submit </Button>  : <Button onClick={() => editMode(memo.longForm)}>Edit</Button>}
             {/* <Button onClick={() => editMode(memo.longForm)}>Edit</Button> */}
             <Button style={{backgroundColor: "red", color: "white"}}onClick={() => deleteEntry()}>Delete</Button>

@@ -12,7 +12,7 @@ const Journal = ({date}) => {
         const history = useHistory();
     
         const directToDaily = () => {
-            let path = '/calendar'
+            let path = '/Daily'
             history.push(path)
         }
 
@@ -31,7 +31,11 @@ const Journal = ({date}) => {
     }
 
     const editEntry = (newInput) => {
-        API.updateJournal()
+        console.log("editing this post containing: " + newInput)
+        API.updateJournal(memos[0]._id, {longForm: newInput})
+        .then(() => {
+            window.location.reload()
+        })
     }
 
     useEffect(() => {
@@ -52,7 +56,7 @@ const Journal = ({date}) => {
     
     return (
         <>
-            { memos.length > 0 ? <Memos memos={memos} deleteEntry={deleteEntry} /> : <historyEntry onClick={directToDaily}>test</historyEntry>}  
+            { memos.length > 0 ? <Memos memos={memos} deleteEntry={deleteEntry} editEntry={editEntry} /> : <historyEntry onClick={directToDaily}>test</historyEntry>}  
 
         </>
     )

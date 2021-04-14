@@ -21,10 +21,8 @@ export default {
     return axios.post("/api/journal", journalData);
   },
 
-  updateJournal: function(id) {
-    return axios.put("/api/journal/", {
-      
-    })
+  updateJournal: function(journalId, editedEntry) {
+    return axios.put("/api/journal/" + journalId, editedEntry)
   }
 
 };
