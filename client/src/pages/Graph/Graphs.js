@@ -23,6 +23,8 @@ import VeggiesVsWater from '../../components/Graphs/Eating/VeggiesVsWater';
 import WaterVsSleep from '../../components/Graphs/Eating/WaterVsSleep';
 import EatingOverview from '../../components/Graphs/Eating/EatingOveriew';
 
+import TimeFrame from '../../components/Graphs/TimeFrame'
+
 // import Social Display
 import SocialDisplay from '../../components/SocialDisplay'
 
@@ -168,15 +170,15 @@ export default function ScrollableTabsButtonAuto() {
     // Setting state to store the journl entries
     const [entries, setEntries] = useState();
     console.log(entries)
- 
+
     useEffect(() => {
         //Get all journal data for the user logged in 
         function fetchData() {
 
             API.getJournal(userId)
                 .then(res => {
-                    const storage = res.data.sort(function(a, b) {
-                        return (a.created_at < b.created_at)? -1 : (a.created_at > b.created_at) ? 1 : 0;
+                    const storage = res.data.sort(function (a, b) {
+                        return (a.created_at < b.created_at) ? -1 : (a.created_at > b.created_at) ? 1 : 0;
                     })
                     setEntries(storage)
                 }
@@ -186,6 +188,29 @@ export default function ScrollableTabsButtonAuto() {
         fetchData()
 
     }, [userId])
+
+    function sevenDaysData() {
+        console.log("7 days")
+        // API.getJournal(userId)
+        // .then(res => {
+        //     const storage = res.data.sort(function (a, b) {
+        //         return (a.created_at < b.created_at) ? -1 : (a.created_at > b.created_at) ? 1 : 0;
+        //     })
+        //     setEntries(storage)
+        // }
+        // )
+        // .catch(err => console.log(err))
+}
+    
+
+    function thirtyDaysData() {
+        console.log("30 days")
+    }
+
+    function allDaysData(){
+        console.log("all days")
+    }
+
 
 
     let history = useHistory();
@@ -233,6 +258,7 @@ export default function ScrollableTabsButtonAuto() {
 
     return (
         <div className={classes.root}>
+
             <AppBar position="static" color="default" >
                 <Toolbar>
                     <img className={classes.homeLogo} src={logo} onClick={directHome} alt='logo' />
@@ -241,6 +267,10 @@ export default function ScrollableTabsButtonAuto() {
             </AppBar>
 
             <TabPanel value={value} index={0}>
+            <TimeFrame 
+            sevenDay={sevenDaysData}
+            thirtyDay={thirtyDaysData}
+            allDays={allDaysData}/>
 
                 {entries && <SleepOverview
                     sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
@@ -274,12 +304,10 @@ export default function ScrollableTabsButtonAuto() {
                         />}
                     </Grid>
                 </Grid>
-
-
-
-
-
             </TabPanel>
+
+
+
             <TabPanel value={value} index={1}>
 
                 {entries && <ExerciseOverview
