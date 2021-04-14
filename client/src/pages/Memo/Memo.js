@@ -46,6 +46,7 @@ const Journal = ({date}) => {
         const history = useHistory();
     
         const directToDaily = () => {
+
             let path = '/Daily'
             history.push({
                 pathname: path,
@@ -53,10 +54,27 @@ const Journal = ({date}) => {
             })
 
 
+
         }
+
+        
     
     const userId = localStorage.getItem('userId')
     const [memos, setMemos] = useState([])
+
+    
+
+    const deleteEntry = () => {
+        
+        
+        console.log(memos[0]._id)
+        API.deleteJournal(memos[0]._id).then(() => {
+            window.location.reload();
+        })
+       
+
+    }
+
 
     useEffect(() => {
         const loadMemos = async () => {
