@@ -3,7 +3,7 @@ const journalController = require("../../controllers/journalController");
 
 // Matches with "/api/journal"
 router.route("/")
-  .get(journalController.findAll)
+  // .get(journalController.findAll)
   .post(journalController.create);
 
 // Matches with "/api/journal/:id"
