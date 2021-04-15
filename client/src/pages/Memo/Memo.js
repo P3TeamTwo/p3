@@ -65,14 +65,18 @@ const Journal = ({date}) => {
     
 
     const deleteEntry = () => {
-        
-        
         console.log(memos[0]._id)
         API.deleteJournal(memos[0]._id).then(() => {
             window.location.reload();
         })
-       
+    }
 
+    const editEntry = (newInput) => {
+        console.log("editing this post containing: " + newInput)
+        API.updateJournal(memos[0]._id, {longForm: newInput})
+        .then(() => {
+            window.location.reload()
+        })
     }
 
 
@@ -94,7 +98,9 @@ const Journal = ({date}) => {
     
     return (
         <>
-            {memos.length > 0 ? <Memos memos={memos} /> : <Button onClick={directToDaily} className={classes.backdateButton}>Add an entry for this day</Button>}  
+
+            { memos.length > 0 ? <Memos memos={memos} deleteEntry={deleteEntry} editEntry={editEntry} /> : <Button onClick={directToDaily} className={classes.backdateButton}>Add an entry for this day</Button>}  
+
         </>
     )
 }
