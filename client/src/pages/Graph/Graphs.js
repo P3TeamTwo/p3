@@ -23,6 +23,9 @@ import VeggiesVsWater from '../../components/Graphs/Eating/VeggiesVsWater';
 import WaterVsSleep from '../../components/Graphs/Eating/WaterVsSleep';
 import EatingOverview from '../../components/Graphs/Eating/EatingOveriew';
 
+
+import TimeFrame from '../../components/Graphs/timeFrame'
+
 // import Social Display
 import SocialDisplay from '../../components/SocialDisplay'
 
@@ -183,6 +186,23 @@ export default function ScrollableTabsButtonAuto() {
 
     }, [userId])
 
+    function sevenDayData() {
+        console.log(entries)
+        if(entries.created_at )
+        console.log("7")
+    }
+
+
+    function thirtyDayData() {
+        console.log("30")
+
+    }
+    function allDayData(){
+        console.log("all")
+
+    }
+
+
     let history = useHistory();
 
     function directHome() {
@@ -236,6 +256,10 @@ export default function ScrollableTabsButtonAuto() {
             </AppBar>
 
             <TabPanel value={value} index={0}>
+        <TimeFrame 
+        sevenDay={sevenDayData}
+        thirtyDay={thirtyDayData}
+        allDays={allDayData}/>
 
                 {entries && <SleepOverview
                     sumOfSleep={entries.reduce((totalSleep, entry) => totalSleep = totalSleep + entry.q1_1, 0)}
