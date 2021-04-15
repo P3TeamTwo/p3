@@ -169,7 +169,9 @@ export default function ScrollableTabsButtonAuto() {
 
     // Setting state to store the journl entries
     const [entries, setEntries] = useState();
-    console.log(entries)
+    const [storeAllEntries, setStoreAllEntries] = useState();
+    // console.log("this is under const entries", entries)
+    // console.log("this is under const storeAllEntries", storeAllEntries)
 
     useEffect(() => {
         //Get all journal data for the user logged in 
@@ -177,29 +179,56 @@ export default function ScrollableTabsButtonAuto() {
 
             API.getJournal(userId)
                 .then(res => {
+                    console.log(res.data)
                     const storage = res.data.sort(function (a, b) {
                         return (a.created_at < b.created_at) ? -1 : (a.created_at > b.created_at) ? 1 : 0;
                     })
                     setEntries(storage)
+                    setStoreAllEntries(storage)
                 }
                 )
                 .catch(err => console.log(err))
         }
         fetchData()
-
     }, [userId])
 
     function sevenDaysData() {
-
-}
-    
-
-    function thirtyDaysData() {
-        console.log("30 days")
+        //Get the date that is seven days ago from now
+        const sevenDaysAgoDate = new Date((new Date().getTime() - (7 * 24 * 60 * 60 * 1000)))
+        //Set that date to be ISO format
+        var sevenDaysAgoISO = sevenDaysAgoDate.toISOString()
+        //Filter from all entries the ones that fall within the seven day window 
+        const lastSevenDays = entries.filter(entry => entry.created_at > sevenDaysAgoISO); 
+        //Resetting the entries array to display only these
+        setEntries(lastSevenDays)
     }
 
+
+     const thirtyDaysData = async () => {
+        const reset = await setEntries(storeAllEntries)
+        // console.log("reset", reset)
+        //Get the date that is thirty days ago from now
+        const thirtyDaysAgoDate = new Date((new Date().getTime() - (30 * 24 * 60 * 60 * 1000)))
+        //Set that date to be ISO format
+        var thirtyDaysAgoISO = thirtyDaysAgoDate.toISOString()
+        //Filter from all entries the ones that fall within the thirty day window 
+        const lastThirtyDays = entries.filter(entry => entry.created_at > thirtyDaysAgoISO); 
+        //Resetting the entries array to display only these
+        setEntries(lastThirtyDays)    
+    }
+
+
     function allDaysData(){
-        console.log("all days")
+        API.getJournal(userId)
+        .then(res => {
+            const storage = res.data.sort(function (a, b) {
+                return (a.created_at < b.created_at) ? -1 : (a.created_at > b.created_at) ? 1 : 0;
+            })
+            setEntries(storage)
+        }
+        )
+        .catch(err => console.log(err))
+        // console.log(entries)
     }
 
 
