@@ -188,7 +188,13 @@ export default function ScrollableTabsButtonAuto() {
 
     function sevenDayData() {
         console.log(entries)
-        if(entries.created_at )
+        // entries.created_at > new Date((new Date().getTime() - (7 * 24 * 60 * 60 * 1000)  
+        const sevenDaysAgoDate = new Date((new Date().getTime() - (7 * 24 * 60 * 60 * 1000)))
+        console.log(sevenDaysAgoDate)
+        entries.filter(entry => entry.created_at < sevenDaysAgoDate); 
+        console.log(entries) 
+    
+        
         console.log("7")
     }
 
