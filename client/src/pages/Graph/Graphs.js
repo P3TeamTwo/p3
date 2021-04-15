@@ -190,16 +190,7 @@ export default function ScrollableTabsButtonAuto() {
     }, [userId])
 
     function sevenDaysData() {
-        console.log("7 days")
-        // API.getJournal(userId)
-        // .then(res => {
-        //     const storage = res.data.sort(function (a, b) {
-        //         return (a.created_at < b.created_at) ? -1 : (a.created_at > b.created_at) ? 1 : 0;
-        //     })
-        //     setEntries(storage)
-        // }
-        // )
-        // .catch(err => console.log(err))
+
 }
     
 
