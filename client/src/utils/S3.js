@@ -7,19 +7,20 @@ require('dotenv').config()
 export default {
 
     uploadMemo: (memo, user) => {
-        let today = new Date(); 
+        let today = new Date()
+        console.log(today)
         // To change date of save to s3 +1 means tommorow
         // today.setDate(new Date().getDate()+1);
         const regex = /[^/]+/g;
         let formatDate = today.toLocaleDateString('fr-CA').match(regex)
-
+        console.log(formatDate)
 
         const config = {
             bucketName: 'voice-note',
             dirName: `${formatDate}-${user}`,
             region: 'ca-central-1',
-            accessKeyId: "AKIAWNFFL3CWMJN4XUWO",
-            secretAccessKey: "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"
+            accessKeyId: process.env.REACT_APP_S3_ACCESSKEYID,
+            secretAccessKey: process.env.REACT_APP_S3_SECRETACCESSKEY
         }
         S3FileUpload
             .uploadFile(memo, config)

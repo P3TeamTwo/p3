@@ -26,6 +26,7 @@ const Journal = ({date}) => {
                 let memoDate = memo.created_at
                 let memoCut = memoDate.slice(0, 10)
                 memo.created_at = memoCut
+                console.log(date)
                 return memoCut === date
             })
             setMemos(filteredMemos)

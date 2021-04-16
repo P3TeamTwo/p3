@@ -64,7 +64,7 @@ const CalendarPage = (mode) => {
             month = `0${month}`
             console.log(month)
         }
-        let day = details.day;
+        let day = details.day ;
         if (day < 10) {
             day = `0${day}`
             console.log(day)
