@@ -7,6 +7,8 @@ import {Button} from '@material-ui/core'
 
 const Entry = ({ memo, deleteEntry }) => {
 
+    let createdAt = Date.now(memo.created_at);
+    console.log(createdAt, memo.createdAt)
     sessionStorage.removeItem('AI_sentBuffer');
     sessionStorage.removeItem('AI_buffer');
     const audioURL = `https://voice-note.s3.ca-central-1.amazonaws.com/` + `${memo.created_at}-${memo.postedBy}` + `/undefined`;

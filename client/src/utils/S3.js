@@ -1,9 +1,12 @@
 import S3FileUpload from 'react-s3';
 
+// Importing dotenv to be able to use our .env file in react
+require('dotenv').config()
+
+
 export default {
 
     uploadMemo: (memo, user) => {
-
         let today = new Date(); 
         // To change date of save to s3 +1 means tommorow
         // today.setDate(new Date().getDate()+1);
@@ -15,8 +18,8 @@ export default {
             bucketName: 'voice-note',
             dirName: `${formatDate}-${user}`,
             region: 'ca-central-1',
-            accessKeyId: 'AKIAWNFFL3CWKUZWFZ5L',
-            secretAccessKey: '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',
+            accessKeyId: "AKIAWNFFL3CWMJN4XUWO",
+            secretAccessKey: "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"
         }
         S3FileUpload
             .uploadFile(memo, config)
@@ -30,8 +33,8 @@ export default {
             bucketName: 'voice-note',
             dirName: `${Date.now()}-${user}`,
             region: 'ca-central-1',
-            accessKeyId: 'AKIAWNFFL3CWKUZWFZ5L',
-            secretAccessKey: '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',
+            accessKeyId: 'AKIAWNFFL3CWMJN4XUWO',
+            secretAccessKey: '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',
         }
         S3FileUpload
             .deleteFile(undefined, config)
