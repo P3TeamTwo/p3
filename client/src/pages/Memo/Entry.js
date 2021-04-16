@@ -27,6 +27,8 @@ const Entry = ({ memo, deleteEntry, editEntry }) => {
         editEntry(longFormData)
     }
 
+    let createdAt = Date.now(memo.created_at);
+    console.log(createdAt, memo.created_at)
     sessionStorage.removeItem('AI_sentBuffer');
     sessionStorage.removeItem('AI_buffer');
     const audioURL = `https://voice-note.s3.ca-central-1.amazonaws.com/` + `${memo.created_at}-${memo.postedBy}` + `/undefined`;
