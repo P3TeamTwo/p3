@@ -1,5 +1,6 @@
 import API from '../utils/API'
 import React, { useState } from 'react'
+import {CircularProgress} from '@material-ui/core'
 
 // Importing dotenv to be able to use our .env file in react
 require('dotenv').config()
@@ -11,14 +12,13 @@ const WordMap = () => {
 
     const [imageApi, setImageApi] = useState();
     const [words, setWords] = useState();
-
     const userId = localStorage.getItem('userId')
     API.getJournal(userId)
         .then(res => {
 
             //this array will hold all the long form answers
             const text = [];
-            
+
             // taking all the long form 
             res.data.map((daily) => {
                 // console.log(daily)
@@ -65,7 +65,8 @@ const WordMap = () => {
         })
     return (
         <div className='wordDiv'>
-            <img className='wordCloud' src={imageApi} alt = {"A Word Map using all the words you have written in the Daily Long Form Question"}/>
+            {imageApi === undefined ? <CircularProgress color="secondary" />:
+            <img className='wordCloud' src={imageApi} alt={"A Word Map using all the words you have written in the Daily Long Form Question"} />}
         </div>
     )
 }
