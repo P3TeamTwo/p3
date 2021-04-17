@@ -50,7 +50,6 @@ const useRecorder = () => {
     };
 
     const saveRecording = (memo,user) => {
-        console.log(memo)
         S3.uploadMemo(memo, user);
     };
 

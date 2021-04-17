@@ -67,7 +67,6 @@ function LogoutButton() {
         })
 
             .then((response) => {
-                console.log(response)
                 localStorage.clear()
                 history.push(response.data)
                 

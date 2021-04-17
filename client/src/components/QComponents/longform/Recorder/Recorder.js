@@ -34,7 +34,6 @@ const Recorder = (props) => {
             }
 
             const onResult = event => {
-                console.log(event)
                 for (const res of event.results) {
                     const text = res[0].transcript;
                     localStorage.setItem("memoText", text)

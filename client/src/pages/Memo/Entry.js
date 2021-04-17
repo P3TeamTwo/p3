@@ -14,8 +14,6 @@ const Entry = ({ memo, deleteEntry }) => {
     sessionStorage.removeItem('AI_sentBuffer');
     sessionStorage.removeItem('AI_buffer');
     const audioURL = `https://voice-note.s3.ca-central-1.amazonaws.com/` + `${memo.created_at}-${memo.postedBy}` + `/undefined`;
-    console.log(memo)
-    console.log(audioURL);
     return (
         <Card variant="outlined" style={{ marginBottom: '2%', padding: '1%' }}>
             <CardHeader />

@@ -15,7 +15,6 @@ function handleChange (e) {
 
 
     function renderSwitch() {
-        // console.log(emotion)
         switch(emotion) {
             case '0':
             return <div><MdSentimentVeryDissatisfied className='material-icons'/> <p>Very Unhappy</p></div>;
