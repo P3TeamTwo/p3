@@ -63,7 +63,7 @@ const CalendarPage = (mode) => {
         if (month < 10) {
             month = `0${month}`
         }
-        let day = details.day;
+        let day = details.day ;
         if (day < 10) {
             day = `0${day}`
         }

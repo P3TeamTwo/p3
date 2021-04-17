@@ -1,5 +1,6 @@
 {
   "name": "mern",
+  "homepage": "https://P3TeamTwo.github.io/p3",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,7 +12,9 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +32,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-route-validator": "^0.2.5",
+    "gh-pages": "^3.1.0",
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
     "joi": "^17.4.0",

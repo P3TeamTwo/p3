@@ -4,13 +4,15 @@ import Button from '@material-ui/core/Button'
 
 import API from '../../utils/API'
 
+// DELETE???
+//importing context
+// import dateContext from '../../utils/DateContext'
+
 
 // import WordMap from './WordMap'
 import Memos from './Memos'
 import '../Graph/Graph.css'
-
 import { makeStyles } from '@material-ui/core/styles'
-
 const useStyle = makeStyles({
 
     backdateButton: {
@@ -29,22 +31,20 @@ const useStyle = makeStyles({
 
     }
 })
-
-
 const Journal = ({date}) => {
 
     const [ISODate, setISODate] = useState('')
-    
+
     useEffect(() => {
         setISODate(backDate)
     }, [ISODate])
-    
+
     var backDate = date + `T00:00:00.000Z`;
+    console.log(ISODate)
 
     const classes = useStyle();
 
         const history = useHistory();
-    
         const directToDaily = () => {
 
             let path = '/Daily'
@@ -65,14 +65,19 @@ const Journal = ({date}) => {
     
 
     const deleteEntry = () => {
-        
-        
         API.deleteJournal(memos[0]._id).then(() => {
             window.location.reload();
         })
-       
-
     }
+
+    const editEntry = (newInput) => {
+        console.log("editing this post containing: " + newInput)
+        API.updateJournal(memos[0]._id, {longForm: newInput})
+        .then(() => {
+            window.location.reload()
+        })
+    }
+
 
 
     useEffect(() => {
@@ -83,30 +88,21 @@ const Journal = ({date}) => {
                 let memoDate = memo.created_at
                 let memoCut = memoDate.slice(0, 10)
                 memo.created_at = memoCut
+                console.log(date)
                 return memoCut === date
             })
             setMemos(filteredMemos)
         }
         loadMemos()
     }, [date])
-
-    
     return (
         <>
-            {memos.length > 0 ? <Memos memos={memos} /> : <Button onClick={directToDaily} className={classes.backdateButton}>Add an entry for this day</Button>}  
+
+
+            { memos.length > 0 ? <Memos memos={memos} deleteEntry={deleteEntry} editEntry={editEntry} /> : <Button onClick={directToDaily} className={classes.backdateButton}>Add an entry for this day</Button>}  
+
         </>
     )
 }
 
 export default Journal
-
-
-
-
-
-
-
-
-
-
-
