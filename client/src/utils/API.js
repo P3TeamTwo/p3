@@ -19,6 +19,10 @@ export default {
   // Saves an entry to the database
   saveJournal: function(journalData) {
     return axios.post("/api/journal", journalData);
+  },
+
+  updateJournal: function(journalId, editedEntry) {
+    return axios.put("/api/journal/" + journalId, editedEntry)
   }
 
 };

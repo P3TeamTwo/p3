@@ -3,7 +3,7 @@ import './DailyReflection.css';
 // Material UI imports
 import { Grid, Paper, makeStyles } from '@material-ui/core';
 // import useHistory for redirecting once quiz is done
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 //Import api routes to db
 import API from '../../utils/API'
 // Import question components
@@ -22,10 +22,21 @@ import Q4_2 from '../../components/QComponents/Q4_2';
 import Q4_3 from '../../components/QComponents/Q4_3';
 import LongForm from '../../components/QComponents/longform/LongForm'
 import Results from '../../components/Results';
-
-
-
 const DailyReflection = () => {
+  // setDate(date.now())
+  const [date, setDate] = useState('');
+  console.log("this is the", date)
+    
+  const BackdateStorage = props => {
+    const location = useLocation();
+    
+    useEffect(() => {
+      setDate(location.state)
+
+        }, [location]);
+        
+      };
+    BackdateStorage()
 
   // State that checks what component to render
   const [moodVisible, setMoodVisible] = useState(true)
@@ -62,8 +73,9 @@ const DailyReflection = () => {
   const [q4_2, setQ4_2] = useState('')
   const [q4_3, setQ4_3] = useState('')
   const [longForm, setLongForm] = useState('')
-  const [longFormQuestion, setLongQuestion] = useState()
+  const [longFormQuestion, setLongQuestion] = useState('')
   const [voiceMemo, setVoiceMemo] = useState('');
+  
 
   // State that stores the emotion state
   const [emotionState, setEmotionState] = useState('')
@@ -97,7 +109,8 @@ const DailyReflection = () => {
       q4_3: q4_3,
       longForm: longForm,
       longFormQuestion: longFormQuestion,
-      voiceMemo: voiceMemo
+      voiceMemo: voiceMemo,
+      created_at: date
     });
     directToGraphs()
   }
@@ -106,6 +119,7 @@ const DailyReflection = () => {
 
   // Run switch case once emotion has been set
   useEffect(() => {
+
     // Set value for current mood
     function renderMoodValue() {
       switch (emotion) {
@@ -253,6 +267,7 @@ const DailyReflection = () => {
   const classes = useStyles();
 
   return (
+    
     <div>
       <Grid className='containerPadding' container alignItems='center' justify='center' style={{ minHeight: "100vh" }}>
         <Grid container className='gridContainer' spacing={10}>

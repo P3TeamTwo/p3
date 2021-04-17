@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+
 import API from '../../utils/API'
+
+// DELETE???
 //importing context
-import dateContext from '../../utils/DateContext'
+// import dateContext from '../../utils/DateContext'
+
+
 // import WordMap from './WordMap'
 import Memos from './Memos'
 import '../Graph/Graph.css'
 import { makeStyles } from '@material-ui/core/styles'
 const useStyle = makeStyles({
+
     backdateButton: {
         margin: "10px auto 0 auto",
         width: '100%',
@@ -22,6 +28,7 @@ const useStyle = makeStyles({
             color: 'white'
         },
         boxShadow: '0 9px 30px -5px #a6aa9c'
+
     }
 })
 const Journal = ({date}) => {
@@ -36,15 +43,44 @@ const Journal = ({date}) => {
     console.log(ISODate)
 
     const classes = useStyle();
+
         const history = useHistory();
         const directToDaily = () => {
+
             let path = '/Daily'
-            history.push(path)
+            history.push({
+                pathname: path,
+                state: ISODate
+            })
+
+
+
         }
 
-
+        
+    
     const userId = localStorage.getItem('userId')
     const [memos, setMemos] = useState([])
+
+    
+
+    const deleteEntry = () => {
+        console.log(memos[0]._id)
+        API.deleteJournal(memos[0]._id).then(() => {
+            window.location.reload();
+        })
+    }
+
+    const editEntry = (newInput) => {
+        console.log("editing this post containing: " + newInput)
+        API.updateJournal(memos[0]._id, {longForm: newInput})
+        .then(() => {
+            window.location.reload()
+        })
+    }
+
+
+
     useEffect(() => {
         const loadMemos = async () => {
             const memosFromServer = await API.getJournal(userId)
@@ -53,6 +89,7 @@ const Journal = ({date}) => {
                 let memoDate = memo.created_at
                 let memoCut = memoDate.slice(0, 10)
                 memo.created_at = memoCut
+                console.log(date)
                 return memoCut === date
             })
             setMemos(filteredMemos)
@@ -61,10 +98,12 @@ const Journal = ({date}) => {
     }, [date])
     return (
         <>
-        <dateContext.Provider value={ISODate}>
-            {memos.length > 0 ? <Memos memos={memos} /> : <Button onClick={directToDaily} className={classes.backdateButton}>Add an entry for this day</Button>}  
-        </dateContext.Provider>
+
+
+            { memos.length > 0 ? <Memos memos={memos} deleteEntry={deleteEntry} editEntry={editEntry} /> : <Button onClick={directToDaily} className={classes.backdateButton}>Add an entry for this day</Button>}  
+
         </>
     )
 }
+
 export default Journal
