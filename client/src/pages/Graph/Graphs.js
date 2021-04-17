@@ -170,6 +170,8 @@ export default function ScrollableTabsButtonAuto() {
     // Setting state to store the journl entries
     const [entries, setEntries] = useState();
     const [storeAllEntries, setStoreAllEntries] = useState();
+
+    
     // console.log("this is under const entries", entries)
     // console.log("this is under const storeAllEntries", storeAllEntries)
 
@@ -197,22 +199,24 @@ export default function ScrollableTabsButtonAuto() {
         const sevenDaysAgoDate = new Date((new Date().getTime() - (7 * 24 * 60 * 60 * 1000)))
         //Set that date to be ISO format
         var sevenDaysAgoISO = sevenDaysAgoDate.toISOString()
+        const ent = [...storeAllEntries]
         //Filter from all entries the ones that fall within the seven day window 
-        const lastSevenDays = entries.filter(entry => entry.created_at > sevenDaysAgoISO); 
+        const lastSevenDays = ent.filter(entry => entry.created_at > sevenDaysAgoISO); 
         //Resetting the entries array to display only these
         setEntries(lastSevenDays)
+        console.log({entries})
     }
 
 
-     const thirtyDaysData = async () => {
-        const reset = await setEntries(storeAllEntries)
-        // console.log("reset", reset)
+    function thirtyDaysData() {
+ 
         //Get the date that is thirty days ago from now
         const thirtyDaysAgoDate = new Date((new Date().getTime() - (30 * 24 * 60 * 60 * 1000)))
         //Set that date to be ISO format
         var thirtyDaysAgoISO = thirtyDaysAgoDate.toISOString()
+        const ent = [...storeAllEntries]
         //Filter from all entries the ones that fall within the thirty day window 
-        const lastThirtyDays = entries.filter(entry => entry.created_at > thirtyDaysAgoISO); 
+        const lastThirtyDays = ent.filter(entry => entry.created_at > thirtyDaysAgoISO); 
         //Resetting the entries array to display only these
         setEntries(lastThirtyDays)    
     }
@@ -225,10 +229,8 @@ export default function ScrollableTabsButtonAuto() {
                 return (a.created_at < b.created_at) ? -1 : (a.created_at > b.created_at) ? 1 : 0;
             })
             setEntries(storage)
-        }
-        )
+        })
         .catch(err => console.log(err))
-        // console.log(entries)
     }
 
 
