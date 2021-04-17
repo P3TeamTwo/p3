@@ -62,16 +62,13 @@ const CalendarPage = (mode) => {
         let month = details.month + 1;
         if (month < 10) {
             month = `0${month}`
-            console.log(month)
         }
         let day = details.day ;
         if (day < 10) {
             day = `0${day}`
-            console.log(day)
         }
 
         const date = `${details.year}-${month}-${day}`
-        console.log(date);
         setCalDate({
             "mode": details.mode,
             "date": date

@@ -65,7 +65,6 @@ const Journal = ({date}) => {
     
 
     const deleteEntry = () => {
-        console.log(memos[0]._id)
         API.deleteJournal(memos[0]._id).then(() => {
             window.location.reload();
         })

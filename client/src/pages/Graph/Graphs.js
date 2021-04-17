@@ -171,17 +171,12 @@ export default function ScrollableTabsButtonAuto() {
     const [entries, setEntries] = useState();
     const [storeAllEntries, setStoreAllEntries] = useState();
 
-    
-    // console.log("this is under const entries", entries)
-    // console.log("this is under const storeAllEntries", storeAllEntries)
-
     useEffect(() => {
         //Get all journal data for the user logged in 
         function fetchData() {
 
             API.getJournal(userId)
                 .then(res => {
-                    console.log(res.data)
                     const storage = res.data.sort(function (a, b) {
                         return (a.created_at < b.created_at) ? -1 : (a.created_at > b.created_at) ? 1 : 0;
                     })
@@ -204,7 +199,6 @@ export default function ScrollableTabsButtonAuto() {
         const lastSevenDays = ent.filter(entry => entry.created_at > sevenDaysAgoISO); 
         //Resetting the entries array to display only these
         setEntries(lastSevenDays)
-        console.log({entries})
     }
 
 

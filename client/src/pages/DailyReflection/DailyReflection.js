@@ -25,7 +25,6 @@ import Results from '../../components/Results';
 const DailyReflection = () => {
   // setDate(date.now())
   const [date, setDate] = useState('');
-  console.log("this is the", date)
     
   const BackdateStorage = props => {
     const location = useLocation();

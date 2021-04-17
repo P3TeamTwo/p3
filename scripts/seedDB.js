@@ -29,7 +29,6 @@ db.JournalEntry
     .remove({})
     .then(() => db.JournalEntry.collection.insertMany(journalSeed))
     .then(data => {
-        console.log(data.result.n + " records inserted!");
         process.exit(0);
     })
     .catch(err => {

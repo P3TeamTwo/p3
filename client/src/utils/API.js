@@ -12,7 +12,6 @@ export default {
   },
   // Deletes the entries with the given id
   deleteJournal: function(id) {
-    console.log("deleting item: ",id)
     return axios.delete("/api/journal/" + id);
     
   },
