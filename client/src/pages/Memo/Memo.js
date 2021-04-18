@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
-
 import API from '../../utils/API'
-
-// DELETE???
-//importing context
-// import dateContext from '../../utils/DateContext'
-
-
-// import WordMap from './WordMap'
 import Memos from './Memos'
 import '../Graph/Graph.css'
 import { makeStyles } from '@material-ui/core/styles'
+
 const useStyle = makeStyles({
 
     backdateButton: {
@@ -31,6 +24,7 @@ const useStyle = makeStyles({
 
     }
 })
+
 const Journal = ({date}) => {
 
     const [ISODate, setISODate] = useState('')
@@ -52,17 +46,10 @@ const Journal = ({date}) => {
                 pathname: path,
                 state: ISODate
             })
-
-
-
         }
 
-        
-    
     const userId = localStorage.getItem('userId')
     const [memos, setMemos] = useState([])
-
-    
 
     const deleteEntry = () => {
         API.deleteJournal(memos[0]._id).then(() => {
@@ -77,8 +64,6 @@ const Journal = ({date}) => {
             window.location.reload()
         })
     }
-
-
 
     useEffect(() => {
         const loadMemos = async () => {
@@ -95,12 +80,10 @@ const Journal = ({date}) => {
         }
         loadMemos()
     }, [date])
+
     return (
         <>
-
-
             { memos.length > 0 ? <Memos memos={memos} deleteEntry={deleteEntry} editEntry={editEntry} /> : <Button onClick={directToDaily} className={classes.backdateButton}>Add an entry for this day</Button>}  
-
         </>
     )
 }

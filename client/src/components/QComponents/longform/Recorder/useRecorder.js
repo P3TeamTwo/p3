@@ -9,7 +9,7 @@ const useRecorder = () => {
     const [audioURL, setAudioURL] = useState("");
     const [isRecording, setIsRecording] = useState(false);
     const [recorder, setRecorder] = useState(null);
-    const [memo, setMemo] = useState();
+    // const [memo, setMemo] = useState();
 
 
 
@@ -33,7 +33,7 @@ const useRecorder = () => {
         // Obtain the audio when ready.
         const handleData = e => {
             setAudioURL(URL.createObjectURL(e.data));
-            setMemo(e.data)
+            // setMemo(e.data)
             saveRecording(e.data,user)
         };
 
