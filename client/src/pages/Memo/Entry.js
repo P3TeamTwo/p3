@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'
-// import Player from '../../components/QComponents/longform/Recorder/Player'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import Player from "../../components/QComponents/longform/Recorder/Player";
@@ -11,7 +9,7 @@ const Entry = ({ memo, deleteEntry, editEntry }) => {
 
     const [editEntryMode, setEditEntry] = useState(false)
     const [userResponse, setUserResponse] = useState();
-    const [textField, setTextField] = useState()
+    let textField;
 
     const handleChange = (e) => {
         setUserResponse(e.target.value);
@@ -31,7 +29,9 @@ const Entry = ({ memo, deleteEntry, editEntry }) => {
     console.log(createdAt, memo.created_at)
     sessionStorage.removeItem('AI_sentBuffer');
     sessionStorage.removeItem('AI_buffer');
-    const audioURL = `https://voice-note.s3.ca-central-1.amazonaws.com/` + `${memo.created_at}-${memo.postedBy}` + `/undefined`;
+    // const audioURL = `https://voice-note.s3.ca-central-1.amazonaws.com/` + `${memo.created_at}-${memo.postedBy}` + `/undefined`;
+    const audioURL = `https://voice-note.s3.ca-central-1.amazonaws.com/${memo.created_at}-${memo.postedBy}/undefined`;
+
     return (
         <Card variant="outlined" style={{ marginBottom: '2%', padding: '1%' }}>
             <CardHeader />
@@ -49,7 +49,6 @@ const Entry = ({ memo, deleteEntry, editEntry }) => {
                     } else {
                         submitEdit(userResponse)
                      }}}>Submit </Button>  : <Button onClick={() => editMode(memo.longForm)}>Edit</Button>}
-            {/* <Button onClick={() => editMode(memo.longForm)}>Edit</Button> */}
             <Button style={{backgroundColor: "red", color: "white"}}onClick={() => deleteEntry()}>Delete</Button>
             
             

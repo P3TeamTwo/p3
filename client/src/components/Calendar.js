@@ -9,7 +9,7 @@ const events = []
 const makeEvent =  () => {
     API.getJournal(userId)
         .then((res) => {
-            res.data.map((reflection) => {
+            res.data.forEach((reflection) => {
                 if (reflection.moodState === 'Very Unhappy') {
                     const event = {
                         id: reflection._id,
@@ -90,10 +90,6 @@ class CalApp extends React.Component {
         this.setVoice = this.setVoice.bind(this);
         this.memo = false;
         this.moods = props.moods
-    }
-
-    componentDidMount() {
-
     }
 
     // Without this function, mood data will not show on the calendar

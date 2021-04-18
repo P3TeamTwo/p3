@@ -20,7 +20,7 @@ const WordMap = () => {
             const text = [];
 
             // taking all the long form 
-            res.data.map((daily) => {
+            res.data.forEach((daily) => {
                 // console.log(daily)
                 text.push(daily.longForm);
                 text.push(daily.moodState)

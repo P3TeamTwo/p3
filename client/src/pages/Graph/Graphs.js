@@ -325,7 +325,10 @@ export default function ScrollableTabsButtonAuto() {
 
 
             <TabPanel value={value} index={1}>
-
+            <TimeFrame 
+            sevenDay={sevenDaysData}
+            thirtyDay={thirtyDaysData}
+            allDays={allDaysData}/>         
                 {entries && <ExerciseOverview
                     entries={entries}
                     exerciseTime={exerciseTime}
@@ -358,6 +361,10 @@ export default function ScrollableTabsButtonAuto() {
 
             </TabPanel>
             <TabPanel value={value} index={2}>
+            <TimeFrame 
+            sevenDay={sevenDaysData}
+            thirtyDay={thirtyDaysData}
+            allDays={allDaysData}/>   
                 {entries && <EatingOverview
                     entries={entries}
                     veg={veg}

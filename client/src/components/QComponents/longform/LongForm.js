@@ -13,7 +13,7 @@ import useRecorder from "./Recorder/useRecorder";
 
 
 const storeQuestions = []
-questions.map(question => {
+questions.forEach(question => {
     let q = question.question;
     storeQuestions.push(q);
 });

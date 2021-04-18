@@ -3,18 +3,15 @@ import './welcome.css'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@material-ui/core';
-
 import Alert from '../../components/Alert';
 
 // //Import api routes to db
 import API from '../../utils/API'
 import React, { useEffect, useState } from 'react';
 
-
 //import colourway buttons
 import Colourways from '../../components/Colourways';
 import Navbar from '../../components/Navbar'
-import { GiConsoleController } from 'react-icons/gi';
 
 const useStyle = makeStyles({
     
@@ -123,7 +120,7 @@ const Welcome = () => {
                 directToDaily()
             } else{
                 //otherwise, block the route
-                if(fadeControl == false){
+                if(fadeControl === false){
                     setFadeControl(true)
                     //Hide the notification after three seconds
                     setTimeout(function(){
