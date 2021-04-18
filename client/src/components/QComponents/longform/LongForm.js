@@ -9,7 +9,6 @@ import {
 import questions from '../../Questions/LongForm.json';
 import Voice from './Recorder/Recorder';
 
-import useRecorder from "./Recorder/useRecorder";
 
 
 const storeQuestions = []
@@ -35,7 +34,6 @@ function LongForm(props) {
         setUserResponse(text);
     }
 
-    let [audioURL, isRecording, startRecording, stopRecording,saveRecording] = useRecorder();
 
 
     return (

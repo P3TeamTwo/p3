@@ -53,7 +53,7 @@ const CalendarPage = (mode) => {
 
     useEffect(() => {
         makeEvent()
-    }, [])
+    })
 
 
 
@@ -148,7 +148,7 @@ const CalendarPage = (mode) => {
                         }
                         events.push(event)
                     }
-
+                    
                 })
                 setMoods(events)
             })

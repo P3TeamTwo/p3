@@ -10,7 +10,6 @@ const Recorder = (props) => {
 
     const [speech, setSpeech] = useState(false);
     const [listening, setListen] = useState(false);
-    const [s3, setS3] = useState(null||audioURL);
 
 
     const Listen = () => {
