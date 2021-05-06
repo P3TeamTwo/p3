@@ -105,7 +105,7 @@ const RegisterForm = () => {
                 required
                 fullWidth
                 name="password"
-                label={password}
+                label='Password'
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -117,7 +117,7 @@ const RegisterForm = () => {
                 required
                 fullWidth
                 name="password2"
-                label={password2}
+                label='Re-enter Password'
                 type="password"
                 id="password2"
                 autoComplete="current-password"
